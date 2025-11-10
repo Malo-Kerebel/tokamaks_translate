@@ -1,0 +1,64 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage[french]{babel}
+\usetikzlibrary{patterns}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[
+    	width=7.5cm, % Largeur de la figure
+        height=5cm, % Hauteur de la figure
+        ylabel={\( \hat{n} \tau_E \hat{T} \) (\( \SI{}{\second\kilo\electronvolt\per\meter\cubed} \))},
+        xmin=1954, xmax=1998,
+        ymin=5e13, ymax=5e22,
+        ymode=log,
+        xtick distance=5,
+        ytick={1e14, 1e15, 1e16, 1e17, 1e18, 1e19, 1e20, 1e21, 1e22},
+        grid=both,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        legend pos=north west,
+        y label style={font=\small},
+        tick label style={font=\scriptsize},
+        xticklabel style={/pgf/number format/set thousands separator={}}
+    ]
+
+    % Record par année
+    \addplot[
+        only marks,
+        mark=o,
+        color=black,
+        mark size=2pt
+    ]
+    coordinates {
+        (1955, 1.5e14)
+        (1960,  1.2e15)
+        (1965, 2e16)
+        (1970, 1e17)
+        (1975, 7e17)
+        (1980, 9e18)
+        (1985, 6e19)
+        (1990, 9e20)
+        (1995, 1e21)
+    };
+    
+    % Zone hachurée au-dessus de 5e21
+    \fill[
+        pattern=north east lines, % Style de hachures
+        pattern color=gray!50, % Couleur des hachures
+        draw=gray, % Couleur du contour
+        opacity=0.5 % Transparence (optionnel)
+    ]
+    (1954, 5e21) -- (2022, 5e21) -- (2022, 5e22) -- (1954, 5e22) -- cycle;
+
+    % Texte "Réacteur" dans la zone hachurée
+    \node[anchor=south, font=\bfseries] at (1976, 4e21) {Réacteur};
+
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,145 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Fusion}
+
+\section{Fusion and tokamaks}
+
+Si un noyau de deutérium fusionne avec un noyau de tritium, une parti cule \( \alpha \) est produite et un neutron est relaché.
+Le réarrangement nucléaire  induit une réduction de la masse totale et, par conséquent, de l'énergie est relaché sous la forme d'énergie cinétique des produits de la réaction.
+L'énergie relachée par chaque réaction est de \( \SI{17.6}{\mega\electronvolt} \).
+En terme macroscopique, un seul \( \SI{}{\kilogram} \) de ce carburant relacherais \( \SI{e8}{\kWh} \) d'énergie et serait ce qu'une centrale de \( \SI{1}{\GW} \) (éllectrique) consommerait en un jour.
+
+Le deutérium est une ressource abondante mais le tritium n'apparait pas naturellement.Il devrait, néanmoins, être possoble d'utiliser les neutrons relachés par la réaction de fusion pour produire du tritum à partir de lithium, dont de larges réserves existent.
+
+Pour déclencher la réaction de fusion entre des noyaux de deutérium et de tritium, il est nécessaire de surmonter la répulsion mutuelle due à leurs charges positives. En conséquence, la section efficace de fusion est faible aux basses énergies.
+Néanmoins, la section efficace augmente avec l'énergie, et atteint un maximumà \( \SI{100}{\kilo\electronvolt} \), et une balance énergétique positive est possible s'il est possible de faire réagir les particules du carburant avant qu'elles ne perdent leur énergie.
+Pour obtenir ce résultat, les particules doivent garder ler énergie et rester dans la région de réaction pour un temps suffisament long.
+Plus exactement, le produit de ce temps et la densité de particules qui réagissent doit être suffisamment grand.
+
+La approches simples consistant à diriger un faisceau de particules vers une cible solide ou à travers un autre faisceau ne permettent pas de satisfaire ce critère.
+Dans le premier cas, les particules perdent leur énergie trop rapidement et dans le second la densité est trop faible.
+
+La méthode la plus prometteuse pour fournir l'énergie est de chauffer le carburant de deutérium-tritium à une température suffisante pour que la vélocité thermique des noyaux soit assez haute pour produire les réactions requisent.
+La fusion ammené par cette méthodfe est appelé fusion thermonucléaire.
+La température optimale n'est pas aussi élevé que celle correspondant à l'énergie de la section efficace maximale parce que les réactions requisent  se produisent dabs ka queue de haute énergie de la distribution Maxwellienne des particules chauffées.
+La température nécessaire est autour de \( \SI{10}{\kilo\electronvolt} \), ou environ \( 100 \) million de degrés celcius.
+À de telles températures, le carburant est entiérement ionisé.
+La charge électrostatique des ions nucléaires est neutralisé par la présence d'un nombre égal d'électrons et le gaz neutre résultant de cela est appelé un plasma.
+
+Puisque de telles températures empechent un confinement par des murs, une autre méthode est nécessaire.
+Le tokamak est une méthode possible.
+Dans un tokamak, les particules du plasmas sont confinés dans une région toroïdale par un champ magnétique, elles sont tenues par le champ dans de petites orbites de giration.
+Bien que les températures nécessaires, la densité et le temps de confinement ont tous été obtenus dans des tokamaks, ils n'ont pas été obtenus dans le même plasma.
+Cependant, le progrès vers cet objectif a été remarquable , et une puissance thermonucléaire de plus de quatre-bingt-dix pourcent de la puissance injectée a été produite.
+Une étape suivante est d'atteindre l'ignition, où, comme avec des carburants fossiles, le processus de réaction devient auto suffisant sans chauffage additionnel.
+Le progrès vers l'ignition pout être mesuré avec un simple paramètre.
+La forme de la dépendance de la section efficace de fusion à l'énergie permet d'écrire le pré-requis pour l''ignition approximativement par :
+
+\[
+	, \tau_E T > \SI{5e21}{\per\meter\cubed\second\kilo\electronvolt}
+\]
+
+\begin{figure}
+\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{Dans un réacteur le produit \( n\tau_E \) de la densité et du temps de confinement de l'énergie et de la température \( T \), doivent tous deux être dans le bon domaine. En prenant les valeurs de pics, le \( n\tau_E \) nécessaire est \( \SI{2.5e20}{\per\meter\cubed\second} \) et la température autour de \( \qtyrange[range-units=single,range-phrase=-]{10}{20}{\kilo\electronvolt} \). La valeur requise du produit \( n \tau_E T \) est approximativement \( \SI{5e21}{\per\meter\cubed\second\kilo\electronvolt} \) (Section 5.1). La figure montre le progrès dans l'amélioration de ce produit, se dirigeant vers les limites des conditions d'un réacteur.}
+        \label{fig:triple_product}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.6\textwidth}
+        \flushright
+        \includegraphics{figures/chapter1/build/triple_product.pdf}
+    \end{minipage}
+	
+\end{figure}
+
+où \( n \) et \( T \) sont la densité et la température maximum dans le plasma et \( \tau_E \) est le temps de confinement.
+L'amélioration de la valeur de ce paramèrre peut être vue dans la \autoref{fig:triple_product}.
+
+On considère aujourd’hui qu'un tokamak qui atteindrait l'ignition peut être construit.
+Cependant, le design d'un tel réacteur pose un lare panel de questions.
+Un réacteur commercial encore plus.
+Les recherchent actuelles sont orientés pour répondre à ces question et ce livre donne une introduction à nos connaissances de la physique sous-jacente.
+
+\section{Réactions de fusion}
+
+De loin, la réaction de fusion la plus prometeuse est celle dans laquelle les noyaux de deutérium et de tritium fusionne pour produire une particule alpha avec  la libération d'un neutron, en détail :
+
+\[
+\begin{array}{r r l c l c l}
+_1^2 \text{D} + & _1^3 \text{T} & \rightarrow & _2^4 He & + & _0^1n &\\
+  &  &          & \vert & & \vert &\\
+  &  &          & \SI{3.5}{\mega\electronvolt} & + & \SI{14.1}{\mega\electronvolt} & =  \SI{17.6}{\mega\electronvolt}\\
+\end{array}
+\]
+
+Où les énergies données sont les énergies cinétiques des produits de la réaction.
+Le bilan de masse et d’énergie vient du déficit de mass \( \delta m \) de la réaction :
+
+\[
+\begin{array}{c c c c c}
+_1^2 \text{D} & + & _1^3 \text{T} & \\
+(2 - 0.000994)m_p & & (3-0.006284)m_p & \\
+ & \rightarrow & _2^4 He & + & _0^1n\\
+ & & (4- 0.027404)m_p & & (1 + 0.001378àm_p
+\end{array}
+\]
+
+où \( m_p \) est la masse d'un proton ( \( \SI{1.6726e-27}{\kilogram} \)).
+Le déficit de masse est de \( 0.01875 m_p \), et l'énergie libérée est de 
+\[
+	E = \delta l c^2 = 0.01875 m_p c^2 = \SI{2.818e-12}{joules} = \SI{17.59}{\mega\electronvolt}
+\]
+
+\begin{figure}
+    \centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{L'énergie potentiel en fonction de la séparation nucléaire}
+        \label{fig:potential_energy}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.6\textwidth}
+        \centering
+        \includegraphics{figures/chapter1/build/potential_energy.pdf}
+    \end{minipage}
+\end{figure}
+
+La réaction est induite par des collisions entre les particules, la section efficace de la réaction est donc d'une importance fondamentale.
+La section efficace à basse énergie d'impact et faible car la barrière de Coulomb empêche les noyaux de s'approcher à des dimensions nucléaires requisent pour que la fusion ait lieu.
+Le potentiel est illustré dans la \autoref{fig:potential_energy}.
+
+Grâce à 'effet tunnel de la mécanique quantique, la fusion D-T se produit à des énergies inférieures que celles requse'nt pour outrepasser la barrière de Coulomb.
+La section efficace pour les réactions est données dans ma \autoref{fig:cross_section}, et on voit que la section efficace maximale a lieu juste au dessus de \( \SI{100}{\kilo\electronvolt} \).
+
+\begin{figure}
+    \centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{Section efficace pour les réactions D-T, D-D et D-\( ^3 \)He. Les deux réactions D-D ont des section efficaces similaires, le graph montre leur somme.}
+        \label{fig:cross_section}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.6\textwidth}
+        \centering
+        \includegraphics{figures/chapter1/build/cross_section.pdf}
+    \end{minipage}
+\end{figure}
+
+La raison pour laquelle la réaction D-T est priorisé par rapport aux autres réactions est clairs au vu de la \autoref{fig:cross_section}, où les sections efficaces pour :
+
+\begin{align*}
+	^2 \text{D} + ^2 \text{D} & \rightarrow ^3 \text{He} + ^1 \text{n} + \SI{3.27}{\mega\electronvolt}\\
+	^2 \text{D} + ^2 \text{D} & \rightarrow ^3 \text{T} + ^1 \text{H} + \SI{4.03}{\mega\electronvolt}\\
+	^2 \text{D} + ^3 \text{Je} & \rightarrow ^4 \text{jE} + ^1 \text{h} + \SI{18.3}{\mega\electronvolt}
+\end{align*}
+
+sont aussi montrées.
+On voit que les sections efficaces sont considérablement plus basse que pour D-T sauf à des énergies excessivement élevées.
+
+\section{Fusion thermonucléaire}
+
+\end{document}

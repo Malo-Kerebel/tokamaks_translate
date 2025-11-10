@@ -1,0 +1,27 @@
+\documentclass[10pt, twoside]{book}
+
+\input{preambule}
+
+\usepackage{subfiles}
+
+\begin{document}
+
+% Texte avant la table des matières
+\frontmatter
+\include{avant_propos}
+
+% Table des matières
+%\begin{multicols}{2}
+    \tableofcontents
+%\end{multicols}
+\clearpage
+
+% Corps du texte
+\mainmatter
+
+\subfile{chapter1}
+
+%\include{chapitre2}
+% Ajoute d'autres chapitres ici
+
+\end{document}

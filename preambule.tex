@@ -1,0 +1,46 @@
+% Packages utiles
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage{cleveref}
+
+\makeatletter
+\@ifpackageloaded{babel}%
+  {\addto\extrasfrench{\def\cref@constructprefix#1{}}}%
+  {}%
+\makeatother
+
+
+\usepackage{standalone}
+
+%SI
+\usepackage{siunitx}
+\sisetup{locale = FR} % Pour adapter les séparateurs décimaux aux conventions françaises
+
+
+% TIKZ
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+% Configuration de la mise en page
+\usepackage[
+    inner=5cm,   % Marge intérieure (côté reliure)
+    outer=2cm,     % Marge extérieure
+    top=2cm,       % Marge supérieure
+    bottom=2cm,    % Marge inférieure
+    twoside,       % Active le mode "double page" (paires/impaires)
+    bindingoffset=0.5cm % Décalage pour la reliure (optionnel)
+]{geometry}
+
+% Captions 
+\usepackage[font=small,labelfont=bf,width=0.5\textwidth]{caption}
+
+

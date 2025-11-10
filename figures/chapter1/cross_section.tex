@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % Optionnel : pour la langue française
+\usepackage{siunitx}
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{loglogaxis}[
+        xlabel={Énergie du Deutérium (keV)},
+        ylabel={\( \sigma  \) (\( \SI{}{\meter\squared} \)) },
+        title={Section efficace des réactions de fusion},
+        xmin=1, xmax=1000,
+        ymin=1e-32, ymax=1e-27,
+        xtick={1, 10, 100, 1000},
+        scaled x ticks=false,
+        grid=both,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        legend pos=north west,
+        tick label style={font=\scriptsize},
+        legend style={font=\scriptsize}
+    ]
+
+    % Courbe pour D-T (approximation)
+    \addplot[
+        domain=1:1000,
+        samples=200,
+        color=black,
+        thick
+    ]
+    table [header=true] {cross_section_data/D_T_clean.txt};
+    \node[anchor=north, font=\bfseries] at (10, 1e-29) {D-T};
+
+    % Courbe pour D-D (approximation)
+    \addplot[
+        domain=1:1000,
+        samples=200,
+        color=black!70,
+        thick
+    ]
+    table [header=true] {cross_section_data/D_D_clean.txt};
+    \node[anchor=north, font=\bfseries] at (30, 1e-30) {D-D};
+
+    % Courbe pour D-He³
+    \addplot[
+        domain=1:1000,
+        samples=200,
+        color=black!40,
+        thick
+    ]
+    table [header=true] {cross_section_data/D_3He.txt};
+    \node[anchor=north, font=\bfseries] at (80, 1e-31) {D-\( ^3 \)He};
+
+    \end{loglogaxis}
+\end{tikzpicture}
+
+\end{document}
