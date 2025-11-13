@@ -10,14 +10,7 @@
 
 \usepackage{hyperref}
 
-\usepackage{cleveref}
-
-\makeatletter
-\@ifpackageloaded{babel}%
-  {\addto\extrasfrench{\def\cref@constructprefix#1{}}}%
-  {}%
-\makeatother
-
+\usepackage{ mathrsfs }
 
 \usepackage{standalone}
 
@@ -42,5 +35,11 @@
 
 % Captions 
 \usepackage[font=small,labelfont=bf,width=0.5\textwidth]{caption}
+\usepackage{capt-of}
 
+% Style de numérotation
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
 

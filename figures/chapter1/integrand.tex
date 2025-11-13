@@ -1,0 +1,57 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % Optionnel : pour la langue française
+\usepackage{siunitx}
+\usepackage{amsmath}
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel={\( \dfrac{\varepsilon}{T} \)},
+        xmin=-0, xmax=15,
+        ymin=0, ymax=9,
+        xtick={0, 5, 10, 15},
+        ytick=\empty,
+        grid=both,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        tick label style={font=\scriptsize},
+        legend style={font=\scriptsize}
+    ]
+
+    % Courbe pour D-T (approximation)
+    \addplot[
+        domain=0:15,
+        samples=375,
+        color=black,
+        thick
+    ]
+    table [header=true] {integrand/integrand.txt};
+    \node[anchor=north, font=\scriptsize] at (5.9, 8.25) {\(\sigma \varepsilon \exp{\left( -\frac{\mu}{m_\text{D}} \frac{\varepsilon}{T} \right)} \)};
+
+    % Courbe de epsilon*exponentielle
+    \addplot[
+        domain=0:15,
+        samples=200,
+        color=black!70,
+        thick
+    ]
+    ttable [header=true] {integrand/eps_exp.txt};
+    \node[anchor=north, font=\scriptsize] at (2.25, 7.1) {\(\varepsilon \exp{ \left(-\frac{\mu}{m_\text{D}} \frac{\varepsilon}{T} \right) } \)};
+
+    % Courbe de la section efficace
+    \addplot[
+        domain=0:15,
+        samples=375,
+        color=black!40,
+        thick
+    ]
+    table [header=true] {integrand/sigma.txt};
+    \node[anchor=north, font=\scriptsize] at (10.75, 5.6) {\(\sigma \)};
+
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}

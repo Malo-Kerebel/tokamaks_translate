@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % Optionnel : pour la langue française
+\usepackage{siunitx}
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{loglogaxis}[
+        xlabel={\( T(\SI{}{\kilo\electronvolt}) \)},
+        ylabel={\( \left\langle \sigma v \right\rangle  \) (\( \SI{}{\meter\cubed\per\second} \)) },
+        xmin=1, xmax=1000,
+        ymin=1e-24, ymax=2e-21,
+        xtick={1, 10, 100, 1000},
+        scaled x ticks=false,
+        grid=both,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        legend pos=north west,
+        tick label style={font=\scriptsize},
+        legend style={font=\scriptsize}
+    ]
+
+    % Courbe pour D-T
+    \addplot[
+        domain=1:1000,
+        samples=200,
+        color=black,
+        thick
+    ]
+    table [header=true] {integrand/sigma_v.txt};
+
+    \end{loglogaxis}
+\end{tikzpicture}
+
+\end{document}

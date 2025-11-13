@@ -5,6 +5,7 @@
 \chapter{Fusion}
 
 \section{Fusion and tokamaks}
+\label{sec:fusion_et_tokamaks}
 
 Si un noyau de deutérium fusionne avec un noyau de tritium, une parti cule \( \alpha \) est produite et un neutron est relaché.
 Le réarrangement nucléaire  induit une réduction de la masse totale et, par conséquent, de l'énergie est relaché sous la forme d'énergie cinétique des produits de la réaction.
@@ -49,7 +50,7 @@ La forme de la dépendance de la section efficace de fusion à l'énergie permet
         \label{fig:triple_product}
     \end{minipage}\hfill
     % Minipage pour l'image (à droite)
-    \begin{minipage}[c]{0.6\textwidth}
+    \begin{minipage}[c]{0.55\textwidth}
         \flushright
         \includegraphics{figures/chapter1/build/triple_product.pdf}
     \end{minipage}
@@ -65,6 +66,7 @@ Un réacteur commercial encore plus.
 Les recherchent actuelles sont orientés pour répondre à ces question et ce livre donne une introduction à nos connaissances de la physique sous-jacente.
 
 \section{Réactions de fusion}
+\label{sec:reaction_de_fusion}
 
 De loin, la réaction de fusion la plus prometeuse est celle dans laquelle les noyaux de deutérium et de tritium fusionne pour produire une particule alpha avec  la libération d'un neutron, en détail :
 
@@ -84,7 +86,7 @@ Le bilan de masse et d’énergie vient du déficit de mass \( \delta m \) de la
 _1^2 \text{D} & + & _1^3 \text{T} & \\
 (2 - 0.000994)m_p & & (3-0.006284)m_p & \\
  & \rightarrow & _2^4 He & + & _0^1n\\
- & & (4- 0.027404)m_p & & (1 + 0.001378àm_p
+ & & (4- 0.027404)m_p & & (1 + 0.001378)m_p
 \end{array}
 \]
 
@@ -102,7 +104,7 @@ Le déficit de masse est de \( 0.01875 m_p \), et l'énergie libérée est de
         \label{fig:potential_energy}
     \end{minipage}\hfill
     % Minipage pour l'image (à droite)
-    \begin{minipage}[c]{0.6\textwidth}
+    \begin{minipage}[c]{0.55\textwidth}
         \centering
         \includegraphics{figures/chapter1/build/potential_energy.pdf}
     \end{minipage}
@@ -118,14 +120,14 @@ La section efficace pour les réactions est données dans ma \autoref{fig:cross_
 \begin{figure}
     \centering
     % Minipage pour la légende (à gauche)
-    \begin{minipage}[c]{0.35\textwidth}
+    \begin{minipage}[l]{0.35\textwidth}
         \caption{Section efficace pour les réactions D-T, D-D et D-\( ^3 \)He. Les deux réactions D-D ont des section efficaces similaires, le graph montre leur somme.}
         \label{fig:cross_section}
     \end{minipage}\hfill
     % Minipage pour l'image (à droite)
-    \begin{minipage}[c]{0.6\textwidth}
+    \begin{minipage}[c]{0.55\textwidth}
         \centering
-        \includegraphics{figures/chapter1/build/cross_section.pdf}
+        \includegraphics[width=\textwidth]{figures/chapter1/build/cross_section.pdf}
     \end{minipage}
 \end{figure}
 
@@ -141,5 +143,80 @@ sont aussi montrées.
 On voit que les sections efficaces sont considérablement plus basse que pour D-T sauf à des énergies excessivement élevées.
 
 \section{Fusion thermonucléaire}
+\label{sec:fusion_thermonucleaire}
+
+Le calcul du taux de réaction dans un plasma de D-T chaud demande une intégration sur la fonction de distribution des deux espèces.
+Le taux de réaction par unité de volume entre les particules d'une espèces avec une vitesse \( v_1 \) et les particules d'une autre espèce avec la vitesse \( v_2 \) est 
+\[
+	\sigma\left( v'\right) f_1\left( v_1\right) f_2\left( v_2\right)
+\]
+
+où
+
+\[
+	v' = v_1 - v_2
+\]
+
+et \( f_1 \) et \( f_2 \) sont les fonctions de distribution.
+Si les distributions sont Maxwellienne
+
+\[
+	f_j\left( v_j \right) = nèj \left( \frac{m_j}{2 \pi T} \right)^{3/2} \exp - \frac{m_jv_j^2}{2T}
+\]
+
+Le taux de réaction total par unité de volume 
+
+\[
+	\mathscr{R} = \int \int  \sigma\left( v'\right) f_1\left( v_1\right) f_2\left( v_2\right) \text{d}^3 v_1 \text{d}^3 v_2 
+\]
+
+peut être écrit
+
+\begin{align*}
+	\mathscr{R} = n_1 n_2 \frac{\left( m_1 m_2 \right)^{3/2}}{\left( 2 \pi T \right)^3} \int \int &\exp \left( - \frac{m_1 + m_2}{2 T} \left( V + \frac{1}{2} \frac{m_1 - m_2}{m_1 + m_2} v' \right)^2 \right)\\ \times & \sigma \left( v' \right) v' \exp \left(- \frac{\mu v'}{2 T} \right)^2 \text{d}^3 v' \text{d}^3 V 
+\end{align*}
+
+où
+
+\[
+	V = \frac{v_1 + v_2}{2} \quad \text{et} \mu ) \frac{m_1 m_2}{m_1 + m_2}
+\]
+
+\( \mu \) étant la masse réduite.
+
+L'intégrale sur \( V \) est \( \left( 2 \pi T / \left( m_1 + m_2 \right) \right)^{3/2} \) donc 
+
+\begin{equation}
+	\mathscr{R} = 4 \pi n_1 n_2 \left(\frac{\mu}{2 \pi T} \right)^{3/2} \int \sigma \left(v' \right) v'^3 \exp \left(- \frac{\mu v'^2}{2 T} \right) \text{d} v'
+	\label{eq:taux_reaction_1}
+\end{equation}
+
+Les sections efficaces mesurées en laboratoire sont générallement données en terme d'énergie de la particule incidente, par exemple du type 1,  qui est 
+\[
+	\varepsilon = \frac{1}{2} m_1 v'^2
+\]
+
+L'\autoref{eq:taux_reaction_1} peut être plus conventionellement écrite
+\begin{equation}
+	\mathscr{R} = \left( \frac{8}{\pi} \right)^{1/2} n_1 n_2 \left(\frac{\mu}{T} \right)^{3/2} \int \sigma \left( \varepsilon \right) \varepsilon \exp \left(- \frac{\mu \varepsilon}{m_1 T} \right) \text{d} \varepsilon
+	\label{eq:taux_reaction_2}
+\end{equation}
+
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[l]{0.35\textwidth}
+        \caption{\( \left\langle \sigma v \right\rangle \) pour les réactions D-T en fonction de la température du plasma.}
+        \label{fig:sigma_v}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/build/sigma_v.pdf}
+    \end{minipage}
+\end{figure}
+
+Si la section efficace \( \sigma\left(\varepsilon \right) \) pour les réactions D-T donnée en \autoref{sec:reaction_de_fusion} est placée dans l'intégrale de l'\autoref{eq:taux_reaction_2}, on obtient le taux de réaction \( \mathscr{R} = n_1 n_2 \left\langle \sigma v \right\rangle  \)  où \( \left\langle \sigma v \right\rangle \)  est donné dans la \autoref{fig:sigma_v}.
+Pour une densité d'ion donnée le taux maximum est obtenu pour \( n_D = n_T \).
 
 \end{document}
