@@ -68,7 +68,7 @@ Les recherchent actuelles sont orientés pour répondre à ces question et ce li
 \section{Réactions de fusion}
 \label{sec:reaction_de_fusion}
 
-De loin, la réaction de fusion la plus prometeuse est celle dans laquelle les noyaux de deutérium et de tritium fusionne pour produire une particule alpha avec  la libération d'un neutron, en détail :
+De loin, la réaction de fusion la plus prometeuse est celle dans laquelle les noyaux de deutérium et de tritium fusionne pour produire une particule alpha avec  la libération d'un neutron, en détail
 
 \[
 \begin{array}{r r l c l c l}
@@ -79,7 +79,7 @@ _1^2 \text{D} + & _1^3 \text{T} & \rightarrow & _2^4 He & + & _0^1n &\\
 \]
 
 Où les énergies données sont les énergies cinétiques des produits de la réaction.
-Le bilan de masse et d’énergie vient du déficit de mass \( \delta m \) de la réaction :
+Le bilan de masse et d’énergie vient du déficit de mass \( \delta m \) de la réaction
 
 \[
 \begin{array}{c c c c c}
@@ -92,8 +92,9 @@ _1^2 \text{D} & + & _1^3 \text{T} & \\
 
 où \( m_p \) est la masse d'un proton ( \( \SI{1.6726e-27}{\kilogram} \)).
 Le déficit de masse est de \( 0.01875 m_p \), et l'énergie libérée est de 
+
 \[
-	E = \delta l c^2 = 0.01875 m_p c^2 = \SI{2.818e-12}{joules} = \SI{17.59}{\mega\electronvolt}
+	E = \delta l c^2 = 0.01875 m_p c^2 = \SI{2.818e-12}{joules} = \SI{17.59}{\mega\electronvolt}.
 \]
 
 \begin{figure}
@@ -131,7 +132,7 @@ La section efficace pour les réactions est données dans ma \autoref{fig:cross_
     \end{minipage}
 \end{figure}
 
-La raison pour laquelle la réaction D-T est priorisé par rapport aux autres réactions est clairs au vu de la \autoref{fig:cross_section}, où les sections efficaces pour :
+La raison pour laquelle la réaction D-T est priorisé par rapport aux autres réactions est clairs au vu de la \autoref{fig:cross_section}, où les sections efficaces pour
 
 \begin{align*}
 	^2 \text{D} + ^2 \text{D} & \rightarrow ^3 \text{He} + ^1 \text{n} + \SI{3.27}{\mega\electronvolt}\\
@@ -158,10 +159,10 @@ où
 \]
 
 et \( f_1 \) et \( f_2 \) sont les fonctions de distribution.
-Si les distributions sont Maxwellienne
+Si les distributions sont Maxwelliennes
 
 \[
-	f_j\left( v_j \right) = nèj \left( \frac{m_j}{2 \pi T} \right)^{3/2} \exp - \frac{m_jv_j^2}{2T}
+	f_j\left( v_j \right) = nèj \left( \frac{m_j}{2 \pi T} \right)^{3/2} \exp - \frac{m_jv_j^2}{2T},
 \]
 
 Le taux de réaction total par unité de volume 
@@ -179,7 +180,7 @@ peut être écrit
 où
 
 \[
-	V = \frac{v_1 + v_2}{2} \quad \text{et} \mu ) \frac{m_1 m_2}{m_1 + m_2}
+	V = \frac{v_1 + v_2}{2} \quad \text{et} \mu ) \frac{m_1 m_2}{m_1 + m_2},
 \]
 
 \( \mu \) étant la masse réduite.
@@ -187,7 +188,7 @@ où
 L'intégrale sur \( V \) est \( \left( 2 \pi T / \left( m_1 + m_2 \right) \right)^{3/2} \) donc 
 
 \begin{equation}
-	\mathscr{R} = 4 \pi n_1 n_2 \left(\frac{\mu}{2 \pi T} \right)^{3/2} \int \sigma \left(v' \right) v'^3 \exp \left(- \frac{\mu v'^2}{2 T} \right) \text{d} v'
+	\mathscr{R} = 4 \pi n_1 n_2 \left(\frac{\mu}{2 \pi T} \right)^{3/2} \int \sigma \left(v' \right) v'^3 \exp \left(- \frac{\mu v'^2}{2 T} \right) \text{d} v'.
 	\label{eq:taux_reaction_1}
 \end{equation}
 
@@ -198,7 +199,7 @@ Les sections efficaces mesurées en laboratoire sont générallement données en
 
 L'\autoref{eq:taux_reaction_1} peut être plus conventionellement écrite
 \begin{equation}
-	\mathscr{R} = \left( \frac{8}{\pi} \right)^{1/2} n_1 n_2 \left(\frac{\mu}{T} \right)^{3/2} \int \sigma \left( \varepsilon \right) \varepsilon \exp \left(- \frac{\mu \varepsilon}{m_1 T} \right) \text{d} \varepsilon
+	\mathscr{R} = \left( \frac{8}{\pi} \right)^{1/2} n_1 n_2 \left(\frac{\mu}{T} \right)^{3/2} \int \sigma \left( \varepsilon \right) \varepsilon \exp \left(- \frac{\mu \varepsilon}{m_1 T} \right) \text{d} \varepsilon.
 	\label{eq:taux_reaction_2}
 \end{equation}
 
@@ -218,5 +219,147 @@ L'\autoref{eq:taux_reaction_1} peut être plus conventionellement écrite
 
 Si la section efficace \( \sigma\left(\varepsilon \right) \) pour les réactions D-T donnée en \autoref{sec:reaction_de_fusion} est placée dans l'intégrale de l'\autoref{eq:taux_reaction_2}, on obtient le taux de réaction \( \mathscr{R} = n_1 n_2 \left\langle \sigma v \right\rangle  \)  où \( \left\langle \sigma v \right\rangle \)  est donné dans la \autoref{fig:sigma_v}.
 Pour une densité d'ion donnée le taux maximum est obtenu pour \( n_D = n_T \).
+
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[l]{0.35\textwidth}
+        \caption{Tracé de l'\autoref{eq:taux_reaction_2} et de ses deux facteurs \( \sigma \left( \varepsilon \right) \) et \( \varepsilon \exp \left( - \mu \varepsilon / m_D T \right) \) en fonction de l'énergie normalisé \( \varepsilon/T \) pour un plasma de D-T ) une température de \( T = \SI{10}{\kilo\electronvolt} \).}
+        \label{fig:integrand}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/build/integrand.pdf}
+    \end{minipage}
+\end{figure}
+
+Aux températures d'intérêts les réactions nucléaires viennent principalement de la queue de la distribution.
+Cela est visible dans la \autoref{fig:integrand} où l'intégrande de l'\autoref{eq:taux_reaction_2} est tracé en fonction de \( \varepsilon/T \) ainsi que les  deux facteurs \( \sigma \left( \varepsilon \right) \) et \( \varepsilon \exp \left( - \mu \varepsilon / m_D T \right) \) pour un plasma de D-T ) une température de \( T = \SI{10}{\kilo\electronvolt} \).
+
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[l]{0.35\textwidth}
+        \caption{\( \left\langle \sigma v \right\rangle \) pour les réactions D-D (total) et D-\( ^3 \)He en fonction de la température du plasma. Les valeurs sont nettement plus faibles que pour les réactions D-T, qui sont incluses pour comparaison.}
+        \label{fig:sigma_v_3_reaction}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/build/sigma_v_3_rections.pdf}
+    \end{minipage}
+\end{figure}
+
+Les expériences sont générallement réalisées avec di deitéroiù plutôt qu'un mélange de deutérium-tritium.
+Une  représentation de \( \left\langle \sigma v \right\rangle \) pour le deutérium est donnée dans la \autoref{fig:sigma_v_3_reaction} avec aussi celui pour D-\( ^3 \)He.
+Dans le domaine de température \( \qtyrange[range-units=single,range-phrase=-]{5}{20}{\kilo\electronvolt} \) le rapport de \( \left\langle \sigma v \right\rangle \) pour le D-T et celui du deutérium est d'environ \( 80 \).
+
+\section{Bilan de puissance}
+\label{sec:bilan_de_puissance}
+
+\subsubsection*{Puissance thermonucléaire}
+
+La puissance thermonucléaire par unité de volume dans un plasma D-T est
+
+\begin{equation}
+	p_{T_n} = n_D n_T  \left\langle \sigma v \right\rangle \mathscr{E},
+	\label{eq:puissance_thermonucléaire}
+\end{equation}
+
+où \( n_D \) et \( n_T \) sont les densité de deutérium et de tritium, \( \left\langle \sigma v \right\rangle \) est le taux donnée dans la \autoref{fig:sigma_v} et 
+\( \mathscr{E} \) est l'énergie relachée par réaction.
+La densité totale est
+\[
+	n ) n_D + n_T,
+\]
+
+l'\autoref{eq:puissance_thermonucléaire} peut être écrite
+
+\[
+	p_{T_n} = n_D \left(n - n_D\right)  \left\langle \sigma v \right\rangle \mathscr{E}.
+\]
+
+Pour une densité donnée \( n \) la puissance est maximisée par \( n_D = \frac{1}{2} n \), les densités de deutérium et de tritium sont égales.
+Pour ce mélange optimal, la densité de puissance thermonucléaire est
+
+\begin{equation}
+	p_{T_n} = \frac{1}{4} n^2  \left\langle \sigma v \right\rangle \mathscr{E}
+	\label{eq:puisance_thermonucleaire_2}.
+\end{equation}
+
+\subsubsection*{Perte d'énergie}
+
+Dans un tokamak, le plasma subit une perte d’énergie continue qui doit être compensée par un chauffage du plasma.
+L'énergie moyenne du plasma à une température \( T \) est de \( \frac{3}{2} T \), composé de \( \frac{1}{2} T \) par defré de liberté.
+Puisqu'il y a un nombre égal d'ions et d'électrons, l'énergie du plasma par unité de volume est de \( 3 n T \).
+L'énergie total dans le plasma est donc
+
+\begin{align}
+	W & = \int 3 n T \text{d} x \nonumber \\
+	 & = 3 \overline{nT} V,
+	 \label{eq:puissance_totale}
+\end{align}
+
+où la barre représente la valeur moyenne, et \( V \) le volume du plasma.
+Le taux de perte d'énergie \( P_L \), est caractérisé par un temps de confinement de l'énergie définie par la relation
+
+\begin{equation}
+	P_L = \frac{W}{\tau_E}
+	\label{eq:perte_energie}
+\end{equation}
+
+Dans les tokamaks actuels, la puissance thermonucléaire est généralement basse et en régime stationnaire la perte d'énergie est compasé par un chauffage externe. Donc, si la puissance externe est \( P_H \),
+
+\begin{equation}
+	P_H = P_L
+	\label{eq:puissance_chauffage}
+\end{equation}
+
+et les équations \ref{eq:perte_energie} et \ref{eq:puissance_chauffage} donnent
+\[
+	\tau_E = \frac{W}{P_H}
+\]
+
+Cette expression permet d'avoir un moyen de déterminer \( \tau_E \) depuis des quantités connues expérimentallement.
+
+\subsubsection*{Chauffage par particule \( \alpha \)}
+
+La puissance thermonucléaire donnée par l'\autoref{eq:puisance_thermonucleaire_2} est composé de deux parties.
+Quatre cinquièmes de l'énergie de la réaction est porté par les neutrons et le reste, \( \mathscr{E}_\alpha \)n est porté les particules \( \alpha \).
+Les neutrons quittent le plasma sans intéragir, mais les particules \( \alpha \), étant chargées, sont confinées par le champ magnétique.
+Les particules \( \alpha \) transfèrent leur énergie de \( \SI{3.5}{\mega\electronvolt} \) au plasma par collisions
+
+Donc le chauffage par particules \( \alpha \) par unité de volume est de
+ 
+\begin{equation}
+	p_\alpha = \frac{1}{4} n^2 \left\langle \sigma v \right\rangle \mathscr{E}
+	\label{eq:puissance_alpha}
+\end{equation}
+
+Et le chauffage par particules \( \alpha \) total est
+
+\begin{align}
+	P_\alpha &= \int p_\alpha \text{d}^3 x\nonumber \\
+	&= \frac{1}{4} \overline{n  \left\langle \sigma v \right\rangle }\mathscr{E} V.
+	\label{eq:chauffage_total}
+\end{align}
+
+\subsubsection*{Bilan de puissance}
+
+Dans le bilan de puissance global la perte de puissance est compebsé par un chauffage externe et la puissance des particules \( \alpha \). Autrement dit
+
+\[
+	PèH + Pè\alpha = P_L
+\]
+
+et en utilisant les équations \ref{eq:puissance_totale}, \ref{eq:perte_energie} et \ref{eq:chauffage_total}, ce bilan est donné par 
+\begin{equation}
+	P_H + \frac{1}{4} \overline{n  \left\langle \sigma v \right\rangle }\mathscr{E} V = \frac{3 \overline{n T}}{\tau_E} V 
+\end{equation}
+
+Les implications de cette équations sont décritents dans la section suivante.
+
+\section{Ignition}
 
 \end{document}

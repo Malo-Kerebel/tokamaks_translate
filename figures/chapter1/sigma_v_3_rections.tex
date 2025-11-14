@@ -10,9 +10,11 @@
     \begin{loglogaxis}[
         xlabel={\( T(\SI{}{\kilo\electronvolt}) \)},
         ylabel={\( \left\langle \sigma v \right\rangle  \) (\( \SI{}{\meter\cubed\per\second} \)) },
-        xmin=1, xmax=1000,
-        ymin=1e-24, ymax=2e-21,
-        xtick={1, 10, 100, 1000},
+        xmin=1, xmax=100,
+        ymin=1e-26, ymax=1e-21,
+        xtick={1, 10, 100},
+      width=6cm,
+      height=8cm,
         scaled x ticks=false,
         grid=both,
         grid style={line width=.1pt, draw=gray!10},
@@ -22,14 +24,35 @@
         legend style={font=\scriptsize}
     ]
 
-    % Courbe pour D-T
+    % Courbe pour D-T (approximation)
     \addplot[
-        domain=1:1000,
+        domain=1:100,
         samples=200,
         color=black,
         thick
     ]
-    table [header=true] {integrand/sigma_v_D_T.txt};
+    ttable [header=true] {integrand/sigma_v_D_T.txt};
+    \node[anchor=north, font=\bfseries] at (2.5, 1e-23) {D-T};
+
+    % Courbe pour D-D (approximation)
+    \addplot[
+        domain=1:100,
+        samples=200,
+        color=black!70,
+        thick
+    ]
+    table [header=true] {integrand/sigma_v_D_D.txt};
+    \node[anchor=north, font=\bfseries] at (6, 1.75e-24) {D-D};
+
+    % Courbe pour D-He³
+    \addplot[
+        domain=1:100,
+        samples=200,
+        color=black!40,
+        thick
+    ]
+    table [header=true] {integrand/sigma_v_D_3He.txt};
+    \node[anchor=north, font=\bfseries] at (15, 1e-25) {D-\( ^3 \)He};
 
     \end{loglogaxis}
 \end{tikzpicture}

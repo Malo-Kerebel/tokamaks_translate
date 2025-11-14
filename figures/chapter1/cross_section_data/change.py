@@ -1,7 +1,9 @@
 import numpy as np
 
-data = np.loadtxt("D_3He.txt")
-data[:, 0] *= 1000
-data[:, 1] *= 1e-28
+for species in ["D_T" "D_3He"]:
 
-np.savetxt("D_3He.txt", data)
+    data = np.loadtxt(f"{species}.txt")
+    data[:, 0] *= 1000
+    data[:, 1] *= 1e-28
+
+    np.savetxt(f"{species}_clean.txt", data)
