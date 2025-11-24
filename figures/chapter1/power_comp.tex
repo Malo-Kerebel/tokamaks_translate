@@ -1,0 +1,67 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{siunitx}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{groupplot}[
+      group style={
+        group size=1 by 2, % 1 colonne, 2 lignes
+        vertical sep=0cm,
+        x descriptions at=edge bottom,
+      },
+      width=6cm,
+      xlabel={\( T (\si{\kilo\electronvolt})  \)},
+      xmin=0, xmax=12,
+      xtick={0, 2, 4, 6, 8, 10, 12},
+      ytick = \empty,
+      scaled x ticks=false,
+      grid=both,
+      grid style={line width=.1pt, draw=gray!10},
+      major grid style={line width=.2pt,draw=gray!50},
+      tick label style={font=\scriptsize},
+      legend style={font=\scriptsize},
+    ]
+
+    % Premier plot
+    \nextgroupplot[
+      height=4cm,
+      ymin=0, ymax=2e6,
+      legend pos=north west,
+    ]
+    \addplot[
+        color=black,
+        thick
+    ]
+    table [header=true] {power_plots/P_alpha.txt};
+    \node[anchor=north, font=\bfseries]
+    at (9, 0.5e6) {\tiny\shortstack{Chauffage par\\ particules-\( \alpha \)}};
+
+
+    \addplot[
+        color=black!70,
+        thick
+    ]
+    table [header=true] {power_plots/P_loss.txt};
+    \node[anchor=north, font=\bfseries] at (3.5, 1.25e6) {\tiny Pertes de puissance};
+
+    % Deuxième plot
+    \nextgroupplot[
+      height=3cm,
+      ymin=0, ymax=1e6,
+      legend pos=north west,
+    ]
+    \addplot[
+        color=black,
+        thick
+    ]
+    table [header=true] {power_plots/P_heating.txt};
+    \node[anchor=north, font=\bfseries] at (6, 0.85e6) {\tiny Chauffage additionnel};
+
+  \end{groupplot}
+\end{tikzpicture}
+\end{document}

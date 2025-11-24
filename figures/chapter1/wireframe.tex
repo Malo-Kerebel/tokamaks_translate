@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{patchplots}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        view={-30}{45}, % Angle de vue
+        xtick = \empty,
+        xlabel={\( T \)},
+        ytick = \empty,
+        ylabel={\( n \)},
+        ztick = \empty,
+        colormap/cool, % Palette de couleurs
+    ]
+    
+\addplot3[
+        surf,
+        mesh/rows=100,
+        mesh/cols=275,] table {power_plots/wireframe_data.txt};
+    \end{axis}
+\end{tikzpicture}
+\end{document}

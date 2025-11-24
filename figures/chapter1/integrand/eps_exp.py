@@ -8,11 +8,11 @@ m_T = (3 - 0.006284)*m_p
 
 mu = m_T*m_D / (m_D + m_T)
 
-facteur = 1.16045250062
+facteur = 1 #.16045250062
 
 data = np.loadtxt("../cross_section_data/D_T_clean.txt")
 E = data[:, 0]
-E = E[E < 150] / facteur
+E = E[E <= 150] / facteur
 cross_section_D_T = data[:, 1][:len(E)]*1e28
 
 x = E/(10/facteur)
@@ -28,7 +28,7 @@ data = np.column_stack((x, cross_section_D_T))
 np.savetxt("sigma.txt", data)
 
 plt.plot(x, y*cross_section_D_T*2, label="integrand")
-data = np.column_stack((x, y*cross_section_D_T))
+data = np.column_stack((x, y*cross_section_D_T*2))
 np.savetxt("integrand.txt", data)
 
 plt.legend()

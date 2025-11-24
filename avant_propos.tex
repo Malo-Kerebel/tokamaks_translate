@@ -1,24 +1,81 @@
-\chapter*{Avant-propos}
-Ton texte ici...Ton texte ici...
-Ton texte ici...
+\documentclass[main.tex]{subfiles}
 
-Ton texte ici...
+\begin{document}
 
-Ton texte ici...
-Ton texte ici...
+\chapter*{Preface}
 
-Ton texte ici...
+Lorsque j'ai travaillé sur les machines toroïdale dans les premiers jours de la recherche sur la fusion, les températures de plasma atteintes étaient autour de \( \SI{10}{\electronvolt} \) et le temps de confinement était de, peut-être \( 100 \) microseconds.
+Dans les trentes années qui ont suivies, il y a eu des avancées soutenues et, à la publication de la première édition de ce livre en 1987, les températures dans les grands tokamaks étaient de plusieurs \( \SI {}{\kilo\electronvolt}\) et un temps de confinement de une secondes avait été atteint.
 
-Ton texte ici...
+À ce moment, le tokamak était devenu la machine prédominante dans la tentative d'obtenir une puissance utilisable et l'intéret général dans les tokamaks a mrné au besoin d'un livre d'introduction au sujet et c'était l'objectif de la première édition de fournir unetelle introdduction.
 
-Ton texte ici...
+Dans la décennie suivante, jusqu'à la publication de la seconde édition, le domaine a été transformé de nouveau.
+Il y avait de nouveau domaine où le comportement expérimental pouvait être compris dans la théorie accepté, ce qui était encourageant.
+Il y avait aussi eu des recherches majeurs sur les grands tokamaks menants à la réalisation longuement attendue de puissance de fusion significative.
+Inévitablement, cela nous a mené tête à tête avec les problématiques de la création du design et la construction d'un tokamak réacteur.
+Le but dee la seconde édition était de décrire ces avancées, et c'est peut-être une mesure des développement dans le domaine que la seconde édition fasse le double de la taille dz la première.
+Quand le temps est venu de faire une réimpression, l'opportunité a été prise de mettre le livre à jour dans cette troisième édition.
+Durant la période intermédiaire, la priorité a été donnée à la préparation d’un réacteur expérimental, mais il y a également eu des avancées significatives dans notre compréhension du comportement du plasma. 
+On peut citer, par exemple, une expérience plus étendue des barrières de transport internes, une meilleure compréhension du rôle des modes de déchirure induits par les effets néoclassiques, ainsi que des éclairages provenant des simulations de turbulence.
 
-Ton texte ici...
+Malgré la complexité croissante du sujet, il est à espérer que ce livre se révélera tout de même utile à ceux qui découvrent le domaine, aux spécialistes de la recherche sur les tokamaks souhaitant approfondir d’autres aspects de la discipline, ainsi qu’à ceux extérieurs à ce domaine désireux d’en comprendre les principaux concepts, méthodes et enjeux.
+Un autre objectif est de fournir  une liste des équations, des formules et des données que les chercheurs utilisent fréquemment.
 
-Ton texte ici...
+Je prend comme un honneur d'avoir travaillé avec les physiciens renommés que sont mes co-auteurs.
+Leur esprit de coopéraation a fait de ce travail un plaisir.
 
-Ton texte ici...
+Je suis reconnaissant envers ma femme, Olive, pour son soutien durant la préparation chronophage de ce manuscrit.
+Je souhaite remercier Carol Simmons, Brigitta Croysdale et Ingrid Farrelly, qui ont mis en forme les premières éditions, ainsi que Lynda Lee, qui a été d’une aide sans faille dans la préparation de cette édition.
+Je tiens également à remercier Stuart Morris, qui a réalisé la plupart des figures, et Chad Heys, qui a contribué à la création de nombreuses nouvelles figures nécessaires à l’édition actuelle.
+Je suis enfin reconnaissant envers Graham O’Connor pour sa relecture attentive et les corrections qui en ont résulté.
 
-Ton texte ici...
+Finalement, j’aimerais dédier ce livre à mes amis et collègues de la communauté mondiale des physiciens de la fusion.
+Ils ont donné un remarquable exemple de collaboration internationale à suivre.
+\vfill
+\noindent Angleterre \hfill JOHN WESSON\\July 2003
 
-Ton texte ici...
+\chapter*{Contribution des auteurs}
+
+\begin{multicols}{2}
+
+\begin{enumerate}
+	\item J.A. WESSON\\
+	\item J.A. WESSON \\ 2.11 R.J. Hastie\\
+	\item J.A. WESSON\\ 3.14 D.F. Start et B. Lloyd\\
+	\item J.W. CONNOR\\ 4.1-4.5 J.A. Wesson\\4.8 J.A. Wesson\\4.11 N.J.D. Tubbing\\4.13 J.A. Wesson\\4.23-4.25 J.A. Wesson\\
+	\item J.A. WESSON (5.1-5.5)\\ C.N. LASHMORE-DAVIES\\ (5.6-5.10)
+	\item J.A. WESSON\\
+	\item J.A. WESSON\\
+	\item H.R. WILSON\\
+	\item G.M. McCRACKEN\\
+	\item R.D. GILL\\10.2 D.J. Ward\\10.3 J.J. O'Rourke\\10.4 et 10.5 A.E. Costley\\10.9 G.F. Matthews\\
+	\item J.A. WESSON ET J. HUGILL\\
+	\item D.J. CAMPBELL\\12.6 A. hermann\\
+	\item J.A. WESSON\\13.5 D.J. Ward\\
+	\item J.A. WESSON\\14.13 J.W. Connor\\
+\end{enumerate}
+
+\end{multicols}
+
+\chapter*{Remerciements}
+
+Les auteurs reconnaissent l'aide de nombreux collègues et en particulier les suivant :
+
+\begin{itemize}
+\setlength{\itemsep}{1.5\baselineskip} % espace entre les items
+	\item[Tokamak réacteur \---] Roger Hancox et Terry Martin.
+	\item[Orbites en pomme de terre \---] Bill Core et Per Helander.
+	\item[Génération de courant \--- ] Martin Cox et Martin O'Brien.
+	\item[Barrières de transport \--- ] Barry Alper.
+	\item[Confinement \--- ] Ted Stringer et Geoff Cordey.
+	\item[Chauffage par injection de neutre \--- ] Andrew Bickley, Ron Hemsworth, Peter Massmann et Ernie Thompson.
+	\item[Chauffage RF \--- ] Lars Goran Eriksson, Jean Jacquinot et Franz Söldner.
+	\item[Modes de déchirures néoclassique \--- ] Richard Buttery et Tim Hender.
+	\item[Modes TAE \--- ] Sergei Sharpov.
+	\item[Intéraction plasma-surface \--- ] Rainer Behrisch, Richard Pitts et Peter Stangeby.
+	\item[Diagnostics \--- ] Wolfgang Engelhardt, Ian Hutchinson et George Magyar.
+	\item[Expériences de tokamak \--- ] Karl Heinz Finken, Martin Greenwald, Otto Gruber, Ian Hutchinson, Louis Laurent, Niek Lopes Cardozo, Kent McCormick, William Morris, Jerome Pamela, Chris Schiller, Paul Smeulders, Alan Sykes, Paul Thomas, Fritz Wagner, Henri Weisen, Gerd Wolf et Hartmut Zohm.
+	\item[ITER \--- ] George Vayakis.
+\end{itemize}
+
+\end{document}

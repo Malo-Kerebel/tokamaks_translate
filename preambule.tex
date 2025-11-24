@@ -7,6 +7,8 @@
 \usepackage{tocloft}
 \usepackage{multicol}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{lipsum}
 
 \usepackage{hyperref}
 
@@ -35,11 +37,19 @@
 
 % Captions 
 \usepackage[font=small,labelfont=bf,width=0.5\textwidth]{caption}
-\usepackage{capt-of}
+\usepackage{wrapfig}
+\usepackage{subcaption}
 
 % Style de numérotation
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+\let\cleardoublepage\clearpage
+
+% Macros
+
+\newcommand{\dd}{\text{d}}
+\newcommand{\sigmav}{\ensuremath{\left\langle \sigma v \right\rangle}}
 

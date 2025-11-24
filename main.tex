@@ -8,13 +8,25 @@
 
 % Texte avant la table des matières
 \frontmatter
-\include{avant_propos}
+\subfile{avant_propos}
 
 % Table des matières
 %\begin{multicols}{2}
     \tableofcontents
 %\end{multicols}
 \clearpage
+
+\chapter*{Unités et symboles}
+\addcontentsline{toc}{chapter}{Unités et symboles}
+
+Le système d'unit" est le système SI.
+Suivant la convention générallement accepté dans le domaine, les températures sont écrites soit en joules soit en électron-volts (ou \( \SI{}{\kilo\electronvolt} \)).
+Donc à la place du conventionnel \( k_B T^\circ \) (où \( k_B \) est la constante de Boltzmann et \( T^\circ \) en degré Kelvin) on écrit \( T (\SI{}{joules}) \) de sorte que \( T^\circ = T (\SI{}{joules}) / \SI{1.381e-23}{} \).
+La temérature en électron-volt est définie par la différence de potentiel e volts à travers laquelle un électron doit tomber pour obtenir une énergie \( T \)n c'est à dire \( T (\SI{}{\electronvolt}) = T (\SI{}{joules}) / e \) où \( e \) est la charge électronique.
+Donc \( T (\SI{}{\electronvolt}) = T (\SI{}{joules}) / \SI{1.602e-19}{} \).
+Lorsque la température donnée est en électron-volt, ce sera dit explicitement.
+
+Pour éviter une continuelle redéfinition des symboles fréquemment utilisés, une liste de ces symbole est données en \color{red}{Section 14.16 (lien à ajouter lorsqu'elle sera fait)}\color{black}.
 
 % Corps du texte
 \mainmatter

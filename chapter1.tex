@@ -52,7 +52,7 @@ La forme de la dépendance de la section efficace de fusion à l'énergie permet
     % Minipage pour l'image (à droite)
     \begin{minipage}[c]{0.55\textwidth}
         \flushright
-        \includegraphics{figures/chapter1/build/triple_product.pdf}
+        \includegraphics{figures/chapter1/triple_product.pdf}
     \end{minipage}
 	
 \end{figure}
@@ -107,7 +107,7 @@ Le déficit de masse est de \( 0.01875 m_p \), et l'énergie libérée est de
     % Minipage pour l'image (à droite)
     \begin{minipage}[c]{0.55\textwidth}
         \centering
-        \includegraphics{figures/chapter1/build/potential_energy.pdf}
+        \includegraphics{figures/chapter1/potential_energy.pdf}
     \end{minipage}
 \end{figure}
 
@@ -128,7 +128,7 @@ La section efficace pour les réactions est données dans ma \autoref{fig:cross_
     % Minipage pour l'image (à droite)
     \begin{minipage}[c]{0.55\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/chapter1/build/cross_section.pdf}
+        \includegraphics[width=\textwidth]{figures/chapter1/cross_section.pdf}
     \end{minipage}
 \end{figure}
 
@@ -213,7 +213,7 @@ L'\autoref{eq:taux_reaction_1} peut être plus conventionellement écrite
     % Minipage pour l'image (à droite)
     \begin{minipage}[c]{0.55\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/chapter1/build/sigma_v.pdf}
+        \includegraphics[width=\textwidth]{figures/chapter1/sigma_v.pdf}
     \end{minipage}
 \end{figure}
 
@@ -230,7 +230,7 @@ Pour une densité d'ion donnée le taux maximum est obtenu pour \( n_D = n_T \).
     % Minipage pour l'image (à droite)
     \begin{minipage}[c]{0.55\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/chapter1/build/integrand.pdf}
+        \includegraphics[width=\textwidth]{figures/chapter1/integrand.pdf}
     \end{minipage}
 \end{figure}
 
@@ -247,7 +247,7 @@ Cela est visible dans la \autoref{fig:integrand} où l'intégrande de l'\autoref
     % Minipage pour l'image (à droite)
     \begin{minipage}[c]{0.55\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/chapter1/build/sigma_v_3_rections.pdf}
+        \includegraphics[width=\textwidth]{figures/chapter1/sigma_v_3_rections.pdf}
     \end{minipage}
 \end{figure}
 
@@ -350,16 +350,211 @@ Et le chauffage par particules \( \alpha \) total est
 Dans le bilan de puissance global la perte de puissance est compebsé par un chauffage externe et la puissance des particules \( \alpha \). Autrement dit
 
 \[
-	PèH + Pè\alpha = P_L
+	P_H + Pè\alpha = P_L
 \]
 
 et en utilisant les équations \ref{eq:puissance_totale}, \ref{eq:perte_energie} et \ref{eq:chauffage_total}, ce bilan est donné par 
 \begin{equation}
 	P_H + \frac{1}{4} \overline{n  \left\langle \sigma v \right\rangle }\mathscr{E} V = \frac{3 \overline{n T}}{\tau_E} V 
+	\label{eq:puissance_chauffage_moyenne}
 \end{equation}
 
 Les implications de cette équations sont décritents dans la section suivante.
 
 \section{Ignition}
+
+\subsubsection*{Conditions de l'ignition}
+
+Lorsqu'un plasma de D-T est chauffé à des conditions thermonucléaire, le chauffage par particules \( \alpha \) fourni une proportion de plus en plus importante du chauffage total.
+Lorsque les bonnes conditions de confinement sont obtenues, il arrive un point où la température du plasma peut être maintenue malgré les pertes d'énergie uniquement  grâce au chauffage par particules \( \alpha \).
+Le chauffage additionnel peut alors être retiré et la température du plasma est entretenue par le chauffage interne.
+Par analogie avec les combustibles fossiles, on parle alors d’ignition.
+
+Le bilan de puissance est décrit dans l'\autoref{eq:puissance_chauffage_moyenne} et en prenant une densité et une température constante pour simplifié, il peut être noté
+
+\begin{equation}
+	P_H = \left( \frac{3nT}{\tau_E} - \frac{1}{4}n^2 \left\langle \sigma v \right\rangle \mathscr{E}_\alpha \right) V.
+	\label{eq:puissance_chauffage_simplifiee}
+\end{equation}
+
+L'\autoref{eq:puissance_chauffage_simplifiee} donne la condition pour l'ignition, le pré-requis pour que le plasma brule de façon autonome étant
+
+\begin{equation}
+	n \tau_E > \frac{12}{\left\langle \sigma v \right\rangle} \frac{T}{\mathscr{E}_\alpha}
+	\label{eq:ignition_inegalite}
+\end{equation}
+
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[l]{0.35\textwidth}
+        \caption{La valeur de \( n \tau_E \) nécessaire pour obtenir l'ignition en fonction de la température.}
+        \label{fig:n_tau_E_ignition}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/n_tau_E_ignition.pdf}
+    \end{minipage}
+\end{figure}
+
+Le coté droit de l'inégalité \ref{eq:ignition_inegalite} est en fonction de la température uniquement et un tracé de la manière dont la valeur de \( n \tau_E \) requise dépend de la température est donné dans la \autoref{fig:n_tau_E_ignition}.
+Le minimum est à \( T = \SI{30}{\kilo\electronvolt} \) et le pré-requis pour l'ignition à cette température est
+
+\begin{equation}
+	n \tau_E > \SI{1.5e20}{\per\meter\cubed\second}
+\end{equation}
+
+Cependant, puisque \( \tau_E \) est lui-mme une fonction de la temperature, la temperature du minimum ne doit pas être prise comme une condition optimale.
+Il se trouve que la temperature d'ignition est probablement quelque peu en dessous.
+Par une heureuse coïncidence pour les calculs, dans le domaine de \( \qtyrange[range-units=single,range-phrase=-]{10}{20}{\kilo\electronvolt} \), le taux de réaction peut être pris, avec moins de \( \SI{10}{\percent} \) d'erreur, commeune valeur constante
+
+\begin{equation}
+	\left\langle \sigma v \right\rangle = \SI{1.1e-24}{\text{T}\squared \meter\cubed\per\second}, \quad \text{T en} \SI{}{\kilo\electronvolt}
+	\label{eq:sigma_v_constant} 
+\end{equation}
+
+en utilisant \( \mathscr{E}ç\alpha = \SI{3.5}{\mega\electronvolt} \), la condition d'ignition devient
+
+\begin{equation}
+	n T \tau_E > \SI{3e21}{\per\meter\cubed\kilo\electronvolt\second}.
+	\label{eq:critere_lawson}
+\end{equation}
+
+C'est une forme très pratique pour la condition d'ignition puisqu'elle donne clairement les pré-requis sur la densité, la température et le temps de confinement.
+Cette condtion peut être atteinte, par exemple, par \( n = \SI{e20}{\per\meter\cubed} \), \( T = \SI{10}{\kilo\electronvolt} \) et \( \tau_E = \SI{3}{\second} \).
+
+La valeur précise de la constante dans la condition \ref{eq:critere_lawson} dépend du profil de \( n \) et de \( T \) et si on prend la moyenne ou les valeurs extremes.
+La condition \ref{eq:critere_lawson} est pour un profil constant.
+Pour des profils de densité et température paraboliques, le pré-requis de l'ignition sur les valeurs extremes est
+
+\begin{equation}
+	\hat{n}\hat{T} \tau_E > \SI{5e21}{\per\meter\cubed\kilo\electronvolt\second}
+	\label{eq:critere_lawson_peak}
+\end{equation}
+
+La relation \ref{eq:ignition_inegalite} fait pensr au critère de Lawson.
+Aux débuts de la recherche sur la fusion, Lawson a identifié le produit de la densité et du temps de confinement, \( n \tau \) comme un paramètre criitique pour un réacteur thermonucléaire.
+Cependant, dans ses calculs il a négligé le chauffage par les particules-\( \alpha \) et a supposé que le plasma serait chauffé par une source externe.
+C'est donc clairement une condition nécessaire, mais non suffisante, que la puissance produite par le réacteur, après les pertes de la conversion en électricité, doit être capale de fournir le chauffage appliqué
+
+Dans les calculs sur l'ignition ci-dessus, seule la fraction des particles-\( \alpha \), \( \SI{20}{\percent} \), de l'énergie totale est utilisée pour chauffé le plasma.
+Dans les calculs de Lawson, le facteur correspondant es lié à l'efficacité de la centrale électrique, \( \eta \), avec \( \eta  \simeq \SI{30}{\percent} \).
+Donc le \( n \tau \) de Lawson se trouve être moins contraignant que le critère d'ignition \ref{eq:ignition_inegalite}, nécéssitant \( n \tau > \SI{0.6e20}{\per\meter\cubed\second} \).
+Lawson a aussi pris en compte le rayonnement Bremsstrahlung de l'hydrogène mais, comme il sera montré dans la section \color{red}{Section 4.24 (lien à rajouter quand elle sert faite)}\color{black}, cette perte est faible pour un plasma de tokamak.
+
+Une façon de mesuré le succès à s'approcher des conditions d'un réacteurs est donné par le rapport, \( Q \), entre la puissance thermonucléaire et la uissance du chauffage appliqué, donné par
+
+\[
+	Q = \frac{\frac{1}{4} n^2 \left\langle \sigma v \right\rangle \mathscr{E} V}{P_H}
+\]
+
+Puisque l'énergie \( \mathscr{E} \) relaché par chaque réaction est cinq fois l'énergie de la particule-\( \alpha \), \( \mathscr{E} \), \( Q \) peut aussi être écrit
+
+\[
+	Q = \frac{5 P_\alpha}{P_H}
+\]
+
+Donc, \( Q= 1 \) correspond à une puissance des particules-\( \alpha \) de \( \SI{20}{\percent} \) la puissance de chauffage appliquée.
+À l'ignition, où \( P_H \) peut être mise à \( 0 \), \( Q \rightarrow \infty \).
+On peut voir que même si un plasma en ignition a la propriété désirable qu'aucun chauffage n'est nécessaire, il est possible d'obtenir un \( Q \) très large sans ignition.
+Cependant, dans ce cas, la puissance fournie, \( P_H \) représente un coût pour le système, puisqu’elle implique de recycler une partie de la puissance du réacteur, avec la perte d’efficacité correspondante.
+
+\subsubsection*{Approche de l'ignition}
+
+L'approche de l'ignition peut être décrite en ajoutant la dépendance en t'emps de l'\autoref{eq:puissance_chauffage_simplifiee}n cela donne
+
+\begin{equation}
+	\frac{\dd}{\dd t}3nT = \frac{P_H}{V} + \frac{1}{4} n^2 \sigmav \mathscr{E}_\alpha - \frac{3nT}{\tau_E(n, T)}
+	\label{eq:power_balance_time}
+\end{equation}
+
+Si la puissance de chauffage est augmentée lentement, la solution de l’\autoref{eq:power_balance_time} correspond à une succession d’états quasi stables, pour lesquels les termes du côté droit de l’équation s’annulent.
+Le résultat dépend alors de la dépendance en température et en densité du temps de confinement, qui est incertaine dans le régime considéré.
+
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[l]{0.35\textwidth}
+        \caption{Le chauffage par particule-\( \alpha \) et les pertes pour un temps de confinement constant et une ignition à \( \SI{10}{\kilo\electronvolt} \). Le tracé en dessous montre le chauffage externe nécessaire pour compenser les pertes et maintenir une température stable.}
+        \label{fig:power_comp}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/power_comp.pdf}
+    \end{minipage}
+\end{figure}
+
+Lz type de comportement attendu est montré dans la \autoref{fig:power_comp}. 
+On a la dépendance en température du chauffage par particules-\( \alpha \) et les pertes de puissance ainsi que la puissance de chauffage nécessaire, pour un temps de confinement constant et une ignition à \( \SI{10}{\kilo\electronvolt} \).
+On voit donc que dans ce cas, la puissance de chauffage externe maximale est pour environ \( \SI{5}{\kilo\electronvolt} \) et cette puissance est alors moins de \( \SI{40}{\percent} \) de la puissance du chauffage par particules-\( \alpha \) ) la température d'ignition.
+
+\begin{wrapfigure}{l}{0.4\textwidth}
+    \centering
+    % Réduction du retrait interne du wrap
+    \vspace{-10pt}
+
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/contour.pdf}
+        \label{subfig:puissance_contour}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{{figures/chapter1/wireframe.pdf}}
+        \label{subfig:puissance_3D}
+    \end{subfigure}
+
+    \caption{(a) Countours de la puissance nécessaire pour maintenir un étqt stationnaire dans le plan \( 'n, T) \). (b) Un traacé en deux dimension donnant la forme de \( P(n, T)  \) cirrespondant aux contours de la figure (a)}
+    \vspace{-10pt}
+    \label{fig:contour_3D}
+\end{wrapfigure}
+
+Une vue plus générale de l'approche de l'ignition est obtenue en considérant le bilan de puissance dans le plan \( 'n, T) \).
+En utilisant l'\autoref{eq:puissance_chauffage_simplifiee} il est possible de dessiner les contours d'égales valeurs de \( P \) nécessaires pour maintenir une température donnée à une densité donnée.
+Les incertitudes sur \( \tau_E (n, T) \) empêche le tracé d'un diagram précis, mais la \autoref{subfig:puissance_contour} montre la forme générale attendue \autoref{subfig:puissance_3D} donne la même information dans la forme d'un tracé deux dimentionnel de \( P(n, T) \).
+On peut voir que la trajectoire vers l'ignition nécéssitant d'une puissance minimale est celle passant par dela le point de selle.
+Ce point de selle est souvent appellé le passafe de Cordey.
+
+À l'ignition, la puissance appliquée peut être éteinte et il y a un équilibre entre le chauffage par particule-\( \alpha \) et les pertes de puissance du plasma.
+Cependant pour le cas montré dans la \autoref{fig:power_comp} cet équilibre est instable.
+Une légère augmentation de la température induit un déséquilibre positif entre le chauffage et les pertes, ce qui amplifie l’élévation de température.
+
+Cette instabilité peut être analysée pour une situation plus générale dans laquelle \( \tau_E \) est pris comme étant en fonction de la température et la densité est considérée comme constante.
+Donc, en prenant un chauffage dépendant du temps comme dans l'\autoref{eq:power_balance_time} avec \( P_H = 0 \),
+
+\begin{equation}
+	3n \frac{\dd T}{\dd t} = -3n \frac{T}{\tau_E (T)} + \frac{1}{4} n^2 \sigmav \mathscr{E}_\alpha .
+	\label{eq:power_balance_time_density_constant}
+\end{equation}
+
+L'équilibre est donné par
+
+\begin{equation}
+	3 \frac{T}{\tau_E} = \frac{1}{4} n \sigmav \mathscr{E}_\alpha .
+	\label{eq:power_balance_time_equilibrium}
+\end{equation}
+
+En considérant un petit changement, \( \Delta T \), de la température d'équilibre et en dévelopant \( \tau_E \) et \( \sigmav \) autour de leur valeur d'équilibre, l'\autoref{eq:power_balance_time_density_constant} donne l'équation gouvernant la stabilité.
+
+\begin{equation}
+	3, \frac{\dd \Delta T}{\dd t} = \left[ -3, \left( \frac{1}{\tau_E} - \frac{T}{\tau_E^2} \frac{\dd \tau_E}{\dd T} \right) +  \frac{1}{4} n^2 \frac{\dd \sigmav}{\dd T} \mathscr{E}_\alpha \right] \Delta T
+	\label{eq:stability_equation}
+\end{equation}
+
+En utilisant l'équilibre de l'\autoref{eq:power_balance_time_equilibrium} dans l'\autoref{eq:stability_equation} on obtient
+
+\[
+	3, \frac{\dd \Delta T}{\dd t} =  \frac{1}{4} n^2 \sigmav \frac{\mathscr{E}_\alpha}{T} \left( -1 + \frac{T}{\tau_E} \frac{\dd \tau_E}{\dd T} + \frac{T}{\sigmav} \frac{\dd \sigmav}{\dd T} \right) \Delta T.
+\]
+
+Si la partie de droite de l'équation est positive, alors \( \Delta T \) croît exponentiellement.
+La condition de la stabilité est donc
+
+\[
+	\frac{T}{\tau_E} \frac{\dd \tau_E}{\dd T} < 1 - \frac{T}{\sigmav} \frac{\dd \sigmav}{\dd T}.
+\]
 
 \end{document}
