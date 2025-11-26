@@ -44,15 +44,11 @@ ax.set_xlabel('T (keV)')
 ax.set_ylabel('n (m^-3)')
 ax.set_zlabel('P_H (W/m^3)')
 
-# Export wireframe data for pgfplots: columns = T_keV, density, P
-wireframe_data = np.column_stack([
-    Temp.flatten() / (1e3 * eV_to_J),   # T en keV
-    Density.flatten(),                  # n en m^-3
-    P.flatten()                         # P_H
-])
-
-np.savetxt("wireframe_data.txt", wireframe_data, fmt="%.5e")
-
+with open("data_matrix.dat", "w") as f:
+    for j in range(0, len(density), 2):
+        for i in range(0, len(T), 2):
+            f.write(f"{T_keV[i]:.6f} {density[j]:.6f} {P[i, j]:.6f}\n")
+        f.write("\n")  # ligne vide à la fin de chaque rangée
 
 plt.show()
 

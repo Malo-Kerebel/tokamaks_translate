@@ -6,7 +6,7 @@
 \begin{document}
 \begin{tikzpicture}
     \begin{axis}[
-        view={-30}{45}, % Angle de vue
+        view={0}{90}, % Angle de vue
         xtick = \empty,
         xlabel={\( T \)},
         ytick = \empty,
@@ -16,9 +16,11 @@
     ]
     
 		\addplot3[
-		    surf,
-		    shader=interp,   % interp = interpolation lisse
-            draw=none,] table {power_plots/data_matrix.dat};
+    contour gnuplot={
+        labels=false,
+        number=20,       % nombre de niveaux de contours
+    },
+] table{power_plots/data_matrix.dat};
     \end{axis}
 \end{tikzpicture}
 \end{document}

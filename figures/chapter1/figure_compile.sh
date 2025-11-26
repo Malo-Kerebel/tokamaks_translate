@@ -1,0 +1,11 @@
+pdflatex triple_product.tex
+pdflatex potential_energy.tex
+pdflatex cross_section.tex
+pdflatex sigma_v.tex
+pdflatex integrand.tex
+pdflatex sigma_v_3_rections.tex
+pdflatex n_tau_E_ignition.tex
+pdflatex power_comp.tex
+lualatex contour.tex
+lualatex wireframe.tex
+lualatex stability_condition

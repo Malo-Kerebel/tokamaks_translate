@@ -1,0 +1,50 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepgfplotslibrary{fillbetween}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % Optionnel : pour la langue française
+\usepackage{siunitx}
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel={\( T(\SI{}{\kilo\electronvolt}) \)},
+        ylabel={\( \frac{T}{\tau_E} \frac{\text{d} \tau_E}{\text{d} T} \)) },
+        xmin=1, xmax=37,
+        ymin=-2, ymax=1,
+        xtick={0, 10, 20, 30},
+        grid=both,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        legend pos=north west,
+        tick label style={font=\scriptsize},
+        legend style={font=\scriptsize}
+    ]
+
+    \addplot[
+        name path=curve, 
+        color=black,
+        thick
+    ]
+    table [header=true] {power_plots/stability_condition.txt};
+    
+    % Ligne du bas
+    \path[name path=bottom]
+        (axis cs:1,-2) -- (axis cs:37,-2);
+        
+     \addplot[
+        fill=black!50,
+        fill opacity=0.4
+    ]
+        fill between[
+            of=curve and bottom,
+            soft clip={domain=1:37}
+        ];
+        
+    \node[anchor=north, font=\bfseries] at (25, -1) {Stable};
+
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}
