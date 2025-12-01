@@ -9,8 +9,8 @@
 \begin{document}
 \begin{tikzpicture}
   \begin{axis}[
-      width=4cm,
-      height=6cm,
+      width=6cm,
+      height=8cm,
       xlabel={\( T (\si{\kilo\electronvolt})  \)},
       xmin=0, xmax=23,
       ymin=0, ymax=1e7,
@@ -26,25 +26,45 @@
 
     \addplot[
         color=black,
-        thick
+        thick,
+        restrict x to domain=0:24,
     ]
     table [header=true] {power_plots/P_alpha_tau_E.txt};
-    %\node[anchor=north, font=\bfseries] at (9, 0.5e6) {\tiny\shortstack{Chauffage par\\ particules-\( \alpha \)}};
-%
+    \node[anchor=north, font=\bfseries] at (18.75, 3.5e6) {\tiny\shortstack{Chauffage par\\ particules-\( \alpha \)}};
+
     \addplot[
         color=black!70,
-        thick
+        thick,
+        restrict x to domain=0:24,
     ]
     table [header=true] {power_plots/P_loss_tau_E.txt};
-    %\node[anchor=north, font=\bfseries] at (3.5, 1.25e6) {\tiny Pertes de puissance};
-%
-%    \addplot[
-%        color=black,
-%        thick,
-%        domain=10:20,
-%    ]
-%    table [header=true] {power_plots/P_heating_tau_E.txt};
-%    %\node[anchor=north, font=\bfseries] at (6, 0.85e6) {\tiny Chauffage additionnel};
+    \node[anchor=north, font=\bfseries, align=center] at (18, 8e6) {\tiny\shortstack{Pertes de\\ puissance}};
+
+    \addplot[
+        color=black,
+        thick,
+        restrict x to domain=10:20,
+    ]
+    table [header=true] {power_plots/P_heating_tau_E.txt};
+    \node[anchor=north, font=\bfseries, align=center] at (19, 1.6e6) {\tiny\shortstack{Chauffage\\ additionnel}};
+    
+    \addplot[
+    thick,
+    dashed
+]
+coordinates {
+    (13, 0)
+    (13, 2.45319484e+06)  % magick number doit être trouvé dans les fichiers de données
+    };
+    
+    \addplot[
+    thick,
+    dashed
+]
+coordinates {
+    (1.47954e+01, 0)
+    (1.47954e+01, 3.37151782e+06)  % magick number doit être trouvé dans les fichiers de données
+    };
 
   \end{axis}
 \end{tikzpicture}

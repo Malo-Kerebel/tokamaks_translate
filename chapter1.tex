@@ -94,7 +94,7 @@ où \( m_p \) est la masse d'un proton ( \( \SI{1.6726e-27}{\kilogram} \)).
 Le déficit de masse est de \( 0.01875 m_p \), et l'énergie libérée est de 
 
 \[
-	E = \delta l c^2 = 0.01875 m_p c^2 = \SI{2.818e-12}{joules} = \SI{17.59}{\mega\electronvolt}.
+	E = \delta m c^2 = 0.01875 m_p c^2 = \SI{2.818e-12}{joules} = \SI{17.59}{\mega\electronvolt}.
 \]
 
 \begin{figure}
@@ -490,7 +490,8 @@ Lz type de comportement attendu est montré dans la \autoref{fig:power_comp}.
 On a la dépendance en température du chauffage par particules-\( \alpha \) et les pertes de puissance ainsi que la puissance de chauffage nécessaire, pour un temps de confinement constant et une ignition à \( \SI{10}{\kilo\electronvolt} \).
 On voit donc que dans ce cas, la puissance de chauffage externe maximale est pour environ \( \SI{5}{\kilo\electronvolt} \) et cette puissance est alors moins de \( \SI{40}{\percent} \) de la puissance du chauffage par particules-\( \alpha \) ) la température d'ignition.
 
-\begin{wrapfigure}{l}{0.4\textwidth}
+\vspace{2\baselineskip}
+\begin{wrapfigure}{c}{0.4\textwidth}
     \centering
     % Réduction du retrait interne du wrap
     \vspace{-10pt}
@@ -556,5 +557,67 @@ La condition de la stabilité est donc
 \[
 	\frac{T}{\tau_E} \frac{\dd \tau_E}{\dd T} < 1 - \frac{T}{\sigmav} \frac{\dd \sigmav}{\dd T}.
 \]
+
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[l]{0.35\textwidth}
+        \caption{La stabilité pour le chauffage par particules-\( \alpha \) deamnde que \( (T/\tau_E) \dd \tau_E / \dd T \) soit inférieur à une valeur critique. Le tracé conne la dépendance en température de cette valeur critique.}
+        \label{fig:stability_condition}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/stability_condition.pdf}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[l]{0.35\textwidth}
+        \caption{Une deterioration du confinement avec une augmentation de la température est un effet stabilisant pour le chauffage par particule-\( \alpha \). Le tracé montre la perte de puissance en fonction de la température pour \( \tau_E \propto 1/T \) avec la puissance de chauffage par particule-\( \alpha \) correspondant. Pour le cas montré, les conditions ont été choisies pour que l'ignition instable arrive à \( \SI{13}{\kilo\electronvolt} \). L'instabilité conduit alors la température vers un équilibre stable à \( \SI{15}{\kilo\electronvolt} \). Le graph rtonqué montre le chauffage additionnel nécessaire pour maintenir une température donnée.}
+        \label{fig:power_comp_tau_E}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/power_comp_tau_E.pdf}
+    \end{minipage}
+\end{figure}
+
+\section{Tokamaks}
+
+\vspace{2\baselineskip}
+\begin{wrapfigure}{r}{0.3\textwidth}
+    \centering
+    % Réduction du retrait interne du wrap
+    \vspace{-10pt}
+
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/schematic_tokamak_1.pdf}
+        \label{subfig:schematic_tokamak_1}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{{figures/chapter1/schematic_tokamak_2.pdf}}
+        \label{subfig:schematic_tokamak_2}
+    \end{subfigure}
+
+    \caption{(a) Le champ magnetique toroïdal \( B_\phi \) et le champ magnetique poloïdal \( B_p \) induit par le courant toroïdal \( I_\phi \). (b) La combinaison de \( B_\phi \) et \( B_p \) fait que les lignes de champ s’enroulent autour du plasma. }
+    \vspace{-10pt}
+    \label{fig:schematic_tokamak_1_2}
+\end{wrapfigure}
+
+Le tokamak est un système de confinement toroïdal du plasma, le plasma étant confiné par un champ magnétique.
+Le champ magnétique principal étant le champ toroïdal.
+Cependant, ce champ uniquement ne permet pas le confinement du plasma.
+Pour avoir un équilibre dans lequel la pression du plasma est équilibré par les forces magnétiques, il est nécessaire d'avoir aussi un champ magnétique poloïdal.
+Dans un tokamak, ce champ est principalement produit par le courant dans le plasma lui-même, ce courant circulant dans la direction toroïdale.
+Ces courants et champs sont illustré dans la \autoref{subfig:schematic_tokamak_1}.
+La combinaison du champ toroïdal \( B_\phi \) et du champ poloïdal \( B_p \) donne des lignes de champ magnétique qui ont une trajectoire hélicoïdale autour du tore, comme montré dans la \autoref{subfig:schematic_tokamak_2}.
+Le champ magnétique toroïdal est produit par les courants dans les bobines liant le plasma
 
 \end{document}
