@@ -499,12 +499,14 @@ On voit donc que dans ce cas, la puissance de chauffage externe maximale est pou
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/chapter1/contour.pdf}
+        \caption{}
         \label{subfig:puissance_contour}
     \end{subfigure}
     
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{{figures/chapter1/wireframe.pdf}}
+        \caption{}
         \label{subfig:puissance_3D}
     \end{subfigure}
 
@@ -575,34 +577,34 @@ La condition de la stabilité est donc
 \begin{figure}
 	\centering
     % Minipage pour la légende (à gauche)
-    \begin{minipage}[l]{0.35\textwidth}
+    \begin{minipage}[r]{0.35\textwidth}
         \caption{Une deterioration du confinement avec une augmentation de la température est un effet stabilisant pour le chauffage par particule-\( \alpha \). Le tracé montre la perte de puissance en fonction de la température pour \( \tau_E \propto 1/T \) avec la puissance de chauffage par particule-\( \alpha \) correspondant. Pour le cas montré, les conditions ont été choisies pour que l'ignition instable arrive à \( \SI{13}{\kilo\electronvolt} \). L'instabilité conduit alors la température vers un équilibre stable à \( \SI{15}{\kilo\electronvolt} \). Le graph rtonqué montre le chauffage additionnel nécessaire pour maintenir une température donnée.}
         \label{fig:power_comp_tau_E}
     \end{minipage}\hfill
     % Minipage pour l'image (à droite)
     \begin{minipage}[c]{0.55\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/chapter1/power_comp_tau_E.pdf}
+        \includegraphics[width=0.8\textwidth]{figures/chapter1/power_comp_tau_E.pdf}
     \end{minipage}
 \end{figure}
 
+\clearpage
 \section{Tokamaks}
 
 \vspace{2\baselineskip}
-\begin{wrapfigure}{r}{0.3\textwidth}
-    \centering
+\begin{wrapfigure}{r}{0.2\textwidth}
     % Réduction du retrait interne du wrap
     \vspace{-10pt}
 
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/chapter1/schematic_tokamak_1.pdf}
+        \includegraphics[width=0.63\linewidth]{figures/chapter1/schematic_tokamak_1.pdf}
+        \caption{}
         \label{subfig:schematic_tokamak_1}
     \end{subfigure}
     
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{{figures/chapter1/schematic_tokamak_2.pdf}}
+        \includegraphics[width=0.3\linewidth]{{figures/chapter1/schematic_tokamak_2.pdf}}
+        \caption{}
         \label{subfig:schematic_tokamak_2}
     \end{subfigure}
 
@@ -618,6 +620,128 @@ Pour avoir un équilibre dans lequel la pression du plasma est équilibré par l
 Dans un tokamak, ce champ est principalement produit par le courant dans le plasma lui-même, ce courant circulant dans la direction toroïdale.
 Ces courants et champs sont illustré dans la \autoref{subfig:schematic_tokamak_1}.
 La combinaison du champ toroïdal \( B_\phi \) et du champ poloïdal \( B_p \) donne des lignes de champ magnétique qui ont une trajectoire hélicoïdale autour du tore, comme montré dans la \autoref{subfig:schematic_tokamak_2}.
-Le champ magnétique toroïdal est produit par les courants dans les bobines liant le plasma
+Le champ magnétique toroïdal est produit par les courants dans les bobines liant le plasma, comme montré dans la \autoref{fig:schematic_tokamak_3}.
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+    \centering
+    % Réduction du retrait interne du wrap
+    \vspace{-10pt}
+    
+    \includegraphics[width=\linewidth]{{figures/chapter1/schematic_tokamak_3.pdf}}
+
+    \caption{Le chamm magnétique toroïdal est produit par le courant dans des bobines externes. }
+    \vspace{-10pt}
+    \label{fig:schematic_tokamak_3}
+\end{wrapfigure}
+
+La pression du plasma est le produit de la densité de particules et de la température.
+Comme la réactivité du plasma augmente avec ces deux quantités, dans un réacteur la pression doit être suffisamment haute.
+La pression qui peut être confinée est déterminée par des considérations de stabilité et augmente avec la force du champ magnétique.
+Cependant, l'intensité du champ magnétique toroïdal est limitée par des facteurs technologiques.
+Dans des expériences en laboratoire avec des bobines en cuivre, les besoins de refroidissement et les forces magnétiques mettent une limite sur le champ magnétique qu'elles peuvent atteindre.
+De plus, dans un réacteur, les pertes par effet Joule dans des bobines normales sont inacceptables et des bobines supraconductrices sont donc nécessaires.
+Il y a une perte de supraconductivité au-delà d'un champ magnétique critique, et cela est une autre limitation.
+Avec les technologies actuelles, il semble probable que le champ magnétique maximal au niveau des bobines soit limité autour de \( \SI{12}{\tesla} \), mais des conducteurs améliorés avec des champs allant jusqu'à \( \SI{16}{\tesla} \) sont également envisagés\footnote{En 2021, des prototypes de bobines avec un champ de \( \SI{20}{\tesla} \) ont été testés avec succès en laboratoire.}.
+Le champ toroïdal maximal se trouve sur le côté intérieur de la bobine de champ toroïdal.
+Puisque le champ magnétique toroïdal est inversement proportionnel au grand rayon, le champ au centre du tokamak serait autour de \( \qtyrange[range-units=single,range-phrase=-]{6}{8}{\tesla} \)\footnote{Avec des bobines de \( \SI{20}{\tesla} \), le champ au centre du tokamak SPARC est envisagé d'être de \( \SI{12}{\tesla} \).}.
+Le champ toroïdal dans les grands tokamaks actuels est quelque peu en dessous de cette valeur.
+
+Pour un champ magnétique toroïdal donné, la pression du plasma qui peut être stablement confinée augmente avec le courant du plasma jusqu'à une valeur limite.
+Les champs magnétiques poloïdaux résultants sont typiquement un ordre de magnitude plus faible que le champ toroïdal.
+Dans les grands tokamaks actuels, des courants de plusieurs mégaampères sont utilisés, un courant de \( \SI{7}{\mega\ampere} \) ayant été produit dans le tokamak JET.
+Avec des hypothèses conservatrices, un réacteur devrait nécessiter un courant de \( \qtyrange[range-units=single,range-phrase=-]{20}{30}{\mega\ampere} \).
+Des avancées technologiques et des connaissances pourraient mener à des valeurs plus basses.
+
+\begin{figure}
+
+\centering
+    % Réduction du retrait interne du wrap
+    \vspace{-10pt}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/chapter1/schematic_tokamak_4.pdf}
+        \caption{}
+        \label{subfig:schematic_tokamak_4}
+    \end{subfigure}
+    \hspace{20pt}
+    \begin{subfigure}[b]{0.53\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{{figures/chapter1/schematic_tokamak_5.pdf}}
+        \caption{}
+        \label{subfig:schematic_tokamak_5}
+    \end{subfigure}
+
+    \caption{(a) Un changement de flux à travers le tore induit un champ électrique toroïdal qui entraine le courant toroïdal. (b) La variation de flux est produite par l’enroulement primaire, souvent à l’aide d’un noyau de transformateur.}
+    \vspace{-10pt}
+    \label{fig:schematic_tokamak_4_5}
+
+\end{figure}
+
+Dans les expériences actuelles, le courant du plasma est entraîné par un champ électrique toroïdal induit par l'action du transformateur, au cours de laquelle un changement de flux à travers le tore est généré, comme illustré par la \autoref{subfig:schematic_tokamak_4}.
+La variation de flux est provoquée par un courant circulant dans une bobine primaire enroulée autour du tore, comme montré dans la \autoref{subfig:schematic_tokamak_5}.
+Bien que non essentiel, un noyau en fer de transformateur est souvent utilisé, celui-ci réduit les besoins en alimentation électrique et présente l'avantage de limiter les champs magnétiques de fuite.
+
+\vspace{2\baselineskip}
+\begin{wrapfigure}{r}{0.4\textwidth}
+	\centering 
+    \includegraphics[width=\linewidth]{{figures/chapter1/schematic_tokamak_6.pdf}}
+
+    \caption{L'arrangement des bobines dans un tokamak. }
+    \vspace{-10pt}
+    \label{fig:schematic_tokamak_6}
+\end{wrapfigure}
+
+Il y a des avantages pour le confinement et la pression atteignable avec les plasmas qui sont allongés verticalement.
+Le contrôle de la forme demandes des courants toroïdaux supplémentaires.
+De plus, de tels courants sont nécessaires pour contrôler la position du plasma.
+Ces courants toroïdaux sont transportés par des bobines judicieusement placées.
+Le système complet de bobines toroïdales et poloïdales est illustré dans la \autoref{fig:schematic_tokamak_6}.
+
+Les mécanismes limitant le confinement du plasma dans les tolomaks ne sont pas tous compris.
+Cependant l'amélioration attendue du confinement avec la taille a été observée expérimentallement.
+Typiquement, les meilleurs temps de confinement de l'énergie pour les tokamaks existants sont autour de \( \frac{1}{2} r_p^2 \) où \( r_p \) est le petit rayon moyen du plasma.
+Un temps de confinement de l'énergie supérieur à une seconde a été obtenu dans le tokamakJET.
+Il est établi que le temps de confinement de l'énergie augmente avec le courant du plasma mais, malheureusement, décroît avec une augmentation de la pression du plasma.
+
+Les plasmas de tokamak sont chauffés à des températures de quelques \( \SI {}{\kilo\electronvolt}\) par le chauffage ohmique du courant du plasma.
+Les températures requisent de \( \gtrsim \SI{10}{\kilo\electronvolt} \) sont alors atteintes avec du chauffage additionnel par des faisceaux de particules ou par ondes électromagnétiques.
+
+Les plasmas de tokamak actuels ont des densités de particules de l'ordre de \(  \qtyrange[range-units=single,range-phrase=-]{1e19}{1e20}{\per\meter\cubed}  \).
+C'est un facteur \( 10^6 \) plus bas que la densité de l'atmosphère.
+Le plasma est contenu dans une chambre à vide et pour minimiser la présence d'impuretés, des pressions résiduelles faibles doivent être maintenues.
+
+\begin{figure}
+	\centering
+        \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/chapter1/schematic_tokamak_7.pdf}
+        \caption{}
+        \label{subfig:schematic_tokamak_7}
+    \end{subfigure}
+    \hspace{2pt}
+    \begin{subfigure}[b]{0.38\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{{figures/chapter1/schematic_tokamak_8.pdf}}
+        \caption{}
+        \label{subfig:schematic_tokamak_8}
+    \end{subfigure}
+    
+    \caption{La séparation du plasma des murs de la chambre à vide par (a) un limiteur et (b) un diverteur.}
+    \label{fig:schematic_tokamak_7_8}
+\end{figure}
+
+Les impuretés dans le plasma donnent lieu à des pertes par radiation et diluent le carburant.
+La restriction de leur entré dans le plasma jooue donc un rôle fondamental dans la bonne opération des tokamaks.
+Cela demande une séparation du plasma des murs de la chambre à vide.
+Deux techniques sont utilisées actuellement.
+La première est de définir une limite externe du plasma avec un limiteur matériel comme montré dans la \autoref{subfig:schematic_tokamak_7}.
+La deuxième est de garder les particules loin des murs de la chambre à vide par une modification du champ magnétique pour produire un diverteur magnétique comme montré dans la \autoref{subfig:schematic_tokamak_8}.
+
+Un réacteur tokamak demandera des éléments additionnels dans la structure du tokamak et aura aussi besoin d'un moyen de convertir la puissance de fusion en électricité.
+C'es éléments sont décris dans la \autoref{sec:tokamak_reacteur}.
+
+\section{Tokamak réacteur}
+\label{sec:tokamak_reacteur}
 
 \end{document}
