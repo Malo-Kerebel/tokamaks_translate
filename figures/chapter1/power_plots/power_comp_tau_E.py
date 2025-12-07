@@ -1,6 +1,5 @@
-from mpl_toolkits import mplot3d
 import numpy as np
-import matplotlib.pyplot as plt
+import sys
 
 
 def tau_E(T):
@@ -27,20 +26,23 @@ P_alpha = 0.25 * density**2 * sigma_V * E_alpha
 P_loss = 3 * density * T / tau_E(T)
 additional_heating = P_loss - P_alpha
 
-plt.plot(T_keV, P_alpha, label="P_alpha")
-plt.plot(T_keV, P_loss, label="P_loss")
-plt.plot(T_keV, additional_heating, label="additional_heating")
-plt.xlabel("T (keV)")
-
-plt.xlim(0, 23)
-plt.ylim(0, 1e7)
-plt.legend()
-plt.show()
-
-print(max(P_alpha), max(P_loss), max(additional_heating))
 data = np.column_stack((T_keV, P_alpha))
 np.savetxt(f"P_alpha_tau_E.txt", data)
 data = np.column_stack((T_keV, P_loss))
 np.savetxt(f"P_loss_tau_E.txt", data)
 data = np.column_stack((T_keV, additional_heating))
 np.savetxt(f"P_heating_tau_E.txt", data)
+
+
+if "--no-show" not in sys.argv:
+    import matplotlib.pyplot as plt
+
+    plt.plot(T_keV, P_alpha, label="P_alpha")
+    plt.plot(T_keV, P_loss, label="P_loss")
+    plt.plot(T_keV, additional_heating, label="additional_heating")
+    plt.xlabel("T (keV)")
+
+    plt.xlim(0, 23)
+    plt.ylim(0, 1e7)
+    plt.legend()
+    plt.show()

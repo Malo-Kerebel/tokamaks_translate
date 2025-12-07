@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import sys
 
 eV_to_J = 1.602176634e-19
 
@@ -13,11 +13,14 @@ E_alpha = 3.5 * 1e6 * eV_to_J
 
 y = 12/sigma_V * T / E_alpha
 
-plt.loglog(T_keV, y)
-plt.xlim(3, 300)
-plt.ylim(1e20, 1e22)
-
 data = np.column_stack((T_keV, y))
 np.savetxt(f"n_tau_E_ignition.txt", data)
 
-plt.show()
+if "--no-show" not in sys.argv:
+    import matplotlib.pyplot as plt
+
+    plt.loglog(T_keV, y)
+    plt.xlim(3, 300)
+    plt.ylim(1e20, 1e22)
+
+    plt.show()

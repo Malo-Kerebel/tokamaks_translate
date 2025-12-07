@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import sys
 
 eV_to_J = 1.602176634e-19
 
@@ -12,10 +12,13 @@ dsig_dT = np.gradient(sigma_v, T_J)
 
 stab_condition = 1 - (T_J / sigma_v) * dsig_dT
 
-plt.plot(T_keV, stab_condition)
-plt.xlim(0, 37)
-plt.ylim(-2, 1)
-plt.show()
-
 data = np.column_stack((T_keV, stab_condition))
 np.savetxt(f"stability_condition.txt", data)
+
+if "--no-show" not in sys.argv:
+    import matplotlib.pyplot as plt
+
+    plt.plot(T_keV, stab_condition)
+    plt.xlim(0, 37)
+    plt.ylim(-2, 1)
+    plt.show()

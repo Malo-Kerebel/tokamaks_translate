@@ -1,0 +1,44 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % Optionnel : pour la langue française
+\usepackage{siunitx}
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel={\( \frac{n/10^20)^2}{2v+1} \)},
+        ylabel={\( P \) (\( \SI{}{\giga\watt} \)) \\ (thermique) },
+        xmin=0, xmax=1,
+        ymin=0, ymax=5.1,
+        xtick={0, 0.2, 0.4, 0.6, 0.8, 1.0},
+        scaled x ticks=false,
+        grid=both,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        legend pos=north west,
+        tick label style={font=\scriptsize},
+        legend style={font=\scriptsize}
+    ]
+
+    \addplot[
+        domain=0:1,
+        samples=200,
+        color=black,
+        thick
+    ] {0.15*9*3*5*20*20*\x/1000};
+    \node[anchor=north, align=left] at (0.7, 4) {\( R = \SI{9}{\meter} \)\\ \( a = \SI{3}{\meter}, b = \SI{5}{\meter} \)};
+
+	\addplot[
+        domain=0:1,
+        samples=200,
+        color=black!50,
+        thick
+    ] {0.15*6*2*3.3*20*20*\x/1000};
+    \node[anchor=north, align=left] at (0.75, 1.35) {\( R = \SI{6}{\meter} \)\\ \( a = \SI{2}{\meter}, b = \SI{3.3}{\meter} \)};
+
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}

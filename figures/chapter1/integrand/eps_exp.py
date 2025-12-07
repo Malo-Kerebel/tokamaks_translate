@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 from scipy.constants import m_p
 
@@ -19,17 +18,20 @@ x = E/(10/facteur)
 
 y = E * np.exp(-mu/m_D * x)
 
-plt.plot(x, y, label="eps_exp")
 data = np.column_stack((x, y))
 np.savetxt("eps_exp.txt", data)
 
-plt.plot(x, cross_section_D_T, label="sigma")
 data = np.column_stack((x, cross_section_D_T))
 np.savetxt("sigma.txt", data)
 
-plt.plot(x, y*cross_section_D_T*2, label="integrand")
 data = np.column_stack((x, y*cross_section_D_T*2))
 np.savetxt("integrand.txt", data)
 
-plt.legend()
-plt.show()
+if "--no-show" not in sys.argv:
+    import matplotlib.pyplot as plt
+    plt.plot(x, y, label="eps_exp")
+    plt.plot(x, cross_section_D_T, label="sigma")
+    plt.plot(x, y*cross_section_D_T*2, label="integrand")
+
+    plt.legend()
+    plt.show()

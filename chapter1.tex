@@ -36,7 +36,7 @@ Bien que les températures nécessaires, la densité et le temps de confinement 
 Cependant, le progrès vers cet objectif a été remarquable , et une puissance thermonucléaire de plus de quatre-bingt-dix pourcent de la puissance injectée a été produite.
 Une étape suivante est d'atteindre l'ignition, où, comme avec des carburants fossiles, le processus de réaction devient auto suffisant sans chauffage additionnel.
 Le progrès vers l'ignition pout être mesuré avec un simple paramètre.
-La forme de la dépendance de la section efficace de fusion à l'énergie permet d'écrire le pré-requis pour l''ignition approximativement par :
+La forme de la dépendance de la section efficace de fusion à l'énergie permet d'écrire le pré-requis pour l''ignition approximativement par
 
 \[
 	, \tau_E T > \SI{5e21}{\per\meter\cubed\second\kilo\electronvolt}
@@ -362,6 +362,7 @@ et en utilisant les équations \ref{eq:puissance_totale}, \ref{eq:perte_energie}
 Les implications de cette équations sont décritents dans la section suivante.
 
 \section{Ignition}
+\label{sec:ignition}
 
 \subsubsection*{Conditions de l'ignition}
 
@@ -407,7 +408,7 @@ Le minimum est à \( T = \SI{30}{\kilo\electronvolt} \) et le pré-requis pour l
 
 Cependant, puisque \( \tau_E \) est lui-mme une fonction de la temperature, la temperature du minimum ne doit pas être prise comme une condition optimale.
 Il se trouve que la temperature d'ignition est probablement quelque peu en dessous.
-Par une heureuse coïncidence pour les calculs, dans le domaine de \( \qtyrange[range-units=single,range-phrase=-]{10}{20}{\kilo\electronvolt} \), le taux de réaction peut être pris, avec moins de \( \SI{10}{\percent} \) d'erreur, commeune valeur constante
+Par une heureuse coïncidence pour les calculs, dans le domaine de \( \qtyrange[range-units=single,range-phrase=-]{10}{20}{\kilo\electronvolt} \), le taux de réaction peut être pris, avec moins de \( \SI{10}{\percent} \) d'erreur, comme une valeur constante
 
 \begin{equation}
 	\left\langle \sigma v \right\rangle = \SI{1.1e-24}{\text{T}\squared \meter\cubed\per\second}, \quad \text{T en} \SI{}{\kilo\electronvolt}
@@ -441,7 +442,7 @@ C'est donc clairement une condition nécessaire, mais non suffisante, que la pui
 Dans les calculs sur l'ignition ci-dessus, seule la fraction des particles-\( \alpha \), \( \SI{20}{\percent} \), de l'énergie totale est utilisée pour chauffé le plasma.
 Dans les calculs de Lawson, le facteur correspondant es lié à l'efficacité de la centrale électrique, \( \eta \), avec \( \eta  \simeq \SI{30}{\percent} \).
 Donc le \( n \tau \) de Lawson se trouve être moins contraignant que le critère d'ignition \ref{eq:ignition_inegalite}, nécéssitant \( n \tau > \SI{0.6e20}{\per\meter\cubed\second} \).
-Lawson a aussi pris en compte le rayonnement Bremsstrahlung de l'hydrogène mais, comme il sera montré dans la section \color{red}{Section 4.24 (lien à rajouter quand elle sert faite)}\color{black}, cette perte est faible pour un plasma de tokamak.
+Lawson a aussi pris en compte le rayonnement Bremsstrahlung de l'hydrogène mais, comme il sera montré dans la section \color{red}{Section 4.24 (lien à rajouter quand elle sera faite)}\color{black}, cette perte est faible pour un plasma de tokamak.
 
 Une façon de mesuré le succès à s'approcher des conditions d'un réacteurs est donné par le rapport, \( Q \), entre la puissance thermonucléaire et la uissance du chauffage appliqué, donné par
 
@@ -590,6 +591,7 @@ La condition de la stabilité est donc
 
 \clearpage
 \section{Tokamaks}
+\label{sec:tokamaks}
 
 \vspace{2\baselineskip}
 \begin{wrapfigure}{r}{0.2\textwidth}
@@ -619,7 +621,7 @@ Cependant, ce champ uniquement ne permet pas le confinement du plasma.
 Pour avoir un équilibre dans lequel la pression du plasma est équilibré par les forces magnétiques, il est nécessaire d'avoir aussi un champ magnétique poloïdal.
 Dans un tokamak, ce champ est principalement produit par le courant dans le plasma lui-même, ce courant circulant dans la direction toroïdale.
 Ces courants et champs sont illustré dans la \autoref{subfig:schematic_tokamak_1}.
-La combinaison du champ toroïdal \( B_\phi \) et du champ poloïdal \( B_p \) donne des lignes de champ magnétique qui ont une trajectoire hélicoïdale autour du tore, comme montré dans la \autoref{subfig:schematic_tokamak_2}.
+La combinaison du champ toroïdal \( B_\phi \) et du champ poloïdal \( B_\theta \) donne des lignes de champ magnétique qui ont une trajectoire hélicoïdale autour du tore, comme montré dans la \autoref{subfig:schematic_tokamak_2}.
 Le champ magnétique toroïdal est produit par les courants dans les bobines liant le plasma, comme montré dans la \autoref{fig:schematic_tokamak_3}.
 
 \begin{wrapfigure}{r}{0.2\textwidth}
@@ -739,9 +741,252 @@ La première est de définir une limite externe du plasma avec un limiteur maté
 La deuxième est de garder les particules loin des murs de la chambre à vide par une modification du champ magnétique pour produire un diverteur magnétique comme montré dans la \autoref{subfig:schematic_tokamak_8}.
 
 Un réacteur tokamak demandera des éléments additionnels dans la structure du tokamak et aura aussi besoin d'un moyen de convertir la puissance de fusion en électricité.
-C'es éléments sont décris dans la \autoref{sec:tokamak_reacteur}.
+Ces éléments sont décris dans la \autoref{sec:tokamak_reacteur}.
 
 \section{Tokamak réacteur}
 \label{sec:tokamak_reacteur}
+
+\subsubsection*{Structure d'un réacteur}
+
+Un tokamak réacteur serait considérablement plus complèxe qu'un tokamak non-thermonucléaire.
+La structure générale est illustré dans la \autoref{fig:schematic_tokamak_9} et est décrite ci-dessus.
+
+Le plasma est entouré d'une couverture qui a trois rôles.
+Premièrement, elle absorbe les neutrons de \( \SI{14}{\mega\electronvolt} \), transformant leur énergie cinétique en chaleur qui est ensuite évacuée par un fluide caloporteur approprié pour fournir la majeure partie de la puissance.
+Deuxièmement, en absorbant les neutrons la couverture protège les bobines supraconductrices et les autres composants externes.
+Troisièmement, la couverture permet la production de tritium pour alimenter le réacteur.
+Pour ce faire, la couverture est constituée d'un composé de lithium comme le \( \text{Li}_2\text{O} \). 
+Un tritium est produit dans chaque réaction neutron-lithium comme décrit dans la \autoref{sec:reserves_de_carburant}, mais il n'est pas possible de concevoir une couverture de manière à ce que tous les neutrons suivent cette réaction.
+Pour contrecarrer ce déficit et obtenir un taux de génération supérieur à 1, il est nécessaire d'utiliser un multiplicateur de neutrons comme du beryllium ou du plomb.
+Le flux de neutrons venant du plasma décroît avec la distance dans la couverture, une épaisseur de couverture de \( \qtyrange[range-units=single,range-phrase=-]{0.6}{1.0}{\meter} \) est suffisant pour absorber la majorité des neutrons.
+
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[l]{0.35\textwidth}
+        \caption{Arrangement des composants principaux d'un tokamak réacteur conceptuel.}
+        \label{fig:schematic_tokamak_9}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/schematic_tokamak_9.pdf}
+    \end{minipage}
+\end{figure}
+
+Le flux d'énergie des neutrons qui passe à travers le mur externe de la couverture doit être réduit d'un facteur \( 10^6-10^7 \) avant d'atteindre les bobines supraconductrices afin d'éviter à la fois les dégâts des radiations et le réchauffement des bobines.
+Cette protection est obtenue en plaçant un bouclier d'une épaisseur d'environ \( \SI {1}{\meter}\) en un matériau à numéro atomique Z élevé comme de l'acier entre la couverture et les bobines.
+
+Dans les tokamaks expérimentaux, le contact direct entre le plasma et le premier mur est évité soit grâce à un limiteur soit par un diverteur qui mène le champ magnétique loin de la surface du plasma vers une plaque éloignée du plasma comme décris dans la \color{red}{Section 9.10 (lien à rajouter quand elle sera faite)}\color{black}.
+Dans un réacteur le flux de puissance thermique sur les surfaces sera nettement supérieur et il y aura un besoin de minimiser le flux d'impureté dans le plasma, en ajoutant à ça, sa plus grande flexibilité de design, les systèmes avec divertors sembleut donc favorisés.
+
+Idéalement, le courant toroïdal dans le plasma serait continu dans le temps.
+Cependant avec l'action du transformateur, le champ électrique moteur est induit par une augmentation du flux magnétique liant le tore, et cette augmentation ne peut se faire que durant un temps fini.
+L'action du transformateur pourrait permettre des décharges d'une heure.
+Bien que ce ne soit pas totalement satisfaisant, il est possible d'accepter une opération pulsée de ce type, à condition que la période d'arrêt soit suffisamment brève pour que le stress thermique répété, lié au refroidissement, soit acceptable.
+La solution alternative est de faire en sorte qu'un courant continu soit généré par d'autres moyens qu'un champ électrique.
+L'exigence en matière d'entraînement du courant est réduite par le fait que le plasma lui-même générera une partie du courant requis par un mécanisme appelé effet bootstrap.
+Les courants restants seraient générés par l'injection de faisceaux de particules neutres ou des ondes électromagnétiques.
+Ces méthodes d'entrainement du courant sont décrites dans la   \color{red}{Section 3.14 (lien à rajouter quand elle sera faite)}\color{black}.
+
+\begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/schematic_tokamak_10.pdf}
+        \caption{La puissance thermonucléaire abosrbée dans la couverture devra être converti en électricité par des moyens conventionnels.}
+        \label{fig:schematic_tokamak_10}
+\end{figure}
+
+La chaleur quittant le plasma et produite dans la couverture, devra être extraite par un caloporteur liquide ou gazeux.
+Elle sera ensuite transformée en électricité par des moyens conventionnels comme illustré dans la \autoref{fig:schematic_tokamak_10}.
+
+\subsubsection*{Paramètres d'un réacteur}
+
+Les informations suffisantes sont désormais disponibles grâce aux tokamaks expérimentaux pour permettre d'estimer les paramètres généraux pour un tokamak réacteur.
+La taille et le courant du plasma requis pour un réacteur sont déterminés à partir de trois considérations.
+La première est le temps de confinement de l'énergie.
+Le temps de confinement doit être suffisamment long pour satisfaire le bilan de puissance pour un plasma auto-entretenu comme décrit dans la \autoref{sec:bilan_de_puissance}.
+Cela nécessite que le plasma soit suffisamment grand, permettant l'amélioration de confinement qui vient de la capacité de transport du courant augmenté des plasmas plus grand.
+Cependant, cela introduit une deuxième considération, l'instabilité issue des disruptions du plasma qui met subitement fin au plasma.
+Pour une machine donnée, le courant du plasma doit être accompagné d'un grand champ magnétoqie toroïdal pour éviter les disruptions.
+La troisième contrainte est que le champ magnétique toroïdal est lui-même limité à la fois par le champ critique permis par les supraconducteurs et par le stress magnétique sur les bobines.
+Il y a quelques incertitudes associées avec chacun de ces facteurs mais il est néanmoins possible de faire des calculs approximatifs des paramètres requis.
+
+Un plasma auto-entretenu doit satisfaire des conditions sur la densité, la température et du temps de confinement.
+Comme montré dans la \autoref{sec:ignition}, ces conditions peuvent être résumé par l'inéquation
+
+\begin{equation}
+	\hat{n}\hat{T} \tau_E \gtrsim \SI{5e21}{\per\meter\cubed\kilo\electronvolt\second}
+	\label{eq:inequation}
+\end{equation}
+
+Pour lier cette inéquation aux paramètres du plasma, une expression pour le temps de confinement de l'énergie est nécessaire.
+Plusieurs formules empiriques ont été proposées et, comme décrit dans le \color{red}{chapitre 4 (lien à rajouter quand elle sera faite)}\color{black}, plusieurs modes d'opération ont été découvert.
+Il est pratique de commencer cette discussion en présentant une des premières formules, qui a tenu l'épreuve du temps.
+Cette formule, donné par Goldston, peut être approximé par
+
+\begin{equation}
+	\tau_E = \frac{I^2}{\overline{n T}} f \left(\frac{R}{a}, \frac{b}{a} \right),
+	\label{eq:goldston}
+\end{equation}
+
+où \( f \) est le courant du plasma, \( n \) et \( T \) sont la densité et la température, \( R/a \) est le rapport d'aspect et \( b/a \) est l'élongation du plasma mesuré par le rapport entre la demi-hauteur et la demi-largeur.
+
+Il y a des incertitudes dans la formule \ref{eq:goldston} au regard d'à la fois la magnitude et de la mise à l'échelle.
+En particulier, des régimes qui ont un meilleur temps de confinement ont été trouvés.
+De plus, à cause de la diversité limitée des géométrie des tokamaks expérimentaux, la dépendance de \( f \) sur le rapport d'aspect et l'élongation est incertaine.
+
+La possibilité d'opérer dans un régime de confinement amélioré sera rendu possible en introduisant un facteur d'amélioration dans l'\autoref{eq:goldston}.
+Cette équation est communément écrite en termes de la puissance de chauffage plutôt que de la température.
+Donc, en équilibrant la puissance injectée \( P \) et les pertes \( 3 \overline{n T}/\tau_E \), l'\autoref{eq:goldston} peut être écrite de manière équivalente
+
+\[
+	\tau_E = (3f)^{1/2} \frac{1}{P^{1/2}}
+\]
+
+Il est habituel d'introduire un facteur d'amélioration \( H \) dans cette forme pour avoir
+
+\begin{equation}
+	\tau_E = H (3f)^{1/2} \frac{1}{P^{1/2}}
+	\label{eq:facteur_amelioration}
+\end{equation}
+
+En revenant à la forme de l'\autoref{eq:goldston}, l'\autoref{eq:facteur_amelioration} devient
+
+\[
+	\tau_E = \frac{H^2 I^2}{\overline{n T}} f.
+\]
+
+Actuellement, dans les expériences  les rapports géométriques typiques sont \( R/a =3 \) et \( b/a = 5/3 \).
+Pour ces valeurs \(f = \SI{2e6}{\per\meter\cubed\kilo\electronvolt\second\per\ampere\squared} \).
+En utilisant cette valeur de \( f \) et en prenant des profils de densité et de température paraboliques, avec des valeurs maximales \( \hat{n} \) et \( \hat{T} \), de sorte que \( \overline{n T} = \frac{1}{3} \hat{n}\hat{T}\), donne
+
+\[
+	\hat{n}\hat{T}\tau_E = \SI{6e6}{} H^2I^2 \SI{}{\per\meter\cubed\kilo\electronvolt\second}.
+\]
+
+en éliminant \( \hat{n}\hat{T}\tau_E \) grâce à la relation \ref{eq:inequation}, le courant minimum dans un tokamak pour avoir un plasma auto-entretenu  est
+
+\begin{equation}
+	I = \frac{30}{H} \SI{}{\mega\ampere}
+	\label{eq:minimum_courant}
+\end{equation}
+
+Donc, pour \( H = 1 \) le courant nécessaire est de \( \SI{30}{\mega\ampere} \).
+Des facteurs \( H \) de \( 2-3 \) ont été obtenus expérimentallement, et s'ils peuvent être obtenus dans un réacteur sans effets délétères le courant nécessaire serait réduit d'autant.
+
+Il a été trouvé expérimentallement que pour éviter les disruptions induites par le courant, le champ magnétique toroïdal doit être suffisamment grand pour satisfaire
+
+\begin{equation}
+	\frac{Bç\phi}{B_{\theta s}} \gtrsim 2 \frac{R}{\overline{a}},
+	\label{eq:eviter_disruption}
+\end{equation}
+
+où \( B_{\theta s} \) est le champ magnétique poloïdal moyen à la surface du plasma et \( \overline{a} \) est le rayon moyen du plasma.
+
+En approximant la loi d'Ampère par 
+
+\begin{equation}
+	I = \frac{2 \pi}{\mu_0} \overline{a} B_{\theta s},
+	\label{eq:approx_ampere}
+\end{equation}
+
+et en prenant \( \overline{a} = \left( ab\right)^{1/2} \), les relation \ref{eq:minimum_courant} à \ref{eq:approx_ampere} avec \( R/a = 3 \) et \( b/a = \frac{5}{3} \), donne l'approximation d'une condition pour un réacteur
+
+\begin{equation}
+	R B_\phi \gtrsim \frac{65}{H}\SI{}{\milli\tesla}.
+	\label{eq:condition_reacteur}
+\end{equation}
+
+Le compromis entre la taille et le chqmp magnétique st déterminé par des considerations techniques et économiques.
+Pour de basses valureurs de \( B_\phi \), le coût global décroît quand \( B_\phi \) augmente, mais cette dépendance est limité par la difficulté à obtenir des \( B_\phi \) élevé dans des matériaux supraconducteurs.
+Avec les technologies actuelles, le \( B_\phi \) optimal est autour de \( \SI{12}{\tesla} \) au côté interne de la bobine de champ toroïdal, et en prenant la dépendance en \( 1/R \) ça implique un champ d'approximativement \( \SI{6}{\tesla} \) au centre du plasma.
+
+En prenant \( B_\phi = \SI{6}{\tesla} \), la condition \ref{eq:condition_reacteur} demande un grand rayon de \( 11/H \) et pour \( H \) entre \( 1 \) et \( 2 \) cela donne \( R \) entre \( \SI{11}{\meter} \) et \( \SI{5.5}{\meter} \).
+Les valeurs de \( a \) se trouvent environ dans l'intervalle \(  \qtyrange[range-units=single,range-phrase=-]{3.5}{2}{\meter} \) et pour \( b \) dans l'interalle \(  \qtyrange[range-units=single,range-phrase=-]{6}{3}{\meter} \)
+\footnote{Comme vu dans la \autoref{sec:tokamaks}, il serait possible d'avoir \( B_\phi = \SI{12}{\tesla} \), dans ce cas, le grand rayon serait de \( 5.5/H \), donc pour un \( H \) entre \( 1 \) et \( 2 \) cela donne \( R \) entre \( \SI{5.5}{\meter} \) et \( \SI{2.75}{\meter} \). Avec \( a \) entre \( \qtyrange[range-units=single,range-phrase=-]{2}{1}{\meter} \) et \( b \) entre \( \qtyrange[range-units=single,range-phrase=-]{3.5}{1.75}{\meter} \)}
+
+Cependant, d'autres considérations entrent en jeu pour choisir les meilleurs paramètres du plasma.
+La volonté d'éviter le fonctionnement en régime pulsé en utilisant le courant bootstrap mène à un design avec un plus grand rapport d'aspect.
+La condition \ref{eq:eviter_disruption} pour éviter les disruptions implique un plus grand champ magnétique toroïdal.
+Cela demande alors le développement d'aimants supraconducteurs avancés.
+Il est aussi préférable d'avoir un courant plus faible pour augmenter la fraction que représente le courant bootstrap.
+La possibilité d'avoir un courant plus faible dépend des améliorations de confinement, soit par l'amélioration du facteur \( H \), soit avec une amélioration avec un rapport d'aspect plus grand.
+
+\subsubsection*{Puissance du réacteur}
+
+La densité de puissance thermonucléaire pour des densités de deutérium et de tritium égales est donné par l'\autoref{eq:puisance_thermonucleaire_2} et puissance totale du réacteur est donc
+
+\begin{equation}
+	P = \frac{\pi}{2} \mathscr{E}\int n^2 \sigmav R \dd S
+	\label{eq:puissance_thermonucleaire_totale}
+\end{equation}
+
+où \( \dd S \) est un élément de surface d'une section poloïdale.
+Cette puissance peut-être calculée numériquement pour n'importe quel cas particuler, mais il est instructif d'obtenir une expression analytique en faisant des approximations.
+La géométrie est simplifiée en prenant \( R \) comme la valeur centrale, et le plasma allongé est représenté par un plasma circulaire équivalent avec un rayon \( \overline{a} = (ab)^{1/2}\).
+L'\autoref{eq:puissance_thermonucleaire_totale} devient alors
+
+\begin{equation}
+	P = \pi^2 R \mathscr{E} \int_0^{\overline{a}} n^2 \sigmav r \dd r
+	\label{eq:puissance_totale_simplifie}
+\end{equation}
+
+Pour les températures d'intérêt, \( \sigmav \) est bien représenté par l'\autoref{eq:sigma_v_constant}.
+En utilisant cette approximation  et en prenant un profil de pression de la forme
+
+\begin{equation}
+	n T = \hat{n} \hat{T} \left( 1 - \frac{r^2}{\overline{a}^2} \right)^v
+	\label{eq:density_temperature_profil}
+\end{equation}
+
+l'\autoref{eq:puissance_totale_simplifie} donne
+
+\[
+	P = \frac{0.15}{2v + 1} R a b \left( \frac{\hat{n}}{10^{20}} \right)^2 \hat{T}^2 \SI{}{\mega\watt}, \quad \hat{T} \text{en} \SI{}{\kilo\electronvolt}.
+\]
+
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[l]{0.35\textwidth}
+        \caption{Graphique donnant la dépendance de la puissance thermonucléaire à la densité maximale \( \hat{n} \) et l'index de la forme du profil de densité \( v \) pour deux taille de réacteur avec \( \hat{T} = \SI{20}{\kilo\electronvolt} \).}
+        \label{fig:puissance_dependance}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter1/power_density.pdf}
+    \end{minipage}
+\end{figure}
+
+Les graphiques de cette puissance en fonction de \( \hat{n}^2/(2v+1) \) sont montrés dans la \autoref{fig:puissance_dependance} pour les cas \( R = \SI{9}{\meter}, a = \SI{3}{\meter}, b=\SI{5}{\meter} \) et \( R = \SI{6}{\meter}, a = \SI{2}{\meter}, b=\SI{3.3}{\meter} \), en prenant \( \hat{T} = \SI{20}{\kilo\electronvolt} \).
+On voit que la puissance produite est de l'ordre du \( \SI{}{\giga\watt} \).
+La valeur exacte est sensible au profil de pression et de densité, qui sont tous deux contraints par des considérations de stabilité, comme discuté dans les \color{red}{chapitres 6 et 7 (lien à rajouter quand elle sera faite)}\color{black}.
+
+\subsubsection*{Impuretés}
+
+Un des problèmes les plus importants pour un réacteur est la présence d'impuretés dans le plasma.
+Il y a deux types d'impuretés.
+Premièrement, les impuretés provenant des ions issus des surfaces solides et deuxièmement, les particules-\( \alpha \), \( ^4\text{He} \), qui viennent des réactions de fusion..
+Le design du réacteur doit minimiser l'arrivée d'impuretés, mais, clairement, la présence de particules-\( \alpha \) est intrinsèque au fonctionnement du tokamak.
+Il faudrait alors que les "cendres d'hélium" aient un temps de confinement suffisamment court dans le plasma.
+
+Les impuretés issues des parois produisent des espèces partiellement ionisées qui mènent à des pertes d'énergie du plasma par rayonnement.
+Ceci est expliqué quantitativement dans la \color{red}{section 4.25 (lien à rajouter quand elle sera faite)}\color{black}.
+Il y a, de plus, le problème de la dilution du combustible.
+Chaque ion est associé à un nombre d'électrons libres déterminé par son degré d'ionisation.
+Ces électrons, issus des impuretés, auront la même température que le plasma, et, pour une energie de confinement du plasma donnée, peut être vu comme ayant déplacé les ions du carburant de deutérium et de tritium.
+Un atome métallique lourd pour libérer des dizaines d'électrons dans le centre du plasma.
+
+Le contrôle de l'arrivée d'impureté dépend du bon design à la fois de la structure magnétique et aussi des matériaux de surface recevant l'énergie en provenance du plasma.
+Actuellement, on estime que cela demande un divertor magnétique.
+Le but du divertor est de guider les particules sortantes vers une surface cible bien séparée du plasma et de limiter le reflux d'impuretés.
+Un problème difficile avec les divertors est de limiter la densité de puissance arrivant sur la surface cible.
+Ceci est nécessaire pour éviter les hautes températures de surface qui peuvent mené à la fusion de la surface ou ç la libératio,  d'impuretés catastrophiques par évaporation ou d'autres procedés.
+
+\section{Réserves de carburant}
+\label{sec:reserves_de_carburant}
+
+
 
 \end{document}

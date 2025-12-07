@@ -15,7 +15,7 @@
 			(-\sizex, 1.5*\sizey) -- (-\sizex-\sizex/4, 1.5*\sizey) -- (-\sizex-\sizex/4, -1.5*\sizey) -- (-\sizex, -1.5*\sizey) -- cycle;
 		\draw[pattern=north west lines, pattern color=gray]
 			(-\sizex, 1.5*\sizey) -- (-\sizex-\sizex/4, 1.5*\sizey) -- (-\sizex-\sizex/4, -1.5*\sizey) -- (-\sizex, -1.5*\sizey) -- cycle;
-			\node[anchor=east, align=center] at (-\sizex-\sizex/4, 0)  {\tiny\shortstack{Bobine\\ primaire}};
+			\node[anchor=east, align=center] at (-\sizex-\sizex/4, 0)  {\shortstack{Bobine\\ primaire}};
 			
 		\def\anglein{120}
 		\def\angleout{60}
@@ -66,15 +66,15 @@
 		\draw
 			(2.5, 2.75) --	(2, 2.75) -- (2, 3.25) -- (2.5, 3.25) -- cycle;
 			
-		\node[anchor=west, align=center] at (2.5, 3)  {\tiny\shortstack{Bobines\\ de champ\\ poloïdal}};
+		\node[anchor=west, align=center] at (2.5, 3)  {\shortstack{Bobines\\ de champ\\ poloïdal}};
 			
-		\draw[{Stealth}-] (0,-2.5) -- (1, -3.5) node[below right=-3pt, align=center] {\tiny\shortstack{Bouclier}};
+		\draw[{Stealth}-] (0,-2.5) -- (1, -3.5) node[below right=-3pt, align=center] {\shortstack{Bouclier}};
 		
-		\draw[{Stealth}-] (2.25,0) -- (2.75, 0) node[right=-3pt, align=center] {\tiny\shortstack{Bobine\\ de champ\\ toroïdal}};
+		\draw[{Stealth}-] (2.25,0) -- (2.75, 0) node[right=-3pt, align=center] {\shortstack{Bobine\\ de champ\\ toroïdal}};
 		
-		\draw[{Stealth}-] (1,-1) -- (2.25, -1.75) node[right=-3pt, align=center] {\tiny\shortstack{Couverture}};
+		\draw[{Stealth}-] (1,-1) -- (2.25, -1.75) node[right=-3pt, align=center] {\shortstack{Couverture}};
 		
-		\node[fill=white, text=black, inner sep=2pt] at (0,0) {\tiny Plasma};
+		\node[fill=white, text=black, inner sep=2pt] at (0.15,0) {Plasma};
 	
 	\end{tikzpicture}
 

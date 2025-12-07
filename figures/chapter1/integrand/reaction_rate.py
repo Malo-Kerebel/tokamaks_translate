@@ -1,5 +1,7 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import sys
+if "--no-show" not in sys.argv:
+    import matplotlib.pyplot as plt
 
 from scipy.constants import m_p
 
@@ -31,10 +33,11 @@ for species in ["D_T", "D_D", "D_3He"]:
     for T in E_J:
         y.append(np.sqrt(8/np.pi) * (mu/T)**(3/2) * 1/(m_D*m_D) * np.trapz(cross_section * E_J * np.exp(-mu/m_D * E_J/T), E_J))
 
-    plt.loglog(E_keV, y)
-    plt.xlim(1, 1000)
-    plt.ylim(1e-24, 2e-21)
-
     data = np.column_stack((E_keV, y))
     np.savetxt(f"sigma_v_{species}.txt", data)
-    plt.show()
+
+    if "--no-show" not in sys.argv:
+        plt.loglog(E_keV, y)
+        plt.xlim(1, 1000)
+        plt.ylim(1e-24, 2e-21)
+        plt.show()
