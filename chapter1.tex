@@ -589,7 +589,7 @@ La condition de la stabilité est donc
     \end{minipage}
 \end{figure}
 
-\clearpage
+\FloatBarrier
 \section{Tokamaks}
 \label{sec:tokamaks}
 
@@ -984,9 +984,79 @@ Le but du divertor est de guider les particules sortantes vers une surface cible
 Un problème difficile avec les divertors est de limiter la densité de puissance arrivant sur la surface cible.
 Ceci est nécessaire pour éviter les hautes températures de surface qui peuvent mené à la fusion de la surface ou ç la libératio,  d'impuretés catastrophiques par évaporation ou d'autres procedés.
 
-\section{Réserves de carburant}
-\label{sec:reserves_de_carburant}
+\section{Réserves de combustible}
+\label{sec:reserves_de_combustible}
 
+Il y a deux questions fondamentales pour évaluer la disponibilité des réserves en combustible pour un réacteur à fusion.
+La première concerne la taille des réserves naturelles pour le combustible de base et la deuxième, est le coût de production.
+Pour traiter complètement le sujet il faudrait regarder les rézerves en fonction du coût mais dans le contexte actuel ce n'est pas nécessaire.
+Les réponses à ces questions doivent être mises en relation avec les besoins en électricité et le coût de cet électricité.
 
+La consommation mondiale d'énergie primaire est autour de \( \SI{6.5e11}{\giga\joule} \).
+La demande mondiale d'électricité est autour de \( \SI{1e11}{\giga\joule} \).
+Le prix moyen de l'électricité sur les marché de gros est autour de \( 16 \text{€} \) par \( \SI{}{\giga\joule} \).
+
+L'abondance naturelle du deutérium parmi l'hydrogène est d'une part par \( 6700 \). La masse d'eau dans les océans est de \( \SI{4e16}{\kilogram} \).
+Dans des réacteurs de D-T avec une efficacité de \( 1/3 \) cela permettrait une production de \( \left( \SI{4e16}{}/m_{\text{D}} \right) \left( 17.6/3 \right) \SI{}{\mega\electronvolt} \), ou \( \SI{e22}{\giga\joule} \) (el).
+Ce qui correspond à environ \( 10^{11} \) années de la consommation d'électricité mondiale.
+Il n'y a clairement aucun problème avec les ressources en deutérium.
+
+Le coût du deutérium est de l'ordre de \( 1 \)€ par gramme.
+Un gramme de deutérium produit \( \left( \SI{e-3}{}/m_{\text{D}} \right) \left( 17.6/3 \right) \SI{}{\mega\electronvolt} \), ou \( \SI{300}{\giga\joule} \) (el).
+La contribution du deutérium dans le coût est donc de \( 0.003 \)€ par \( \SI{}{\giga\joule} \) (el), ce qui est négligeable par rapport au prix de l'électricité de \( 16 \text{€} \) par \( \SI{}{\giga\joule} \).
+
+Pour le tritium la situation est plus complexe.
+Le tritium a une demi-vie de seulement \( 12.3 \) abs et est pratiquement inexistant  dans la nature.
+Cependant, le tritium peut-être obtenu en utilisant la fission induite par neutron du lithium.
+
+\begin{align*}
+	&^6\text{Li} + \text{n} \rightarrow \text{T} + {}^4\text{He} + \SI{4.8}{\mega\electronvolt}\\
+	&^6\text{Li} + \text{n} \rightarrow \text{T} + {}^4\text{He} + \text{n} - \SI{2.5}{\mega\electronvolt}
+\end{align*}
+
+Les abondances sont de \( \SI{7.4}{\percent} {}^6\text{Li} \) et \( \SI{92.6}{\percent} {}^7\text{Li} \).
+Avec ce système, les combustibles de base sont le deutérium et le lithium.
+
+C'est principalement le \( ^6\text{Li} \) qui est consommé dans la couverture, et l'énergie potentiellement disponible dans \( \SI{1}{\kilogram} \) de \( ^6\text{Li} \) est d'environ \( \SI{22}{\mega\electronvolt} / m_{^6\text{Li}} \) ou \( \SI{3e5}{\giga\joule} \).
+Avec une efficacité de conversion en électricité de \( 1/3 \) cela donne \( \SI{1e5}{\giga\joule}(\text{el}) \).
+Donc, en prenant en compte l'abondance naturelle du \( ^6\text{Li} \), \( \SI{1}{\kilogram} \) de lithium fournirait autour de \( \SI{7e3}{\giga\joule}(\text{el}) \).
+Le coût du lithium est de l'ordre de \( 20\text{€} \) par \( \SI{}{\kilogram} \) et donc la contribution du lithium dans le coût du combustible est de ùoins de \( 0.001\text{€} \) par \( \SI{}{\giga\joule}(\text{el}) \).
+Ce coût est très faible comparé au prix de l'électricité et même une forte augmentation du prix du lithium resterait acceptable avant que cela ne devienne un facteur important.
+
+Les réserves mondiales de lithium au prix actuel sont estimés à \( \SI{30e9}{\kilogram} \).
+Cette quantité de lithium pourrait produire \( \left( \SI{30e9}{\kilogram} \right) \left( \SI{7e3}{\giga\joule (el)\per\kilogram)} \right) \simeq \SI{2e14}{\giga\joule (el)} \) ce qui est de l'ordre de \( 300 \) ans de la demande d'énergie primaire actuelle.
+Il n'est donc pas iiraisonable de supposer que les réserves mondiales de lithium pourrait permettre de générer un centaines de fois la demande annuelle totale d'énergie, même si on suppose un prix très bas du lithium.
+
+\begin{table}
+
+	\centering
+
+	\caption{Estimation des réserves mondiales d’énergie. Les valeurs indiquées sont uniquement approximatives, elles dépendent notamment des prix du marché et restent incertaines en raison d’une prospection géologique incomplète.}
+
+	\begin{tabular}{>{\raggedright\arraybackslash}p{0.35\linewidth} >{\raggedleft\arraybackslash}p{0.15\linewidth} >{\raggedright\arraybackslash}p{0.2\linewidth}}
+	\hline
+	& Gigajoules (\( 10^9 \) joules) & Années de consommation annuelle d'énergie\\
+	\hline
+	Consommation annuelle d'énergie primaire & \( \SI{6.5e11}{} \) & \( 1 \) an\\
+	\textbf{Ressources} & & \\
+	Charbon & \( \SI{2.3e14}{} \) & \( 350 \) ans  \\
+	Pétrole & \( \SI{9e12}{} \)  & \( 14 \) ans \\
+	Gaz fossile & \( \SI{8e12}{} \)  & \( 12 \) ans  \\
+	Uranium~235 & \( \SI{4e12}{} \)  & \( 6 \) ans  \\
+	Uranium~238 et Thorium~232 (surgénération) & \( \SI{1e15}{} \)   & \( 1745 \) ans  \\
+	Lithium (fusion D-T) &  &   \\
+	 \quad Terrestre & \( \SI{2e14}{} \)  & \( 323 \) ans  \\
+	 \quad Océans & \( \SI{1e18}{} \)  & \( \SI{2e6}{} \) ans  \\	
+	\end{tabular}
+	
+	\label{tab:ressources}
+
+\end{table}
+
+Pour comparer ces chiffres avec l'énergie disponible grâce à d'aures combustibles, le \autoref{tab:ressources} donne un résumé des estimations des réserves de ces différentes ressources.
+
+\FloatBarrier
+\section{Économie des tokamaks}
+\label{sec:economie_tokamak}
 
 \end{document}
