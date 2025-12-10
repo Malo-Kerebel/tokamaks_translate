@@ -1059,4 +1059,91 @@ Pour comparer ces chiffres avec l'énergie disponible grâce à d'aures combusti
 \section{Économie des tokamaks}
 \label{sec:economie_tokamak}
 
+L’objectif de la recherche sur les tokamaks est de construire un système de production d’électricité fiable. 
+À mesure que l’on s’en approche, les questions économiques deviennent de plus en plus importantes.
+La question ultime est de déterminer si un réacteur tokamak sera compétitif par rapport aux autres systèmes de production d’électricité, en particulier ceux basés sur des combustibles fossiles ou fissiles. 
+Cela soulève la question du coût d’un tel réacteur et de son environnement économique futur.
+Il n’existe pas de réponse définitive aujourd’hui, mais il est possible d’aborder ces problématiques.
+
+Le coût d’une centrale électrique comporte deux composantes principales.
+La première est la production de chaleur, qui dépend du combustible utilisé.
+La seconde est la conversion de cette chaleur en électricité, réalisée par un ensemble de turbines et de générateurs.
+Dans le cas d’une centrale à fusion, le coût du réacteur lui-même domine largement par rapport à celui d’une centrale conventionnelle.
+
+\begin{table}
+
+\centering
+
+\caption{Composition des coûts possibles pour un tokamak réacteur. Les coûts indirects proviennent principalement des intérêts, et pour les centrales conventionnelles le plus grand coût est celui des turbogénérateurs. Le coût de la couverture est celui de la première installation, plusieurs remplacements seraient nécessaires dans la vie d'un réacteur.}
+
+\begin{tabular}{l c}
+\hline
+\textbf{Coûts totaux} & \\
+\tikzmark{CDhaut} Coûts directs & \( \SI{65}{\percent} \) \\
+Coûts indirects & \( \SI{25}{\percent} \) \\
+Marge pour aléas & \( \SI{10}{\percent} \) \\
+\cline{2-2} & \( \SI{100}{\percent} \) \\
+\tikzmark{CDbas} \textbf{Coûts directs} & \\
+\tikzmark{reacteur} Réacteur & \( \qtyrange[range-units=single,range-phrase=-]{50}{60}{\percent} \) \\
+ Centrale conventionnelle &  \( \qtyrange[range-units=single,range-phrase=-]{35}{30}{\percent} \) \\
+ Structures & \( \qtyrange[range-units=single,range-phrase=-]{15}{10}{\percent} \) \\
+\cline{2-2} & \( \SI{100}{\percent} \) \\
+\tikzmark{coutreacteur}\textbf{Coûts du réacteur} & \\
+Bobines & \( \SI{30}{\percent} \) \\
+Bouclier & \( \SI{10}{\percent} \) \\
+Couverture & \( \SI{10}{\percent} \) \\
+Échangeur de chaleur & \( \SI{15}{\percent} \) \\
+Chauffage externe & \( \SI{15}{\percent} \) \\
+Autres composants & \( \SI{20}{\percent} \) \\
+\cline{2-2}  & \( \SI{100}{\percent} \) \\
+\hline
+\end{tabular}
+
+\begin{tikzpicture}[remember picture, overlay]
+    \draw[->, thick]
+        ([yshift=1mm]pic cs:reacteur) to [out=180, in=180] ([yshift=1mm]pic cs:coutreacteur);
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture, overlay]
+	\draw[->, thick]
+        ([yshift=1mm]pic cs:CDhaut) to [out=180, in=180] ([yshift=1mm]pic cs:CDbas);
+\end{tikzpicture}
+
+\label{table:couts}
+\end{table}
+
+Le coût des composants est fortement corrélé à la taille, et donc aux dimensions du réacteur.
+Pour un réacteur donné, le volume du blanket est déterminé par l’épaisseur nécessaire pour arrêter les neutrons.
+Pour les bobines, la taille dépend de la force magnétique associée aux courants qui les parcourent.
+La chambre à vide doit résister à la pression atmosphérique ainsi qu’aux forces induites par d’éventuels changements rapides du courant plasma.
+S’ajoutent enfin les coûts liés aux générateurs nécessaires pour alimenter les bobines et au système de chauffage du plasma.
+Le \autoref{table:couts} présente une estimation actuelle de la répartition de ces coûts.
+
+Pour pouvoir comparer le coût de l'électricité produite par un tokamak avec celle produite par d'autres systèmes, il est nécessaire de connaître le coût du réacteur.
+Des estimations des coûts ont été faites pour plusieurs designs de réacteur avec une variété de résultats.
+Celles-ci se situent généralement entre \( 1 \) et \( 3 \) fois le coût d'un  réacteur à fission comparable.
+Pour faire ces estimations il y a des attentes de progrès technologiques et aussi un sur-optimisme compréhensible.
+
+Une autre information est donnée par le projet ITER ou International Thermonuclear Experimental Reactor (Réacteur Thermonucleaire Expérimental International) qui est conçu pour atteindre l'ignition.
+Son coût estimé était de \( \approx 6 \) milliards de \$(1989).
+Puisque le coût est lié à un projet existant, il est raisonnable de le prendre au sérieux \footnote{Le coût d'ITER a dépassé \( 25 \) milliards de \$(2018).}.
+Un réacteur thermonucléaire de cette taille produirait plusieurs gigawatts thermiques.
+
+Le coût du capital actuel pour une centrale à fission est autour de 0.7 milliard de \$ par gigawatt thermique.
+Cependant, une comparaison n'est pas évidente puisque ITER serait le premier tokamak réacteur expérimental tandis que les réacteurs à fission ont eu des décennies de développement.
+
+L'autre problématique économique est l'environnement économique qu'un futur tokamak réacteur devra affronter.
+Les prévisions ont tendance à placer le premier réacteur commercial dans la seconde moitié du \( 21^e \) siècle.
+Il est dur de prédire comment la situation économique aura évolué d'ici là.
+Les inquiétudes vis à vis de la pollution et des émissions de \( \text{CO}_2 \) des énergies fossiles et les possibles accidents nucléaires et la production de déchets radioactifs des centrales à fission pourraient rendre ces centrales innacceptable ou le coût des modifications nécessaire pour les rendre acceptables rendraient les réacteurs à fusion  plus compétitifs.
+
+Peut-être qu'une vue raisonnable de la situation est qu'un réacteur tokamak semble coûteux, mais étant donné le faible prix d'un programme de développement d'un tokamak par rapport aux dépenses mondiales de production d'électricité, les bénéfices possibles peuvent justifier ce programme.
+Il est bon de rappeler que notre incapacité  à prévoir l'avenir est bien établie.
+
+\FloatBarrier
+\section{Recherche sur les tokamaks}
+\label{sec:recherhce_tokamak}
+
+
+
 \end{document}
