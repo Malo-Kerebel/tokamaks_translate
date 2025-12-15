@@ -7,4 +7,4 @@ Les figures des différents chapitres se trouve dans les sous dossier figures/ch
 Des bibliothèques python standarts sont nécessaires, numpy et sys, et lualatex est nécessaire pour certaines figures.
 Vous pouvez aussi executer manuellement les codes python dans ce cas la bibliothèque matplotlib sera nécessaire, ou bien vous pouvez executer avec l'option --no-show.
 
-Une fois les figures compilées, chaque chapitre peut-être compilé individuellement avec "pdflatex chapitreN.tex" (où N edt le numéro du chapitre) ou alors le livre entier peut-être compilé avec "pdflatex main.tex"
+Une fois les figures compilées, chaque chapitre peut-être compilé individuellement avec "pdflatex chapitreN.tex" (où N edt le numéro du chapitre) ou alors le livre entier peut-être compilé avec "pdflatex main.tex". À noter que chapitre1.tex a besoin du package texlive-langcyrillic.

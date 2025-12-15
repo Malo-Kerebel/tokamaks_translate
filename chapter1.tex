@@ -162,7 +162,7 @@ et \( f_1 \) et \( f_2 \) sont les fonctions de distribution.
 Si les distributions sont Maxwelliennes
 
 \[
-	f_j\left( v_j \right) = nèj \left( \frac{m_j}{2 \pi T} \right)^{3/2} \exp - \frac{m_jv_j^2}{2T},
+	f_j\left( v_j \right) = n_j \left( \frac{m_j}{2 \pi T} \right)^{3/2} \exp - \frac{m_jv_j^2}{2T},
 \]
 
 Le taux de réaction total par unité de volume 
@@ -350,7 +350,7 @@ Et le chauffage par particules \( \alpha \) total est
 Dans le bilan de puissance global la perte de puissance est compebsé par un chauffage externe et la puissance des particules \( \alpha \). Autrement dit
 
 \[
-	P_H + Pè\alpha = P_L
+	P_H + P_\alpha = P_L
 \]
 
 et en utilisant les équations \ref{eq:puissance_totale}, \ref{eq:perte_energie} et \ref{eq:chauffage_total}, ce bilan est donné par 
@@ -415,7 +415,7 @@ Par une heureuse coïncidence pour les calculs, dans le domaine de \( \qtyrange[
 	\label{eq:sigma_v_constant} 
 \end{equation}
 
-en utilisant \( \mathscr{E}ç\alpha = \SI{3.5}{\mega\electronvolt} \), la condition d'ignition devient
+en utilisant \( \mathscr{E}_\alpha = \SI{3.5}{\mega\electronvolt} \), la condition d'ignition devient
 
 \begin{equation}
 	n T \tau_E > \SI{3e21}{\per\meter\cubed\kilo\electronvolt\second}.
@@ -877,7 +877,7 @@ Des facteurs \( H \) de \( 2-3 \) ont été obtenus expérimentallement, et s'il
 Il a été trouvé expérimentallement que pour éviter les disruptions induites par le courant, le champ magnétique toroïdal doit être suffisamment grand pour satisfaire
 
 \begin{equation}
-	\frac{Bç\phi}{B_{\theta s}} \gtrsim 2 \frac{R}{\overline{a}},
+	\frac{B_\phi}{B_{\theta s}} \gtrsim 2 \frac{R}{\overline{a}},
 	\label{eq:eviter_disruption}
 \end{equation}
 
@@ -1144,6 +1144,51 @@ Il est bon de rappeler que notre incapacité  à prévoir l'avenir est bien éta
 \section{Recherche sur les tokamaks}
 \label{sec:recherhce_tokamak}
 
+Le mot \textit{tokamak} a deux étimologies débattues vennant du russe, soit тороидальная камера с магнитными magnetic катушками ("toroidalnaïa kamera s magnitnymi katouchkami' Chambre toroïdale avec bobines magnétiques), soit тороидальная камера с аксиальным магнитным полем ("toroidalnaïa kamera s aksial'nym magnitnym polem" chambre toroïdale avec un champ magnétique axial).
 
+La machine a été inventé en union soviétique, les premiers développements ayant commencé dans les années 1950.
+À cette époque la recherche sur le toroidal pinch configuration été fortement étudiés au Royaume-uni et aux États-Unis.
+L'avantage du tokamak vient simplement de la stabilité augmenté grâce au champ magnétique toroîdal plus important.
+
+Le développement réussi du tokamak est principalement du fai t de l'attention particulière à la réduction des impuretés et la séparation entre le plasma et la chambre à vide grâce à un limiteur.
+Dans les années 1960, cela a mené à des plasma pure comparativement avec des températures d'électron d'environ \( \SI{1}{\kilo\electronvolt} \).
+En 1970, ces résultats sont générallement acceptés et considérés comme significatifs.
+
+Les premiers tokamaks avaient des temps de confinement de l'énergie de quelques millisecondes et des températures d'ion de quelques centaines d'\( \SI{}{\electronvolt} \).
+Dans les années 1970, la priorité a été de savoir si ces conditions pouvaient être améliorées.
+Cette tache a été prises en charge et de nombreux tokamaks ont été construit dans plusieurs pays.
+
+Il est rapidement devenu évident que le confinement de l’énergie est anormal.
+Les pertes d’énergie des électrons dépassent le transport collisionnel d’environ deux ordres de grandeur, et les pertes d’énergie des ions sont également plusieurs fois supérieures au transport collisionnel.
+Ainsi, bien que la théorie collisionnelle prédise que les pertes d’énergie devraient être dominées par la conduction thermique ionique, en pratique les énergies des électrons et des ions sont généralement comparables.
+Donc même si la théorie conditionnelle prédit que le temps de confinement collisionnel décroît comme \( 1/n \), où \( n \) est la densité d'électron, expérimentallement le temps de confinement augmente avec \( n \).
+
+Tandis que les tokamaks plus grands ont été construit, les améliorations attendues du confinement ont été atteinte et des temps de confinement de \( \SI{100}{\milli\second} \) ont été obtenues dès 1980.
+Puisqu'un temps de confinement de l'ordre de la seconde est nécessaire pour un réacteur, il était important de faire la meilleure estimation des conditions nécessaires pour cela.
+Le modèle le plus simple consistent avec les résultats expérimentaux donnait \( \tau_E \approx n a^2 \), où \( a \) est le petit rayon du plasma, et une extrapolation des données expérimentales indiquait qu'un petit rayon \( \sim \SI{2}{meter} \) pourrait être suffisant pour un réacteur.
+
+Ce pré-rtequis sur la taille du plasma semblait acceptable et le design de grands tokamaks expérimentaux ont été fait dans plusieurs pays.
+Le plus grand étant l'expérience collaborative du Joint European Torus (Torus européen commun) JET, ayant un petit rayon de \( \SI{1.5}{\meter} \).
+
+L'autre tâche des années 1970 était l'investigation du chauffage des ions à haute températures.
+Les premières expériences utilisaient uniquement le chauffage ohmique du plasma par le courant toroïdal.
+Malheureusement, le chauffage ohmique perd en efficacité à haute température car la résistance électrique du plasma chute quand la température des électrons augmente, évoluant comme \( T_e^{3/2} \).
+La première méthode de chauffage additionnel à fonctionner avec succès était l'injection de particules neutres.
+Des atomes neutres à haute vitesse sont injecté dans le plasma et donnent leur énergie par des collisions.
+Une autre méthode de chauffage est de lancer des ondes à fréquences radio (RF) dans le plasma de façon à ce qu'elles soient absorbé à des surfaces de résonnance à l'intérieur du plasma.
+Plusieurs fréquences ont été utilisé mais la plus prometteuse était le chauffage par résonnance cyclotron des ions.
+L'injection de neutres et le chauffage RF ont atteinent des températures de plusieurs \( \SI{}{\kilo\electronvolt} \) au début des années 1980.
+
+Les plus hautes températures produitent par les chauffages additionnels ont permis de clarifié la dépendance du temps de confinement à la température.
+Une prédiction théorique basé sur le transport d'énergie par de simples collisions donnerait un confinement qui se dégraderait avec l'augmentation de la densité mais s'améliorerait avec une température plus grande.
+Malheureusement, dans ces plasmas plus chaud, le temps de confinment a été trouvé de décroire avec la densité et la température.
+Lorsque la puissance de chauffage a été applied au plasma, le temps de confinement a chuté.
+Ces résultats étaient décevant mais n'ont pas présenté un obstacle fondamental.
+En utilisant des résultats empiriques donnés par une variété d'expériences, le temps de confinement a été prédit de s'amélioré avec la taille du tokamak et son courant du plasma plus grand.
+
+Une heureuse découverte faite par le tokamak ASDEX était l'existence de mode d'opération du plasma qui ont un plus long temps de confinement que l'opération normale.
+Ce mode est appelé H-mode.
+La transition à ce mode confinement amélioré a été trouvé dans un plasma avec un divertor et à un niveau de chauffage du plasma suffisant.
+La transition apparait brusquement et semble être associé à un confinement amélioré au bord du plasma.
 
 \end{document}
