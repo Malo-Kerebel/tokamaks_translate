@@ -2,6 +2,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{patterns}
+\usetikzlibrary{patterns.meta}
 \usetikzlibrary{arrows.meta}
 
 \begin{document}
@@ -27,7 +28,7 @@
 		
 		\def\sizex{1.5}
 		\def\sizey{1.8}
-		\fill[pattern=north west lines, pattern color=gray]
+		\fill[pattern={Lines[angle=-45,distance=0.5pt,line width=0.2pt]}, pattern color=black]
 			(-\sizex, -\sizey) -- (-\sizex, \sizey) to [out=90, in=\anglein] (\sizex, \sizey) -- (\sizex, \sizey) to [out=\anglein+180, in=\angleout] (\sizex, -\sizey) -- (\sizex, -\sizey) to [out=\angleout+180, in=-90] (-\sizex, -\sizey);
 		\draw
 			(-\sizex, -\sizey) -- (-\sizex, \sizey) to [out=90, in=\anglein] (\sizex, \sizey) -- (\sizex, \sizey) to [out=\anglein+180, in=\angleout] (\sizex, -\sizey) -- (\sizex, -\sizey) to [out=\angleout+180, in=-90] (-\sizex, -\sizey);

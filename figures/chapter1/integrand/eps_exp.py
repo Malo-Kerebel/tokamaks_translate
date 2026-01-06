@@ -1,6 +1,7 @@
 import numpy as np
-
 from scipy.constants import m_p
+
+import sys
 
 m_D = (2 - 0.000994)*m_p
 m_T = (3 - 0.006284)*m_p
