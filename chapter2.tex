@@ -1,0 +1,135 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Physique des plasmas}
+
+\section{Plasma de tokamak}
+\label{sec:plasma_de_tokamak}
+
+Un plasma est un gaz ionisé.
+Complètement ioniséc il est composé uniquement d'ions et d'électrons.
+Ceux-ci ont beaucoup de propriétés d'un gaz normal.
+Par exemple, ils peuvent être décrits par leur densité de particule et leur température.
+Cependant, un plasma a deux propriétés caractéristiques.
+Premièrement, la densité de charges électriques des deux espèces est si grande qu'une séparation notable mène à des forces de restauration très grandes, et par conséquent, les densités d'ions et d'électrons sont pratiquement égales.
+Deuxièmement, un plasma peut conduire un courant électrique du fait d’un mouvement relatif entre les ions et les électrons.
+Dans un tokamak, le courant du plasma produit une part importante du champ magnétique.
+Là où le courant du plasma traverse le champ magnétique, il engendre une force magnétique qui peut équilibrer le gradient de pression du plasma.
+
+Lorsqu'un plasma est dans un champ magnétique, les particules individuelles sont con\-traintes dans leur déplacement.
+Elles sont libres dans la direction parallèle au champ magnétique mais perpendiculairement elles suivent des orbites de Larmor.
+Dans un tokamak, les orbites des ions ont un rayon de quelques millimètres et les orbites des électrons sont plus petites d'un facteur égal à la racine carré du ratio de masse électron-ion.
+Bien que le comportement précis du plasma soit déterminé par le déplacement des particules individuelles dans le champ électromagnétique local, les contraintes sur le déplacement des particules décrites ci-dessus donnent au plasma des propriétés similaires à un fluide sur des échelles supérieures aux rayons de Larmor.
+La majorité de notre compréhension des tokamaks provient de modèles où le plasma est considéré comme un fluide.
+
+La densité de particules dans un tokamak est de l'ordre de \( \sim \SI{e20}{\per\meter\cubed} \) soit environ \( 10^{-5} \) fois la densité de l'atmosphère.
+Les plasmas de tokamaks atteignent généralement des températures de quelques \( \SI{}{\kilo\electronvolt} \), ce qui correspond à plusieurs dizaines de millions de Kelvin.
+C'est de l'ordre de \( 10^5 \) fois la température de l'atmosphère et par conséquent la pression dans un tokamak est comparable à celle de l'atmosphère.
+
+La force de la pression du plasma allant vers l'extérieur est contrebalancée par le champ magnétique.
+Cependant, la densité d'énergie du plasma dans un tokamak est faible comparée à celle du champ magnétique, de l'ordre du pour cent.
+Le champ magnétique principal est le champ toroïdal produit par des bobines au dehors du plasma.
+Le champ poloïdal produit par le courant toroïdal du plasma  est typiquement dix fois inférieur.
+
+De nombreux prpcessus dans les plasmas sont déterminés par les collisions entre les particules.
+Les collisions entre les ions et les électrons donnent lieu à la résistance électrique, qui mène au chauffage ohmique du plasma.
+Les collisions causent aussi le transport des particules et de l'énergie, menant à la perte des deux.
+Typiquement, le temps de collision des ions et dans l'intervalle de \( \qtyrange[range-units=single,range-phrase=-]{1}{100}{\milli\second} \).
+Le temps de collision des électrons est plus petit d'un facteur égal à la racine carrée du ratio de masse entre les ions et les électrons.
+Les temps de collision augmentent avec la température, évoluant comme \( T^{3/2} \).
+Par conséquent, le chauffage ohmique devient moins efficace à haute température.
+D'un autre côté, les pertes collisionnelles du plasma sont réduites.
+
+\begin{table}
+	\centering
+	\caption{Paramètres typiques des tokamaks}
+	\begin{tabular}{l l}
+		\hline
+		Volume du plasma & \( \qtyrange[range-units=single,range-phrase=-]{1}{100}{\meter\cubed} \)\\
+		Masse du plasma totale & \( \qtyrange[range-units=single,range-phrase=-]{e-7}{e-5}{\kilogram} \)\\
+		Densité ionique & \( \qtyrange[range-units=single,range-phrase=-]{e19}{e20}{\per\meter\cubed} \)\\
+		Température & \( \qtyrange[range-units=single,range-phrase=-]{1}{40}{\kilo\electronvolt} \)\\
+		Pression & \( \qtyrange[range-units=single,range-phrase=-]{0.1}{5}{} \) atmosphères\\
+		Vitesse thermique des ions & \( \qtyrange[range-units=single,range-phrase=-]{100}{1000}{\kilo\meter\per\second} \)\\
+		Vitesse thermique des électrons & \( \qtyrange[range-units=single,range-phrase=-]{0.01}{0.1}{c} \)\\
+		Champ magnétique & \( \qtyrange[range-units=single,range-phrase=-]{1}{10}{\tesla} \)\\
+		Courant du plasma total & \( \qtyrange[range-units=single,range-phrase=-]{0.1}{7}{\mega\ampere} \)\\
+		\hline 
+	\end{tabular}
+	\label{table:plasma_parametre}
+\end{table}
+
+Le comportement basique d'un tokamak échappe majoritairement à notre connaissance.
+La perte d'énergie dépasse significativement celle prédite par de simple collisions et cela ne s'explique pas.
+Cette anomalie pourrait venir d'instabilités du plasma à petite échelle.
+
+Les plasmas de tokamaks typiques (\autoref{table:plasma_parametre}) sont loin d'être calmes et de nombreuses instabilités macroscopiques sont observées régulièrement.
+Dans certains cas le plasma s'adapte à l'instabilité et il n'y a pas de détérioration des performances observée.
+Cependant, dans le cas des bien-nommées disruptions de tokamak, les dégâts de l'instabilités sont irréparables.
+
+Ce chapitre donne une introduction à la physique utilisée pour l'analyse et la compréhension des plasmas de tokamaks.
+
+\section{Écrantage de Debye}
+\label{sec:ecrantage_debye}
+
+\begin{wrapfigure}{c}{0.2\textwidth}
+    \centering
+    
+    \includegraphics{figures/chapter2/charge_sheet}
+
+    \caption{Feuilles de charges ioniques et électroniques séparées par une distance \( d \)}
+    \label{fig:charge_sheet}
+\end{wrapfigure}
+
+La densité de charge électrique des ions et des électrons séparés composant un plasma est assez grande pour que seulement une faible séparation des charges ne soit possible.
+Cet effet peut être interprété en imaginant la séparations des ions et des électrons en feuilles d'une épaisseur \( d \) comme montré dans la \autoref{fig:charge_sheet}.
+
+Si les ions sont simplement ionisés et que la densité des ions et des électrons est \( n \), la charge par unité de surface des feuilles est \( dne \).En ignorant les facteurs numériques le champ électrique entre les feuilles est \( \sim dne/\varepsilon_0 \) et la force par unité de surface est 
+
+\begin{equation}
+	F \sim \frac{\left( dne \right)^2}{\varepsilon_0}.
+	\label{eq:force_unite_surface}
+\end{equation}
+
+Dans un tokamak, la densité \( n \) est autour de \( \SI{e20}{\per\meter\cubed} \) et pour cette densité on a 
+
+\[
+	F \sim 10^{13} d^2 \SI{}{\newton\per\meter\squared}.
+\]
+
+Par exemple, pour une épaisseur de \( \SI{1}{\centi\meter} \), cela donne une force par unité de surface de \( \SI{e9}{\newton\per\meter\squared} \).
+
+Puisque cette force est si grande par la séparation des charges, les densités d'ions et d'électrons sont tenus quasiment égales au travers du plasma. Ce que l'on appelle la quasi-neutralité et, pour le cas général avec des ions de charge \( Z \), la contrainte s'exprime
+
+\begin{equation}
+	n_e = \sum_i n_i Z_i
+	\label{eq:quasi_neutral}
+\end{equation}
+
+où la somme se fait sur les différentes espèces d'ions.
+
+Il est à noter que l'\autoref{eq:quasi_neutral} ne veut pas dire que \( \nabla \cdot E = 0 \); l'\autoref{eq:quasi_neutral} est presque, mais pas totalement, exacte et les petite différences de charges donnent lieu à des champs électriques significatifs.
+Donc le champ électrique ne peut pas être déterminé par l'\autoref{eq:quasi_neutral}.
+D'un autre côté, étant donné le champ électrique \( E \), la densité de charges \( \rho_c \) est déterminé par \( \nabla \cdot E = \rho_c/\varepsilon_0 \).
+
+On voit dans l'\autoref{eq:force_unite_surface} que la force décroit avec la baisse de la distance de séparation.
+L'argument pour justifier la quasi-neutralité est donc invalide à des échelles suffisamment petite.
+Il est alors possible d'obtenir une longueur fondamentale caractérisant un plasma en calculant l'épaisseur \( d \) pour laquelle l'énergie interne du plasma pourrait fournir l'énergie pour une séparation complète des ions et des électrons comme montré dans la \autoref{fig:charge_sheet}.
+L'énergie requise est \( F d \), la force \( F \) étant donnée par la relation \ref{eq:force_unite_surface} et l'énergie interne est \( \sim dn T \) . En mettant ces deux énergies égales, on obtient la longueur caractéristique \( \lambda_D \) où
+
+\begin{align}
+	\lambda_D &= \left( \frac{\varepsilon_0 T}{n e^2} \right)^{1/2} \nonumber \\
+	&= 2.35 \times 10^5 \left( \frac{T}{n} \right)^{1/2} \SI{}{\meter}, \quad T \text{en} \SI{}{\kilo\electronvolt}.
+	\label{eq:longueur_debye}
+\end{align}
+
+Cette longueur est appelée longueur de Debye.
+Dans un plasma de tokamak typique \( \lambda_D \) est de l'ordre de \( \qtyrange[range-units=single,range-phrase=-]{e-2}{e-1}{\milli\meter}  \).
+
+Même si la séparation de charge décrite au dessus est énergétiquement possible au-delà de la longueur de Debye, cela ne se produit évidemment pas de façon spontanée dans le corps du plasma parce que la vitesse des particules est aléatoire et la coherence du mouvement des particules requise pour ce déplacement imaginé ne se produit pas.
+Une situation où une séparation de charge notable se produit est lorsque le plasma est en contact avec une surface solide.
+La séparation de charge apparait alors dans une gaine proche de la surface, et cette gaine a une épaisseur \( \sim \lambda_D \).
+La longueur de Debye apparait aussi de façon plus subtile dans le plasma, caractérisant un phénomène que l'on appelle écrantage de Debye.
+
+\end{document}
