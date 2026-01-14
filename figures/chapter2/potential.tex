@@ -1,0 +1,46 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % Optionnel : pour la langue française
+\usepackage{siunitx}
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel={\( r/\lambda_D \)},
+        ylabel={\( \phi \) },
+        xmin=0, xmax=2.05,
+        ymin=0, ymax=1e-4,
+        xtick={0, 1, 2},
+        ytick=\empty,
+        scaled x ticks=false,
+        grid=both,
+        grid style={line width=.1pt, draw=gray!10},
+        major grid style={line width=.2pt,draw=gray!50},
+        legend pos=north west,
+        tick label style={font=\scriptsize},
+        legend style={font=\scriptsize}
+    ]
+
+    % Courbe pour phi écranté
+    \addplot[
+        domain=0:2.05,
+        color=black,
+        thick
+    ]
+    table [header=false] {shielding/potential_shield.dat};
+    \node[anchor=east] at (0.7, 1.5e-5) {Écranté};
+    
+    % Courbe pour phi sans écrantage
+    \addplot[
+        domain=0:2.05,
+        color=black!70,
+        thick
+    ]
+    table [header=false] {shielding/potential.dat};
+    \node[anchor=south west] at (0.9, 2.9e-5) {Non écranté};
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}
