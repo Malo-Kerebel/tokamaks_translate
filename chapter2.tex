@@ -2,6 +2,7 @@
 
 \begin{document}
 
+\setcounter{chapter} {1}
 \chapter{Physique des plasmas}
 
 \section{Plasma de tokamak}
@@ -131,5 +132,70 @@ Même si la séparation de charge décrite au dessus est énergétiquement possi
 Une situation où une séparation de charge notable se produit est lorsque le plasma est en contact avec une surface solide.
 La séparation de charge apparait alors dans une gaine proche de la surface, et cette gaine a une épaisseur \( \sim \lambda_D \).
 La longueur de Debye apparait aussi de façon plus subtile dans le plasma, caractérisant un phénomène que l'on appelle écrantage de Debye.
+
+Si on considère un ion simplement ionisé dans un plasma, le champ électrique de l'ion est alors
+
+\[
+	E = \frac{e}{4\pi \varepsilon_0 r^2d}.
+\]
+
+Bien que ce champ électrique soit directement associé à cet ion, les autres particules dans le plasma s'ajustent à ce champ, et la distribution résultante de leurs charges écrante la charge de l’ion et modifie le champ électrique effectif.
+Les trajectoires des électrons proches de l'ion sont légèrement déplacées vers l'ion et les trajectoires des autres ions sont légèrement déplacées à l'opposé de celui-ci.
+L'écrantage apparait pour chaque ion et l'effet inverse aussi pour chaque électron.
+Ce comportement est similaire à celui observable dans les électrolytes.
+Ce cas a été analysé par Debye et cet écrantage porte donc son nom.
+
+La forme de l'écrantage peut être calculé pour un ion stationnaire en résolvant l'équation de Poisson pour le potentiel \( \phi \).
+En géométrie sphérique l'équation est
+
+\begin{equation}
+	\frac{1}{r^2} \frac{\dd}{\dd r}r^2 \frac{\dd \phi}{\dd r} = - \frac{\rho_c}{\varepsilon_0},
+	\label{eq:poisson}
+\end{equation}
+
+où la densité de charge \( \rho_c = \sum_j n_j e_j \). Les ions et les électrons vont chacun avoir une distribution de Boltzmann dans le potentiel, et donc leur densité \( n_j \) sera donnée par
+
+\begin{equation}
+	n_j = n_0 \exp - \frac{e_j \phi}{T},
+	\label{eq:Boltzmann_densite}
+\end{equation}
+
+\( n_0 \) étant la densité d'électrons, et d'ions, à une grande distance de l'ion choisi, où le potentiel est pris égal à \( 0 \).
+Donc en prenant l'\autoref{eq:Boltzmann_densite} dans l'\autoref{eq:poisson} et en prenant des ions simplement ionisés
+
+\begin{equation}
+	\frac{1}{r^2} \frac{\dd}{\dd r}r^2 \frac{\dd \phi}{\dd r} = - \frac{n_0 e}{\varepsilon_0} \left( e^{-e\phi / T} - e^{e\phi/T} \right).
+	\label{eq:poisson_boltzmann}
+\end{equation}
+
+Il sera trouvé que \( e\phi/T \ll 1\) et en anticipant ce résultat, l'\autoref{eq:poisson_boltzmann} devient
+
+\begin{equation}
+	\frac{1}{r^2} \frac{\dd}{\dd r}r^2 \frac{\dd \phi}{\dd r} = \frac{2 n_0 e^2}{\varepsilon_0 T} \phi.
+	\label{eq:poisson_ephi_T_1}
+\end{equation}
+
+En prenant le produit \( \left( r \phi \right) \) en variable, l'\autoref{eq:poisson_ephi_T_1} peut être écrite
+
+\[
+	\frac{\dd^2}{\dd r^2} \left( r \phi \right) = \frac{2}{\lambda_D^2} \left( r \phi \right)  
+\]
+
+et la solution qui décroit pour un grand \( r \) est
+
+\begin{equation}
+	\phi = \alpha \frac{1}{r} e^{-\sqrt{2} r / \lambda_D}
+	\label{eq:solution_phi_alpha}
+\end{equation}
+
+où \( \alpha \) est une constante. Puisque \( \phi = e/4\pi \varepsilon_0 r \) lorsque \( r \rightarrow 0 \), l'\autoref{eq:solution_phi_alpha} devient
+
+\begin{equation}
+	\phi = \frac{e}{4\pi\varepsilon_0 r} e^{-\sqrt{2} r / \lambda_D}
+	\label{eq:solution_phi}
+\end{equation}
+
+Cette équation décrit l'écrantage de Debye.
+Il est visible que le potentiel \( e/4\pi \varepsilon_0 r \) de l'ion est écranté selon un facteur exponentiel, la longueur caractéristique de l'écrantage étant la longueur de Debye
 
 \end{document}
