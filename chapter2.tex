@@ -195,7 +195,53 @@ où \( \alpha \) est une constante. Puisque \( \phi = e/4\pi \varepsilon_0 r \) 
 	\label{eq:solution_phi}
 \end{equation}
 
+\begin{wrapfigure}{c}{0.3\textwidth}
+    \centering
+    
+    \includegraphics{figures/chapter2/potential}
+
+    \caption{Tracés du potentiel écranté et non-écranté autour d'un ion.}
+    \label{fig:potential}
+\end{wrapfigure}
+
 Cette équation décrit l'écrantage de Debye.
 Il est visible que le potentiel \( e/4\pi \varepsilon_0 r \) de l'ion est écranté selon un facteur exponentiel, la longueur caractéristique de l'écrantage étant la longueur de Debye
+Les tracés des potentiels écrantés et non-écrantés sont donnés dans la \autoref{fig:potential}.
+
+Avec l'\autoref{eq:solution_phi}, l'approximation \( e\phi/T \ll 1 \) utilisée pour le calcul implique
+
+\begin{equation}
+	r \gg \frac{e^2}{4\pi \varepsilon_0 T}.
+	\label{eq:inegalite_r}
+\end{equation}
+
+L'aspect physique de ce pré-requis peut être visualisé en observant que la plus petite valeur pertinente de \( r \) est de l'ordre de la séparation entre les particules, qui est de \( 1/n^{1/3} \).
+En utilisant cette valeur pour \( r \), l'inégalité \ref{eq:inegalite_r} devient
+
+\[
+	n \lambda_D^3 \gg \left(\frac{1}{4\pi} \right)^{3/2}
+\]
+
+et cette approximation est valide s'il y a beaucoup de particules dans un cube de côté \( \lambda_D \), autrement dit
+
+\begin{equation}
+	n \lambda_D^3 \gg 1.
+	\label{eq:inegalite_nlambda}
+\end{equation}
+
+Dans un plasma de tokamak les valeurs typiques sont de \( n \simeq \SI{e20}{\per\meter\cubed} \) et \( \lambda_D \simeq \SI{e-4}{\meter} \).
+Donc \( n \lambda_D^3 \simeq 10^8\) et l'inégalité \ref{eq:inegalite_nlambda} est satisfaite.
+La valeur \( n \lambda_D^3 \) est appelé le paramètre du plasma.
+
+L'hypothèse que la particule de test soit stationnaire a donné un compte rendu simplifié de l'écrantage.
+En réalité, chaque particule a une vitesse relativement à la vitesse moyenne des particules de fond.
+Quand la particule de test a une vitesse comparable à la vitesse thermique des particules d'écrantage, il y a un délai dans la formation de la charge d'écrantage et seul un écrantage partiel se produit.
+Dans la limite de particules de test très rapides, la réponse de l'écrantage est négligeable et le potentiel associé à la charge de test approche le potentiel non écranté de la forme \( e/4\pi \varepsilon_0 r \).
+
+Le comportement global est tel que chaque particule génère sa propre charge d'écrantage lorsqu'elle se déplace à travers le plasma et cela donne un champ électrique fluctuant.
+Les particules reçoivent aussi de l'énergie du champ électrique et l'équilibre entre ces processus de forçage et d'amortissement donne le spectre thermique des fluctuations électrostatiques
+
+\section{Fréquence plasma}
+\label{sec:frequence_plasma}
 
 \end{document}
