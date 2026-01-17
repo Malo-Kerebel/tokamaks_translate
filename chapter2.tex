@@ -79,14 +79,14 @@ Ce chapitre donne une introduction à la physique utilisée pour l'analyse et la
     
     \includegraphics{figures/chapter2/charge_sheet}
 
-    \caption{Feuilles de charges ioniques et électroniques séparées par une distance \( d \)}
+    \caption{Couches de charges ioniques et électroniques séparées par une distance \( d \)}
     \label{fig:charge_sheet}
 \end{wrapfigure}
 
 La densité de charge électrique des ions et des électrons séparés composant un plasma est assez grande pour que seulement une faible séparation des charges ne soit possible.
-Cet effet peut être interprété en imaginant la séparations des ions et des électrons en feuilles d'une épaisseur \( d \) comme montré dans la \autoref{fig:charge_sheet}.
+Cet effet peut être interprété en imaginant la séparations des ions et des électrons en couches d'une épaisseur \( d \) comme montré dans la \autoref{fig:charge_sheet}.
 
-Si les ions sont simplement ionisés et que la densité des ions et des électrons est \( n \), la charge par unité de surface des feuilles est \( dne \).En ignorant les facteurs numériques le champ électrique entre les feuilles est \( \sim dne/\varepsilon_0 \) et la force par unité de surface est 
+Si les ions sont simplement ionisés et que la densité des ions et des électrons est \( n \), la charge par unité de surface des couches est \( dne \).En ignorant les facteurs numériques le champ électrique entre les couches est \( \sim dne/\varepsilon_0 \) et la force par unité de surface est 
 
 \begin{equation}
 	F \sim \frac{\left( dne \right)^2}{\varepsilon_0}.
@@ -243,5 +243,107 @@ Les particules reçoivent aussi de l'énergie du champ électrique et l'équilib
 
 \section{Fréquence plasma}
 \label{sec:frequence_plasma}
+
+\begin{wrapfigure}{c}{0.4\textwidth}
+    \centering
+    % Réduction du retrait interne du wrap
+    \vspace{-10pt}
+
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chapter2/displaced_electrons.pdf}
+        \caption{}
+        \label{subfig:displaced_electrons}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{{figures/chapter2/displaced_electrons_2.pdf}}
+        \caption{}
+        \label{subfig:displaced_electrons_2}
+    \end{subfigure}
+
+    \caption{(a) Les électrons déplacés créent une force de restauration et une accélération, (b) après un demi cycle, les charges sont interchangées}
+    \vspace{-10pt}
+    \label{fig:displaced_electrons}
+\end{wrapfigure}
+
+Dans la \autoref{sec:ecrantage_debye}, il a été montré qu'un plasma a une longueur caractéristique, la longueur de Debye.
+Un plasma a aussi une fréquence caractéristique.
+Cela peut être compris en considérant une couche déplacée d'électrons comme montré dans la \autoref{subfig:displaced_electrons}.
+Il est admis qu'à cause de la plus grande masse des ions, ils sont stationnaires et ont une densité uniforme.
+Les charges positives dans la figure représentent les défauts d'électrons dans les couches desquelles les électrons ont été déplacés.
+Le champ électrique résultant est montré dans la figure.
+Les électrons sont accélérés par le champ électrique et se déplacent pour annuler la charge positive.
+Au moment de l'annulation, la quantité de mouvement des électrons est maximum et cela permet aux électrons de récréer la séparation des charges, maintenant dans la phase opposée.
+Ce processus est répété et le déplacement des électrons en résultants constitue les oscillations du plasma avec la fréquence plasma caractéristique.
+
+La fréquence plasma peut être calculée en utilisant les équations fluides.
+Pour un plasma froid, l'équation du mouvement pour le fluide électron est
+
+\begin{equation}
+	m_e \frac{\partial v}{\partial t} = - e E
+	\label{eq:motion_electron}
+\end{equation}
+
+et en assumant une oerturbation de la densité faible \( \tilde{n} \), le champ électrique est donné par
+
+\begin{equation}
+	\nabla \cdot E = - \frac{e \tilde{n}}{\varepsilon_0}
+	\label{eq:E_perturbation_faible}
+\end{equation}
+
+Donc en prenant la divergeance de l'\autoref{eq:motion_electron} et en éliminant \( \nabla \cdot E \) en utilisant l'\autoref{eq:E_perturbation_faible}
+
+\begin{equation}
+	m_e \frac{\partial }{\partial t} \nabla \cdot v = \frac{e^2}{\varepsilon_0} \tilde{n}.
+	\label{eq:motion_sans_E}
+\end{equation}
+
+L'équation de continuité est
+
+\[
+	\frac{\partial n}{\partial t} = - \nabla \cdot (nv)
+\]
+
+et la forme linéarisée est
+
+\begin{equation}
+	\frac{\partial \tilde{n}}{\partial t} = -n \nabla \cdot v.
+	\label{eq:forme_linearise}
+\end{equation}
+
+En substituant \( \nabla \cdot v \) de l'\autoref{eq:forme_linearise} dans l'\autoref{eq:motion_sans_E} donne l'équation nécessaire pour les oscillations du plasma
+
+\[
+	\frac{\partial^2 \tilde{n}}{\partial t^2} = - \omega_p^2 \tilde{n}
+\]
+
+où \( \omega_p \) est la fréquence plasma d'un électron
+
+\begin{equation}
+	\omega_p = \left( \frac{n e^2}{\varepsilon_0 m_e} \right)^{1/2}.
+	\label{eq:frequence_plasma}
+\end{equation}
+
+Une fréquence similaire est associée à l'oscillation des ions, la fréquence plasma d'un ion étant
+
+\begin{equation}
+	\omega_{pi} = \left( \frac{n e_i^2}{\varepsilon_0 m_i} \right)^{1/2}
+	\label{eq:frequence_plasma_ion}
+\end{equation}
+
+où \( e_i \) est la charge d'un ion.
+
+La \color{red}{Section 2.25 (lien à rajouter quand elle sera faite)}\color{black} donne un compte rendu plus général des oscillations du plasma et il y est montré que l'\autoref{eq:frequence_plasma} donne la fréquence des ondes du plasma d'électron dans la limite où la longueur d'onde est beaucoup plus grande que la longueur de Debye.
+
+En utilisant des valeurs numériques dans l'\autoref{eq:frequence_plasma}
+
+\[
+	\omega_p = 56.4 n^{1/2} \SI{}{\per\second}.
+\]
+
+Pour un tokamak cette fréquence est très élevée. Par exemple, une densité \( n = \SI{e20}{\per\meter\cubed} \) donne \( \omega_p = \SI{5.6e11}{\per\second} \) avec un temps caractéristique \( \omega_p^{-1} \) inférieur à un centième de nanoseconde.
+
 
 \end{document}
