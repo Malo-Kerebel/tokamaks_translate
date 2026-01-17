@@ -110,9 +110,9 @@ Puisque cette force est si grande par la séparation des charges, les densités 
 
 où la somme se fait sur les différentes espèces d'ions.
 
-Il est à noter que l'\autoref{eq:quasi_neutral} ne veut pas dire que \( \nabla \cdot E = 0 \); l'\autoref{eq:quasi_neutral} est presque, mais pas totalement, exacte et les petite différences de charges donnent lieu à des champs électriques significatifs.
+Il est à noter que l'\autoref{eq:quasi_neutral} ne veut pas dire que \( \nabla \cdot \textbf{E} = 0 \), l'\autoref{eq:quasi_neutral} est presque, mais pas totalement, exacte et les petite différences de charges donnent lieu à des champs électriques significatifs.
 Donc le champ électrique ne peut pas être déterminé par l'\autoref{eq:quasi_neutral}.
-D'un autre côté, étant donné le champ électrique \( E \), la densité de charges \( \rho_c \) est déterminé par \( \nabla \cdot E = \rho_c/\varepsilon_0 \).
+D'un autre côté, étant donné le champ électrique \( \textbf{E} \), la densité de charges \( \rho_c \) est déterminé par \( \nabla \cdot \textbf{E} = \rho_c/\varepsilon_0 \).
 
 On voit dans l'\autoref{eq:force_unite_surface} que la force décroit avec la baisse de la distance de séparation.
 L'argument pour justifier la quasi-neutralité est donc invalide à des échelles suffisamment petite.
@@ -136,7 +136,7 @@ La longueur de Debye apparait aussi de façon plus subtile dans le plasma, carac
 Si on considère un ion simplement ionisé dans un plasma, le champ électrique de l'ion est alors
 
 \[
-	E = \frac{e}{4\pi \varepsilon_0 r^2d}.
+	\textbf{E} = \frac{e}{4\pi \varepsilon_0 r^2d}.
 \]
 
 Bien que ce champ électrique soit directement associé à cet ion, les autres particules dans le plasma s'ajustent à ce champ, et la distribution résultante de leurs charges écrante la charge de l’ion et modifie le champ électrique effectif.
@@ -195,6 +195,7 @@ où \( \alpha \) est une constante. Puisque \( \phi = e/4\pi \varepsilon_0 r \) 
 	\label{eq:solution_phi}
 \end{equation}
 
+\vspace{2\baselineskip}
 \begin{wrapfigure}{c}{0.3\textwidth}
     \centering
     
@@ -244,6 +245,7 @@ Les particules reçoivent aussi de l'énergie du champ électrique et l'équilib
 \section{Fréquence plasma}
 \label{sec:frequence_plasma}
 
+\vspace{2\baselineskip}
 \begin{wrapfigure}{c}{0.4\textwidth}
     \centering
     % Réduction du retrait interne du wrap
@@ -282,18 +284,18 @@ La fréquence plasma peut être calculée en utilisant les équations fluides.
 Pour un plasma froid, l'équation du mouvement pour le fluide électron est
 
 \begin{equation}
-	m_e \frac{\partial v}{\partial t} = - e E
+	m_e \frac{\partial v}{\partial t} = - e \textbf{E}
 	\label{eq:motion_electron}
 \end{equation}
 
 et en assumant une oerturbation de la densité faible \( \tilde{n} \), le champ électrique est donné par
 
 \begin{equation}
-	\nabla \cdot E = - \frac{e \tilde{n}}{\varepsilon_0}
+	\nabla \cdot \textbf{E} = - \frac{e \tilde{n}}{\varepsilon_0}
 	\label{eq:E_perturbation_faible}
 \end{equation}
 
-Donc en prenant la divergeance de l'\autoref{eq:motion_electron} et en éliminant \( \nabla \cdot E \) en utilisant l'\autoref{eq:E_perturbation_faible}
+Donc en prenant la divergeance de l'\autoref{eq:motion_electron} et en éliminant \( \nabla \cdot \textbf{E} \) en utilisant l'\autoref{eq:E_perturbation_faible}
 
 \begin{equation}
 	m_e \frac{\partial }{\partial t} \nabla \cdot v = \frac{e^2}{\varepsilon_0} \tilde{n}.
@@ -345,5 +347,66 @@ En utilisant des valeurs numériques dans l'\autoref{eq:frequence_plasma}
 
 Pour un tokamak cette fréquence est très élevée. Par exemple, une densité \( n = \SI{e20}{\per\meter\cubed} \) donne \( \omega_p = \SI{5.6e11}{\per\second} \) avec un temps caractéristique \( \omega_p^{-1} \) inférieur à un centième de nanoseconde.
 
+\section{Orbites de Larmor}
+\label{sec:orbites_larmor}
+
+L'équation du mouvement d'une particule de masse \( m_j \) et de charge \( e_j \) dans un champ magnétique est
+
+\[
+	m_j \frac{\dd v}{\dd t} = e_j v \times \textbf{B}
+\]
+
+Si le champ magnétique est uniforme et dans la direction \( z \), les composantes de l'équation sont
+
+\begin{align}
+	\frac{\dd v_x}{\dd t} = \omegaç{cj} v_y, \quad \frac{\dd v_u}{\dd t} = -\omega_{cj} v_x, \label{eq:composantes_x_y}\\
+	\frac{\dd v_z}{\dd t} = 0 \label{eq:composante_z}
+\end{align}
+
+où
+
+\[
+	\omega_{cj} = \frac{e_j \textbf{B}}{m_j}
+\]
+
+est la fréquence cyclotron.
+Par l'\autoref{eq:composante_z}, on a que la vitesse dans la direction du champ magnétique est constante.
+La séparation des variables des équations \ref{eq:composantes_x_y} mène à
+
+\[
+	\frac{\dd^2 v_x}{\dd t^2} = -\omega_{cj}^2 v_x, \quad \frac{\dd^2 v_y}{\dd t^2} = -\omega_{cj}^2 v_y,
+\]
+
+et les solutions à ces équations peuvent être écrite
+
+\begin{equation}
+	v_x = v_\perp \sin \omega_{cj} t, \quad v_y = v_\perp \cos \omega_{cj} t.
+	\label{eq:solutions_vx_vy}
+\end{equation}
+
+En utilisant \( v_x = \dd x / \dd t \) et \( v_y = \dd y / \dd t \), les équations \ref{eq:solutions_vx_vy} peuvent être intégrées pour avoir
+
+\begin{equation}
+	x = - \rho_j \cos \omega_{cj} t, \quad y = \rho_j \sin \omega_{cj} t,
+	\label{eq:solution_x_y}
+\end{equation}
+
+où
+
+\[
+	\rho_j = \frac{v_\perp}{\omega_{cj}} = \frac{m_j v_\perp}{e_j \textbf{\textbf{B}}}
+\]
+
+est le rayon de Larmor.
+Donc la particule a une orbite hélicoïdal composée des mouvements circulaires des équations \ref{eq:solution_x_y} et une vitesse constante dans la direction du champ magnétique.
+
+Une particule ayant l'énergie thermique moyenne dans le plan perpendiculaire au champ magnétique a \( v_\perp^2 = 2 v_{Tj}^2 \) où \( \frac{1}{2} m_j v_{Tj}^2 = \frac{1}{2} T_j \).
+Le facteur \( 2 \) apparait à cause des deux degrés de liberté en jeu.
+Donc pour une particule thermique
+
+\begin{equation}
+	\rho_j = \sqrt{2} \frac{m_j v_{Tj}}{\vert e_j \vert \textbf{B}}
+	\label{eq:rayon_larmor}
+\end{equation}
 
 \end{document}
