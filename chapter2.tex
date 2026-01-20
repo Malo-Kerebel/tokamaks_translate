@@ -409,4 +409,57 @@ Donc pour une particule thermique
 	\label{eq:rayon_larmor}
 \end{equation}
 
+En remplaçant par less valeurs numériques de la charge de l'électron \( e = \SI{1.605e-19}{\coulomb} \), de la masse de l'électron \( m_e = \SI{9.11e-31}{\kilogram} \) et de la masse du proton \( m_p = \SI{1.673e-27}{\kilogram} \),ainsi que par \( v_{Tj} = 1.27 \times 10^{-8} \left( T_j / m_j \right)^{1/2} \SI{}{\meter\per\second} \) avec la température exprimée en \( \SI {}{\kilo\electronvolt}\), donne
+
+\[
+	\left. \begin{array}{l l}
+		\text{Électron} & \left\vert \omega_{ce} \right\vert = 1.76 \times 10^{11} B \SI{}{\per\second},\\
+		 & \rho_e = 1.07 \times 10^{-4} T_e^{1/2}/ B \SI{}{\meter},\\
+		 \text{Proton} & \omega_{cp} = 9.58 \times 10^{7} B \SI{}{\per\second},\\
+		  & \rho_p = 4.57\times 10^{-3} T_p^{1/2}/B \SI{}{\meter},\\
+		  \text{Particule } j & \omega_{cj} = 9.58 \times 10^{7} \left( Z/A\right) B \SI{}{\per\second},\\
+		  & \rho_j = 4.57\times 10^{-3} \left(A^{1/2}/Z\right) T_j^{1/2}/B \SI{}{\meter},
+	\end{array} \right\rbrace T \text{in} \SI{}{\kilo\electronvolt},
+\]
+
+où \( Z \) et \( A \) sont la charge et le ombre de masse de la particule \( j \).
+
+\begin{table}
+	\centering
+	\begin{tabular}{llll}
+\hline 
+ & \multicolumn{3}{l}{Champ magnétique}\\ 
+\hline 
+Fréquence & \( 1 \) Tesla & \( 3 \) Teslas & \( 5 \) Teslas \\ 
+\hline 
+\(  \left\vert \omega_{ce} \right\vert (\SI{}{\per\second}) \) & \( \SI{1.76e11}{} \) & \( \SI{5.28e11}{} \) & \( \SI{8.79e11}{} \) \\ 
+\( \omega_{cp} (\SI{}{\per\second}) \) & \( \SI{9.58e7}{} \) & \( \SI{2.87e8}{} \) & \( \SI{4.79e8}{} \) \\ 
+\( f_{ce} ( \SI{}{\giga\hertz}) \) & \( 28 \) & \( 84 \) & \( 140 \) \\ 
+\( f_{cp} ( \SI{}{\giga\hertz}) \) & \( 15 \) & \( 46 \) & \( 76 \) \\ 
+\hline 
+\end{tabular} 
+\caption{Valeur de la fréquence cyclotron \( \omega_c \) et \( f_c( =\vert \omega_c\vert/2\pi) \) pour les électrons et les protons.}
+\label{tab:frequence_larmor}
+\end{table}
+
+\begin{table}
+	\centering
+	\begin{tabular}{l l l l l l}
+	\hline
+	 &Rayon de & Température & & & \\
+	 \hline
+	 \( B \) & Larmor & \( \SI{10}{\electronvolt} \) & \( \SI{100}{\electronvolt} \) & \( \SI{1}{\kilo\electronvolt} \) & \( \SI{10}{\kilo\electronvolt} \)\\
+	 \hline
+	 \( 3 \) & \( \rho_e \) & \( \SI{0.003}{\milli\meter} \) & \( \SI{0.011}{\milli\meter} \) & \( \SI{0.035}{\milli\meter} \) & \( \SI{0.11}{\milli\meter} \)\\
+	 Teslas  & \( \rho_p \) & \( \SI{0.15}{\milli\meter} \) & \( \SI{0.48}{\milli\meter} \) & \( \SI{1.5}{\milli\meter} \) & \( \SI{4.8}{\milli\meter} \)\\
+	 \( 5 \) & \( \rho_e \) & \( \SI{0.002}{\milli\meter} \) & \( \SI{0.007}{\milli\meter} \) & \( \SI{0.021}{\milli\meter} \) & \( \SI{0.67}{\milli\meter} \)\\
+	 Teslas  & \( \rho_p \) & \( \SI{0.09}{\milli\meter} \) & \( \SI{0.29}{\milli\meter} \) & \( \SI{0.91}{\milli\meter} \) & \( \SI{2.9}{\milli\meter} \)\\
+	\end{tabular}
+	\caption{Valeurs du rayon de Larmor, \( \rho \), pour les électrons et les protons ayant une vitesse thermique.}
+	\label{tab:rayon_larmor}
+\end{table}
+
+Le \autoref{tab:frequence_larmor} et le \autoref{tab:rayon_larmor} donent quelques valeurs de \( \omega_c \) et de \( \rho \).
+Il faut noter que le rayon deLarmor d'une particule thermique est parfois défini sans le facteur \( \sqrt{2} \) de l'\autoref{eq:rayon_larmor}. 
+
 \end{document}
