@@ -196,7 +196,7 @@ où \( \alpha \) est une constante. Puisque \( \phi = e/4\pi \varepsilon_0 r \) 
 \end{equation}
 
 \vspace{2\baselineskip}
-\begin{wrapfigure}{c}{0.3\textwidth}
+\begin{wrapfigure}{c}{0.4\textwidth}
     \centering
     
     \includegraphics{figures/chapter2/potential}
@@ -359,7 +359,7 @@ L'équation du mouvement d'une particule de masse \( m_j \) et de charge \( e_j 
 Si le champ magnétique est uniforme et dans la direction \( z \), les composantes de l'équation sont
 
 \begin{align}
-	\frac{\dd v_x}{\dd t} = \omegaç{cj} v_y, \quad \frac{\dd v_u}{\dd t} = -\omega_{cj} v_x, \label{eq:composantes_x_y}\\
+	\frac{\dd v_x}{\dd t} = \omega_{cj} v_y, \quad \frac{\dd v_y}{\dd t} = -\omega_{cj} v_x, \label{eq:composantes_x_y}\\
 	\frac{\dd v_z}{\dd t} = 0 \label{eq:composante_z}
 \end{align}
 
@@ -377,7 +377,7 @@ La séparation des variables des équations \ref{eq:composantes_x_y} mène à
 	\frac{\dd^2 v_x}{\dd t^2} = -\omega_{cj}^2 v_x, \quad \frac{\dd^2 v_y}{\dd t^2} = -\omega_{cj}^2 v_y,
 \]
 
-et les solutions à ces équations peuvent être écrite
+et les solutions à ces équations peuvent être écrites
 
 \begin{equation}
 	v_x = v_\perp \sin \omega_{cj} t, \quad v_y = v_\perp \cos \omega_{cj} t.
@@ -394,11 +394,11 @@ En utilisant \( v_x = \dd x / \dd t \) et \( v_y = \dd y / \dd t \), les équati
 où
 
 \[
-	\rho_j = \frac{v_\perp}{\omega_{cj}} = \frac{m_j v_\perp}{e_j \textbf{\textbf{B}}}
+	\rho_j = \frac{v_\perp}{\omega_{cj}} = \frac{m_j v_\perp}{e_j B}
 \]
 
 est le rayon de Larmor.
-Donc la particule a une orbite hélicoïdal composée des mouvements circulaires des équations \ref{eq:solution_x_y} et une vitesse constante dans la direction du champ magnétique.
+Donc la particule a une orbite hélicoïdale composée des mouvements circulaires des équations \ref{eq:solution_x_y} et une vitesse constante dans la direction du champ magnétique.
 
 Une particule ayant l'énergie thermique moyenne dans le plan perpendiculaire au champ magnétique a \( v_\perp^2 = 2 v_{Tj}^2 \) où \( \frac{1}{2} m_j v_{Tj}^2 = \frac{1}{2} T_j \).
 Le facteur \( 2 \) apparait à cause des deux degrés de liberté en jeu.
@@ -409,7 +409,7 @@ Donc pour une particule thermique
 	\label{eq:rayon_larmor}
 \end{equation}
 
-En remplaçant par less valeurs numériques de la charge de l'électron \( e = \SI{1.605e-19}{\coulomb} \), de la masse de l'électron \( m_e = \SI{9.11e-31}{\kilogram} \) et de la masse du proton \( m_p = \SI{1.673e-27}{\kilogram} \),ainsi que par \( v_{Tj} = 1.27 \times 10^{-8} \left( T_j / m_j \right)^{1/2} \SI{}{\meter\per\second} \) avec la température exprimée en \( \SI {}{\kilo\electronvolt}\), donne
+En remplaçant par les valeurs numériques de la charge de l'électron \( e = \SI{1.605e-19}{\coulomb} \), de la masse de l'électron \( m_e = \SI{9.11e-31}{\kilogram} \) et de la masse du proton \( m_p = \SI{1.673e-27}{\kilogram} \),ainsi que par \( v_{Tj} = 1.27 \times 10^{-8} \left( T_j / m_j \right)^{1/2} \SI{}{\meter\per\second} \) avec la température exprimée en \( \SI {}{\kilo\electronvolt}\), donne
 
 \[
 	\left. \begin{array}{l l}
@@ -422,7 +422,7 @@ En remplaçant par less valeurs numériques de la charge de l'électron \( e = \
 	\end{array} \right\rbrace T \text{in} \SI{}{\kilo\electronvolt},
 \]
 
-où \( Z \) et \( A \) sont la charge et le ombre de masse de la particule \( j \).
+où \( Z \) et \( A \) sont la charge et le nombre de masse de la particule \( j \).
 
 \begin{table}
 	\centering
@@ -459,7 +459,124 @@ Fréquence & \( 1 \) Tesla & \( 3 \) Teslas & \( 5 \) Teslas \\
 	\label{tab:rayon_larmor}
 \end{table}
 
-Le \autoref{tab:frequence_larmor} et le \autoref{tab:rayon_larmor} donent quelques valeurs de \( \omega_c \) et de \( \rho \).
-Il faut noter que le rayon deLarmor d'une particule thermique est parfois défini sans le facteur \( \sqrt{2} \) de l'\autoref{eq:rayon_larmor}. 
+Le \autoref{tab:frequence_larmor} et le \autoref{tab:rayon_larmor} donnent quelques valeurs de \( \omega_c \) et de \( \rho \).
+Il faut noter que le rayon de Larmor d'une particule thermique est parfois défini sans le facteur \( \sqrt{2} \) de l'\autoref{eq:rayon_larmor}. 
+
+\section{Déplacement d'une particule selon \( \textbf{B} \)}
+\label{sec:deplacement_B}
+
+Comme décrit dans la \autoref{sec:orbites_larmor}, le déplacement d'une particule chargée dans un champ magnétique uniforme est composé de deux parties; une orbite circulaire perpendiculaire au champ magnétique et une vitesse uniforme selon le champ.
+Une accélération de la particule selon le champ magnétique est introduite s'il y a un champ électrique parallèle à \( \textbf{B} \) ou un gradient de \( \textbf{B} \) pzrallèle à \( \textbf{B} \).
+
+\subsubsection*{Accélérayion par \( \textbf{E}_\parallel \)}
+
+Un champ électrique parallèle donne simplement une accélération donnée par
+
+\[
+	\frac{\dd}{\dd t} \left( m_j v_\parallel \right) = e_j \mathbf{E_\parallel} 
+\]
+
+si \( \mathbf{E_\parallel} \) est une fonction de \( t \), \( v_\parallel \) est donné par
+
+\[
+	m_j v_\parallel = e_j \int \mathbf{E_\parallel} \dd t.
+\]
+
+Dans certains cas la vitesse résultantes de ces accelérations est relativistique et la masse de la particule est alors liée à la masse au repos \( m_{j0} \) par la relation
+
+\[
+	m_j = \frac{m_{j0}}{\sqrt{1-v^2/c^2}}.
+\]
+
+Si \( \mathbf{E_\parallel} \) est une fonction de la distance \( x_\parallel \) selon la magnitude du champ et du temps, il faut alors résoudre l'équation
+
+\[
+	\frac{\dd}{\dd t} \left( m_j \frac{\dd x_\parallel}{\dd t} \right) = e_j \mathbf{E_\parallel} \left( x_\parallel, t \right).
+\]
+
+\subsubsection*{Accélérayion par \( \nabla_\parallel \mathbf{B} \)}
+
+Une particule chargée se déplaçant parallèlement à un champ magnétique n'est soumise à aucune force magnétique.
+Cependant, si la particule a aussi une vitesse perpendiculaire au champ magnétique et lz champ magnétique a un gradient parallèle à \( \mathbf{B} \), il y a une force parallèle au champ magnétique sur la particule au centre de la gyro-orbite.
+
+\begin{figure}
+\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{Le gradient de \( \mathbf{B} \) parallèle ) \( \mathbf{B} \) fait apparaitre une composante de la force \( e_j \left( \mathbf{v} \times \mathbf{B} \right) \) selon la direction du déplacement du centre guide.}
+        \label{fig:gradB}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \flushright
+        \includegraphics{figures/chapter2/grad_B.pdf}
+    \end{minipage}
+\end{figure}
+
+La géométrie de la situation est montrée dans la \autoref{fig:gradB}.
+La force sur la particule est \( e_j \left( \mathbf{v} \times \mathbf{B} \right) \).
+Si le champ magnéiique change lentement, la composante de cette force parallèle à la ligne de champ au centre guide de l'orbite est
+
+\begin{equation}
+	F = \alpha\left\vert e_j \left( \mathbf{v} \times \mathbf{B} \right) \right\vert
+	\label{eq:expression_force}
+\end{equation}
+
+où \( \alpha \) est le petit angle entre le champ magnétique à la position de la particule et celui au centre guide et cette force est clairement dans la direction du champ magnétique le plus faible.
+
+En prenant des coordonnées cylindriques avec l'axe \( z \) le long de la ligne du centre guide et une coordonée radiale \( r \), l'angle \( \alpha \) est donné par
+
+\begin{equation}
+	\alpha = \frac{B_r}{B_z}
+	\label{eq:def_alpha}
+\end{equation}
+
+où
+
+\begin{equation}
+	B_r = \frac{\partial B_r}{\partial r} \rho,
+	\label{eq:def_Br}
+\end{equation}
+
+\( \rho \) étant le rayon de Larmor. Puisque \( \nabla \cdot \mathbf{B} \) et \( B_r = r \partial B_r / \partial r \),
+
+\begin{equation}
+	\frac{1}{r} \frac{\partial}{\partial r} \left( r B_r \right) = 2 \frac{\partial B_r}{\partial r} = - \frac{\partial B_z}{\partial z}.
+	\label{eq:relation_Br_Bz}
+\end{equation}
+
+En prenant \( \partial B_z / \partial z \) au centre guide,
+
+\begin{equation}
+	\frac{\partial B_z}{\partial z} = \left\vert \nabla_\parallel B \right\vert
+	\label{eq:rel_Bz_gradB}
+\end{equation}
+
+En combinant les équations de \ref{eq:def_alpha} à \ref{eq:rel_Bz_gradB} et en mettant \( B_z = B \), l'angle \( \alpha \) est donné par
+
+\begin{equation}
+	\alpha = \frac{1}{2} \rho \frac{\left\vert \nabla_\parallel B \right\vert}{B}.
+	\label{eq:expr_alpha}
+\end{equation}
+
+En équilibrant les forces pour l'orbite de Larmor,
+
+\begin{equation}
+	\left\vert e_j \left( \mathbf{v} \times \mathbf{B} \right) \right\vert ) \frac{m v_\perp^2}{\rho}
+	\label{eq:larmor_balance}
+\end{equation}
+
+et, donc, en utilisant les équations \ref{eq:expression_force}, \ref{eq:expr_alpha} et \ref{eq:larmor_balance} la force issue de \( \nabla\parallel \mathbb{B} \) est
+
+\begin{equation}
+	F = - \frac{\frac{1}{2} m v_\perp^2}{B} \nabla_parallel B.
+	\label{eq:force_nabla_B}
+\end{equation}
+
+Une particule se déplaçant dans un champ magnétique d'intensité croissante peut être réfléchie par cette force, cet effet étant appelé l'effet de mirroir.
+Si un champ magnétique a un minimum sur une ligne de champ, les particules dans cette région de champ plus faible peuvent être piégées entre les deux mirroirs qui en résultent.
+
+La quantité \( \mu = \frac{1}{2} m v_\perp^2 / B \) qui apparait dans l'\autoref{eq:force_nabla_B} est un invariant adiabatique étant quasiment constant dans un champ magnétique qui varie faiblement.
+Cette invariance est décrite dans la \color{red}{Section 2.7 (lien à rajouter quand elle sera faite)}\color{black}.
 
 \end{document}

@@ -1,0 +1,108 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % Optionnel : pour la langue française
+\usepackage{siunitx}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{decorations.markings}
+
+\tikzset{
+    midarrow/.style={
+        decoration={markings, mark=at position 0.65 with {\arrow{Latex}}},
+        postaction={decorate}
+    }
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\def\offsetx{1}
+\def\length{2}
+\def\amplitude{1}
+\def\decay{0.75}
+
+\def\offsetsin{\length/10}
+\def\nperiode{1.5}
+\def\phase{-30}
+
+\begin{axis}[ 
+	  xtick=\empty,
+	  ytick=\empty, ]
+
+\addplot[
+        domain=\offsetx:\length+\offsetx,
+        samples=100,
+        color=black,
+        thick
+    ]
+    {\amplitude*exp(-\decay*\x)};
+    
+\addplot[
+        domain=\offsetx:\length+\offsetx,
+        samples=100,
+        color=black,
+        thick
+    ]
+    {-\amplitude*exp(-\decay*\x)};
+    
+\addplot[
+        domain=\offsetx+\offsetsin:\length/2+\offsetx+\offsetsin,
+        samples=100,
+        color=black,
+        thick,
+        -{Latex}
+    ]
+    {\amplitude*exp(-\decay*\x)*sin(\nperiode*\x/\length*720
+     - \nperiode*\offsetx/\length*720
+      - \nperiode*\offsetsin/\length*720
+      +\phase};
+      
+\addplot[
+    domain=\offsetx:\length+\offsetx,
+    samples=100,
+    color=black,
+    thick,
+    midarrow
+    ] {0};
+    
+\pgfmathsetmacro{\xinter}{\offsetx + \offsetsin
+      -4*\phase/\nperiode*\length/720};
+\pgfmathsetmacro{\yinter}{\amplitude*exp(-\decay*\xinter)};
+
+\pgfmathsetmacro{\derive}{\amplitude*\decay*exp(-\decay*\xinter)};
+
+\def\vectorlength{0.25}
+
+\def\offsetalpha{0.25}
+\def\deltax{0.00125}
+\draw (\xinter-\offsetalpha, \yinter) -- (\xinter, \yinter);
+
+\pgfmathsetmacro{\xalpha}{\xinter-\offsetalpha/2+\deltax}
+\pgfmathsetmacro{\yalpha}{\amplitude*exp(-\decay*\xalpha)}
+\draw (\xinter-\offsetalpha/2, \yinter) to[ out=90, in=-30]  (\xalpha, \yalpha);
+
+\draw[ {latex}- ] (\xinter/4+3*\xalpha/4, 3*\yinter/4+\yalpha/4) -- (\xinter/4+3*\xalpha/4+0.125, 3*\yinter/4+\yalpha/4+0.125) node[anchor=west, align=left] {\tiny \( \alpha \)};
+
+%% tengeante
+%\draw[ -{latex}, blue ] (\xinter-\vectorlength, \yinter+\vectorlength*\derive) -- (\xinter+\vectorlength, \yinter-\vectorlength*\derive);
+
+% Normale
+\draw[ -{latex} ]  (\xinter, \yinter) -- (\xinter- \vectorlength*\derive,  \yinter-\vectorlength*\derive);
+
+\draw[ {latex}- ] (\xinter- \vectorlength/2*\derive,  \yinter-\vectorlength/2*\derive) --  (\xinter+0.25, \yinter+0.05) node[anchor=west, align=left] {\tiny Force \( e_j \mathbf{v} \times \mathbf{B} \)};
+
+\node[ align=left ] at (0.85*\length+\offsetx, 0) {\tiny \shortstack{ Mouvement du \\ centre guide}};
+
+\end{axis}
+
+\end{tikzpicture}
+
+\end{document}
