@@ -110,9 +110,9 @@ Puisque cette force est si grande par la séparation des charges, les densités 
 
 où la somme se fait sur les différentes espèces d'ions.
 
-Il est à noter que l'\autoref{eq:quasi_neutral} ne veut pas dire que \( \nabla \cdot \textbf{E} = 0 \), l'\autoref{eq:quasi_neutral} est presque, mais pas totalement, exacte et les petite différences de charges donnent lieu à des champs électriques significatifs.
+Il est à noter que l'\autoref{eq:quasi_neutral} ne veut pas dire que \( \nabla \cdot \bm{E} = 0 \), l'\autoref{eq:quasi_neutral} est presque, mais pas totalement, exacte et les petite différences de charges donnent lieu à des champs électriques significatifs.
 Donc le champ électrique ne peut pas être déterminé par l'\autoref{eq:quasi_neutral}.
-D'un autre côté, étant donné le champ électrique \( \textbf{E} \), la densité de charges \( \rho_c \) est déterminé par \( \nabla \cdot \textbf{E} = \rho_c/\varepsilon_0 \).
+D'un autre côté, étant donné le champ électrique \( \bm{E} \), la densité de charges \( \rho_c \) est déterminé par \( \nabla \cdot \bm{E} = \rho_c/\varepsilon_0 \).
 
 On voit dans l'\autoref{eq:force_unite_surface} que la force décroit avec la baisse de la distance de séparation.
 L'argument pour justifier la quasi-neutralité est donc invalide à des échelles suffisamment petite.
@@ -136,7 +136,7 @@ La longueur de Debye apparait aussi de façon plus subtile dans le plasma, carac
 Si on considère un ion simplement ionisé dans un plasma, le champ électrique de l'ion est alors
 
 \[
-	\textbf{E} = \frac{e}{4\pi \varepsilon_0 r^2d}.
+	\bm{E} = \frac{e}{4\pi \varepsilon_0 r^2d}.
 \]
 
 Bien que ce champ électrique soit directement associé à cet ion, les autres particules dans le plasma s'ajustent à ce champ, et la distribution résultante de leurs charges écrante la charge de l’ion et modifie le champ électrique effectif.
@@ -284,18 +284,18 @@ La fréquence plasma peut être calculée en utilisant les équations fluides.
 Pour un plasma froid, l'équation du mouvement pour le fluide électron est
 
 \begin{equation}
-	m_e \frac{\partial v}{\partial t} = - e \textbf{E}
+	m_e \frac{\partial v}{\partial t} = - e \bm{E}
 	\label{eq:motion_electron}
 \end{equation}
 
 et en assumant une oerturbation de la densité faible \( \tilde{n} \), le champ électrique est donné par
 
 \begin{equation}
-	\nabla \cdot \textbf{E} = - \frac{e \tilde{n}}{\varepsilon_0}
+	\nabla \cdot \bm{E} = - \frac{e \tilde{n}}{\varepsilon_0}
 	\label{eq:E_perturbation_faible}
 \end{equation}
 
-Donc en prenant la divergeance de l'\autoref{eq:motion_electron} et en éliminant \( \nabla \cdot \textbf{E} \) en utilisant l'\autoref{eq:E_perturbation_faible}
+Donc en prenant la divergeance de l'\autoref{eq:motion_electron} et en éliminant \( \nabla \cdot \bm{E} \) en utilisant l'\autoref{eq:E_perturbation_faible}
 
 \begin{equation}
 	m_e \frac{\partial }{\partial t} \nabla \cdot v = \frac{e^2}{\varepsilon_0} \tilde{n}.
@@ -353,7 +353,7 @@ Pour un tokamak cette fréquence est très élevée. Par exemple, une densité \
 L'équation du mouvement d'une particule de masse \( m_j \) et de charge \( e_j \) dans un champ magnétique est
 
 \[
-	m_j \frac{\dd v}{\dd t} = e_j v \times \textbf{B}
+	m_j \frac{\dd v}{\dd t} = e_j v \times \bm{B}
 \]
 
 Si le champ magnétique est uniforme et dans la direction \( z \), les composantes de l'équation sont
@@ -366,7 +366,7 @@ Si le champ magnétique est uniforme et dans la direction \( z \), les composant
 où
 
 \[
-	\omega_{cj} = \frac{e_j \textbf{B}}{m_j}
+	\omega_{cj} = \frac{e_j \bm{B}}{m_j}
 \]
 
 est la fréquence cyclotron.
@@ -405,7 +405,7 @@ Le facteur \( 2 \) apparait à cause des deux degrés de liberté en jeu.
 Donc pour une particule thermique
 
 \begin{equation}
-	\rho_j = \sqrt{2} \frac{m_j v_{Tj}}{\vert e_j \vert \textbf{B}}
+	\rho_j = \sqrt{2} \frac{m_j v_{Tj}}{\vert e_j \vert \bm{B}}
 	\label{eq:rayon_larmor}
 \end{equation}
 
@@ -462,21 +462,21 @@ Fréquence & \( 1 \) Tesla & \( 3 \) Teslas & \( 5 \) Teslas \\
 Le \autoref{tab:frequence_larmor} et le \autoref{tab:rayon_larmor} donnent quelques valeurs de \( \omega_c \) et de \( \rho \).
 Il faut noter que le rayon de Larmor d'une particule thermique est parfois défini sans le facteur \( \sqrt{2} \) de l'\autoref{eq:rayon_larmor}. 
 
-\section{Déplacement d'une particule selon \( \textbf{B} \)}
+\section{Déplacement d'une particule selon \( B \)}
 \label{sec:deplacement_B}
 
 Comme décrit dans la \autoref{sec:orbites_larmor}, le déplacement d'une particule chargée dans un champ magnétique uniforme est composé de deux parties; une orbite circulaire perpendiculaire au champ magnétique et une vitesse uniforme selon le champ.
-Une accélération de la particule selon le champ magnétique est introduite s'il y a un champ électrique parallèle à \( \textbf{B} \) ou un gradient de \( \textbf{B} \) pzrallèle à \( \textbf{B} \).
+Une accélération de la particule selon le champ magnétique est introduite s'il y a un champ électrique parallèle à \( \bm{B} \) ou un gradient de \( \bm{B} \) pzrallèle à \( \bm{B} \).
 
-\subsubsection*{Accélérayion par \( \textbf{E}_\parallel \)}
+\subsubsection*{Accélérayion par \( \bm{E}_\parallel \)}
 
 Un champ électrique parallèle donne simplement une accélération donnée par
 
 \[
-	\frac{\dd}{\dd t} \left( m_j v_\parallel \right) = e_j \mathbf{E_\parallel} 
+	\frac{\dd}{\dd t} \left( m_j v_\parallel \right) = e_j \bm{E_\parallel} 
 \]
 
-si \( \mathbf{E_\parallel} \) est une fonction de \( t \), \( v_\parallel \) est donné par
+si \( \bm{E_\parallel} \) est une fonction de \( t \), \( v_\parallel \) est donné par
 
 \[
 	m_j v_\parallel = e_j \int \mathbf{E_\parallel} \dd t.
@@ -488,22 +488,22 @@ Dans certains cas la vitesse résultantes de ces accelérations est relativistiq
 	m_j = \frac{m_{j0}}{\sqrt{1-v^2/c^2}}.
 \]
 
-Si \( \mathbf{E_\parallel} \) est une fonction de la distance \( x_\parallel \) selon la magnitude du champ et du temps, il faut alors résoudre l'équation
+Si \( \bm{E_\parallel} \) est une fonction de la distance \( x_\parallel \) selon la magnitude du champ et du temps, il faut alors résoudre l'équation
 
 \[
-	\frac{\dd}{\dd t} \left( m_j \frac{\dd x_\parallel}{\dd t} \right) = e_j \mathbf{E_\parallel} \left( x_\parallel, t \right).
+	\frac{\dd}{\dd t} \left( m_j \frac{\dd x_\parallel}{\dd t} \right) = e_j \bm{E_\parallel} \left( x_\parallel, t \right).
 \]
 
-\subsubsection*{Accélérayion par \( \nabla_\parallel \mathbf{B} \)}
+\subsubsection*{Accélérayion par \( \nabla_\parallel \bm{B} \)}
 
 Une particule chargée se déplaçant parallèlement à un champ magnétique n'est soumise à aucune force magnétique.
-Cependant, si la particule a aussi une vitesse perpendiculaire au champ magnétique et lz champ magnétique a un gradient parallèle à \( \mathbf{B} \), il y a une force parallèle au champ magnétique sur la particule au centre de la gyro-orbite.
+Cependant, si la particule a aussi une vitesse perpendiculaire au champ magnétique et lz champ magnétique a un gradient parallèle à \( \bm{B} \), il y a une force parallèle au champ magnétique sur la particule au centre de la gyro-orbite.
 
 \begin{figure}
 \centering
     % Minipage pour la légende (à gauche)
     \begin{minipage}[c]{0.35\textwidth}
-        \caption{Le gradient de \( \mathbf{B} \) parallèle ) \( \mathbf{B} \) fait apparaitre une composante de la force \( e_j \left( \mathbf{v} \times \mathbf{B} \right) \) selon la direction du déplacement du centre guide.}
+        \caption{Le gradient de \( \bm{B} \) parallèle ) \( \bm{B} \) fait apparaitre une composante de la force \( e_j \left( \bm{v} \times \bm{B} \right) \) selon la direction du déplacement du centre guide.}
         \label{fig:gradB}
     \end{minipage}\hfill
     % Minipage pour l'image (à droite)
@@ -514,11 +514,11 @@ Cependant, si la particule a aussi une vitesse perpendiculaire au champ magnéti
 \end{figure}
 
 La géométrie de la situation est montrée dans la \autoref{fig:gradB}.
-La force sur la particule est \( e_j \left( \mathbf{v} \times \mathbf{B} \right) \).
+La force sur la particule est \( e_j \left( \bm{v} \times \bm{B} \right) \).
 Si le champ magnéiique change lentement, la composante de cette force parallèle à la ligne de champ au centre guide de l'orbite est
 
 \begin{equation}
-	F = \alpha\left\vert e_j \left( \mathbf{v} \times \mathbf{B} \right) \right\vert
+	F = \alpha\left\vert e_j \left( \bm{v} \times \bm{B} \right) \right\vert
 	\label{eq:expression_force}
 \end{equation}
 
@@ -538,7 +538,7 @@ où
 	\label{eq:def_Br}
 \end{equation}
 
-\( \rho \) étant le rayon de Larmor. Puisque \( \nabla \cdot \mathbf{B} \) et \( B_r = r \partial B_r / \partial r \),
+\( \rho \) étant le rayon de Larmor. Puisque \( \nabla \cdot \bm{B} \) et \( B_r = r \partial B_r / \partial r \),
 
 \begin{equation}
 	\frac{1}{r} \frac{\partial}{\partial r} \left( r B_r \right) = 2 \frac{\partial B_r}{\partial r} = - \frac{\partial B_z}{\partial z}.
@@ -562,11 +562,11 @@ En combinant les équations de \ref{eq:def_alpha} à \ref{eq:rel_Bz_gradB} et en
 En équilibrant les forces pour l'orbite de Larmor,
 
 \begin{equation}
-	\left\vert e_j \left( \mathbf{v} \times \mathbf{B} \right) \right\vert ) \frac{m v_\perp^2}{\rho}
+	\left\vert e_j \left( \bm{v} \times \bm{B} \right) \right\vert ) \frac{m v_\perp^2}{\rho}
 	\label{eq:larmor_balance}
 \end{equation}
 
-et, donc, en utilisant les équations \ref{eq:expression_force}, \ref{eq:expr_alpha} et \ref{eq:larmor_balance} la force issue de \( \nabla\parallel \mathbb{B} \) est
+et, donc, en utilisant les équations \ref{eq:expression_force}, \ref{eq:expr_alpha} et \ref{eq:larmor_balance} la force issue de \( \nabla\parallel \bm{B} \) est
 
 \begin{equation}
 	F = - \frac{\frac{1}{2} m v_\perp^2}{B} \nabla_parallel B.
@@ -578,5 +578,346 @@ Si un champ magnétique a un minimum sur une ligne de champ, les particules dans
 
 La quantité \( \mu = \frac{1}{2} m v_\perp^2 / B \) qui apparait dans l'\autoref{eq:force_nabla_B} est un invariant adiabatique étant quasiment constant dans un champ magnétique qui varie faiblement.
 Cette invariance est décrite dans la \color{red}{Section 2.7 (lien à rajouter quand elle sera faite)}\color{black}.
+
+\section{Dérive des particules}
+\label{sec:derive_particule}
+
+Les orbites de Larmor circulaires décrites dans la \autoref{sec:orbites_larmor} venaient de l'hypothèse d'un cxhamp magnétique uniforme ayant des lignes de champ droites et aucun champ électrique.
+Un quelquonque chamgement de cet état de base mène à une accélération parallèles au champ magnétique ou à une dérive des particules perpendiculaire au champ magnétique.
+Les déplacements accélérés ont été expliqués dans la \autoref{sec:deplacement_B}.
+
+À l'échelle du rayon de Larmor, les particules chargées tournoient rapidemment autour du centre guide de leur mouvement, mais  des dérives perpendiculaires à des échelles plus grande du centre guide provoquent  un des cas suivants:
+
+\begin{itemize}
+	\item[ (1) ] un champ électrique perpendiculaire au champ magnétique;
+	\item[ (2) ] un gradient du champ magnétique perpendiculaire au champ magnétique;
+	\item[ (3) ] une courbure du champ magnétique;
+	\item[ (4) ] un champ électrique dépendant du temps;
+\end{itemize}
+
+La vitesse de la érive de chacun de ces cas est décris ci-dessous.
+
+\subsubsection*{Dérive \( \bm{E} \times \bm{B} \)}
+
+S'il y a un champ électrique perpendiculaire au champ magnétique l'orbite de la particule subit une dérive perpendiculaire aux deux champs.
+Cela est appelé la dérive \( \bm{E} \times \bm{B} \).
+
+L'équation du mouvement est
+
+\begin{equation}
+	m_j \frac{\dd \bm{v}}{\dd t} = e_j \left( \bm{E} + \bm{v} \times \bm{B} \right).
+	\label{eq:eq_mouvement_ExB}
+\end{equation}
+
+En choisissant la coordonnée \( z \) le long du champ magnétique et la coordonnée \( y \) le long du champ électrique perpendiculaire. les composant de l'\autoref{eq:eq_mouvement_ExB} sont
+
+\[
+	m_j \frac{\dd v_x}{\dd t} = e_j v_y B, \quad m_j \\frac{\dd v_y}{\dd t} = e_j \left( E - v_x B \right).
+\]
+
+Les solutions à ces équations peuvent s'écrire
+
+\begin{wrapfigure}{c}{0.4\textwidth}
+    \centering
+    
+    \includegraphics{figures/chapter2/ExB}
+
+    \caption{ La dérive \( \bm{E} \times \bm{B} \) d'un ion et d'un électron, \( v_d = E/B \)}
+    \label{fig:ExB}
+\end{wrapfigure}
+
+\begin{equation}
+	v_x = v_\perp \sin \omega_{cj} t + \frac{E}{B}, \quad v_y = v_\perp \cos \omega_{cj} t
+	\label{eq:sol_ExB}
+\end{equation}
+
+La dérive est indépendante de la charge, de la masse et de l'énergie de la particule.
+L'entiéreté du plasma est donc sujet à cette dérive.
+Le trajectoires d'un ion et d'un électron sont montrées dans la \autoref{fig:ExB}.
+
+La dérive \( \bm{E} \times \bm{B} \) peut être mieux comprise en reconnaissant que le champ électrique perpendiculaire est dépendant du référentiel.
+Donc, ce champ électrique peut être transformé vers un référentiel ayant une vitesse perpendiculaire \( v_f \) de sorte que 
+
+\begin{equation}
+	\bm{E} + \bm{v_f} \times \bm{B} = 0.
+	\label{eq:referentiel_0}
+\end{equation}
+
+Dans ce référentiel l'orbite de la particule sera simplement circulaire.
+On voit donc que dans le référentiel de base la particule va avoir son mouvement circulaire avec une vitesse de dérive \( \bm{v_d} = \bm{v_f} \).
+En croisant l'\autoref{eq:referentiel_0} avec \( \bm{B} \) donne maintenant la vitesse de dérive
+
+\[
+	\bm{v_d} = \frac{\bm{E} \times \bm{B}}{\bm{B}^2}
+\]
+
+comme précédemment.
+
+\subsubsection*{ Dérive \( \nabla B \)}
+
+\vspace{2\baselineskip}
+\begin{wrapfigure}{c}{0.4\textwidth}
+    \centering
+    
+    \includegraphics{figures/chapter2/drift_grad_B}
+
+    \caption{Un gradient de \( \bm{B} \) perpendiculaire à \( \bm{B} \) donne une dérive aux ions et aux électrons dans des directions opposées.}
+    \vspace{10pt}
+    \label{fig:grad_B}
+\end{wrapfigure}
+
+Dans un champ magnétique avec un gradient transverse, l'orbite de la particule a un rayon de courbure plus petit sur la partie de l'orbite avec un champ magnétique plus important, comme illustré dans la \autoref{fig:grad_B}.
+Cela mène à une dérive perpendiculaire à la fois du champ magnétique et de son gradient.
+
+En prenant le champ magnétique le long de l'axe \( z \), et son gradient sur l'axe \( y \), l'intensité de cette dérive peut être calculé avec la composante en \( y \) de l'équation du mouvement, qui est
+
+\begin{equation}
+	m_j \frac{\dd v_y}{\dd t} = - e_j v_x B.
+	\label{eq:composante_y}
+\end{equation}
+
+Si on prend que le gradient de \( \bm{B} \) est faible, de sorte que la variation du champ magnétique le long du rayon de Larmor est petit comparé à \( B \), le champ magnétique peut être écrit
+
+\[
+	B = B_0 + B' y
+\]
+
+où \( y= 0 \) est le plan médian de l'orbite de la particule.
+En utilisant la petitesse de la perturbation de l'orbite, l'\autoref{eq:composante_y} devient
+
+\begin{equation}
+	\frac{m_j}{e_j} \frac{\dd v_y}{\dd t} = - v_{x0} \left( B_0 + B' y \right) - v_d B_0
+	\label{eq:composante_y_Bprime_petit}
+\end{equation}
+
+où \( v_d \) est la vitesse de dérive nécessaire et le mouvement imperturbé d'une particule avec une vitesse perpendiculaire \( v_\perp \) est donné par
+
+\[
+	v_{x0} = v_\perp \sin \omega_{cj} t, \quad y = \rho_j \sin \omega_{cj} t
+\]
+
+où \( \rho_j = v_\perp/\omega_{cj} \). 
+En substituant \( v_{x0} \) et \( y \) dans l'\autoref{eq:composante_y_Bprime_petit}
+
+\[
+	\frac{m_j}{e_j} \frac{\dd v_y}{\dd t} = - v_\perp \sin \omega_{cj} t \left( B_0 + B' \rho_j \sin \omega_{cj} t \right) - v_d B_0
+\]
+
+En prenant la moyenne temporelle de cette équation avec \( \left\langle \dd v_y / \dd t \right\rangle = 0 \) donne la vitesse de dérive nécessaire dans la direction \( x \)
+
+\begin{equation}
+	v_d = - \rho_j \frac{B'}{B} v_\perp
+	\label{eq:vd_direction_x}
+\end{equation}
+
+ou dans une autre forme
+
+\begin{equation}
+	v_d = \frac{1}{2} \rho_j \frac{\bm{B} \times \nabla \bm{B}}{B^2} v_\perp .
+	\label{eq:vd_direction_x_2}
+\end{equation}
+
+Les ions et les électrons ont des dérives opposées, le signe dans l'\autoref{eq:vd_direction_x_2} étant déterminé par le signe de \( e_j \) dans \( \rho_j = m_j v_\perp/ e_j B \).
+
+\FloatBarrier
+\subsubsection*{Dérive de courbure}
+
+\begin{figure}
+\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{Dérive d'un ion par la courbure du champ magnétique. Les électrons dérivent dans la direction opposée.}
+        \label{fig:polarisation_drift}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \flushright
+        \includegraphics{figures/chapter2/ion_drift.pdf}
+    \end{minipage}
+\end{figure}
+
+Quand le centre guide d'une particule suit une ligne de champ magnétique courbée, il subit une dérive perpendiculaire au plan dans lequel la courbure est.
+Ce comportement est illustré dans la \autoref{fig:polarisation_drift}.
+
+Pour calculer cette dérive il est utile de transposer vers un référentiel tournant avec la vélocité angulaire, \( v_\parallel/R \), de la particule, où \( v_\parallel \) est la vitesse parallèle au champ magnétique et \( R \) est le rayon de courbure de la ligne de champ.
+Dans ce référentiel, la particule subit une force centrifuge \( m_j v_\parallel^2 / R \) et l'équation du mouvement est
+
+\begin{equation}
+	m_j \frac{\dd \bm{v}}{\dd t} = \frac{m_j v_\parallel^2}{R} \bm{i_c} + e_j \left( \bm{v} \times \bm{B} \right)
+	\label{eq:equation_mouvement_courbure} 
+\end{equation}
+
+où \( \bm{i_c} \) est le vecteur unitaire allant vers l'extérieur du rayon de courbure.
+L'\autoref{eq:equation_mouvement_courbure} est similaire à l'\autoref{eq:eq_mouvement_ExB} pour le cas de la dérive \( \bm{E} \times \bm{B} \) avec la force \( e_j \bm{E} \) remplacé par \( m_j v_\parallel^2/R \).
+Donc par analogie avec la dérive \( E/B \), la dérive de courbure est donnée par
+
+\[
+	v_d = \frac{v_\parallel^2}{\omega_{cj} R}.
+\]
+
+Puisque \( \omega_{cj} \) prend le signe de la charge de la particule, les électrons et les ions ont des dérives opposées, la direction de la dérive des ions étant celle de \( \bm{i_c} \times \bm{B} \).
+
+Si aucun courant n'est présent, la dérive \( \nabla \bm{B} \) est dans la même direction que la dérive de courbure et prend une forme similaire.
+Dans ce cas \( \nabla \bm{B} = - \bm{i_c} \bm{B} / R \) et la vitesse de dérive de \( \nabla \bm{B} \) donné par l'\autoref{eq:vd_direction_x_2} est
+
+\[
+	v_d = \frac{1}{2} \frac{v_\perp^2}{\omega_{cj}R}.
+\]
+
+La dérive combinée est alors
+
+\[
+	v_d = \frac{v_\parallel^2 + \frac{1}{2} v_\perp^2}{\omega_{cj} R}
+\]
+
+ou, sous forme vectorielle
+
+\begin{equation}
+	v_d =\frac{v_\parallel^2 + \frac{1}{2} v_\perp^2}{\omega_{cj}} \frac{\bm{B} \times \nabla \bm{B}}{B^2}
+	\label{eq:drift_velocity_forme_vectorielle}
+\end{equation}
+
+\FloatBarrier
+\subsubsection*{Dérive de polarisation}
+
+Quand un champ électrique perpendiculaire au champ magnétique change dans le temps cela mène à ce qu'on appelle la dérive de polarisation.
+Le nom vient du fait que les dérives des ions et des électrons sont dans des directions opposées et font apparaitre un courant de polarisation proportionnel à \( \dd \bm{E} / \dd t \).
+
+L'équation du mouvement est
+
+\[
+	m_j \frac{\dd \bm{v}}{\dd t} = e_j \left( \bm{E}(t) + \bm{v} \times \bm{B} \right).
+\]
+
+Le champ électrique peut être retiré en passant dans un référentiel accéléré ayant la vitesse
+
+\[
+	v_f = \frac{\bm{E} \times \bm{B}}{B^2}.
+\]
+
+L'équation du mouvement est donc
+
+\[
+	m_j \frac{\dd \bm{v}}{\dd t} = e_j \bm{v} \times \bm{B} - m_j \frac{\dd v_f}{\dd t}
+\]
+
+De sorte que
+
+\begin{equation}
+	m_j \frac{\dd \bm{v}}{\dd t} = e_j \bm{v} \times \bm{B} - \frac{m_j}{B^2} \frac{\dd \bm{E}}{\dd t} \times \bm{B}.
+	\label{eq:eq_mouvement_polarisation}
+\end{equation}
+
+L'\autoref{eq:eq_mouvement_polarisation} est similaire à l'\autoref{eq:eq_mouvement_ExB} avec \( e_j \bm{E} \) remplacé par
+
+\[
+	-\frac{m_j}{B^2} \frac{\dd \bm{E}}{\dd t} \times \bm{B}.
+\]
+
+La dérive de polarisation correspondante à la dérive électrique \( \left( \bm{E} \times \bm{B} / B^2 \right) \) est alors
+
+\[
+	\bm{v_d} = - \frac{m_j}{e_j B^2} \left( \frac{\dd \bm{E}}{\dd t} \times \bm{B} \right) \times \bm{B},
+\]
+
+et en rappellant que \( \bm{E} \) est perpendiculaire à \( \bm{B} \),
+
+\begin{equation}
+	\bm{v_d} = - \frac{1}{\omega_{cj} B} \frac{\dd \bm{E}}{\dd t}.
+	\label{eq:vd_polarisation}
+\end{equation}
+
+\begin{figure}
+\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{La dérive de polarisation d'un ion causée par un champ électrique perpendiculaire au champ magnétique croissant. La dérive des électrons est dans la direction opposée.}
+        \label{fig:polarisation_drift}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \flushright
+        \includegraphics{figures/chapter2/polarisation_drift.pdf}
+    \end{minipage}
+\end{figure}
+
+Cette dérive est illustrée dans la \autoref{fig:polarisation_drift}.
+
+La dérive est dans la même direction que \( \dd \bm{E} / \dd t \) pour les ions et la direction opposée pour les électrons, et elle est beaucoup plus grande pour les ions.
+Si la densité d'électrons est \( n \) la densité de courant de polarisation résultante est 
+
+\[
+	\bm{j_p} = \sum_j n e_j \bm{v_{dj}}
+\]
+
+et en utilisant l'\autoref{eq:vd_polarisation} pour chaque espèce
+
+\[
+	\bm{j_p} = \frac{\rho_m}{B^2} \frac{\dd \bm{E}}{\dd t}
+\]
+
+
+\( \rho_m \) étant la densité de masse.
+
+\section{Invariants adiabatiques}
+\label{sec:invariant_adiabatiques}
+
+Les invariants adiabatiques sont des quantités associés avec le mouvement des particules qui restent quasiment constantes pendant les changements du mouvement, tant que les changements sont suffisament petits.
+Dans le cas des particules chargées dans un champ magnétique, les pré-requis sont que les changements temporels se font sur des échelles de temps longues comparé au temps de la gyropériode, et les changements spatiaux sont sur une échelle de distance beaucoup plus grande que le rayon de Larmor.
+Il y a trois principaux invariants pour une particule chargée dans un champ magnétique, le plus important étant le moment magnétique.
+
+\subsubsection*{Moment magnétique}
+
+La définition basique du moment magnétique d'une boucle de courant est
+
+\begin{equation}
+	\mu = I A
+	\label{eq:moment_magnetique_basique}
+\end{equation}
+
+où \( I \) est le courant dans la boucle et \( A \) est l'aire.
+Le courant porté par une particule chargé en rotation sur son orbite de Larmor est
+
+\begin{equation}
+	I = \frac{\omega_{cj}}{2\pi} e_j
+	\label{eq:courant_particule_rotation}
+\end{equation}
+
+et l'aire, \( \pi \rho_j^2 \) de l'orbite est
+
+\[
+	A = \pi \left( \frac{v_\perp}{\omega_{cj}} \right)^2
+\]
+
+De sorte que
+
+\begin{equation}
+	\mu = \frac{\frac{1}{2} m_j v_\perp^2}{B}
+\end{equation}
+
+Pour une petite boucle de courant, la force de la boucle est
+
+\begin{equation}
+	\bm{F} = - \mu \nabla_\parallel \bm{B}
+	\label{eq:force_petite_boucle}
+\end{equation}
+
+en accord avec le calcul détaillé de la \autoref{sec:deplacement_B}.
+
+L'invariance de \( \mu \) est démontré en calculant sa dérivé temporelle, qui est
+
+\begin{equation}
+	\frac{\dd \mu}{\dd t} = \frac{1}{B} \left( \frac{\dd}{\dd t} \left( \frac{1}{2} m_j v_\perp^2 \right) - \mu \frac{\dd B}{\dd t} \right).
+	\label{eq:derive_moment_magnetique}
+\end{equation}
+
+La conservation de l'énergie donne
+
+\begin{equation}
+	\frac{\dd}{\dd t} \left( \frac{1}{2} m_j v_\perp^2 \right) = e_j \bm{E} \cdot \bm{v} - m_j v_\parallel \frac{dd v_\parallel}{\dd t}
+	\label{eq:derive_mu_cons_E}
+\end{equation}
+
+
 
 \end{document}

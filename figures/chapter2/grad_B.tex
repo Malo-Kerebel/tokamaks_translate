@@ -6,6 +6,7 @@
 \usepackage[french]{babel} % Optionnel : pour la langue française
 \usepackage{siunitx}
 \usepackage{amsmath}
+\usepackage{bm}
 
 \usepackage{tikz}
 \usetikzlibrary{patterns}
@@ -35,7 +36,8 @@
 
 \begin{axis}[ 
 	  xtick=\empty,
-	  ytick=\empty, ]
+	  ytick=\empty, 
+	  axis lines=none]
 
 \addplot[
         domain=\offsetx:\length+\offsetx,
@@ -97,7 +99,7 @@
 % Normale
 \draw[ -{latex} ]  (\xinter, \yinter) -- (\xinter- \vectorlength*\derive,  \yinter-\vectorlength*\derive);
 
-\draw[ {latex}- ] (\xinter- \vectorlength/2*\derive,  \yinter-\vectorlength/2*\derive) --  (\xinter+0.25, \yinter+0.05) node[anchor=west, align=left] {\tiny Force \( e_j \mathbf{v} \times \mathbf{B} \)};
+\draw[ {latex}- ] (\xinter- \vectorlength/2*\derive,  \yinter-\vectorlength/2*\derive) --  (\xinter+0.25, \yinter+0.05) node[anchor=west, align=left] {\tiny Force \( e_j \bm{v} \times \bm{B} \)};
 
 \node[ align=left ] at (0.85*\length+\offsetx, 0) {\tiny \shortstack{ Mouvement du \\ centre guide}};
 

@@ -1,0 +1,63 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % Optionnel : pour la langue française
+\usepackage{siunitx}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{decorations.pathreplacing, decorations.markings}
+\tikzset{
+    midarrow/.style={
+        decoration={markings, mark=at position 0.5 with {\arrow{Latex}}},
+        postaction={decorate}
+    }
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+	\pgfmathsetmacro{\angle}{30}
+	\pgfmathsetmacro{\lengthaxis}{4}
+	\pgfmathsetmacro{\yendaxis}{\lengthaxis*-sin(\angle)}
+	
+	\pgfmathsetmacro{\lengthdroit}{0.15}
+
+	\draw (0, -\lengthaxis) -- (0, 1);
+
+	\draw[ -{Latex} ] (0, 0) -- (\lengthaxis, \yendaxis) node[ midway, anchor=south ] {\( R_c \)};
+	\pgfmathsetmacro{\ydroit}{\lengthdroit*-sin(\angle)}
+	\draw (\lengthdroit, \ydroit) -- (\lengthdroit, \ydroit-\lengthdroit);
+	\draw (0, -\lengthdroit) -- (\lengthdroit, \ydroit-\lengthdroit);
+	
+	\draw[midarrow] (\lengthaxis,\yendaxis+0.5) to[ out=-150, in=-30 ] node[midway, anchor=south] {\( B \)} (-2, -1.5);
+	
+	\pgfmathsetmacro{\xvd}{3.5}
+	\pgfmathsetmacro{\yvd}{\xvd*-sin(\angle)}
+	\draw[ -{Latex} ] (\xvd, \yvd) -- (\xvd, \yvd-1) node[ anchor=west ] {\( v_d \)};
+	\pgfmathsetmacro{\ydroit}{(\xvd*-sin(\angle)+\lengthdroit*-sin(\angle)}
+	\draw (\xvd+\lengthdroit, \ydroit) -- (\xvd+\lengthdroit, \ydroit-\lengthdroit);
+	\draw (\xvd, \yvd-\lengthdroit) -- (\xvd+\lengthdroit, \ydroit-\lengthdroit);
+	
+	\draw[dash pattern=on 2pt off 2pt] (\xvd, \yvd-1) to[ out=-150, in=-50 ] (-2, -1.5);
+	
+	\def\amplitude{3}
+	\def\nbperiods{0.5} 
+	
+	\draw[decorate, decoration={snake, amplitude=\amplitude, segment length=10pt/\nbperiods}]
+(-2, -1.5) to[out=-50, in=-150] node[ pos=0.75, anchor=north ] {\tiny  \shortstack {\\ \\  Trajectoire de l'ion}} (\xvd, \yvd-0.85);
+
+	\def\xfleche{1.25}
+	\def\yfleche{-3.2}
+	\draw[ -{Latex} ] (\xfleche, \yfleche) -- (\xfleche + 0.0001, \yfleche);
+
+\end{tikzpicture}
+
+\end{document}
