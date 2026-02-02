@@ -893,6 +893,7 @@ De sorte que
 
 \begin{equation}
 	\mu = \frac{\frac{1}{2} m_j v_\perp^2}{B}
+	\label{eq:def_mu_2}
 \end{equation}
 
 Pour une petite boucle de courant, la force de la boucle est
@@ -918,6 +919,92 @@ La conservation de l'énergie donne
 	\label{eq:derive_mu_cons_E}
 \end{equation}
 
+et le changement de \( \bm{B} \) suivant la vitesse \( \bm{v_\parallel} \) du centre guide, est donné par
 
+\begin{equation}
+	\frac{\dd \bm{B}}{\dd t} = \frac{\partial \bm{B}}{\partial t} + \bm{v_\parallel} \cdot \nabla \bm{B}.
+	\label{eq:changement_temp_B}
+\end{equation}
+
+En utilisant \autoref{eq:derive_mu_cons_E} et \autoref{eq:changement_temp_B} dans l'\autoref{eq:derive_moment_magnetique}
+
+\begin{align}
+	\frac{\dd \mu }{\dd t} = & \frac{1}{B} \left\lbrace \left( - m_j \bm{v_\parallel} \frac{\bm{v_\parallel}}{\dd t} - \mu \bm{v_\parallel} \cdot \nabla \bm{B} + e_j \bm{E_\parallel} \bm{v_\parallel} \right) \right. \nonumber\\
+	& + \left. \left( e_j \bm{E_\perp} \cdot \bm{v_\perp} - \mu \frac{\partial \bm{B}}{\partial t} \right) \right\rbrace
+	\label{eq:derive_moment_magnetique_2}
+\end{align}
+
+L'accélération \( \dd \bm{v_\parallel} / \dd t \) est produite par la force donnée dans l'\autoref{eq:force_petite_boucle} avec celle causée par \( \bm{E_\parallel} \), et donc, en prenant le produit scalaire avec \( \bm{v_\parallel} \)
+
+\[
+	m_j \bm{v_\parallel} \frac{\dd \bm{v_\parallel}}{\dd t} - \mu \bm{v_\parallel} \cdot \nabla \bm{B} +  e_j \bm{E_\parallel} \bm{v_\parallel}.
+\]
+
+Et donc les termes dans la première parenthèse de l'\autoref{eq:derive_moment_magnetique_2} donne zéro.
+Puisque \( \bm{v_\perp} = \omega_{cj} \rho_j \) la gyromoyenne de \( \bm{E_\perp} \cdot \bm{v_\perp} \) est donnée par
+
+\begin{equation}
+	\left\langle \bm{E_\perp} \cdot \bm{v_\perp} \right\rangle = \frac{\omega_{cj}}{2 \pi} \oint \bm{E} \cdot \bm{\dd s}
+	\label{eq:gyromoyenne}
+\end{equation}
+
+où l'intégrale est  autour de l'orbite de Larmor et l'élément de contour \( \bm{\dd s} \) est le long de \( \bm{v_\perp} \).
+Donc en utilisant l'\autoref{eq:moment_magnetique_basique}, l'\autoref{eq:courant_particule_rotation} et l'\autoref{eq:gyromoyenne}, l'\autoref{eq:derive_moment_magnetique_2} peut être réécrite
+
+\begin{equation}
+	\frac{\dd \mu}{\dd t} = - \frac{e_j}{B} \frac{\omega_{cj}}{2\pi} \left( \oint \bm{E} \cdot \bm{\dd s} + A \frac{\partial B}{\partial t} \right).
+	\label{eq:reecriture_derive_moment}
+\end{equation}
+
+Le dernier terme de la parenthèse de l'\autoref{eq:reecriture_derive_moment} est le taux de changement du flux à travers l'aire \( A \), et par la loi de Faraday
+
+\[
+	A \frac{\partial B}{\partial t} = - \oint \bm{E} \cdot \bm{\dd s}
+\]
+
+de sorte que 
+
+\[
+	\frac{\dd \mu}{\dd t} = 0.
+\]
+
+Ce qui montre que, dans la limite des petites variations de \(  \bm{B} \), \( \mu \) est une constante.
+Autrement dit, \( \mu \) est un invariant adiabatique.
+
+\subsubsection*{Deuxième et troisième invariant adiabatique}
+
+Le moment magnétique est associé à l'orbite de Larmor de la particule.
+Quand la particule a un déplacement périodique sur une échelle plus grande, il y a un deuxième invariant \( J \), défini par
+
+\begin{equation}
+	J = \oint \bm{v_\parallel} \bm{\dd l}
+	\label{eq:def_J}
+\end{equation}
+
+où l'intégrale est prise sur une orbite périodique \( x(t) \) et \( \bm{\dd l} = \bm{b} \dd x \) où \( \bm{b} \) est le vecteur unitaire dans la direction du champ magnétique.
+En l'absence d'un champ électrique, l'énergie totale, \( W \), de la particule est constante, où
+
+\[
+	W = \frac{1}{2} m_j \left( v_\perp^2 + v_\parallel^2\right)
+\]
+
+et, en utilisant la définition pour \( \mu \) donnée par l'\autoref{eq:def_mu_2}, \( v_\parallel \) dans l'\autoref{eq:def_J} peut être écrit en terme des constantes du mouvement et du champ magnétique
+
+\[
+	v_\parallel = \left( \frac{2}{m_j} \left( W - \mu B \right) \right)^{1/2}.
+\]
+
+Le mouvement périodique impliqué dans l'invariant \( J \) peut être sujet à une dérive et cette dérive peut induire un mouvement périodique sur une plus grande échelle.
+Le troisième invariant adiabatique est associé à ce mouvement.
+Si la vitesse de dérive est \( v_d \), l'invariant est défini par l'intégrale sur le mouvement périodique suivante
+
+\[
+	J_3 = \int v_d \dd l.
+\]
+
+Il peut être montré que \( J_3 \) est proportionnel au flux magnétique encadré par l’orbite.
+
+\section{Collisions}
+\label{sec:collisions}
 
 \end{document}
