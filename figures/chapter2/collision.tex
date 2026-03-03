@@ -1,0 +1,70 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % Optionnel : pour la langue française
+\usepackage{siunitx}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows.meta}
+
+\usetikzlibrary{decorations.pathreplacing, decorations.markings}
+\tikzset{
+    midarrow/.style={
+        decoration={markings, mark=at position 0.33 with {\arrow{Latex}}},
+        postaction={decorate}
+    }
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+	\fill (0, 0) circle [ radius=0.1 ] node[ anchor=north ] {\tiny Ion};
+	
+	\def\offsetleft{-3}
+	\def\offsetangle{0.5}
+	\def\offsetright{1.5}
+	\def\r{1.25}
+	
+	\def\patternon{6pt}
+	\def\patternoff{3pt}
+	
+	\draw[dash pattern=on \patternon off \patternoff] (\offsetleft, 0) -- (\offsetangle, 0);
+	
+	\draw[dash pattern=on \patternon off \patternoff] (\offsetleft, \r) -- (\offsetright, \r);
+	
+	\draw[ -{Latex} ] (\offsetleft-0.025*\offsetleft, 0) -- (\offsetleft-0.025*\offsetleft, \r) node[ midway, anchor=west ] {\tiny \( r \)};
+	
+	\def\angle{-50}
+	\def\ymin{-1}
+	\pgfmathsetmacro{\ymax}{\r+1}
+	
+	\pgfmathsetmacro{\xmin}{\offsetangle-(\r-\ymin)*cos(\angle)/sin(\angle)}
+	\pgfmathsetmacro{\xmax}{\offsetangle+(\ymax-\r)*cos(\angle)/sin(\angle)}
+	
+	\draw[dash pattern=on \patternon off \patternoff] (\xmax, \ymax) -- (\xmin, \ymin);
+	
+	\draw (\offsetangle+0.66, \r) arc (0:\angle:0.66) node[ midway, anchor=east ] {\tiny \( \chi \)};
+	
+	% On fait une approche avec un angle faible
+	
+	\pgfmathsetmacro{\angleinit}{-5}
+	\pgfmathsetmacro{\yinit}{0.95*\r}
+	\pgfmathsetmacro{\xinit}{\offsetleft-0.1*\offsetleft}
+	
+	\pgfmathsetmacro{\xcoll}{\offsetleft*0.25}
+	\pgfmathsetmacro{\ycoll}{\yinit-(\xinit-\xcoll)*sin(\angleinit)*0.5}
+	
+	\draw (\xinit, \yinit) to[ out=0, in=180+\angleinit ] (\xcoll, \ycoll);
+	
+	\draw[ midarrow ] (\xcoll, \ycoll) to[ out=\angleinit, in=180+\angle*1.001 ] (\xmin-0.075*\xmin, 0.9*\ymin);
+	\fill (\xmin-0.075*\xmin, 0.9*\ymin) circle [ radius=0.05 ] node[ anchor=east ] {\tiny Électron};
+
+\end{tikzpicture}
+
+\end{document}
