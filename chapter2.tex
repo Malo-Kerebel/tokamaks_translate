@@ -934,7 +934,7 @@ Le champ électrique à un point donné dans le plasma inclus la somme des contr
 Donc, chaque particule est sujette à la force du champ électrique de toutes les autres particules.
 Cependant, il se trouve que le champ électrique peut être séparée en deux partie.
 La première est le champ macroscopique lisse, celui-ci est le champ \( E \) qui détermine la dérive d'une particule et apparait dans les équations gouvernant le comportement macroscopique du plasma. La seconde parti est un champ électrique microscopique fluctuant rapidement.
-Pour une particule donnée, ces fluctuations sont la somme des champs électriques des autres particules avec lesquelles elle "collisionne".
+Pour une particule donnée, ces fluctuations sont la somme des champs électriques des autres particules avec lesquelles elle ``collisionne''.
 Celles-ci sont les particules qui, à cette instant, se trouvent à l'intérieur de la sphère de Debye entourrant la particule donnée, leur trajectoires s’ajustent pour écranter les effets collisionnels des particules plus éloignées.
 Une analyse complète de ce comportement est très compliqué.
 Dans la suite, l'interaction de paires de particules sera décrite et la somme de ces interactions de Coulomb binaire sera coupée au rayon d'écrantage.
@@ -990,7 +990,7 @@ Donc, puisque le taux de collision par unité d'aire de l'impact est \( n v \), 
 	&= \left. - 2 n m_e v^2 \sigma_0 \ln \left( 1 + \left( r / r_0 \right)^2 \right)\right\vert_0^{\lambda_D}.
 	\label{eq:changement_qdm}
 \end{align}
-Dans l'\autoref{eq:changement_qdm}, la longueur de Debye, \( \lambda_D \), a été introduite comme limite supérieure pour retirer la divergence provoquée après avoir néglig" l'écrantage de Debye pour les collisions avec un paramètre d'impact supérieur à la longueur de Debye.
+Dans l'\autoref{eq:changement_qdm}, la longueur de Debye, \( \lambda_D \), a été introduite comme limite supérieure pour retirer la divergence provoquée après avoir négligé l'écrantage de Debye pour les collisions avec un paramètre d'impact supérieur à la longueur de Debye.
 Puisque \( \lambda_D \gg r_0 \), l'\autoref{eq:changement_qdm} devient
 
 \begin{equation}
@@ -1083,7 +1083,7 @@ Le comportement de fonction de distribution est décrit par l'équation cinétiq
 En fonction des circonstances celle-ci prend plusieures formes, certaines d'entre elles sont décrites ci-dessous.
 
 Un compte rendu complet des équations cinétiques commence avec la fonction de distribution des \( N \) particules qui est une fonction des positions et des quantités de mouvement de toutes les \( N \) particules.
-Cela inclus les informations sur les corrélations par paires, et mène à une séparation des effets des champs à grande échelles et ceux variant à l'échelle de la longueur de Debye, ces champs à petite échelle étant responsable des "collisions".
+Cela inclus les informations sur les corrélations par paires, et mène à une séparation des effets des champs à grande échelles et ceux variant à l'échelle de la longueur de Debye, ces champs à petite échelle étant responsable des ``collisions''.
 Pour l'instant il est préférable d'utiliser la fonction de distribution pour une seule particule \( f \) et de prendre en compte les collisions en introduisant un terme séparé.
 
 La fonction de distribution est une fonction de la position \( \bm{q} \) et de la quantité de mouvement canonique \( \bm{p} \),  ainsi\( f = f\left( \bm{q}, \bm{p} \right) \).
@@ -1237,16 +1237,55 @@ Dans l'\autoref{eq:vlasov_gyromoyenne}, \( \bm{E} \) est le champ électrique et
 \end{equation}
 où \( \bm{b} = \bm{B} / \left\vert \bm{B} \right\vert \) et \( \omega_{cj} = e_j B / m_j \).
 
-Dans l'\autoref{eq:vlasov_gyromoyenne} les deux premiers termes du côté gauche de l'équation contiennent la dérivée temporelle Lagrangienne convectée le long de la tajectoire du centre guide.
-Le coefficient de \( \left( \partial \overline{f}/\partial K  \right) \) contient le travail fait par le gchamp électrique sur le centre guide avec le changement de l'énergie perpendiculaire, \( \frac{1}{2} m v_\perp^2 \), subit par le centre guide (dont le moment magnétique \( \mu \) est conservé) dans un champs magnétique changeant.
+Dans l'\autoref{eq:vlasov_gyromoyenne} les deux premiers termes du côté gauche de l'équation contiennent la dérivée temporelle Lagrangienne convectée le long de la trajectoire du centre guide.
+Le coefficient de \( \left( \partial \overline{f}/\partial K  \right) \) contient le travail fait par le champ électrique sur le centre guide avec le changement de l'énergie perpendiculaire, \( \frac{1}{2} m v_\perp^2 \), subi par le centre guide (dont le moment magnétique \( \mu \) est conservé) dans un champ magnétique changeant.
 Le côté droit de l'\autoref{eq:vlasov_gyromoyenne} représente le taux de changement de \( \overline{f} \) à cause des collisions entre les particules.
 Une forme explicite de \( \left( \partial \overline{f} / \partial t \right)_c \) peut être obtenu en faisait la gyro-moyenne de l'opérateur de collision de Fokker-Planck, mais est quelque peu compliqué.
 L'opérateur résultant décrit le ralentissement et la diffusion en énergie, \( K \), et la diffusion en moment magnétique \( \mu \) (ou de l'angle d'inclinaison variable \( \lambda = \mu / K \)).
-Il n'est pas habituel de retenir les effetes de la diffusion collisionellelle clasique qui est un effet de second ordre (ou de l'ordre \( \nu_j \rho_j^2 / L_\perp^2 \) où \( \rho_j \) est le rayon de Larmor, \( \nu_j \) la fréquence de collision et \( L_\perp \) la longueur caractéristique de variation de \( \overline{f} \) le long du champ magnétique).
+Il n'est pas habituel de retenir les effets de la diffusion collisionnelle clasique qui est un effet de second ordre (ou de l'ordre \( \nu_j \rho_j^2 / L_\perp^2 \) où \( \rho_j \) est le rayon de Larmor, \( \nu_j \) la fréquence de collision et \( L_\perp \) la longueur caractéristique de variation de \( \overline{f} \) le long du champ magnétique).
 Ce n'est pas une faiblesse intrinsèque et une équation de dérive cinétique plus complexe, correcte à des ordre de \( \rho_k / L \) plus élevés, peut être dérivé qui contient les deux vitesses de dérive d'ordre plus élevé, comme la dérive de polarisation et la diffusion classique.
 
-L'équation est utilisé dans des études linéaires et non-linéaire d'instabilités à basse fréqeunce et à grande longueur d'onde, et dans la théorie transport néoclassique où le fait de négliger la contribution "classique" au transport, venant des orbites de Larmor, n'est pas important.
+L'équation est utilisé dans des études linéaires et non-linéaire d'instabilités à basse fréquence et à grande longueur d'onde, et dans la théorie transport néoclassique où le fait de négliger la contribution ``classique'' au transport, venant des orbites de Larmor, n'est pas important.
 
+L'équation gyro-cinétique étend ces procédures de moyennage à des situations où des composantes des champs électromagnétiques varient significativement le long de l'orbite de Larmor de la particule.
 
+Cela a été utilisé initialement dans des analyses de stabilité linéaire dans lesquelles les champs perturbés varient selon \( \exp\left(i \bm{k}\cdot \bm{x}\right) \) et les longueurs d'ondes dans les directions transverses au champ magnétiques sont comparables au rayon de Larmor, autrement dit \( k_\perp v_\perp / \omega_c \) est de l'ordre de l'unité.
+
+En prenant des équations sans collisions, pour la simplicité, et des perturbations pour lesquelles \( k_\perp v_\perp / \omega_c \) est de l'ordre de l'unité et les quantités perturbées varient comme \( \exp\left( - i \omega t + \bm{k_\perp} \cdot \bm{x} \right) \) puis, en écrivant \( f = f_0 + \delta f \) et \( E = E_0 - \nabla \phi - i \omega A \); la perturbation de la fonction de distribution \( \delta f \) peut être obtenue en terme des potentiels perturbés \( \phi \) et  \( A_\parallel \) et la perturbation du champ magnétique \( B_\parallel \) en développant l'équation de Vlasov linéarisé.
+Le résultat pour un \( f_0 \) isotropique est
+
+\[
+	\delta f = e_j \phi \frac{\partial f_0}{\partial K} + g e^{iL},
+\]
+où
+
+\[
+	L = \frac{\bm{v_j} \times \bm{b} \cdot \bm{k_\perp}}{\omega_{cj}}
+\]
+et \( g\left( \mu, K, \bm{x} \right) \) satisfait l'équation gyro-cinétique
+
+\begin{align}
+& \frac{\partial g}{\partial t} + v_\parallel \bm{b} \cdot \nabla g + i \bm{k_\perp} \cdot \bm{v_g} g =\nonumber \\
+& - \left[ \omega \frac{\partial f_0}{\partial K} - \frac{\bm{b} \times \nabla f_0 \cdot \bm{k_\perp}}{\omega_{cj}} \right] \left[ J_0 \left( z \right) e_j \left( \phi - v_\parallel A_\parallel\right) + \frac{2 J_1 \left( z \right)}{z} \mu B_\parallel \right]
+\label{eq:g}
+\end{align}
+avec
+
+\[
+	z = k_\perp v_\perp / \omega_{cj}
+\]
+Dans la limite d'une longueur d'onde longue, \( z \rightarrow 0 \) et \( L \rightarrow 0 \)les résultats pour \( \delta f \) et \( g \) sont identique à ceux que l'on obtiendrait en linéarisant la dérive l'équation cinétique.
+Les fonction de Bessel \( J_0\left(z\right) \) et \( J_1\left(z\right) \), et le facteur \( \exp\left(iL\right) \) contiennent les effets du moyennage de Larmor sur les variations spatiales rapides des champs perturbés.
+
+Si l'équilibre possède un cisaillement magnétique  cette vision simple de l'équation gyro-cinétique comme une équation différentielle est invalide car la variation spatiale des quantités perturbées ne peut plus être représentée purement par la forme eikonale \( \exp\left( i \bm{k} \cdot \bm{x}\right) \).
+Cependant, beaucoup de calculs de stabilité linéaire à courte longueur d'onde en géométrie toroïdale introduisent une transformation appelé de "ballooning".
+Cela a la conséquence importante que les représentations eikonales pour les quantités perturbés sont valides dans l'espace transformés, même dans des champs magnétiques fortement cisaillés, de sorte que les équations gyro-cinétiques comme l'\autoref{eq:g} sont obtenues.
+
+L'équation gyro-cinétique apparait dans les études linéarisées d'instabilités à basse fréquences, mais des versions plus compliquées de l'équation peuvent être dérivées pour les modes à haute fréquences \( \left( \omega / \omega_c \approx 1 \right) \) avec les termes non linéaires inclus.
+
+Pour les applications de phénomènes à basse fréquence ou évoluant lentement, un deuxième moyennage (sur le mouvement longitudinal des particules) peut être effectué.
+Cela réduit encore la dimensionalité du problème à quatre variable \( \bm{x_\perp}, \mu, K \) et génère l'\textit{équation cinétique de dérive moyennée sur le mouvement de rebond} ou l'\textit{équation gyro-cinétique moyennée sur le mouvement de rebond}\footcite{En anglais "bounce averaged drift kinetic equation"}.
+
+\section{Équation de Fokker-Planck pour un plasma}
 
 \end{document}
