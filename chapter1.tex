@@ -491,20 +491,22 @@ Lz type de comportement attendu est montré dans la \autoref{fig:power_comp}.
 On a la dépendance en température du chauffage par particules-\( \alpha \) et les pertes de puissance ainsi que la puissance de chauffage nécessaire, pour un temps de confinement constant et une ignition à \( \SI{10}{\kilo\electronvolt} \).
 On voit donc que dans ce cas, la puissance de chauffage externe maximale est pour environ \( \SI{5}{\kilo\electronvolt} \) et cette puissance est alors moins de \( \SI{40}{\percent} \) de la puissance du chauffage par particules-\( \alpha \) ) la température d'ignition.
 
-\vspace{3\baselineskip}
+Une vue plus générale de l'approche de l'ignition est obtenue en considérant le bilan de puissance dans le plan \( 'n, T) \).
+En utilisant l'\autoref{eq:puissance_chauffage_simplifiee} il est possible de dessiner les contours d'égales valeurs de \( P \) nécessaires pour maintenir une température donnée à une densité donnée.
+Les incertitudes sur \( \tau_E (n, T) \) empêche le tracé d'un diagram précis, mais la \autoref{subfig:puissance_contour} montre la forme générale attendue \autoref{subfig:puissance_3D} donne la même information dans la forme d'un tracé deux dimentionnel de \( P(n, T) \).
+On peut voir que la trajectoire vers l'ignition nécéssitant d'une puissance minimale est celle passant par dela le point de selle.
+Ce point de selle est souvent appellé le passage de Cordey.
+
 \begin{wrapfigure}{c}{0.4\textwidth}
-    \centering
 
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/chapter1/contour.pdf}
+        \includegraphics{figures/chapter1/contour.pdf}
         \caption{}
         \label{subfig:puissance_contour}
     \end{subfigure}
     
     \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{{figures/chapter1/wireframe.pdf}}
+        \includegraphics{{figures/chapter1/wireframe.pdf}}
         \caption{}
         \label{subfig:puissance_3D}
     \end{subfigure}
@@ -512,12 +514,6 @@ On voit donc que dans ce cas, la puissance de chauffage externe maximale est pou
     \caption{(a) Countours de la puissance nécessaire pour maintenir un étqt stationnaire dans le plan \( 'n, T) \). (b) Un traacé en deux dimension donnant la forme de \( P(n, T)  \) cirrespondant aux contours de la figure (a)}
     \label{fig:contour_3D}
 \end{wrapfigure}
-
-Une vue plus générale de l'approche de l'ignition est obtenue en considérant le bilan de puissance dans le plan \( 'n, T) \).
-En utilisant l'\autoref{eq:puissance_chauffage_simplifiee} il est possible de dessiner les contours d'égales valeurs de \( P \) nécessaires pour maintenir une température donnée à une densité donnée.
-Les incertitudes sur \( \tau_E (n, T) \) empêche le tracé d'un diagram précis, mais la \autoref{subfig:puissance_contour} montre la forme générale attendue \autoref{subfig:puissance_3D} donne la même information dans la forme d'un tracé deux dimentionnel de \( P(n, T) \).
-On peut voir que la trajectoire vers l'ignition nécéssitant d'une puissance minimale est celle passant par dela le point de selle.
-Ce point de selle est souvent appellé le passage de Cordey.
 
 À l'ignition, la puissance appliquée peut être éteinte et il y a un équilibre entre le chauffage par particule-\( \alpha \) et les pertes de puissance du plasma.
 Cependant pour le cas montré dans la \autoref{fig:power_comp} cet équilibre est instable.
@@ -590,19 +586,18 @@ La condition de la stabilité est donc
 \section{Tokamaks}
 \label{sec:tokamaks}
 
-\vspace{2\baselineskip}
-\begin{wrapfigure}{r}{0.2\textwidth}
+\begin{wrapfigure}{i}{0.3\textwidth}
     % Réduction du retrait interne du wrap
-    \vspace{-10pt}
+	\centering
 
     \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=0.63\linewidth]{figures/chapter1/schematic_tokamak_1.pdf}
+        \includegraphics{figures/chapter1/schematic_tokamak_1.pdf}
         \caption{}
         \label{subfig:schematic_tokamak_1}
     \end{subfigure}
     
     \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=0.3\linewidth]{{figures/chapter1/schematic_tokamak_2.pdf}}
+        \includegraphics{{figures/chapter1/schematic_tokamak_2.pdf}}
         \caption{}
         \label{subfig:schematic_tokamak_2}
     \end{subfigure}
@@ -621,12 +616,12 @@ Ces courants et champs sont illustré dans la \autoref{subfig:schematic_tokamak_
 La combinaison du champ toroïdal \( B_\phi \) et du champ poloïdal \( B_\theta \) donne des lignes de champ magnétique qui ont une trajectoire hélicoïdale autour du tore, comme montré dans la \autoref{subfig:schematic_tokamak_2}.
 Le champ magnétique toroïdal est produit par les courants dans les bobines liant le plasma, comme montré dans la \autoref{fig:schematic_tokamak_3}.
 
-\begin{wrapfigure}{r}{0.2\textwidth}
+\begin{wrapfigure}{i}{0.2\textwidth}
     \centering
     % Réduction du retrait interne du wrap
     \vspace{-10pt}
     
-    \includegraphics[width=\linewidth]{{figures/chapter1/schematic_tokamak_3.pdf}}
+    \includegraphics{figures/chapter1/schematic_tokamak_3.pdf}
 
     \caption{Le chamm magnétique toroïdal est produit par le courant dans des bobines externes. }
     \vspace{-10pt}
@@ -681,13 +676,10 @@ Dans les expériences actuelles, le courant du plasma est entraîné par un cham
 La variation de flux est provoquée par un courant circulant dans une bobine primaire enroulée autour du tore, comme montré dans la \autoref{subfig:schematic_tokamak_5}.
 Bien que non essentiel, un noyau en fer de transformateur est souvent utilisé, celui-ci réduit les besoins en alimentation électrique et présente l'avantage de limiter les champs magnétiques de fuite.
 
-\vspace{2\baselineskip}
-\begin{wrapfigure}{r}{0.4\textwidth}
-	\centering 
-    \includegraphics[width=\linewidth]{{figures/chapter1/schematic_tokamak_6.pdf}}
-
-    \caption{L'arrangement des bobines dans un tokamak. }
-    \vspace{-10pt}
+\begin{wrapfigure}{i}{0.3\textwidth}
+	\centering 	
+    \includegraphics{{figures/chapter1/schematic_tokamak_6.pdf}}
+		\caption{L'arrangement des bobines dans un tokamak. }
     \label{fig:schematic_tokamak_6}
 \end{wrapfigure}
 

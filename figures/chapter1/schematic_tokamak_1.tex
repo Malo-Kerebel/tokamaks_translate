@@ -6,32 +6,34 @@
 
 	\begin{tikzpicture}
 	
-	\draw (0,0) ellipse [x radius=4cm, y radius=3cm];
-
-	\draw (0,0) ellipse [x radius=2.5cm, y radius=1.75cm];
+	\def\mul{0.5}
 	
-	\draw[dashed] (3.25,0) circle [radius=0.75cm];
+	\draw (0,0) ellipse [x radius=4*\mul cm, y radius=3*\mul cm];
+
+	\draw (0,0) ellipse [x radius=2.5*\mul cm, y radius=1.75*\mul cm];
+	
+	\draw[dashed] (3.25*\mul ,0) circle [radius=0.75*\mul cm];
 	
 	\draw[->]
-    (2.75,0.3)
+    (2.75*\mul ,0.3*\mul )
     to [out=60, in=120]
-    (3.75,0.3);
+    (3.75*\mul ,0.3*\mul );
     
-    \node at (3.25, 0) {\huge \( B_\theta \)};
+    \node at (3.25*\mul , 0) {\small \( B_\theta \)};
 
 	\draw[->]
-    (1,2.3)
+    (1*\mul ,2.3*\mul )
     to [out=165, in=15]
-    (-1,2.3);
+    (-1*\mul ,2.3*\mul );
     
-    \node at (0, 2) {\huge \( B_\phi \)};
+    \node at (0, 2*\mul ) {\small \( B_\phi \)};
     
     \draw[->]
-    (-1,-2.1)
+    (-1*\mul ,-2.1*\mul )
     to [out=-15, in=195]
-    (1,-2.1);
+    (1*\mul ,-2.1*\mul );
     
-    \node at (0, -2.7) {\huge \( I_\phi \)};
+    \node at (0, -2.7*\mul ) {\small \( I_\phi \)};
 	
 	\end{tikzpicture}
 

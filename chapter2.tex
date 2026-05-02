@@ -73,18 +73,16 @@ Ce chapitre donne une introduction à la physique utilisée pour l'analyse et la
 
 \section{Écrantage de Debye}
 \label{sec:ecrantage_debye}
-
-\begin{wrapfigure}[ 10 ]{r}{0.2\textwidth}
-    \centering
-    
-    \includegraphics{figures/chapter2/charge_sheet}
-
-    \caption{Couches de charges ioniques et électroniques séparées par une distance \( d \)}
-    \label{fig:charge_sheet}
-\end{wrapfigure}
     
 La densité de charge électrique des ions et des électrons séparés composant un plasma est assez grande pour que seulement une faible séparation des charges ne soit possible.
 Cet effet peut être interprété en imaginant la séparations des ions et des électrons en couches d'une épaisseur \( d \) comme montré dans la \autoref{fig:charge_sheet}.
+
+\begin{wrapfigure}{i}{0.3\textwidth}
+    \centering
+    \includegraphics{figures/chapter2/charge_sheet}
+    \caption{Couches de charges ioniques et électroniques séparées par une distance \( d \)}
+    \label{fig:charge_sheet}
+\end{wrapfigure}
 
 Si les ions sont simplement ionisés et que la densité des ions et des électrons est \( n \), la charge par unité de surface des couches est \( dne \).En ignorant les facteurs numériques le champ électrique entre les couches est \( \sim dne/\varepsilon_0 \) et la force par unité de surface est 
 
@@ -92,12 +90,14 @@ Si les ions sont simplement ionisés et que la densité des ions et des électro
 	F \sim \frac{\left( dne \right)^2}{\varepsilon_0}.
 	\label{eq:force_unite_surface}
 \end{equation}
-Dans un tokamak, la densité \( n \) est autour de \( \SI{e20}{\per\meter\cubed} \) et pour cette densité on a 
+
+\noindent Dans un tokamak, la densité \( n \) est autour de \( \SI{e20}{\per\meter\cubed} \) et pour cette densité on a 
 
 \[
 	F \sim 10^{13} d^2 \SI{}{\newton\per\meter\squared}.
 \]
-Par exemple, pour une épaisseur de \( \SI{1}{\centi\meter} \), cela donne une force par unité de surface de \( \SI{e9}{\newton\per\meter\squared} \).
+
+\noindent Par exemple, pour une épaisseur de \( \SI{1}{\centi\meter} \), cela donne une force par unité de surface de \( \SI{e9}{\newton\per\meter\squared} \).
 
 Puisque cette force est si grande par la séparation des charges, les densités d'ions et d'électrons sont tenus quasiment égales au travers du plasma. Ce que l'on appelle la quasi-neutralité et, pour le cas général avec des ions de charge \( Z \), la contrainte s'exprime
 
@@ -177,22 +177,21 @@ et la solution qui décroit pour un grand \( r \) est
 	\phi = \alpha \frac{1}{r} e^{-\sqrt{2} r / \lambda_D}
 	\label{eq:solution_phi_alpha}
 \end{equation}
-où \( \alpha \) est une constante. Puisque \( \phi = e/4\pi \varepsilon_0 r \) lorsque \( r \rightarrow 0 \), l'\autoref{eq:solution_phi_alpha} devient
+
+\noindent où \( \alpha \) est une constante. Puisque \( \phi = e/4\pi \varepsilon_0 r \) lorsque \( r \rightarrow 0 \), l'\autoref{eq:solution_phi_alpha} devient
 
 \begin{equation}
 	\phi = \frac{e}{4\pi\varepsilon_0 r} e^{-\sqrt{2} r / \lambda_D}
 	\label{eq:solution_phi}
 \end{equation}
 
-\vspace{1\baselineskip}
-\begin{wrapfigure}[ 10 ]{r}[ 30pt ]{0.4\textwidth}
+\begin{wrapfigure}{i}{0.5\textwidth}
     \centering
-    
     \includegraphics{figures/chapter2/potential}
-
     \caption{Tracés du potentiel écranté et non-écranté autour d'un ion.}
     \label{fig:potential}
 \end{wrapfigure}
+
 Cette équation décrit l'écrantage de Debye.
 Il est visible que le potentiel \( e/4\pi \varepsilon_0 r \) de l'ion est écranté selon un facteur exponentiel, la longueur caractéristique de l'écrantage étant la longueur de Debye
 Les tracés des potentiels écrantés et non-écrantés sont donnés dans la \autoref{fig:potential}.
@@ -203,13 +202,15 @@ Avec l'\autoref{eq:solution_phi}, l'approximation \( e\phi/T \ll 1 \) utilisée 
 	r \gg \frac{e^2}{4\pi \varepsilon_0 T}.
 	\label{eq:inegalite_r}
 \end{equation}
-L'aspect physique de ce pré-requis peut être visualisé en observant que la plus petite valeur pertinente de \( r \) est de l'ordre de la séparation entre les particules, qui est de \( 1/n^{1/3} \).
+
+\noindent L'aspect physique de ce pré-requis peut être visualisé en observant que la plus petite valeur pertinente de \( r \) est de l'ordre de la séparation entre les particules, qui est de \( 1/n^{1/3} \).
 En utilisant cette valeur pour \( r \), l'inégalité \ref{eq:inegalite_r} devient
 
 \[
 	n \lambda_D^3 \gg \left(\frac{1}{4\pi} \right)^{3/2}
 \]
-et cette approximation est valide s'il y a beaucoup de particules dans un cube de côté \( \lambda_D \), autrement dit
+
+\noindent et cette approximation est valide s'il y a beaucoup de particules dans un cube de côté \( \lambda_D \), autrement dit
 
 \begin{equation}
 	n \lambda_D^3 \gg 1.
@@ -230,29 +231,6 @@ Les particules reçoivent aussi de l'énergie du champ électrique et l'équilib
 \section{Fréquence plasma}
 \label{sec:frequence_plasma}
 
-\vspace{5\baselineskip}
-\begin{wrapfigure}{c}{0.4\textwidth}
-    \centering
-    % Réduction du retrait interne du wrap
-
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/chapter2/displaced_electrons.pdf}
-        \caption{}
-        \label{subfig:displaced_electrons}
-    \end{subfigure}
-    
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{{figures/chapter2/displaced_electrons_2.pdf}}
-        \caption{}
-        \label{subfig:displaced_electrons_2}
-    \end{subfigure}
-
-    \caption{(a) Les électrons déplacés créent une force de restauration et une accélération, (b) après un demi cycle, les charges sont interchangées}
-    \label{fig:displaced_electrons}
-\end{wrapfigure}
-
 Dans la \autoref{sec:ecrantage_debye}, il a été montré qu'un plasma a une longueur caractéristique, la longueur de Debye.
 Un plasma a aussi une fréquence caractéristique.
 Cela peut être compris en considérant une couche déplacée d'électrons comme montré dans la \autoref{subfig:displaced_electrons}.
@@ -263,6 +241,25 @@ Les électrons sont accélérés par le champ électrique et se déplacent pour 
 Au moment de l'annulation, la quantité de mouvement des électrons est maximum et cela permet aux électrons de récréer la séparation des charges, maintenant dans la phase opposée.
 Ce processus est répété et le déplacement des électrons en résultants constitue les oscillations du plasma avec la fréquence plasma caractéristique.
 
+\begin{wrapfigure}{i}{0.3\textwidth}
+    % Réduction du retrait interne du wrap
+
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics{figures/chapter2/displaced_electrons.pdf}
+        \caption{}
+        \label{subfig:displaced_electrons}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics{{figures/chapter2/displaced_electrons_2.pdf}}
+        \caption{}
+        \label{subfig:displaced_electrons_2}
+    \end{subfigure}
+
+    \caption{(a) Les électrons déplacés créent une force de restauration et une accélération, (b) après un demi cycle, les charges sont interchangées}
+    \label{fig:displaced_electrons}
+\end{wrapfigure}
+
 La fréquence plasma peut être calculée en utilisant les équations fluides.
 Pour un plasma froid, l'équation du mouvement pour le fluide électron est
 
@@ -270,24 +267,28 @@ Pour un plasma froid, l'équation du mouvement pour le fluide électron est
 	m_e \frac{\partial v}{\partial t} = - e \bm{E}
 	\label{eq:motion_electron}
 \end{equation}
-et en assumant une oerturbation de la densité faible \( \tilde{n} \), le champ électrique est donné par
+
+\noindent et en assumant une oerturbation de la densité faible \( \tilde{n} \), le champ électrique est donné par
 
 \begin{equation}
 	\nabla \cdot \bm{E} = - \frac{e \tilde{n}}{\varepsilon_0}
 	\label{eq:E_perturbation_faible}
 \end{equation}
-Donc en prenant la divergeance de l'\autoref{eq:motion_electron} et en éliminant \( \nabla \cdot \bm{E} \) en utilisant l'\autoref{eq:E_perturbation_faible}
+
+\noindent Donc en prenant la divergeance de l'\autoref{eq:motion_electron} et en éliminant \( \nabla \cdot \bm{E} \) en utilisant l'\autoref{eq:E_perturbation_faible}
 
 \begin{equation}
 	m_e \frac{\partial }{\partial t} \nabla \cdot v = \frac{e^2}{\varepsilon_0} \tilde{n}.
 	\label{eq:motion_sans_E}
 \end{equation}
-L'équation de continuité est
+
+\noindent L'équation de continuité est
 
 \[
 	\frac{\partial n}{\partial t} = - \nabla \cdot (nv)
 \]
-et la forme linéarisée est
+
+\noindent et la forme linéarisée est
 
 \begin{equation}
 	\frac{\partial \tilde{n}}{\partial t} = -n \nabla \cdot v.
@@ -573,20 +574,26 @@ En choisissant la coordonnée \( z \) le long du champ magnétique et la coordon
 \]
 Les solutions à ces équations peuvent s'écrire
 
-\begin{wrapfigure}{c}{0.4\textwidth}
-    \centering
-    
-    \includegraphics{figures/chapter2/ExB}
-
-    \caption{ La dérive \( \bm{E} \times \bm{B} \) d'un ion et d'un électron, \( v_d = E/B \)}
-    \label{fig:ExB}
-\end{wrapfigure}
+\begin{figure}
+	\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{La dérive \( \bm{E} \times \bm{B} \) d'un ion et d'un électron, \( v_d = E/B \)}
+        \label{fig:ExB}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \flushright
+        \includegraphics{figures/chapter2/ExB}
+    \end{minipage}
+\end{figure}
 
 \begin{equation}
 	v_x = v_\perp \sin \omega_{cj} t + \frac{E}{B}, \quad v_y = v_\perp \cos \omega_{cj} t
 	\label{eq:sol_ExB}
 \end{equation}
-La dérive est indépendante de la charge, de la masse et de l'énergie de la particule.
+
+\noindent La dérive est indépendante de la charge, de la masse et de l'énergie de la particule.
 L'entiéreté du plasma est donc sujet à cette dérive.
 Le trajectoires d'un ion et d'un électron sont montrées dans la \autoref{fig:ExB}.
 
@@ -597,7 +604,8 @@ Donc, ce champ électrique peut être transformé vers un référentiel ayant un
 	\bm{E} + \bm{v_f} \times \bm{B} = 0.
 	\label{eq:referentiel_0}
 \end{equation}
-Dans ce référentiel l'orbite de la particule sera simplement circulaire.
+
+\noindent Dans ce référentiel l'orbite de la particule sera simplement circulaire.
 On voit donc que dans le référentiel de base la particule va avoir son mouvement circulaire avec une vitesse de dérive \( \bm{v_d} = \bm{v_f} \).
 En croisant l'\autoref{eq:referentiel_0} avec \( \bm{B} \) donne maintenant la vitesse de dérive
 
@@ -608,14 +616,9 @@ comme précédemment.
 
 \subsubsection*{ Dérive \( \nabla B \)}
 
-\vspace{2\baselineskip}
-\begin{wrapfigure}{c}{0.4\textwidth}
-    \centering
-    
+\begin{wrapfigure}{i}{0.3\textwidth}
     \includegraphics{figures/chapter2/drift_grad_B}
-
     \caption{Un gradient de \( \bm{B} \) perpendiculaire à \( \bm{B} \) donne une dérive aux ions et aux électrons dans des directions opposées.}
-    \vspace{10pt}
     \label{fig:grad_B}
 \end{wrapfigure}
 
@@ -628,12 +631,14 @@ En prenant le champ magnétique le long de l'axe \( z \), et son gradient sur l'
 	m_j \frac{\dd v_y}{\dd t} = - e_j v_x B.
 	\label{eq:composante_y}
 \end{equation}
-Si on prend que le gradient de \( \bm{B} \) est faible, de sorte que la variation du champ magnétique le long du rayon de Larmor est petit comparé à \( B \), le champ magnétique peut être écrit
+
+\noindent Si on prend que le gradient de \( \bm{B} \) est faible, de sorte que la variation du champ magnétique le long du rayon de Larmor est petit comparé à \( B \), le champ magnétique peut être écrit
 
 \[
 	B = B_0 + B' y
 \]
-où \( y= 0 \) est le plan médian de l'orbite de la particule.
+
+\noindent où \( y= 0 \) est le plan médian de l'orbite de la particule.
 En utilisant la petitesse de la perturbation de l'orbite, l'\autoref{eq:composante_y} devient
 
 \begin{equation}
@@ -1123,7 +1128,7 @@ et en remplaçant ce résultat dans l'\autoref{eq:div_flux_espace_phase} on obti
 \end{equation}
 C'est l'équation qui gouverne le comportement en l'absence de collisions.
 
-L'inclusion des collisions nécessite l'addition d'un terme \( \left( \partial f / \partial t \right)çc \) dans le côté droit de l'\autoref{eq:vlasov}.
+L'inclusion des collisions nécessite l'addition d'un terme \( \left( \partial f / \partial t \right)_c \) dans le côté droit de l'\autoref{eq:vlasov}.
 Si les collision d'un un plasma étaient des collisions dures, localisé dans le temps et dans l'espace, il serait approprié d'utiliser la forme du terme de collision dans l'équation de Boltzmann.
 Cependant, comme vue dans la \autoref{sec:collisions}, c'est innaproprié pour un plasma.
 La bonne équation cinétique collisionnelle pour un plasma est l'équation de Fokker-Planck
@@ -1251,7 +1256,7 @@ L'équation gyro-cinétique étend ces procédures de moyennage à des situation
 
 Cela a été utilisé initialement dans des analyses de stabilité linéaire dans lesquelles les champs perturbés varient selon \( \exp\left(i \bm{k}\cdot \bm{x}\right) \) et les longueurs d'ondes dans les directions transverses au champ magnétiques sont comparables au rayon de Larmor, autrement dit \( k_\perp v_\perp / \omega_c \) est de l'ordre de l'unité.
 
-En prenant des équations sans collisions, pour la simplicité, et des perturbations pour lesquelles \( k_\perp v_\perp / \omega_c \) est de l'ordre de l'unité et les quantités perturbées varient comme \( \exp\left( - i \omega t + \bm{k_\perp} \cdot \bm{x} \right) \) puis, en écrivant \( f = f_0 + \delta f \) et \( E = E_0 - \nabla \phi - i \omega A \); la perturbation de la fonction de distribution \( \delta f \) peut être obtenue en terme des potentiels perturbés \( \phi \) et  \( A_\parallel \) et la perturbation du champ magnétique \( B_\parallel \) en développant l'équation de Vlasov linéarisé.
+En prenant des équations sans collisions, pour la simplicité, et des perturbations pour lesquelles \( k_\perp v_\perp / \omega_c \) est de l'ordre de l'unité et les quantités perturbées varient comme \( \exp\left( - i \omega t + \bm{k_\perp} \cdot \bm{x} \right) \) puis, en écrivant \( f = f_0 + \delta f \) et \( E = E_0 - \nabla \phi - i \omega A \), la perturbation de la fonction de distribution \( \delta f \) peut être obtenue en terme des potentiels perturbés \( \phi \) et  \( A_\parallel \) et la perturbation du champ magnétique \( B_\parallel \) en développant l'équation de Vlasov linéarisé.
 Le résultat pour un \( f_0 \) isotropique est
 
 \[
@@ -1284,8 +1289,103 @@ Cela a la conséquence importante que les représentations eikonales pour les qu
 L'équation gyro-cinétique apparait dans les études linéarisées d'instabilités à basse fréquences, mais des versions plus compliquées de l'équation peuvent être dérivées pour les modes à haute fréquences \( \left( \omega / \omega_c \approx 1 \right) \) avec les termes non linéaires inclus.
 
 Pour les applications de phénomènes à basse fréquence ou évoluant lentement, un deuxième moyennage (sur le mouvement longitudinal des particules) peut être effectué.
-Cela réduit encore la dimensionalité du problème à quatre variable \( \bm{x_\perp}, \mu, K \) et génère l'\textit{équation cinétique de dérive moyennée sur le mouvement de rebond} ou l'\textit{équation gyro-cinétique moyennée sur le mouvement de rebond}\footcite{En anglais "bounce averaged drift kinetic equation"}.
+Cela réduit encore la dimensionalité du problème à quatre variable \( \bm{x}_\perp, \mu, K \) et génère l'\textit{équation cinétique de dérive moyennée sur le mouvement de rebond} ou l'\textit{équation gyro-cinétique moyennée sur le mouvement de rebond}\footnote{ anglais "bounce averaged drift kinetic equation"}.
 
 \section{Équation de Fokker-Planck pour un plasma}
+
+Dans le cas d'un plasma les coefficients dans l'équation de Fokker-Planck sont calculés pour des collisions de Coulomb à petit angle et une somme est faite sur les espèces des particules.
+Les coefficients prennent la forme de différentiels d'intégrales sur la fonction de distribution.
+Ces intégrales \( H_j \) et \( G_j \), appelés potentiels de Rosenbluth, sont donnés par
+
+\begin{equation}
+	Hèj \left( v \right) = \left( 1 + \frac{m}{m_j} \right) \int \frac{f_j \left( v_j \right)}{\left\vert v - v_j \right\vert} \dd v_j
+	\label{eq:H_j}
+\end{equation}
+et
+
+\begin{equation}
+	G_j \left( v \right) = \int f_j \left(v \right) \left\vert v - v_j \right\vert \dd b_j
+	\label{eq:G_j}
+\end{equation}
+l'indice \( j \) se refférant à l'espèce de la particule.
+Écrit en terme de ces potentiels, les coefficients requis sont
+
+\begin{equation}
+	\left\langle \Delta v_\alpha \right\rangle = \sum_j A_j \frac{\partial H_j \left( v \right)}{\partial v_\alpha}
+	\label{eq:coefficient_H}
+\end{equation}
+et
+
+\begin{equation}
+	\left\langle \Delta v_\alpha \Delta v_\beta \right\rangle = \sum_j A_j \frac{\partial^2 G_j\left(v\right)}{\partial v_\alpha \partial v_\beta}
+	\label{eq:coefficient_G}
+\end{equation}
+où
+
+\[
+	A_j = \frac{e^4 Z^2 Z^2_j \ln \Lambda}{4 \pi \varepsilon_0^2 m^2}
+\]
+et les indices \( \alpha \) et \( \beta \) se réfèrent aux composantes cartésiennes de \( v \) et \( v_j \).
+
+En utilisant l'\autoref{eq:terme_collision_fokker_planck} avec l'\autoref{eq:coefficient_H} et l'\autoref{eq:coefficient_G}, le terme de collision de Fokker-Planck peut maintenant être écrit
+
+\begin{align}
+	\left( \frac{\partial f}{\partial t} \right)_c =& \sum_j \frac{e^2 Z^2 Z^2_j \ln \Lambda}{4 \pi \varepsilon_0^2 m^2} \left\lbrace - \frac{\partial}{\partial \bm{v}_\alpha} \left( \frac{\partial H_j \left(\bm{v}\right)}{\partial \bm{v}_\alpha} f\left(\bm{v}\right)\right)\right.\nonumber\\
+	& \left.+ \frac{1}{2} \frac{\partial}{\partial \bm{v}_\alpha} \frac{\partial}{\partial \bm{v}_\beta} \left( \frac{\partial^2 G_j \left(\bm{v} \right)}{\partial \bm{v}_\alpha \partial \bm{v}_\beta} f\left(\bm{v}\right) \right) \right\rbrace
+	\label{eq:fokker_planck_collision}
+\end{align}
+où la somme est prise sur le double indice de \( \alpha \) et \( \beta \).
+
+Alternativement, le terme de collision peut être écrit dans la forme symétrique de l'intégrale de Landau
+
+\begin{align}
+	\left( \frac{\partial f}{\partial t} \right)_c = &\sum_j \frac{e^2 Z^2 Z^2_j \ln \Lambda}{8 \pi \varepsilon_0^2 m} \nonumber\\
+	& \times \frac{\partial}{\partial \bm{v}_\alpha} \int \left( \frac{f_j \left( \bm{v}_j \right)}{m} \frac{\partial f \left( \bm{v} \right)}{\partial \bm{v}_\beta} - \frac{f \left( \bm{v} \right)}{m_j} \frac{\partial f_j \left( \bm{v}_j \right)}{\partial \bm{v}_{j\beta}} \right) \bm{u}_{\alpha\beta} \dd \bm{v}_j
+	\label{eq:forme_symmetrique_Landau}
+\end{align}
+où
+\[
+	\bm{u} = \bm{v} - \bm{v}_j \quad \text{et} \quad \bm{u}_{\alpha \beta} = \frac{\bm{u}^2 \delta_{\alpha \beta} - \bm{u}_\alpha \bm{u}_\beta}{u^3}.
+\]
+L'équation de Fokker-Planck pour un plasma est maintenant obtenu en substituant l'\autoref{eq:fokker_planck_collision} ou \ref{eq:forme_symmetrique_Landau} dans l'\autoref{eq:fokker_planck}.
+Sa solution est généralement obtenue numériquement.
+Cependant il est possible d'obtenir des informations utiles à partir d'une forme plus simple en considérant la réponse d'une particule test au collisions avec des espèces ayant une distribution de vitesse Maxwellienne.
+Cela permet le calcul de temps caractéristiques pour le ralentissement et la déflection de particule comme décrit dans la partie \color{red}{ 2.14 (lien à rajouter quand elle sera faite)}\color{black}.
+
+\section{Coefficients de Fokker-Planck pour des distributions Maxwelliennes}
+
+En prenant une distribution de vitesse Maxellienne pour les espèces ``d'arrière plan'' et en notant ces espèces avec l'indice 1.
+
+\[
+	f_1 \left( \bm{v}_i \right) = \frac{n_1}{\left(2 \pi \right)^{3/2} v^3_{T1}} \exp{-\left( \frac{v^2_1}{2v^2_{T1}} \right)}
+\]
+
+Les potentiels de Rosebluth donnés par l'\autoref{eq:coefficient_H} et l'\autoref{eq:coefficient_G} peuvent être calculés.
+Les potentiels sont donc
+
+\[
+	H_1 = \left(1+\frac{m}{m_1} \right) n_1 \frac{\Phi \left(v/\sqrt{2} v_{T1}\right)}{v}
+\]
+
+\noindent et
+
+\[
+	G_1 = n_1 \left( \frac{v^2 + v^2_{T1}}{v} \Phi \left(v/\sqrt{2} v_{T1} \right) + \frac{v_{T1}}{\sqrt{2}} v_{T1} \Phi' \left(v/\sqrt{2} v_{T1} \right) \right)
+\]
+
+\noindent où
+
+\[
+	\Phi \left(x \right) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-y^2} \dd y
+\]
+
+\noindent est la fonction d'erreur, et donc
+
+\[
+	\Phi' \left(x \right) = \frac{2}{\sqrt{\pi}} e^{-x^2}.
+\]
+
+\noindent Le \( \left\langle \Delta \bm{v} \right\rangle \) correspondant est parallèle à \( \bm{v} \) et le tenseur de diffusion est diagonal.
+Il est donc pratique d'utiliser les coordonnées Cartésiennes parallèles et perpendiculaires à une direction choisié comme montré dans la figure
 
 \end{document}
