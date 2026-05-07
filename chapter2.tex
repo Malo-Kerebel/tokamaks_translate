@@ -185,9 +185,9 @@ et la solution qui décroit pour un grand \( r \) est
 	\label{eq:solution_phi}
 \end{equation}
 
-\begin{wrapfigure}{i}{0.5\textwidth}
+\begin{wrapfigure}[ 23 ]{i}{0.55\textwidth}
     \centering
-    \includegraphics{figures/chapter2/potential}
+    \includegraphics[ width=\linewidth ]{figures/chapter2/potential}
     \caption{Tracés du potentiel écranté et non-écranté autour d'un ion.}
     \label{fig:potential}
 \end{wrapfigure}
@@ -216,7 +216,8 @@ En utilisant cette valeur pour \( r \), l'inégalité \ref{eq:inegalite_r} devie
 	n \lambda_D^3 \gg 1.
 	\label{eq:inegalite_nlambda}
 \end{equation}
-Dans un plasma de tokamak les valeurs typiques sont de \( n \simeq \SI{e20}{\per\meter\cubed} \) et \( \lambda_D \simeq \SI{e-4}{\meter} \).
+
+\noindent Dans un plasma de tokamak les valeurs typiques sont de \( n \simeq \SI{e20}{\per\meter\cubed} \) et \( \lambda_D \simeq \SI{e-4}{\meter} \).
 Donc \( n \lambda_D^3 \simeq 10^8\) et l'inégalité \ref{eq:inegalite_nlambda} est satisfaite.
 La valeur \( n \lambda_D^3 \) est appelé le paramètre du plasma.
 
@@ -678,7 +679,7 @@ Les ions et les électrons ont des dérives opposées, le signe dans l'\autoref{
     % Minipage pour la légende (à gauche)
     \begin{minipage}[c]{0.35\textwidth}
         \caption{Dérive d'un ion par la courbure du champ magnétique. Les électrons dérivent dans la direction opposée.}
-        \label{fig:polarisation_drift}
+        \label{fig:ion_drift}
     \end{minipage}\hfill
     % Minipage pour l'image (à droite)
     \begin{minipage}[c]{0.55\textwidth}
@@ -688,7 +689,7 @@ Les ions et les électrons ont des dérives opposées, le signe dans l'\autoref{
 \end{figure}
 
 Quand le centre guide d'une particule suit une ligne de champ magnétique courbée, il subit une dérive perpendiculaire au plan dans lequel la courbure est.
-Ce comportement est illustré dans la \autoref{fig:polarisation_drift}.
+Ce comportement est illustré dans la \autoref{fig:ion_drift}.
 
 Pour calculer cette dérive il est utile de transposer vers un référentiel tournant avec la vélocité angulaire, \( v_\parallel/R \), de la particule, où \( v_\parallel \) est la vitesse parallèle au champ magnétique et \( R \) est le rayon de courbure de la ligne de champ.
 Dans ce référentiel, la particule subit une force centrifuge \( m_j v_\parallel^2 / R \) et l'équation du mouvement est
@@ -1128,7 +1129,7 @@ et en remplaçant ce résultat dans l'\autoref{eq:div_flux_espace_phase} on obti
 \end{equation}
 C'est l'équation qui gouverne le comportement en l'absence de collisions.
 
-L'inclusion des collisions nécessite l'addition d'un terme \( \left( \partial f / \partial t \right)_c \) dans le côté droit de l'\autoref{eq:vlasov}.
+L'inclusion des collisions nécessite l'addition d'un terme \( \left( \partial f / \partial t \right)_c \) dans le côté droit de l'équation \ref{eq:vlasov}.
 Si les collision d'un un plasma étaient des collisions dures, localisé dans le temps et dans l'espace, il serait approprié d'utiliser la forme du terme de collision dans l'équation de Boltzmann.
 Cependant, comme vue dans la \autoref{sec:collisions}, c'est innaproprié pour un plasma.
 La bonne équation cinétique collisionnelle pour un plasma est l'équation de Fokker-Planck
@@ -1381,11 +1382,60 @@ Les potentiels sont donc
 
 \noindent est la fonction d'erreur, et donc
 
+\begin{wrapfigure}{r}{0.33\textwidth}
+\centering
+
+\includegraphics{figures/chapter2/orthogonal_velocity.pdf}
+
+\caption{lLorem ipsum sit dolor mit amet}
+
+\label{fig:orthogonal_velocity}
+
+\end{wrapfigure}
+
 \[
 	\Phi' \left(x \right) = \frac{2}{\sqrt{\pi}} e^{-x^2}.
 \]
 
 \noindent Le \( \left\langle \Delta \bm{v} \right\rangle \) correspondant est parallèle à \( \bm{v} \) et le tenseur de diffusion est diagonal.
-Il est donc pratique d'utiliser les coordonnées Cartésiennes parallèles et perpendiculaires à une direction choisié comme montré dans la figure
+Il est donc pratique d'utiliser les coordonnées Cartésiennes parallèles et perpendiculaires à une direction choisié comme montré dans la \autoref{fig:orthogonal_velocity}, les deux coordonnées perpendiculaires étant écrites \( \bm{v}_{\perp \alpha} \) et \( \bm{v}_{\perp \beta} \).
+Depuis l'\autoref{eq:terme_collision_fokker_planck} et l'\autoref{eq:fokker_planck_collision}, les coefficients de friction et de diffusion sont liés aux potentiels par les équations
+
+\begin{align*}
+	\left\langle \Delta v_\perp \right\rangle &= A_1 \frac{\partial H_1}{\partial v}\\
+	\left\langle \left( \Delta v_\parallel\right)^2 \right\rangle &= A_1 \frac{\partial^2 G_1}{\partial v^2}
+\end{align*}
+
+\noindent et
+
+\[
+	\left\langle \left( \Delta v_{\perp\alpha} \right)^2 \right\rangle = Aè1 \frac{1}{v} \frac{\dd G_1}{\dd v} 
+\]
+
+\noindent où
+
+\[
+	A_1 = \frac{e^4 Z^2 Z^2_j \ln \Lambda}{4 \pi \varepsilon_0^2 m^2}.
+\]
+
+\noindent La forme de \( \left\langle \left( \Delta v_{\perp\alpha} \right)^2 \right\rangle  \) suit de la relation
+
+\[
+	v^2 = v_\parallel^2 + v_{\perp \alpha}^2 + v_{\perp \beta}^2
+\]
+
+\noindent de sorte que
+
+\[
+	\left( \frac{\partial^2 G_1}{\partial v_{\perp\alpha}^2} \right)_{v_{\perp\alpha} = 0} = \frac{1}{v} \frac{\dd G_1}{\dd v}.
+\]
+
+\noindent Les formes explicites sont
+
+\begin{align*}
+	\left\langle \Delta v_\parallel \right\rangle &= - A_D \left(1 + \frac{m}{m_1} \right) \frac{\Psi \left( v / \sqrt{2} v_{T_1}\right)}{2v_{T_1}}²\\
+	\left\langle \left( \Delta v_\parallel \right)^2 \right\rangle &= A_D \frac{\Psi \left( v / \sqrt{2}v_{T_1} \right)}{v}\\
+	\left\langle \left(\Delta v_{\perp\alpha} \right)^2 \right\rangle &= A_D \frac{\Phi \left(v/\sqrt{2} v_{T_1}\right) - \Psi \left(v/\sqrt{2 v_{T_1}}\right)}{2v}
+\end{align*}
 
 \end{document}

@@ -1,0 +1,49 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows.meta}
+
+\usepackage{bm}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Assure la compatibilité avec la dernière version de pgfplots
+
+\begin{document}
+
+\begin{tikzpicture}
+
+	\pgfmathsetmacro{\length}{3};
+
+	\draw[ -{Latex} ] (0, 0) -- (0, \length) node[ anchor=east ] {\small \( \bm{v}_{\perp \alpha} \)};
+	
+	\pgfmathsetmacro{\angle}{-15};
+	\pgfmathsetmacro{\xparr}{\length*cos(\angle)};
+	\pgfmathsetmacro{\yparr}{\length*sin(\angle)};
+	
+	\pgfmathsetmacro{\xperp}{0.8*\length*cos(-2*\angle)};
+	\pgfmathsetmacro{\yperp}{-0.8*\length*sin(2*\angle)};
+	
+	\draw[ -{Latex} ] (0, 0) -- (\xparr, \yparr) node[ anchor=north ] {\small \( \bm{v}_{\parallel} \)};
+	
+	\draw[ -{Latex} ] (0, 0) --  (\xperp, \yperp) node[ anchor=west ] {\small \( \bm{v}_{\perp \beta} \)};
+	
+	\draw[ -{Latex} ] (0, 0) --  (\xperp, \yperp+\length) node[ anchor=west ] {\small \( \bm{v}_{\perp} \)};
+	
+	\draw[ dotted ] (\xperp, \yperp+\length) -- (0, \length);
+	\draw[ dotted ] (\xperp, \yperp+\length) -- (\xperp, \yperp);  
+	
+	\pgfmathsetmacro{\length}{3/10};
+	
+	\pgfmathsetmacro{\xparr}{\length*cos(\angle)};
+	\pgfmathsetmacro{\yparr}{\length*sin(\angle)};
+	
+	\pgfmathsetmacro{\xperp}{0.8*\length*cos(-2*\angle)};
+	\pgfmathsetmacro{\yperp}{-0.8*\length*sin(2*\angle)};
+	
+	\draw (\xperp, \yperp) -- (\xperp+\xparr, \yperp+\yparr) -- (\xparr, \yparr);
+
+\end{tikzpicture}
+
+\end{document}
