@@ -1438,4 +1438,89 @@ Depuis l'\autoref{eq:terme_collision_fokker_planck} et l'\autoref{eq:fokker_plan
 	\left\langle \left(\Delta v_{\perp\alpha} \right)^2 \right\rangle &= A_D \frac{\Phi \left(v/\sqrt{2} v_{T_1}\right) - \Psi \left(v/\sqrt{2 v_{T_1}}\right)}{2v}
 \end{align*}
 
+\noindent où
+
+\[
+	\Psi\left( x \right) = \frac{\Phi \left( x \right) - x \Phi'\left( x \right) }{2x^2}
+\]
+
+\noindent et
+
+\[
+	A_D = \frac{n_1 e^4 Z^2 Z_1^2 \ln \Lambda}{2 \pi \varepsilon_0^2 m^2}
+\]
+
+\noindent Il est à noté que le coefficient perpendiculaire total \( \left\langle \left( \Delta v_\perp \right)^2 \right\rangle \) est donné par
+
+\[
+	\left\langle \left( \Delta v_\perp \right)^2 \right\rangle = \left\langle \left( \Delta v_{\perp \alpha} \right)^2 \right\rangle + \left\langle \left( \Delta v_{\perp \beta} \right)^2 \right\rangle = 2 \left\langle \left( \Delta v_{\perp \alpha} \right)^2 \right\rangle
+\]
+
+\noindent de sorte que
+
+\begin{equation}
+	\left\langle \left( \Delta v_{\perp} \right)^2 \right\rangle = A_D \frac{\Phi \left( v / \sqrt{2} v_{T1} \right) - \Psi \left( v / \sqrt{2} v_{T1} \right)}{v}
+	\label{eq:coefficient_perpendiculaire_total}
+\end{equation}
+
+\noindent et
+
+\[
+	\left\langle \left( \Delta v \right)^2 \right\rangle = \left\langle \left( \Delta v_\parallel \right)^2 \right\rangle + \left\langle \left( \Delta v_{\perp} \right)^2 \right\rangle = A_D \frac{\Phi \left( v / \sqrt{2}v_{T1}\right)}{v}.
+\]
+
+Les tracés de \( \Phi \left( x \right) \) et \( \Psi \left( x \right) \) sont donnés dans la \autoref{fig:FP_coeff}.
+Ces fonctions prennent les formes limites
+
+\begin{tabular}{l l l}
+\( \Psi \left( x \right) \rightarrow \frac{2x}{3\sqrt{\pi}} \), & \(\Phi \left( x \right)  \rightarrow \frac{2x}{\sqrt{\pi}} \), &\( x \ll 1 \), \\
+\( \Psi \left( x \right)  \rightarrow  \frac{1}{2x^2}\), & \( \Phi \left( x \right)  \rightarrow  1 \), & \( x \gg 1 \).
+\end{tabular}
+
+\begin{figure}
+\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{Tracés de la fonction d'erreur \( \Phi \left( x \right) \), \( \Psi \left( x \right) \) et \( \Phi \left( x \right) - \Psi \left( x \right) \).}
+        \label{fig:FP_coeff}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \flushright
+        \includegraphics{figures/chapter2/FP_coeff.pdf}
+    \end{minipage}
+\end{figure}
+
+\noindent En définissant les coefficients de diffusion \( D_\parallel \) et \( S_\perp \) par
+
+\[
+	D_\parallel = \frac{1}{2} \left\langle \left( \Delta v_\parallel \right)^2 \right\rangle
+\]
+
+\noindent et
+
+\[
+	D_\perp = \frac{1}{2} \left\langle \left( \Delta v_{\perp \alpha} \right)^2 \right\rangle = \frac{1}{2} \left\langle \left( \Delta v_{\perp \beta} \right)^2 \right\rangle,
+\]
+
+\noindent le terme de collision donné par l'\autoref{eq:terme_collision_fokker_planck} peu être écrit dans chacune des deux formes
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial t} \right)_c = - \nabla_\nu \cdot \left[ \left\langle v_\parallel \right\rangle	 f - \nabla_\parallel \left( D_\parallel f \right) - D_\perp \nabla_\perp f \right]
+	\label{eq:FP_coeff_forme_1}
+\end{equation}
+
+\noindent et
+
+\begin{equation}
+	\left( \frac{\partial f}{\partial t} \right)_c = - \nabla_\nu \cdot \left[ \left( \left\langle \Delta v_\parallel \right\rangle - \nabla_\parallel D_\parallel \right) f - D_\parallel \nabla_\parallel f - D_\perp \nabla_\perp f \right]
+	\label{eq:FP_coeff_forme_2}
+\end{equation}
+
+\noindent où \( \nabla_\nu \) indique l'opérateur de fivergence dans l'espace des vitesse, \( \Delta v_\parallel \) est le long de \( \bm{v} \) et \( \nabla_\parallel \) et \( \nabla_\perp \) sont les composantes de \( \nabla \) parallèle et perpendiculaire à \( \bm{v} \).
+Le terme de friction dynamique est généralement appliqué à \( \left\langle \Delta v_\parallel \right\rangle \)n le coeffcient de \( f \) dans l'\autoref{eq:FP_coeff_forme_1}, mais parfois au coefficient \( \left( \left\langle \Delta v_\parallel \right\rangle - \nabla_\parallel D_\parallel \right) \) dans l'\autoref{eq:FP_coeff_forme_2}.
+
+\section{Processus de relaxation}
+\label{sec:processus_relaxation}
+
 \end{document}
