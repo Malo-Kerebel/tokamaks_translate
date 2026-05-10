@@ -1358,20 +1358,20 @@ Cela permet le calcul de temps caractéristiques pour le ralentissement et la d�
 En prenant une distribution de vitesse Maxellienne pour les espèces ``d'arrière plan'' et en notant ces espèces avec l'indice 1.
 
 \[
-	f_1 \left( \bm{v}_i \right) = \frac{n_1}{\left(2 \pi \right)^{3/2} v^3_{T1}} \exp{-\left( \frac{v^2_1}{2v^2_{T1}} \right)}
+	f_1 \left( \bm{v}_i \right) = \frac{n_1}{\left(2 \pi \right)^{3/2} v^3_{T_1}} \exp{-\left( \frac{v^2_1}{2v^2_{T_1}} \right)}
 \]
 
 Les potentiels de Rosebluth donnés par l'\autoref{eq:coefficient_H} et l'\autoref{eq:coefficient_G} peuvent être calculés.
 Les potentiels sont donc
 
 \[
-	H_1 = \left(1+\frac{m}{m_1} \right) n_1 \frac{\Phi \left(v/\sqrt{2} v_{T1}\right)}{v}
+	H_1 = \left(1+\frac{m}{m_1} \right) n_1 \frac{\Phi \left(v/\sqrt{2} v_{T_1}\right)}{v}
 \]
 
 \noindent et
 
 \[
-	G_1 = n_1 \left( \frac{v^2 + v^2_{T1}}{v} \Phi \left(v/\sqrt{2} v_{T1} \right) + \frac{v_{T1}}{\sqrt{2}} v_{T1} \Phi' \left(v/\sqrt{2} v_{T1} \right) \right)
+	G_1 = n_1 \left( \frac{v^2 + v^2_{T_1}}{v} \Phi \left(v/\sqrt{2} v_{T_1} \right) + \frac{v_{T_1}}{\sqrt{2}} v_{T_1} \Phi' \left(v/\sqrt{2} v_{T_1} \right) \right)
 \]
 
 \noindent où
@@ -1432,11 +1432,13 @@ Depuis l'\autoref{eq:terme_collision_fokker_planck} et l'\autoref{eq:fokker_plan
 
 \noindent Les formes explicites sont
 
-\begin{align*}
-	\left\langle \Delta v_\parallel \right\rangle &= - A_D \left(1 + \frac{m}{m_1} \right) \frac{\Psi \left( v / \sqrt{2} v_{T_1}\right)}{2v_{T_1}}²\\
-	\left\langle \left( \Delta v_\parallel \right)^2 \right\rangle &= A_D \frac{\Psi \left( v / \sqrt{2}v_{T_1} \right)}{v}\\
-	\left\langle \left(\Delta v_{\perp\alpha} \right)^2 \right\rangle &= A_D \frac{\Phi \left(v/\sqrt{2} v_{T_1}\right) - \Psi \left(v/\sqrt{2 v_{T_1}}\right)}{2v}
-\end{align*}
+\begin{align}
+	\left\langle \Delta v_\parallel \right\rangle &= - A_D \left(1 + \frac{m}{m_1} \right) \frac{\Psi \left( v / \sqrt{2} v_{T_1}\right)}{2v_{T_1}^2}
+	\label{eq:Delta_v_parallel}\\
+	\left\langle \left( \Delta v_\parallel \right)^2 \right\rangle &= A_D \frac{\Psi \left( v / \sqrt{2}v_{T_1} \right)}{v} \nonumber\\
+	\left\langle \left(\Delta v_{\perp\alpha} \right)^2 \right\rangle &= A_D \frac{\Phi \left(v/\sqrt{2} v_{T_1}\right) - \Psi \left(v/\sqrt{2} v_{T_1}\right)}{2v}
+	\label{eq:Delta_v_perp}
+\end{align}
 
 \noindent où
 
@@ -1459,14 +1461,14 @@ Depuis l'\autoref{eq:terme_collision_fokker_planck} et l'\autoref{eq:fokker_plan
 \noindent de sorte que
 
 \begin{equation}
-	\left\langle \left( \Delta v_{\perp} \right)^2 \right\rangle = A_D \frac{\Phi \left( v / \sqrt{2} v_{T1} \right) - \Psi \left( v / \sqrt{2} v_{T1} \right)}{v}
+	\left\langle \left( \Delta v_{\perp} \right)^2 \right\rangle = A_D \frac{\Phi \left( v / \sqrt{2} v_{T_1} \right) - \Psi \left( v / \sqrt{2} v_{T_1} \right)}{v}
 	\label{eq:coefficient_perpendiculaire_total}
 \end{equation}
 
 \noindent et
 
 \[
-	\left\langle \left( \Delta v \right)^2 \right\rangle = \left\langle \left( \Delta v_\parallel \right)^2 \right\rangle + \left\langle \left( \Delta v_{\perp} \right)^2 \right\rangle = A_D \frac{\Phi \left( v / \sqrt{2}v_{T1}\right)}{v}.
+	\left\langle \left( \Delta v \right)^2 \right\rangle = \left\langle \left( \Delta v_\parallel \right)^2 \right\rangle + \left\langle \left( \Delta v_{\perp} \right)^2 \right\rangle = A_D \frac{\Phi \left( v / \sqrt{2}v_{T_1}\right)}{v}.
 \]
 
 Les tracés de \( \Phi \left( x \right) \) et \( \Psi \left( x \right) \) sont donnés dans la \autoref{fig:FP_coeff}.
@@ -1522,5 +1524,105 @@ Le terme de friction dynamique est généralement appliqué à \( \left\langle \
 
 \section{Processus de relaxation}
 \label{sec:processus_relaxation}
+
+Le calcul des changements de la fonction de distribution décrits par le terme de collision de Fokker-Planck est générallement compliqué.
+Cependant, il est possible de se faire une idée en considérant la réponse d'une particule test aux collisions avec les particules restantes.
+Ces particules sont appelées les particules de champ et sont notées avec l'indice \( 1 \).
+Formellement, la procédure est de prendre une fonction delta à une vitesse choisié pour la fonction de distribution initiale et de calculer le développement temporel suivant.
+Cependant, les taux de changement de la perte de quantité de mouvement et de la déflection et diffusion de la vitesse initiaux sont donnés par les coefficients de Fokker-Planck eux-même et il est possible d'obtenir les temps de relaxation associés à partir de ces coefficients.
+
+Le \textit{temps de ralentissement} pour une particule de vitesse \( v \) est donné par
+
+\[
+	\tau_s = - \frac{v}{\left\langle \dd v / \dd t \right\rangle} = - \frac{v}{\left\langle \Delta v_\parallel\right\rangle	}
+\]
+
+\noindent Ce temps caractérise le taux de changement de la vitesse dans la direction de la vitesse initiale.
+En utilisant l'\autoref{eq:Delta_v_parallel} pour \( \left\langle \Delta v_\parallel\right\rangle	\)
+
+\begin{equation}
+	\tau_s = \frac{2 v_{T_1}^2 v}{\left( 1 + m/m1 \right) A_D \Psi \left( v / \sqrt{2} v_{T_1} \right)}
+	\label{eq:temps_ralentissement}
+\end{equation}
+
+\noindent Le temps de déflection meusure le taux moyen auquel la vitesse de la particule est dispersée dans la direction perpendiculaire à la vitesse initiale.
+C'est une processus de diffusion et le temps de déflecion est défini par
+
+\[
+	\tau_d = \frac{v^2}{\left\langle \dd v_\perp^2 / \dd t \right\rangle} = \frac{v^2}{\left\langle \left( \Delta v_\perp \right)^2 \right\rangle}
+\]
+
+\noindent En utilisant l'\autoref{eq:Delta_v_perp}
+
+\begin{equation}
+	\tau_d = \frac{v^3}{A_D \left( \Phi \left(v/\sqrt{2} v_{T_1} \right) - \Psi \left(v/\sqrt{2} v_{T_1} \right) \right)}
+	\label{eq:temps_deflection}
+\end{equation}
+
+\noindent Chacun de ces processus décrits ci-dessus implique un changement de l'énergie de la particule de test. l'équation pour le taux total de changement de l'énergie \( \left\langle \Delta E \right\rangle \) est
+
+\begin{equation}
+	\left\langle \Delta E \right\rangle  = \frac{m}{2} \left( 2 v \left\langle \Delta v_\parallel \right\rangle + \left\langle \left( \Delta v_\parallel \right)^2 \right\rangle	 + \left\langle \left( \Delta v_\perp \right)^2 \right\rangle \right).
+	\label{eq:Delta_energie}
+\end{equation}
+
+Cette equation donne aussi le taux de perte d'énergie d'un rayon de particules.
+En remplaçant les coefficients de l'équation \ref{eq:Delta_v_parallel} par ceux de l'\autoref{eq:coefficient_perpendiculaire_total}
+
+\[
+	\left\langle \Delta E \right\rangle = \frac{m A_D}{\sqrt{2} v_{T_1}} \left( - \left( 1 + \frac{m}{m_1} \right) x \Psi\left(x \right) + \frac{\Psi \left( x \right)}{2x} + \frac{\Phi \left( x \right) - \Psi \left( x \right)}{2x} \right),
+\]
+
+\noindent où \( x = v / \sqrt{2} v_{T_1} \). On peut arranger les termes dans la paranthèse pour obtenir
+
+\begin{align}
+	\left(\langle \Delta E \right\rangle = &- \frac{1}{2} \frac{m^2}{m_1} A_D \frac{1}{v} \nonumber\\
+	& \times \left( \Phi \left\langle v/\sqrt{2} v_{T_1} \right) - \left( 1 + \frac{m_1}{m} \right) \frac{v}{\sqrt{2}v_{T_1}} \Phi' \left( v / \sqrt{2} v_{T_1} \right) \right).
+	\label{eq:Delta_energie_2}
+\end{align}
+
+\noindent Les processus physiques sous-jacent la balance d'énergie peuvent être compris en écrivant la force de fiction dynamique
+
+\[
+	F_d = m \left(\Delta v_\parallel \right\rangle
+\]
+
+\noindent et le taux de transfert d'énergie des particules de champs
+
+\[
+	\frac{\dd E_f}{\dd t} = - \left\langle \Delta E \right\rangle
+\]
+
+L'\autoref{eq:Delta_energie_2} peut être écrite
+
+\[
+	- F_d v = \frac{\dd E_f}{\dd t} + \frac{1}{2}m \left( \left\langle \left( \Delta v_\parallel \right)^2 \right\rangle + \left\langle \left( \Delta v_\perp \right)^2 \right\rangle \right).
+\]
+
+La quantité \( -F_d v \) est le travail fait par les particules test contre la force de friction dynamique.
+Une partie de l'énergie ainsi libérée est transmise aux particules de champ et le reste comme une augmentation de l'énergie de la particule test à travers une augmentation de la dispersion parallèlees et perpendiculaires de leur vitesses.
+
+Dans la limite \( v/v_{T_1} \gg 1 \)
+
+\begin{align}
+	&\frac{\dd E_f}{\dd t} \rightarrow \frac{m^2}{m_1} \frac{A_d}{2v} \nonumber\\
+	&\frac{1}{2} m \left\langle \left( \Delta v_\parallel\right)^2 \right\rangle \rightarrow 0 \nonumber \\
+	&\frac{1}{2} m \left\langle \left( \Delta v_\perp \right)^2 \right\rangle \rightarrow \frac{m A_D}{2 v} \label{eq:limite_Delta_v_perp}\\
+	&- F_d v \rightarrow \left( 1 + \frac{m}{m_1} \right) \frac{m A_D}{2 v} \label{eq:limite_F_d}
+\end{align}
+
+Pour des ions comme particules test et des électrons pour particule de champ pratiquement toute leur énergie est transférée aux électrons, les ions étants ralentis avec une dispersions négligeable.
+Pour des particules de masses égales la moitié de l'énergie est transférée aux particules de champs et l'autre moitié dans l'énergie du déplacement perpendiculaire.
+Pour des électrons comme particules test et des ions pour particules de champ l'énergie est gardée dans les électrons, les collisions déviants les électrons sur une sphère de vitesse égales.
+Le comportement de ces trois cas est illustré dans la \autoref{} 
+
+Dans la limite \( v / v_{T_1} \ll 1 \)
+
+\begin{align*}
+	&\frac{\dd E_f}{\dd t} \rightarrow \frac{m A_D}{\sqrt{2 \pi} v_{T_1}} \left( \frac{2}{3} \frac{\frac{1}{2} m v^2}{T_1} - 1 \right)\\
+	&\frac{1}{2} m \left\langle \left( \Delta v_\parallel\right)^2 \right\rangle \rightarrow \frac{1}{3} \frac{m A_D}{\sqrt{2 \pi} v_{T_1}} \\
+	&\frac{1}{2} m \left\langle \left( \Delta v_\perp \right)^2 \right\rangle \rightarrow \frac{2}{3} \frac{m A_D}{\sqrt{2\pi} v_{T_1}}\\
+	&- F_d v \rightarrow \frac{m A_D}{\sqrt{2 \pi} v_{T_1}} \frac{2}{3} \frac{\frac{1}{2} m v^2}{T_1} 
+\end{align*}
 
 \end{document}

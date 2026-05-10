@@ -9,4 +9,9 @@ pdflatex drift_grad_B.tex
 pdflatex ion_drift.tex
 pdflatex polarisation_drift.tex
 pdflatex orthogonal_velocity.tex
+pdflatex collision.tex
 cd FP_coeff/ && gfortran FP_coeff.f90 && ./a.out && cd ..
+pdflatex FP_coeff.tex
+pdflatex field_electrons_test_ions.tex
+pdflatex field_test_equal_mass.tex
+pdflatex field_ions_test_electrons.tex
