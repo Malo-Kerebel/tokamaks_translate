@@ -1382,17 +1382,6 @@ Les potentiels sont donc
 
 \noindent est la fonction d'erreur, et donc
 
-\begin{wrapfigure}{r}{0.33\textwidth}
-\centering
-
-\includegraphics{figures/chapter2/orthogonal_velocity.pdf}
-
-\caption{lLorem ipsum sit dolor mit amet}
-
-\label{fig:orthogonal_velocity}
-
-\end{wrapfigure}
-
 \[
 	\Phi' \left(x \right) = \frac{2}{\sqrt{\pi}} e^{-x^2}.
 \]
@@ -1406,10 +1395,21 @@ Depuis l'\autoref{eq:terme_collision_fokker_planck} et l'\autoref{eq:fokker_plan
 	\left\langle \left( \Delta v_\parallel\right)^2 \right\rangle &= A_1 \frac{\partial^2 G_1}{\partial v^2}
 \end{align*}
 
+\begin{wrapfigure}{o}{0.33\textwidth}
+	\centering
+
+	\includegraphics{figures/chapter2/orthogonal_velocity.pdf}
+
+	\caption{Coordonnées des vitesses orthogonales \( v_\parallel, v_{\perp \alpha} \) et \( v_{\perp\beta} \) avec \( \bm_{v_\perp} = \bm{v}_{\perp \alpha} + \bm{v}_{\perp \beta} \).}
+
+	\label{fig:orthogonal_velocity}
+
+\end{wrapfigure}
+
 \noindent et
 
 \[
-	\left\langle \left( \Delta v_{\perp\alpha} \right)^2 \right\rangle = Aè1 \frac{1}{v} \frac{\dd G_1}{\dd v} 
+	\left\langle \left( \Delta v_{\perp\alpha} \right)^2 \right\rangle = A_1 \frac{1}{v} \frac{\dd G_1}{\dd v} 
 \]
 
 \noindent où
@@ -1522,6 +1522,7 @@ Ces fonctions prennent les formes limites
 \noindent où \( \nabla_\nu \) indique l'opérateur de fivergence dans l'espace des vitesse, \( \Delta v_\parallel \) est le long de \( \bm{v} \) et \( \nabla_\parallel \) et \( \nabla_\perp \) sont les composantes de \( \nabla \) parallèle et perpendiculaire à \( \bm{v} \).
 Le terme de friction dynamique est généralement appliqué à \( \left\langle \Delta v_\parallel \right\rangle \)n le coeffcient de \( f \) dans l'\autoref{eq:FP_coeff_forme_1}, mais parfois au coefficient \( \left( \left\langle \Delta v_\parallel \right\rangle - \nabla_\parallel D_\parallel \right) \) dans l'\autoref{eq:FP_coeff_forme_2}.
 
+\FloatBarrier
 \section{Processus de relaxation}
 \label{sec:processus_relaxation}
 
@@ -1593,13 +1594,13 @@ En remplaçant les coefficients de l'équation \ref{eq:Delta_v_parallel} par ceu
 	\frac{\dd E_f}{\dd t} = - \left\langle \Delta E \right\rangle
 \]
 
-L'\autoref{eq:Delta_energie_2} peut être écrite
+\noindent L'\autoref{eq:Delta_energie} peut être écrite
 
 \[
 	- F_d v = \frac{\dd E_f}{\dd t} + \frac{1}{2}m \left( \left\langle \left( \Delta v_\parallel \right)^2 \right\rangle + \left\langle \left( \Delta v_\perp \right)^2 \right\rangle \right).
 \]
 
-La quantité \( -F_d v \) est le travail fait par les particules test contre la force de friction dynamique.
+\noindent La quantité \( -F_d v \) est le travail fait par les particules test contre la force de friction dynamique.
 Une partie de l'énergie ainsi libérée est transmise aux particules de champ et le reste comme une augmentation de l'énergie de la particule test à travers une augmentation de la dispersion parallèlees et perpendiculaires de leur vitesses.
 
 Dans la limite \( v/v_{T_1} \gg 1 \)
@@ -1611,10 +1612,25 @@ Dans la limite \( v/v_{T_1} \gg 1 \)
 	&- F_d v \rightarrow \left( 1 + \frac{m}{m_1} \right) \frac{m A_D}{2 v} \label{eq:limite_F_d}
 \end{align}
 
-Pour des ions comme particules test et des électrons pour particule de champ pratiquement toute leur énergie est transférée aux électrons, les ions étants ralentis avec une dispersions négligeable.
+\noindent Pour des ions comme particules test et des électrons pour particule de champ pratiquement toute leur énergie est transférée aux électrons, les ions étants ralentis avec une dispersions négligeable.
 Pour des particules de masses égales la moitié de l'énergie est transférée aux particules de champs et l'autre moitié dans l'énergie du déplacement perpendiculaire.
 Pour des électrons comme particules test et des ions pour particules de champ l'énergie est gardée dans les électrons, les collisions déviants les électrons sur une sphère de vitesse égales.
-Le comportement de ces trois cas est illustré dans la \autoref{} 
+Le comportement de ces trois cas est illustré dans la \autoref{fig:field_test} 
+
+\begin{wrapfigure}{o}{0.33\textwidth}
+	\centering
+	
+	\includegraphics{figures/chapter2/field_electrons_test_ions.pdf}
+	
+	\includegraphics{figures/chapter2/field_test_equal_mass.pdf}
+	
+	\includegraphics{figures/chapter2/field_ions_test_electrons.pdf}
+
+	\caption{Comportement de l'espace des vitesses des particules tests sous collisions avec les particules de champ pour une vitesse de particule test beaucoup plus grande que la vitesse thermique des particules de champ. La distribution de particules de champ est centrée sur l'origine et les particules test ont, initiallement, une distribution de fonction delta à la vitesse \( v_0 \).}
+	
+	\label{fig:field_test}
+
+\end{wrapfigure}
 
 Dans la limite \( v / v_{T_1} \ll 1 \)
 
@@ -1625,4 +1641,98 @@ Dans la limite \( v / v_{T_1} \ll 1 \)
 	&- F_d v \rightarrow \frac{m A_D}{\sqrt{2 \pi} v_{T_1}} \frac{2}{3} \frac{\frac{1}{2} m v^2}{T_1} 
 \end{align*}
 
+\noindent Dans ce cas, le transfert d'énergie des particules de champ intervient seulement pour les particules test qui sont beaucoup plus massives que les particules de champ, pour permettre \( \frac{1}{2} m v^2 > \frac{3}{2} T_1 \), comme avec un ion comme particule test and des électrons comme particule de champ.
+Si les particules sont de masses similaire alors, dans cette limite \( \left( v / v_{T_1} \ll 1\right) \)
+
+\[
+	\frac{1}{2} m v^2 \ll T_1n \quad F_d v \rightarrow 0
+\]
+
+noindent et les particules test sont simplement "chauffées", la fonction de distribution s'étendant isotropiquement.
+L'énergie perpendiculaire est le double de l'énergie parallèle ) cause des deux dimensions impliquées.
+
+Quand deux espèces à des températures différentes, les collisions amènent un échange de chaleur entre les deux, diminuant la différence de température.
+Pour les espèces \( i \) et \( j \) ce processus est caractérisé par le temps d'échange de chaleur \( \tau_{IJ} \) défini par
+
+\begin{equation}
+	\frac{\dd T_i}{\dd t} = \frac{T_j - T_i}{\tau_ij}
+	\label{eq:temps_échange_chaleur}
+\end{equation}
+
+\noindent Le taux de perte d'énergie pour une particule test vers les  les particules de champ est donné par l'\autoref{eq:Delta_energie_2}.
+Le transfert d'énergie total entre une espèce, avec une fonction de distribution Maxwellienne, et une autre est obtenue en intégrant la perte d'énergie de la particule test sur l'ensemble de la distribution.
+De sorte que
+
+\[
+	\frac{3}{2} n_i \frac{\dd T_i}{\dd t} = \int \left\langle \Delta E \right\rangle_{ij} f_i 4 \pi v_i^2 \dd v_i
+\]
+
+\noindent où \( \left\langle \Delta E \right\rangle_{ij} \) est donné par l'\autoref{eq:Delta_energie_2}, peut être écrit
+
+\begin{align*}
+	\left\langle \Delta E \right\rangle_{ij} = &\frac{n_j e^4 Z_i^2 Z_j^2 \ln \Lambda}{4 \pi \varepsilon_0^2 m_j}\\
+	& \times \left( \frac{\Phi \left( v_i / \sqrt{2} v_{T_j} \right)}{v_i} - \left( 1 + \frac{m_j}{m_i} \right) \frac{1}{\sqrt{2} v_{T_j}} \Phi'\left( v_i / \sqrt{2} v_{T_j} \right) \right) 
+\end{align*}
+
+\noindent et
+
+\[
+	f_i = \frac{n_i}{\left(2\pi \right)^{3/2} v_{T_j}^3} \exp - \frac{v_i^2}{2 v_{T_j}^2}.
+\]
+
+\noindent Donc
+
+\begin{equation}
+	\frac{\dd T_i}{\dd t} = -\frac{2 n_j e^4Z_j^2 Z_i^2 \ln \Lambda}{3 \left(2\pi \right)^{3/2} \varepsilon_0^2 m_im_j} \bm{I}
+	\label{eq:d_T1_dt}
+\end{equation}
+
+\noindent où
+
+\begin{align*}
+	\bm{I} = \int \left( v_i \Phi \left( v_i / \sqrt{2} v_{T_j} \right) - \left( 1 + \frac{m_j}{m_i} \right) \frac{v_i^2}{\sqrt{2} v_{T_j}} \Phi'\left( v_i / \sqrt{2} v_{T_j} \right) \right) \\
+	\times \exp - \frac{v_i^2}{2 v_{T_i}^2} \dd v_i.
+\end{align*}
+
+En intégrant par partie le premier terme
+
+\begin{align*}
+	\bm{I}& = \frac{m_i}{\sqrt{2} v_{T_j} v_{T_i}^3} \int \left( v_{T_i}^3 - \left( 1 + \frac{m_j}{m_i} \right) v_i^2 \right) \Phi' \left( v_i / \sqrt{2} v_{T_j} \right) \exp - \frac{v_i^2}{2 v_{T_i}^2} \dd v_i.\\
+	& \sqrt{\frac{2}{\pi}} \frac{m_i}{v_{T_j} v_{T_i}^3} \int \left(v_{T_i}^3 - \left( 1 + \frac{m_j}{m_i} \right) v_i^2 \right)  \exp - \left( \frac{1}{2} \left( \frac{1}{v_{T_i}^2} + \frac{1}{v_{T_j}^2} \right) v_i^2 \right) \dd v_i
+\end{align*}
+
+\noindent De sorte que
+
+\begin{equation}
+	\bm{I} = \frac{T_i - T_j}{\left( v_{T_i}^2 + v_{T_j}^2\right)^{3/2}}.
+	\label{eq:integrale_dTi_dt}
+\end{equation}
+
+\noindent Substituer l'\autoref{eq:integrale_dTi_dt}
+ dans l'\autoref{eq:d_T1_dt} donne \( \dd T_i / \dd t \) et la comparaison avec l'équaton\ref{eq:temps_échange_chaleur} donne le temps d'échange de la chaleur requis
+ 
+ \begin{equation}
+ 	\tau_{ij} = \frac{3 \sqrt{2}\pi^{3/2 \varepsilon_0^2 m_i m_j}}{n_j e^4 Z_i^2 Z_j^2 \ln \Lambda} \left(\frac{T_i}{m_i} + \frac{T_j}{m_j} \right)^{3/2}
+ 	\label{eq:temps_echange_chaleur_2}
+ \end{equation}
+
+\noindent  Pour des électrons et des ions une seule fois chargés le temps d'échange de la chaleur est
+
+\begin{equation}
+	\tau_{ie} = \tau_{ei} = \frac{m_i}{2m_e} \tau_e
+	\label{eq:temps_echange_chaleur_3}
+\end{equation}
+
+\noindent où \( \tau_e \) est la fréquence de collision des électrons donné par
+
+\[
+	\tau_e = 3\left( 2 \pi\right)^{3/2} \frac{\varepsilon_0^2 m_e^{1/2 T_e^{3/2}}}{ne^4 \ln \Lambda}.
+\]
+ 
+\noindent Dans ce cas, la fréquence de collision est déterminé par la composante plus rapide des électreons.
+Cependant, à cause de la différence de masse, le transfert d'énergie dans une collision est inéfficace, seule une fraction \( \sim m_e/m_i \) de l'énergie de l'électron est transmise à l'ion. 
+
+\section{Temps de collision}
+\label{sec:temps_collision}
+ 
 \end{document}
