@@ -1736,16 +1736,16 @@ Cependant, à cause de la différence de masse, le transfert d'énergie dans une
 \section{Temps de collision}
 \label{sec:temps_collision}
  
-Les temps caractéristiques pour les processus de relaxation collisionels décrit dans la \autoref{sec:processus_relaxation} sont en fonction de la vitesse de la particule test.
-Des valeurs typiques des temps impliqués peuvent être obtenus en prenant la vitesse thermique moyenne pour la particule test.
-Donc, en prenant \( u = v_T \) et en utilisant \( m v_T^2 = T \), on voit que tous les temps de collision caractéristiques en résultant sont prportionnels à un temps ayant la forme
+Les temps caractéristiques pour les processus de relaxation collisionelles décrit dans la \autoref{sec:processus_relaxation} sont en fonction de la vitesse de la particule test.
+Des valeurs typiques des temps impliqués peuvent être obtenues en prenant la vitesse thermique moyenne pour la particule test.
+Donc, en prenant \( u = v_T \) et en utilisant \( m v_T^2 = T \), on voit que tous les temps de collision caractéristiques en résultant sont proportionnels à un temps ayant la forme
 
 \[
 	\frac{\varepsilon_0^2 m^{1/2}  T^{3/2}}{ne^4\ln \Lambda}
 \]
 
 Il est utile de définir les temps de collisions avec les facteurs numériques qui se produisent dans le calcul de quantités macroscopiques comme la conductivité électrique.
-Pour un plasma avec des ion de charge \( Z \) cela mène au temps de collision des électrons
+Pour un plasma avec des ions de charge \( Z \) cela mène au temps de collision des électrons
 
 \begin{equation}
 	\tau_e = 3 \left( 2 \pi \right)^{3/2} \frac{\varepsilon_0^2 m_e^{1/2}  T_e^{3/2}}{n_i Z^2e^4\ln \Lambda}
@@ -1759,7 +1759,7 @@ Pour un plasma avec des ion de charge \( Z \) cela mène au temps de collision d
 	\label{eq:temps_collision_ion}
 \end{equation}
 
-\noindent Le rapport de ces temps \( \tau_e/\tau_i \) est de l'ordre de \( \left( m_e / m_i \right)^{1/2} \) rappelant la plus grande vitesse thermique des électrons comporée à celle des ions.
+\noindent Le rapport de ces temps \( \tau_e/\tau_i \) est de l'ordre de \( \left( m_e / m_i \right)^{1/2} \) rappelant la plus grande vitesse thermique des électrons comparée à celle des ions.
 
 Un autre temps caractéristique est l'échange de chaleur entre les électrons et les composents ioniques du plasma.
 Ce \textit{temps d'échange de la chaleur} est donné par l'\autoref{eq:temps_échange_chaleur}.
@@ -1768,7 +1768,7 @@ En exprimant \( T \) en \( \SI{}{\kilo\electronvolt} \), les temps de collisions
 
 \begin{equation}
 	\left. \begin{matrix}
-		\tau_e = 1.06 \times 10^{16 \frac{T_e^{3/2}}{n_i Z^2 \ln \Lambda}} \SI{}{\second},\\
+		\tau_e = 1.06 \times 10^{16} \frac{T_e^{3/2}}{n_i Z^2 \ln \Lambda} \SI{}{\second},\\
 		\\
 		\tau_i = 6.60 \times 10^{17} \frac{\left( m_i/m_p\right)^{1/2}T_i^{3/2}}{n_i Z^4 \ln \Lambda} \SI{}{\second},
 	\end{matrix} \right\rbrace T \text{ en } \SI{}{\kilo\electronvolt}
@@ -1778,7 +1778,7 @@ En exprimant \( T \) en \( \SI{}{\kilo\electronvolt} \), les temps de collisions
 Des valeurs de \( \ln\Lambda \) sont donnés dans la \color{red}{Section 14.5 (lien à rajouter quand elle sera faite)}\color{black}.
 Un tracé des temps de collision est donné dans la \color{red}{Section 14.6 (lien à rajouter quand elle sera faite)}\color{black} et des valeurs typiques sont donnés dans les tableaux de \ref{tab:temps_electron} à \ref{tab:temps_plasma_deuterium}.
 
-\begin{table}
+\begin{table}[ h ]
 	\centering
 	\caption{Valeurs du temps de collision de l'électron, \( \tau_e \), pour \( Z=1 \).}
 	\begin{tabular}{l l l l}
@@ -1794,9 +1794,9 @@ Un tracé des temps de collision est donné dans la \color{red}{Section 14.6 (li
 	\label{tab:temps_electron}
 \end{table}
 
-\begin{table}
+\begin{table}[ h ]
 	\centering
-	\caption{Valeurs du temps de collision de l'ion, \( \tau_i \), pour du deuterium \( Z=2 \).}
+	\caption{Valeurs du temps de collision de l'ion, \( \tau_i \), pour du deuterium \( Z=1 \).}
 	\begin{tabular}{l l l l}
 	\hline
 	\( n \) & \multicolumn{3}{c}{\( T \)}\\
@@ -1810,9 +1810,9 @@ Un tracé des temps de collision est donné dans la \color{red}{Section 14.6 (li
 	\label{tab:temps_deuterium}
 \end{table}
 
-\begin{table}
+\begin{table}[ h ]
 	\centering
-	\caption{Valeurs du temps d"échange de la chaleur, \( \tau_{ie} \), pour un plasma du deuterium \( Z=2 \).}
+	\caption{Valeurs du temps d"échange de la chaleur, \( \tau_{ie} \), pour un plasma du deuterium \( Z=1 \).}
 	\begin{tabular}{l l l l}
 	\hline
 	\( n \) & \multicolumn{3}{c}{\( T \)}\\
@@ -1829,5 +1829,115 @@ Un tracé des temps de collision est donné dans la \color{red}{Section 14.6 (li
 \FloatBarrier
 \section{Résistance}
 \label{sec:resistance}
+
+Quand un champ électrique est appliqué à un plasma, les électrons sont accélérés à une vitesse de dérive, \( v_d \), à laquelle la force liée au champ est contre balancée par une force liée aux collisions avec les ions.
+Cela se produit pour
+
+\begin{equation}
+	Ee = \frac{m_e v_d}{\tau_c}
+	\label{eq:equilibre_force_derive}
+\end{equation}
+
+\noindent où \( \tau_c \) est le temps de la perte de quantité de mouvement par les électrons.
+
+La résistance est définie par la loi d'Ohm.
+
+\[
+	E = \eta j
+\]
+
+\noindent donc en utilisant l'\autoref{eq:equilibre_force_derive}
+
+\[
+	\eta = \frac{m_e}{n_e e^2 \tau_c}.
+\]
+
+\noindent Une estimation est obtenue en mettant \( \tau_c = \tau_e \), le temps de collision des électrons de l'\autoref{eq:temps_collision_electron}.
+Pour obtenir une valeur plus précise, il est nécessaire de résoudre l'équation cinétique collisionnelle pour la fonction de distribution des électrons en prenant en compte les collisions électrons-électrons.
+Cela a été fait par Spitzer et ses collègues qui ont trouvé que, pour des ions simplement chargés, la résistance est approximativement la moitié de l'approximation énoncée ci-dessus.
+Plus exactement
+
+\begin{align}
+\eta_s &= 0.51 \frac{m_e}{n_e e^2 \tau_e} = 0.51 \frac{m_e^{1/2} e^2 \ln \Lambda}{3 \varepsilon_0^2 \left( 2 \pi T_e \right)^{3/2}} \nonumber \\
+&= 1.65 \times 10^{-9} \ln \Lambda / T_e^{3/2} \SI{}{\ohm m}, \quad T_e \text{in} \SI{}{\kilo\electronvolt}, \nonumber \\
+&= 2.8 \times 10^{-8} / T_e^{3/2} \SI{}{\ohm m}, \quad T_e \text{in} \SI{}{\kilo\electronvolt}, \ln \Lambda = 17.
+\label{eq:approx_eta_s}
+\end{align}
+
+\noindent La résistance du plasma est égale à celle du cuivre pour \( T_e \simeq \SI{1.4}{\kilo\electronvolt} \) et est un ordre de grandeur plus bas aux températures thermonucléaires requises dans un tokamak.
+Les valeurs numériques de \( \eta \) à partir de l'\autoref{eq:approx_eta_s} sont données dans la \color{red}{Section 14.10 (lien à rajouter quand elle sera faite)}\color{black}.
+
+L'\autoref{eq:approx_eta_s} est appropriée soit en l'absence de champ magnétique soit pour la composante du courant parallèle au champ magnétique.
+Dans la direction perpendiculaire au champ magnétique, le déplacement cyclotron rend la fonction de distribution des électrons isotropique.
+La résistance résultante, \( \eta_\perp \), est presque exactement le double de \( \eta_\parallel \), donc
+
+\[
+	\eta_\perp = \frac{m_e}{n_e e^2 \tau_e} = 1.96 \eta_\parallel
+\]
+
+\noindent Si le plasma est composé de plusieurs espèces d'ion, comme c'est le cas dans un plasma d'hydrogène avec des impuretés, l'\autoref{eq:equilibre_force_derive} devient
+
+\begin{equation}
+	E e = m_e v_d \sum_j \frac{1}{\tau_{cj}}
+	\label{eq:equilibre_force_derive_2}
+\end{equation}
+
+\noindent où \( \tau_{cj} \) est le temps de transfer de la quantité de mouvement des électrons par les collisions avec l'espèce d'ion \( j \).
+Par la nécessité de neutralité de charge, le nombre d'électrons est
+
+\[
+	n_e = \sum_j n_j Z_j
+\]
+
+\noindent et donc la loi d'Ohm donne
+
+\begin{equation}
+	E = \eta \sum_j n_j Z_j e v_d.
+	\label{eq:loi_ohm_eta}
+\end{equation}
+
+\noindent donc, en combinant l'\autoref{eq:equilibre_force_derive_2} et l'\autoref{eq:loi_ohm_eta}
+
+\begin{equation}
+	\eta = \frac{m_e}{e^2} \frac{\sum_j \frac{1}{\tau_{cj}}}{\sum_j n_j Z_j}.
+	\label{eq:eta_combine}
+\end{equation}
+
+\noindent Maintenant, à partir de l'\autoref{eq:temps_ralentissement}, le temps de transfert de la quantité de mouvement pour l'espèce \( j \) est proportionnel à \( 1 / \eta_j Z_j^2 \) et pour un plasma d'hydrogène comprenant des petites quantités d'impuretés l'\autoref{eq:eta_combine} devient
+
+\[
+	\eta = \eta_s \frac{\sum_j n_j Z_j^2}{\sum_j n_j Z_j}
+\]
+
+\noindent où \( \eta_s \) est la résistance d'un plasma d'hydrogène pure.
+Un Z effectif peut être défini par
+
+\[
+	Z_{eff} = \frac{\sum_j n_j Z_j^2}{\sum_j n_j Z_j}
+\]
+
+De sorte que
+
+\begin{equation}
+	\eta = Z_{eff} \eta_s
+	\label{eq:resistance_eff}
+\end{equation}
+
+\noindent avec \( Z_{eff} = 1 \) pour un plasma d'hydrogène pur.
+
+Il est à noter que l'\autoref{eq:eta_combine} est une approximation basée sur l'hypothèse que les états de charges supérieurs apparaissent à partir de petites concentrations d'impuretés.
+Pour des plasmas composés d'une seule espèce de charge \( Z \) il y a une autre dépendance faible à \( Z \) de la résistance, la résistance est alors donnée par
+
+\[
+	\eta \left( Z \right) = N \left( Z \right) Z \eta \left( 1 \right)
+\]
+
+\noindent avec \( N = 0.85 \) pour \( Z = 2 \) et \( N = 0.74 \) pour \( Z = 4 \).
+
+Une autre modification apparait quand la géométrie magnétique piège une fraction des électrons de sorte qu'ils ne puissent pas porter un courant en réponse d'un champ électrique.
+Si la fraction \( f \) est piégée, le nombre de porteurs de courant est réduit par un facteur \( 1 - f \) et la résistance est augmentée par un facteur \( \sim 1 / \left( 1 - f \right) \).
+Cela est développé dans la  \color{red}{Section 4.10 (lien à rajouter quand elle sera faite)}\color{black}.
+
+\section{Électrons fugitifs}
 
 \end{document}
