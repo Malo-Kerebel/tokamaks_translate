@@ -1775,8 +1775,8 @@ En exprimant \( T \) en \( \SI{}{\kilo\electronvolt} \), les temps de collisions
 	\label{eq:temps_caracteristique_keV}
 \end{equation}
 
-Des valeurs de \( \ln\Lambda \) sont donnés dans la \color{red}{Section 14.5 (lien à rajouter quand elle sera faite)}\color{black}.
-Un tracé des temps de collision est donné dans la \color{red}{Section 14.6 (lien à rajouter quand elle sera faite)}\color{black} et des valeurs typiques sont donnés dans les tableaux de \ref{tab:temps_electron} à \ref{tab:temps_plasma_deuterium}.
+Des valeurs de \( \ln\Lambda \) sont données dans la \color{red}{Section 14.5 (lien à rajouter quand elle sera faite)}\color{black}.
+Un tracé des temps de collision est donné dans la \color{red}{Section 14.6 (lien à rajouter quand elle sera faite)}\color{black} et des valeurs typiques sont données dans les tableaux de \ref{tab:temps_electron} à \ref{tab:temps_plasma_deuterium}.
 
 \begin{table}[ h ]
 	\centering
@@ -1796,7 +1796,7 @@ Un tracé des temps de collision est donné dans la \color{red}{Section 14.6 (li
 
 \begin{table}[ h ]
 	\centering
-	\caption{Valeurs du temps de collision de l'ion, \( \tau_i \), pour du deuterium \( Z=1 \).}
+	\caption{Valeurs du temps de collision de l'ion, \( \tau_i \), pour du deutérium \( Z=1 \).}
 	\begin{tabular}{l l l l}
 	\hline
 	\( n \) & \multicolumn{3}{c}{\( T \)}\\
@@ -1812,7 +1812,7 @@ Un tracé des temps de collision est donné dans la \color{red}{Section 14.6 (li
 
 \begin{table}[ h ]
 	\centering
-	\caption{Valeurs du temps d"échange de la chaleur, \( \tau_{ie} \), pour un plasma du deuterium \( Z=1 \).}
+	\caption{Valeurs du temps d"échange de la chaleur, \( \tau_{ie} \), pour un plasma du deutérium \( Z=1 \).}
 	\begin{tabular}{l l l l}
 	\hline
 	\( n \) & \multicolumn{3}{c}{\( T \)}\\
@@ -1939,5 +1939,243 @@ Si la fraction \( f \) est piégée, le nombre de porteurs de courant est rédui
 Cela est développé dans la  \color{red}{Section 4.10 (lien à rajouter quand elle sera faite)}\color{black}.
 
 \section{Électrons fugitifs}
+\label{sec:fugitif}
+
+La formule de la résistance donnée dans l'\autoref{eq:equilibre_force_derive} est seulement valide si la vitesse de dérive relative entre l'électron et les espèces d'ions est beaucoup plus petite que la vitesse thermique de l'électron.
+C'est généralement le cas.
+Par exemple une densité de courant de \( \SI{1}{\mega\ampere\per\meter\squared} \) à une densité d'électron de \( \SI{e20}{} \) a une vitesse de dérive de l'électron de \( \SI{6e4}{\meter\per\second} \) tandis que la vitesse thermique des électrons à une température de \( \SI{10}{\kilo\electronvolt} \) est de \( \SI{4e7}{\meter\per\second} \), un rapport de \( \sim 10^{-3} \).
+Cependant, si le champ électrique est suffisamment grand, l'approximation supposée dans le calcul de la résistance est invalide.
+En effet le concept de résistance échoue.
+Si la vitesse relative entre l'électron et les espèces d'ion dépasse la vitesse thermique de l'électron la force collisionnelle entre eux décroît plutôt que d'augmenter avec la vitesse.
+Cela est clairement une situation instable et, si le champ électrique est maintenu, les électrons s'échappent.
+
+\begin{figure}
+\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{La force électrique, \( Ee \) et la force collisionnelle pour un électron de vitesse \( v_e \).}
+        \label{fig:fugitif}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \flushright
+        \includegraphics{figures/chapter2/force_Ee.pdf}
+    \end{minipage}
+\end{figure}
+
+Même avec des champs électriques plus faibles, de sorte que \( v_d \ll v_{T_e} \) pour laquelle la plupart des électrons ne sont pas accélérés, il est possible pour une faible portion des électrons dans la queue de la distribution de vitesse de s'échapper.
+
+Le pré-requis pour qu'un électron accélère est que
+
+\begin{equation}
+	E e > \frac{m v_e}{\tau_s}
+	\label{eq:prerequis_acceleration}
+\end{equation}
+
+\noindent où \( v_e \) est la vitesse de l'électron et \( \tau_s \) est le temps de ralentissement donné par l'\autoref{eq:temps_ralentissement}.
+Pour \( v_e \gg v_{T_e} \), \( \tau_s \approx v_e^3 \) et donc le frottement collisionnel décroit avec une augmentation de la vitesse comme \( 1/v_e^2 \). Un tracé des deux termes de l'inégalité \ref{eq:prerequis_acceleration} est montré dans la \autoref{fig:fugitif}.
+
+Pour \( v_e \gg v_{T_e} \), le temps de ralentissement de l'électron par les collisions est
+
+\[
+	\tau_{se} = \frac{4 \pi \varepsilon_0^2 m_e^2 v_e^3}{n e^4 \ln \Lambda}.
+\]
+
+\noindent Le temps de ralentissement pour des collisions d'ions,\( \tau_{si} \), est la moitié de \( \tau_{se} \).
+Puisque le frottement est proportionnel à \( 1/\tau_s \), le ralentissement total est donné par
+
+\[
+	\tau_s^{-1} = \tau_{se}^{-1} + \tau_{si}^{-1}.
+\]
+
+\noindent et donc
+
+\begin{equation}
+	\tau_{s} = \frac{4}{3} \frac{\pi \varepsilon_0^2 m_e^2 v_e^3}{n e^4 \ln \Lambda}.
+	\label{eq:temps_de_ralentissement}
+\end{equation}
+
+\noindent En substituant l'\autoref{eq:temps_de_ralentissement} dans l'inégalité \ref{eq:prerequis_acceleration} donne la vitesse critique, \( v_e \), au dessus de laquelle l'évasion a lieu
+
+\begin{equation}
+	v_c^2 = \frac{3 \pi e^3 \ln \Lambda}{4 \pi \varepsilon_0^2 m_e E} = 2.3 \times 10^{-4} \frac{n}{E} \SI{}{\meter\squared\per\second\squared}, \quad \ln \Lambda = 17
+	\label{eq:vitesse_critique_evasion} 
+\end{equation}
+
+\noindent Ce qui correspond à une énergie critique
+
+\[
+	\mathcal{E}_c = 6.6 \times 10^{-19} \frac{n}{E} \SI{}{\kilo\electronvolt}. 
+\]
+
+Cette vision de l'électron fugitif est sur simplifiée.
+Elle donne la vitesse au dessus de laquelle les électrons s'enfuiraient à l'application soudaine d'un champ électrique.
+Cependant, sur une échelle de temps plus longue, le taux d'électrons fugitifs est déterminé par la diffusion collisionnelle dans l'espace des vitesses.
+Pendant que les électrons les plus rapides s’échappent, ils sont remplacés par des électrons qui diffusent à travers la queue de la distribution des vitesses.
+Des calculs détaillés donnent le taux d'évasion par unité de volume
+
+\[
+	R = \frac{2}{\sqrt{\pi}} \frac{n}{\tau_{se}} \left( \frac{E}{E_D}\right)^{1/2} \exp\left[ - \frac{E_D}{4E} - \left( \frac{2 E_D}{E}\right)^{1/2}\right]
+\]
+
+\noindent où le champ électrique de Dreicer, \( E_D \), est donné par
+
+\[
+	E_D = \frac{n e^3 \ln \Lambda}{4 \pi \varepsilon_0^2 m_e v_{T_e}^2}
+\]
+
+Quand le champ électrique est suffisamment petit, la vitesse critique calculée par l'\autoref{eq:vitesse_critique_evasion} s'approche de la vitesse de la lumière.
+L'équation n'est alors plus valide.
+Pour des électrons relativistes; le temps de ralentissement des électrons est presque constent et l'essentiel de la réduction des frottements avec l'augmentation de la quantité de mouvement n'a plus lieu.
+Donc, le processus d'évasion n'apparaît pas pour des champs électriques tels que
+
+\[
+	E < \frac{n e^3 \ln \Lambda}{4 \pi \varepsilon_0^2 m_e c^2}
+\]
+
+Un autre processus qui peut mettre les électrons dans la région d'évasion de l'espace des vitesses vient de collisions proches entre des électrons déjà fugitifs et des électrons thermique.
+Même si les particules test dans un plasma sont principalement affectées par la somme de collisions à grand paramètre d'impact avec un petit transfert de quantité de mouvement, le plus petit nombre de collisions proches, avec un plus grand transfert de quantité de mouvement, sont plus importantes pour ce processus.
+Les collisions proches d'intérêt dans ce cas sont celles qui amènent un électron lent au dessus de la vitesse critique pour devenir fugitif.
+
+La quantité de mouvement transférée à l'électron lent par un électron rapide est principallement perpendiculaire à la vitesse \( v_r \), de l'électron rapide et est donné par
+
+\[
+	m_e \Delta v \simeq 2 m_e v_f \frac{r_0}{r}
+\]
+
+\noindent où \( r \) est le paramètre d'impact et \( r_0 \) ( \( = e^2 / 4 \pi \varepsilon_0 m_e v_f^2 \) ) est la valeur pour une dispersion de \( \SI{90}{\degree} \).
+Pour qu'une collision transfère l'électron dans la région de fuite, \( \Delta v \) doit être plus grande que la vitesse critique donnée par l'\autoref{eq:vitesse_critique_evasion}; autrement dit \( \Delta v > v_c \).
+Cette exigence donne une section efficace pour une production de fugitifs
+
+\begin{equation}
+	\pi r^2 = \frac{E e}{3 n m_e v_f^2 \ln \Lambda}
+	\label{eq:exigence_fugitif}
+\end{equation}
+
+\noindent En prenant que les électrons rapides de la population d'électrons fugitifs existante sont relativistes, le taux de production de nouveaux électrons fugitifs par des collisions proches est \( R_f = n \pi r^2 c \),soit, en utilisant l'\autoref{eq:exigence_fugitif}
+
+\[
+	R_f = \frac{1}{3 \ln \Lambda}\frac{E e}{m_e c}
+\]
+
+\noindent Donc, puisque \( m_e c / Ee \) est le temps, \( \tau_0 \), pris par un électron fugitif déjà existant pour obtenir une énergie de masse au repose, \( m_e c^2 \), par le champ électrique, le temps moyen, \( \tau_r \), pour un électron relativistique pour produire un nouveau électron fugitif peut être écrit
+
+\[
+	\tau_r = 3 \ln \Lambda \tau_0.
+\]
+
+\noindent Pendant ce temps, l'électron rapide augmenterait son énergie de \( E e c \tau_r \), c'est à dire
+
+\[
+	\Delta \mathcal{E}_f = 3 \ln \Lambda \left( m_0 c^2 \right),
+\]
+
+\noindent et donc un nouveau électron fugitif est produit à chaque fois qu'un électron fugitif augmente son énergie par cette quantité.
+Pour un champ électrique constant, ce processus mène à une croissance exponentielle du courant des électrons fugitifs avec un temps de pliage e \( \tau_r \).
+
+\section{Électromagnétisme}
+\label{sec:electromagnetisme}
+
+Les équations fondamentales liant les champs électrique \( \bm{E} \) et magnétique \( \bm{B} \) sont les équations de Maxwell
+
+\begin{align}
+	&\nabla \times \bm{B} = \mu_0 \bm{j} + \frac{1}{c^2} \frac{\partial \bm{E}}{\partial t} \label{eq:Maxwell1}\\
+	&\nabla \bm{E} = - \frac{\partial \bm{B}}{\partial t} \label{eq:Maxwell2}\\
+	\intertext{avec}
+	&\nabla \cdot \bm{B} = 0 \label{eq:Maxwell3}\\
+	\intertext{et}
+	&\nabla \cdot \bm{E} = \frac{\rho_c}{\varepsilon_0} \label{eq:Maxwell4}
+\end{align}
+
+\noindent où \( \bm{j} \) est la densité de courant électric, \( \rho_c \) est la densité de charge électrique et
+
+\begin{align*}
+	&\mu_0 = 4\pi \times \SI{e-7}{\kilogram\meter\per\ampere\squared\per\second\squared},\\
+	&\varepsilon_0 = 1/\mu_0c^2 = \SI{8.854e-12}{\farad\per\meter},\\
+	&c = \SI{2.998e8}{\meter\per\second}.
+\end{align*}
+
+Dans des milieux magnétiques et diélectrique il est utile de séparé les courants atomiques et de polarisation de \( \bm{j} \) etd'écrire l'\autoref{eq:Maxwell1} dans la forme
+
+\[
+	\nabla \times \bm{H} = \bm{j}_m + \frac{\partial \bm{D}}{\partial t}
+\]
+
+\noindent où \( \bm{j}_m \) représente les courants macroscopiques et dans des milieux uniformes et isotropiques
+
+\[
+	\bm{B} = \mu\bm{H} \quad \bm{D} = \varepsilon\bm{E}
+\]
+
+\noindent où \( \mu \) est ma êrméabilité et \( \varepsilon \) est la constante diélectrique.
+
+Dans un plasma, l'\autoref{eq:Maxwell2} est appropriée mais  quand on décrit des ondes linéaires, le tenseur diélectrique \( \bm{K} \) est défini pour inclure les effets de la portie oscillante \( \tilde{\bm{j}} \) de la densité de courant, de sorte que
+
+\[
+	\tilde{\bm{j}} + \varepsilon_0 \frac{\partial \bm{E}}{\partial t} = \varepsilon_0 \bm{K} \frac{\partial \bm{E}}{\partial t}
+\]
+
+Puisque \( \nabla \cdot \bm{B} = 0 \), \( \bm{B} \)peut être écrit
+
+\begin{equation}
+	\bm{B} = \nabla \times \bm{A}
+	\label{eq:redef_B}
+\end{equation}
+
+\noindent où \( \bm{A} \) est vecteur potentiel.
+En substituant l'\autoref{eq:redef_B} dans l'\autoref{eq:Maxwell2} on obtient
+
+\[
+	\nabla \times \left( \bm{E} + \frac{\partial \bm{A}}{\partial t} \right) = 0/
+\]
+
+\noindent Donc la quantité entre parenthèses peut être exprimée comme le gradient d'un potentiel scalaire de sorte que
+
+\begin{equation}
+	\bm{E} = - \nabla \phi - \frac{\partial \bm{A}}{\partial t}.
+	\label{eq:Maxwell6}
+\end{equation}
+
+\noindent Les potentiels \( \bm{A} \) et \( \phi \) ne sont pas défini de façon unique puisqu'il est possible de faire une transformation de gauge
+
+\[
+	\bm{A}' = \bm{A} + \nabla f, \quad \phi" = \phi - \frac{\partial f}{\partial t},
+\]
+
+\noindent ce qui ne change pas les champs \( \bm{E} \) et \( \bm{B} \), calculés par les équations \ref{eq:redef_B} et \ref{eq:Maxwell6}.
+
+La densité d'énergie électromagnétique, \( \mathcal{E} \), est donnée par
+
+\[
+	\mathcal{E} = \varepsilon_0 \frac{E^2}{2} + \frac{1}{\mu_0} \frac{B^2}{2}.
+\]
+
+\noindent En utilisant les équations \ref{eq:Maxwell1} et \ref{eq:Maxwell2}, on peut trouver que le taux de changement temporel de \( \mathcal{E} \) est donné par
+
+\[
+	\frac{\partial \mathcal{E}}{\partial t} = - \nabla \cdot \left( \frac{\bm{E} \times \bm{B}}{\mu_0} \right) - \bm{E} \cdot \bm{j}.
+\]
+
+\noindent Le terme \( \bm{E} \cdot \bm{j} \) représente le transfère d'énergie des particules chargées.
+Le premier terme est la divergence du flux de l'énergie électromagnétique, ce flux étant donné par le cecteur de Poynting
+
+\[
+	\bm{S} = \frac{\bm{E} \times \bm{B}}{\mu_0}.
+\]
+
+Pour des champs statiques le rotationnel de l'\autoref{eq:redef_B}, avec l'\autoref{eq:Maxwell1} et le choix de la gauge \( \nabla \cdot \bm{A} ) 0 \) donne
+
+\[
+	\nabla^2 \bm{A} = - \mu_0 \bm{j}
+\]
+
+\noindent et la divergence de l'\autoref{eq:Maxwell6} avec l'\autoref{eq:Maxwell4} donne
+
+\[
+	\nabla^2 \phi = - \frac{\rho_c}{\varepsilon_0}.
+\]
+
+\section{Équations fluides}
+\label{sec:equations_fluides}
 
 \end{document}

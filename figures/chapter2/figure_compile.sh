@@ -15,3 +15,5 @@ pdflatex FP_coeff.tex
 pdflatex field_electrons_test_ions.tex
 pdflatex field_test_equal_mass.tex
 pdflatex field_ions_test_electrons.tex
+cd force_Ee/ && gfortran force.f90 && ./a.out && cd ..
+pdflatex force_Ee.tex
