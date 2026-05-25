@@ -2178,4 +2178,94 @@ Pour des champs statiques le rotationnel de l'\autoref{eq:redef_B}, avec l'\auto
 \section{Équations fluides}
 \label{sec:equations_fluides}
 
+Les équations cinétiques décrivent le plasma en terme de la fonction de distribution \( f \left( \bm{x}, \bm{v}, t \right) \) qui est une fonction de sept variables.
+Dans beaucoup de cas il est adéquat de décrire le plasma en terme de variables fluides comme la densité de particules \( n\left(\bm{x}, t \right) \), la vitesse de fluide \( \bm{v} \left(\bm{x}, t \right) \), et la pression \( p \left(\bm{x}, t \right) \) qui sont des fonctions de seulement quatre variables.
+Les équations nécessaires sont dérivées pour chaque espèces de particule depuis la forme cinétiques de l'\autoref{eq:fokker_planck}
+
+\begin{equation}
+	\frac{\partial f}{\partial t} + \bm{v}' \frac{\partial f}{\partial \bm{x}} + \frac{\bm{F}}{m} \frac{\partial f}{\partial \bm{v}'} = \left( \frac{\partial f}{\partial t} \right)_c
+	\label{eq:rappel_cinetique}
+\end{equation}
+
+\noindent où \( \bm{F} \) est la force sur la particule, le symbolde \( \bm{v}' \) est utilisé pour distinguer la vitesse de la particule et la vitesse du fluide \( \bm{v} \).
+L'\autoref{eq:rappel_cinetique} est multipliée pour des fonctions \( \phi\left(\bm{v}' \right) \) choisies et intégrées sur l'espace des vitesses pour obtenir les équations pour
+
+\begin{align*}
+	& n = \int f \left( \bm{x}, \bm{v}', t\right) \dd \bm{v}',\\
+	& \bm{v} = \frac{1}{n} \int f \left( \bm{x}, \bm{v}', t\right)  \bm{v}' \dd \bm{v}',\\
+	& \bm{P} = m \int f \left( \bm{x}, \bm{v}', t\right)  \left( \bm{v}' - \bm{v}\right) \left( \bm{v}' - \bm{v}\right) \dd \bm{v}',
+\end{align*}
+
+\noindent où \( \bm{P} \) est le tenseur de pression.
+Pour une fonction de distribution isotropique, la pression est un scalaire est est donnée par
+
+\[
+	p = \frac{1}{3} m \int f \left( \bm{x}, \bm{v}', t\right) \left( \bm{v}' - \bm{v}\right)^2 \dd \bm{v}'.
+\]
+
+Donc, le moment \( \phi = 1 \) de l'\autoref{eq:H_j} donne
+
+\begin{equation}
+		\frac{\partial n}{\partial t} + \frac{\partial}{\partial \bm{x}} \int \bm{v}' f \dd \bm{v}' - \frac{1}{m} \int \frac{\partial \bm{F}}{\partial \bm{v}'} f \dd \bm{v}' = 0
+		\label{eq:moment_phi_1}
+\end{equation}
+
+\noindent où le troisième tier a été intégré par parties et, en considérant seulement les collisions qui ne changent pas le nombre de particules, l'intégral sur le terme de collisions est nulle.
+Puisque \( \partial \bm{F} / \partial \bm{v'} \) est nul pour les forces électromagnétiques l'\autoref{eq:moment_phi_1} donne l'équation de continuité
+
+\begin{equation}
+	\frac{\partial n}{\partial t} + \nabla \cdot \left( n \bm{v}\right) = 0.
+	\label{eq:continuité_fluide}
+\end{equation}
+
+L'équation de la quantité de mouvement est obbtenue en prenant le moment \( m\bm{v}' \) de l'\autoref{eq:rappel_cinetique} pour obtenir
+
+\begin{equation}
+	m \frac{\partial}{\partial t} \left( n \bm{v}\right) + m \frac{\partial}{\partial \bm{x}} \int \bm{v}' v' f \dd \bm{v}' - \int \frac{\partial}{\partial \bm{v}} \left( \bm{F} \left( \bm{v}'\right) v'\right) f \dd \bm{v}' = \int m\bm{v}' \left( \frac{\partial f}{\partial t} \right) \dd \bm{v}'
+	\label{eq:momentum_fluide}
+\end{equation}
+
+\noindent où, encore, le troisième terme a été intégré par parties.
+Le terme de collision représente le taux de changement de la quantité de mouvement \( \bm{R} \) à cause des collisions avec toutes les autres espèces.
+Donc l'\autoref{eq:momentum_fluide} devient
+
+\[
+	m \frac{\partial}{\partial t} \left( n \bm{v} \right) + m \frac{\partial}{\partial \bm{x}} \int v'\bm{v}' f \dd \bm{v}' - n \bm{F} \left( \bm{v} \right) = \bm{R}.
+\]
+
+\noindent Cette équation peut être mise dans une forme plus utile en écrivant \( \bm{v}' = \left( \bm{v}' - \bm{v} \right) + \bm{v} \), pour obtenir
+
+\[
+	m \frac{\partial}{\partial t} \left( n \bm{v} \right) + \nabla \cdot \bm{P} + m \nabla \cdot \left( n \bm{v} v \right) - n \bm{F} = \bm{R}.
+\]
+
+\noindent Puis en éliminant \( \partial n / \partial t \) en utilisant l'équation de continuité \ref{eq:continuité_fluide} donne l'équation du mouvement
+
+\begin{equation}
+	n m \left( \frac{\partial \bm{v}}{\partial t} + \bm{v} \cdot \nabla \bm{v} \right) = - \nabla \cdot \bm{P} + n \bm{F} + \bm{R}.
+	\label{eq:mouvement_fluide}
+\end{equation}
+
+\noindent Dans un plasma la force sur une particule est \( \bm{F} = Z e \left( \bm{E} + \bm{v} \times \bm{B} \right) \), où \( Ze \) est la charge de la particule et l'\autoref{eq:mouvement_fluide} devient alors
+
+\begin{equation}
+	n m \left( \frac{\partial \bm{v}}{\partial t} + \bm{v} \cdot \nabla \bm{v} \right) = - \nabla \cdot \bm{P} + n Z e \left( \bm{E} + \bm{v} \times \bm{B} \right) + \bm{R}.
+	\label{eq:mouvement_fluide_2}
+\end{equation}
+
+On voit dans la procédure ci-dessus que l'équatoin pour la dépendance en temps du 0-ième moment, \( n \), fait apparaitre le premier moment \( \bm{v} \), et que l'équation pour la dépendance en temps de \( \bm{v} \) fait apparaitre le deuxième moment \( \bm{P} \).
+Lors du calcul de l'équation pour \( P \) le troisième moment apparait et ainsi de suite.
+Cette procédure ne mène pas à un ensemble d'équations fini.
+On ferme généralement cet ensemble d'équations en supposant des simplifications dans l'équation pour \( \bm{P} \).
+Par exemple, on suppose souvent que le mouvement est adiabatique ou que le troisième moment, les vecteur de flux de chaleur, peut être calculé en utilisant une forme simple de la conduction thermique.
+
+La validité formelle des équations fluides reposent sur la localité suffisante du comportement.
+Cela arrive si le libre parcours moyen de la particule est suffisament petit comparé aux longueurs macroscopique considérées.
+À hautes températures, le libre parcours moyen est long et cette justification de l'équation échoue.
+Pour le mouvement perpendiculaire au champ magnétique le rayon de Larmor peut permettre la localité nécessaire.
+Les équations fluides vont aussi échouée quand  l'échelle de longueurs est si petit qu'elle est comparable au rayon de Larmor des particules.
+
+\section{Magnétohydrodinamique}
+\label{sec:mhd}
+
 \end{document}
