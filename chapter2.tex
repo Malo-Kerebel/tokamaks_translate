@@ -2268,4 +2268,112 @@ Les équations fluides vont aussi échouée quand  l'échelle de longueurs est s
 \section{Magnétohydrodinamique}
 \label{sec:mhd}
 
+La magnétohydrodinamiquen, ou MHD, est le nom donné à la description du plasma en un seul fluide.
+Dans ce modèle les identités séparées des ions et des électrons n'apparaissent pas.
+
+L'équation de la conversion de la masse est
+
+\begin{subequations}
+	\begin{align}
+		&\frac{\partial \rho}{\partial t} = - \nabla \cdot \left( \rho \bm{v}\right)
+		\label{eq:MHD1a}\\
+	\intertext{ou}
+		&\frac{\dd \rho}{\dd t} = - \rho \nabla \cdot \bm{v}
+		\label{eq:MHD1b}
+	\end{align}
+	\label{eq:MHD1}
+\end{subequations}
+
+\noindent où \( \rho \) est la densité de masse, \( \bm{v} \) est la vitesse du fluide et \( \dd / \dd t \) est la dérivé \( \left( \partial / \partial t + \bm{v} \cdot \nabla \right) \).
+Parfois, le fluide est considéré comme incompressible et dans ce cas \( \dd \rho / \dd t = 0 \) et \( \nabla \cdot \bm{v} = 0 \).
+
+Le taux de changement de la vitesse est donné par l'équation du mouvement
+
+\begin{equation}
+	\rho \left( \frac{\partial \bm{v}}{\partial t} + \bm{v} \cdot \nabla \bm{v} \right) = \bm{j} \times \bm{B} - \nabla p.
+	\label{eq:mhd_mouvement}
+\end{equation}
+
+\noindent Pour calculer la force du gradient de pression une équation pour \( p \) est nécessairte.
+Le modèle non dissipatif simple généralement utilisé suppose un comportement adiabatique, c'est à dire
+
+\begin{equation}
+	\frac{\dd} {\dd t} \left( p \rho^{-\gamma}\right) = 0
+	\label{eq:mhd_adiabatique}
+\end{equation}
+
+\noindent supposant une conservation de l'entropie.
+Si la densité est éliminée en utilisant l'\autoref{eq:MHD1} alors, l'\autoref{eq:mhd_adiabatique} devient
+
+\begin{subequations}
+	\begin{align}
+		&\frac{\partial p}{\partial t} = - \bm{v} \cdot \nabla p - \gamma p \nabla \cdot \bm{v} \label{eq:MHD3a}\\
+		\intertext{ou}
+		& \frac{\dd p}{\dd t} = - \gamma p \nabla \cdot \bm{v} \label{eq:MHD3b}
+	\end{align}
+	\label{eq:MHD3}
+\end{subequations}
+
+Si le fluid est considéré comme incompressible alors \( \nabla \cdot \bm{v} \) est alors nul.
+Cependant, \( \gamma p \nabla \cdot \bm{v} \) n'est pas nul, incompressibilité correspond à la limite \( \gamma \rightarrow \infty \).
+La procédure appropriée dans ce cas est d'éliminer \( p \) de l'\autoref{eq:mhd_mouvement} en prenant le rotationel de l'équation et d'utiliser les équations séparées \( dd \rho / \dd t = 0 \) et \( \nabla \cdot \bm{v} = 0 \) venant de l'équatin de continuité.
+
+Le couplage avec le champs magnétique se manifeste par la force \( \bm{j} \times \bm{B} \).
+Dans le modèle MHD le courant de déplacement dans l'équation de Maxwell est négligé et la densité de courant est donc donnée par la loi d'Ampère
+
+\begin{equation}
+	\mu_0 \bm{j} = \nabla \times \bm{B}.
+	\label{eq:mhd_ampere}
+\end{equation}
+
+\noindent Le taux de changement de \( \bm{B} \) est donné par l'équation de l'induction
+
+\begin{equation}
+	\frac{\partial \bm{B}}{\partial t} = - \nabla \times \bm{E}.
+	\label{eq:MHD_taux_B}
+\end{equation}
+
+Il est maintenant nécessaire de déterminer \( \bm{E} \) en terme des autres variables.
+Dans le modèle idéal de la MHD, le plasma est pris comme étant parfaitement conducteur.
+Donc, dans le repère local du fluide en mouvement aucun champ électrique ne peut être soutenu, et en conséquence
+
+\begin{equation}
+	\bm{E} + \bm{v} \times \bm{B} ) 0.
+	\label{eq:MHD_E}
+\end{equation}
+
+\begin{table}
+	\centering
+	\caption{Les équations de la MHD idéale}
+	\begin{tabular}{l l}
+	\hline\\
+	\( \frac{\dd \rho}{\dd t} = - \rho \nabla \cdot \bm{v} \) & \( \bm{j} = \nabla \times \bm{B} / \mu_0 \)\\\\
+	\( \rho \frac{\dd \bm{v}}{\dd t} = \bm{j} \times \bm{B} - \nabla p \) & \( \frac{\partial \bm{B}}{\partial t} = - \nabla \times \bm{E} \)\\\\
+	\( \frac{\dd p}{\dd t} = - \gamma p \nabla \cdot \bm{v} \) & \( \bm{E} + \bm{v} \times \bm{B} = 0 \)\\\\
+	\hline
+	\end{tabular}
+	\label{tab:MHD}
+\end{table}
+
+Les équations de \ref{eq:MHD1} à \ref{eq:MHD_E}, qui sont résumé dans le \autoref{tab:MHD}n avec \( \nabla \cdot \bm{B} = 0 \), constituent le modèle MHD idéal.
+Une simple modification de ces équations mène au modèle MHD résistif.
+Il est seulement nécessaire de remplacer l'\autoref{eq:MHD_E} par la loi d'Ohm
+
+\begin{equation}
+	\bm{E} + \bm{v} \times \bm{B} = \eta \bm{j}
+	\label{eq:MHD_ohm}
+\end{equation}
+
+\noindent et l'équation adiabatique est
+
+\[
+	\frac{\dd}{\dd t\dd t} \left( \frac{p}{\gamma - 1}\right) = \frac{\gamma }{\gamma - 1} p \nabla \cdot \bm{v} + \eta \bm{j}^2
+\]
+
+\noindent où \( \eta \) est la résistance du plasma.
+
+\FloatBarrier
+\section{Physique du fluide plasma}
+\label{sec:physique_plasma}
+
 \end{document}
