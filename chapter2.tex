@@ -1736,7 +1736,7 @@ Cependant, à cause de la différence de masse, le transfert d'énergie dans une
 \section{Temps de collision}
 \label{sec:temps_collision}
  
-Les temps caractéristiques pour les processus de relaxation collisionelles décrit dans la \autoref{sec:processus_relaxation} sont en fonction de la vitesse de la particule test.
+Les temps caractéristiques pour les processus de relaxation collisionnelles décrit dans la \autoref{sec:processus_relaxation} sont en fonction de la vitesse de la particule test.
 Des valeurs typiques des temps impliqués peuvent être obtenues en prenant la vitesse thermique moyenne pour la particule test.
 Donc, en prenant \( u = v_T \) et en utilisant \( m v_T^2 = T \), on voit que tous les temps de collision caractéristiques en résultant sont proportionnels à un temps ayant la forme
 
@@ -2374,6 +2374,197 @@ Il est seulement nécessaire de remplacer l'\autoref{eq:MHD_E} par la loi d'Ohm
 
 \FloatBarrier
 \section{Physique du fluide plasma}
-\label{sec:physique_plasma}
+\label{sec:physique_fluide_plasma}
+
+Le comportement du plasma dans les expériences est généralement compliqué et influencé par les circonstance particulières de l'expérience.
+Cependant, les équations fluides présentées dans les sections précédentes donnent lieu à plusieurs questions plus basiques.
+Puisque la physique impliquée donne une idée des propriétés du plasma quelques unes de ces questions sont détaillées ci-dessous.
+
+\subsubsection*{Vitesse du fluide}
+
+La vitesse du fluide d'une espèce constituante d'un plasma à un point donné est simplement la vitesse moyenne des particules de l'espèce dans un petit volume autour de ce point.
+Cependant, comme décrit dans la \autoref{sec:derive_particule} la vitesse gyro-moyennée d'une particule est la vitesse de son centre guide.
+Généralement, la vitesse du fluide et la vitesse des centres guides à un point donné ne sont pas les mêmes.
+Par exemple dans un plasma non-uniforme dans lequel les centres guides des ions sont stationnaires et il y aura une vitesse de fluide des ions finies.
+La relation entre ces vitesses a des exemples dans le phénomène du diamagnétisme du plasma qui est décrit dans la \color{red}{Section 2.22 (lien à rajouter quand elle sera faite)}\color{black}.
+
+\subsubsection*{Équilibre de la pression}
+
+Dans un plasma steady avec une pression scalaire l'équilibre des forces pour chaque espèce est
+
+\begin{equation}
+	n_j e_j \left( \bm{E} + \bm{v}_j \times \bm{B} \right) = \nabla p_j.
+	\label{eq:equilibre_force_pression_scalaire}
+\end{equation}
+
+\noindent dans le cadre dans lequel la vitesse pour une espèce donnée est nulle, le gradient de pression est équilibrée par la force du champ électrique, autrement dit
+
+\[
+	n_j e_j \bm{E} = \nabla p_j.
+\]
+
+\noindent Autrement, dans le modèle dans lequel \( \bm{E} = 0 \)
+
+\[
+	n_j e_j \bm{v}_j \times \bm{B} = \nabla p_j.
+\]
+
+\noindent Cette liberté de description est retirée quand le plasma complet est considéré.
+Donc, la sommation de l'\autoref{eq:equilibre_force_pression_scalaire} sur les espèces
+
+\begin{equation}
+	\bm{E} \sum_j n_j e_j + \sum_j n_j e_j \bm{v}_j \times \bm{B} = \nabla p.
+	\label{eq:equilibre_force_sommation}
+\end{equation}
+
+\noindent Puisque le plasma a presque une charge neutre, le premier terme de l'\autoref{eq:equilibre_force_sommation} est négligeable et l'équation devient
+
+\begin{equation}
+	\bm{j} \times \bm{B} = \nabla p.
+	\label{eq:equilibre_force_quasi_neutre}
+\end{equation}
+
+\noindent En utilisant la loi d'Ampère pour \( \bm{j} \) dans l'\autoref{eq:equilibre_force_quasi_neutre}
+
+\begin{equation}
+	\frac{1}{\mu_0} \left(\nabla \times \bm{B}\right) \times \bm{B} = \nabla p
+	\label{eq:loi_ampere}
+\end{equation}
+
+\noindent et en utilisant la relation vectorielle
+
+\[
+	\left( \nabla \times \bm{B} \right) \times \bm{B} = \bm{B} \nabla \bm{B} - \nabla \bm{B}^2 / 2
+\]
+
+\noindent l'\autoref{eq:loi_ampere} devient
+
+\begin{equation}
+	\nabla p = - \nabla \frac{B^2}{2 \mu_0} + \frac{1}{\mu_0} \bm{B} \cdot \nabla \bm{B}.
+	\label{eq:gradient_pression_final}
+\end{equation}
+
+\noindent Le dernier terme de l'\autoref{eq:gradient_pression_final} est le résultat de la courbure de la ligne de champ, \( \bm{B} \cdot \nabla \bm{B} \) étant le long du rayon de courbure, et le rayon étant donné par \( R_e^{-1} = \left| \bm{b} \cdot \nabla \bm{b} \right| \), où \( \bm{b} \) est le vecteur unitaire selon \( \bm{B} \).
+Si les lignes de champ magnétique sont droites, le champ magnétique donne une pression scalaire \( B^2 / 2\mu_0 \) et
+
+\[
+	p + \frac{B^2}{2\mu_0} = \text{constante}.
+\]
+
+\subsubsection*{Tenseur de pression}
+
+La force venant du tenseur de pression \( \bm{P} \) dans l'\autoref{eq:mouvement_fluide} est
+
+\[
+	F_\alpha = - \sum_{\beta} \frac{\dd}{\dd x_\beta} P_{\alpha \beta}.
+\]
+
+\noindent Quand \( \bm{P} \) a une composante de pression isotropique, il peut être écrit
+
+\[
+	P_{\alpha \beta} = p\delta_{\alpha \beta} + \Pi_{\alpha \beta}
+\]
+
+\noindent \( p \) étant la pression scalaire.
+Le terme \( \Pi_{\alpha \beta} \) vient des vitesses du plasma et peut souvent être écrit comme une fonction linéaire des gradients de vitesse.
+Quand c'est le cas, le terme "tenseur des contraintes" est utilisé à la fois pour \( \bm{P}_{\alpha \beta} \) et pour \( \Pi_{\alpha \beta} \).
+Ici, il sera réservé pour \( \Pi_{\alpha \beta} \).
+
+Dans un fluide normal, les termes du gradient de vitesse linéaire dans \( \Pi_{\alpha \beta} \) vient de la viscosité et le tenseur résultant est appellé tenseur de contraintes visqueuses.
+Pour un plasma dans un champ magnétique, le tenseur correspondant est plus compliqué est inclut des effets non-visqueux.
+Pour des vitesses et des gradients le long du champ magnétique les effets visqueux collisionnels normaux apparaissent, la viscosité étant dépendante et augmentant avec le parcours libre moyen.
+Cependant, pour des gradients de vitesse perpendiculaires au champ magnétique, le transfert de quantité de mouvement est limité par l'orbite de Larmor et l'effet des gradients de vitesse est fortement réduit.
+Le tenseur de pression total pour un plasma collisionnel est donné dans la \color{red}{Section 2.23 (lien à rajouter quand elle sera faite)}\color{black}.
+
+Parfois, la pression est anisotropique à cause du champ magnétique.
+En écrivant \( p_\parallel \) et \( p_\perp \) pour les pressions parallèles et perpendiculaires au champ magnétique, la force \( \nabla p \) est remplacée par
+
+\[
+	\nabla_\perp p_\perp + \nabla_\parallel p_\parallel
+\]
+
+\noindent où \( \nabla_\parallel \) et \( \nabla_\perp \) sont les gradients parallèles et perpendiculaires au champ magnétique.
+
+\subsubsection*{Champ magnétique "gelé"}
+
+Dans un fluide parfaitement conducteur, le champ électrique dans un référentiel se déplaçant avec la vitesse du fluide, \( \bm{v} \), est nul, autrement dit
+
+\begin{equation}
+	\bm{E} + \bm{v} \times \bm{B} = 0
+	\label{eq:force_gelée}
+\end{equation}
+
+\noindent Il sera montré plus bas que le flux magnétique à travers chaque surface se déplaçant avec le fluide est constant et en conséquence que le flux magnétique peut être pensé comme gelé et se déplaçant avec le fluide.
+Donc, même si, à chaque point, il y a une vitesse \( \bm{v} \) et que le terme \( \bm{v} \times \bm{B} \) existe, il est aussi vrai que l'\autoref{eq:force_gelée} implique la convection du flux magnétique avec le fluide.
+
+Considérons une surface bornée arbitraire \( S \) dans le fluide. 
+Le flux magnétique à travers la surface est
+
+\[
+	\Phi = \int \bm{B} \cdot \dd \bm{S}.
+\]
+
+La dérivée temporelle se déplaçant avec le fluide est
+
+\begin{equation}
+	\frac{\dd \Phi}{\dd t} = \int \frac{\partial \bm{B}}{\partial t} \cdot \dd \bm{S} + \oint \bm{B} \cdot \bm{v} \times \dd s,
+	\label{eq:derivee_flux_magnetique}
+\end{equation}
+
+\noindent où le deuxième terme décrit le changement du flux le long de la frontière de la surface lorsque le champ magnétique local est balayé par l'élément de ligne \( \dd \bm{s} \) à un taux de \( \bm{v} \times \dd\bm{s} \).
+
+Par le théorème de Stokes
+
+\[
+	\oint \bm{B} \cdot \bm{v} \times \dd \bm{s} = - \int \nabla \times \left( \bm{v} \times \bm{B} \right) \cdot \dd \bm{S}
+\]
+
+\noindent et en utilisant la loi de Faraday, \( \partial \bm{B}  / \partial t = - \nabla \times \bm{E} \), l'\autoref{eq:derivee_flux_magnetique} devient
+
+\[
+	\frac{\dd \Phi}{\dd t} = - \int \nabla \times \left( \bm{E} + \bm{v} \times \bm{B} \right) \cdot \dd \bm{S}
+\]
+
+\noindent Donc, puisque \( \bm{E} + \bm{v} \times \bm{B} = 0 \)
+
+\[
+	\frac{\dd \Phi}{\dd t} = 0
+\]
+
+\noindent et le flux magnétique à travers chaque surface se déplaçant avec le plasma est constant.
+
+\subsubsection*{Polarisation}
+
+Considérons un fluide parfaitement conducteur dans un champ magnétique auquel un champ électrique \( \bm{E} \left( t \right) \) est appliqué perpendiculairement au champ magnétique. Puisque \( \bm{E} + \bm{v} \times \bm{B} = 0 \), le fluide se déplacera avec une vitesse
+
+\begin{equation}
+	v = \frac{E}{B}.
+	\label{eq:vitesse_polarisation}
+\end{equation}
+
+\noindent Cette vitesse est produite par un courant \( \bm{j} \) dans la direction de \( \bm{E} \), par la force \( \bm{j} \times \bm{B} \).
+Donc substituant l'\autoref{eq:vitesse_polarisation} dans l'équation du mouvement
+
+\[
+	\rho \frac{\dd \bm{v}}{\dd t} = \bm{j} \times \bm{B}
+\]
+
+\noindent donne
+
+\begin{equation}
+	\bm{j} = \frac{\rho}{B^2} \frac{\dd \bm{E}}{\dd t}.
+	\label{eq:courant_j}
+\end{equation}
+
+L'\autoref{eq:courant_j} montre que le courant de polarisation s'écoule et que le fluide a une constante diélectrique
+
+\[
+	K = 1 + \frac{c^2}{B^2 / \mu_0 \rho}
+\]
+
+\noindent où \( c \) est la vitesse de la lumière.
+La vitesse \( \bm{B} / \left( \mu_0 \rho \right)^{1/2} \) est la vitesse caractéristique des ondes d'Alfvén qui est détaillé dans la \\color{red}{Section 2.24 (lien à rajouter quand elle sera faite)}\color{black}.
+
+\section{Diamagnétisme plasma}
 
 \end{document}
