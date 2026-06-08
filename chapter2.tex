@@ -185,7 +185,7 @@ et la solution qui décroit pour un grand \( r \) est
 	\label{eq:solution_phi}
 \end{equation}
 
-\begin{wrapfigure}[ 23 ]{i}{0.55\textwidth}
+\begin{wrapfigure}[ 23 ]{o}{0.55\textwidth}
     \centering
     \includegraphics[ width=\linewidth ]{figures/chapter2/potential}
     \caption{Tracés du potentiel écranté et non-écranté autour d'un ion.}
@@ -242,7 +242,7 @@ Les électrons sont accélérés par le champ électrique et se déplacent pour 
 Au moment de l'annulation, la quantité de mouvement des électrons est maximum et cela permet aux électrons de récréer la séparation des charges, maintenant dans la phase opposée.
 Ce processus est répété et le déplacement des électrons en résultants constitue les oscillations du plasma avec la fréquence plasma caractéristique.
 
-\begin{wrapfigure}{i}{0.3\textwidth}
+\begin{wrapfigure}{o}{0.3\textwidth}
     % Réduction du retrait interne du wrap
 
     \begin{subfigure}{0.48\textwidth}
@@ -617,7 +617,7 @@ comme précédemment.
 
 \subsubsection*{ Dérive \( \nabla B \)}
 
-\begin{wrapfigure}{i}{0.3\textwidth}
+\begin{wrapfigure}{o}{0.3\textwidth}
     \includegraphics{figures/chapter2/drift_grad_B}
     \caption{Un gradient de \( \bm{B} \) perpendiculaire à \( \bm{B} \) donne une dérive aux ions et aux électrons dans des directions opposées.}
     \label{fig:grad_B}
@@ -2565,6 +2565,170 @@ L'\autoref{eq:courant_j} montre que le courant de polarisation s'écoule et que 
 \noindent où \( c \) est la vitesse de la lumière.
 La vitesse \( \bm{B} / \left( \mu_0 \rho \right)^{1/2} \) est la vitesse caractéristique des ondes d'Alfvén qui est détaillé dans la \\color{red}{Section 2.24 (lien à rajouter quand elle sera faite)}\color{black}.
 
+\FloatBarrier
 \section{Diamagnétisme plasma}
+
+Dans les premières investigations des propriétés magnétiques des solides, il a été trouvé que des tiges de certaines substances s'alignaient d'elles-même dans le sens du champ magnétique.
+Elles ont été appelées paramagnétiques.
+Des tiges d'autres substances s'alignaient elles perpendiculairement au champ magnétique et ont donc été appelées diamagnétiques.
+La cause de ce comportement est que dans les substances paramagnetiques la réponse du matériau est d'amplifier le champ magnétique tandis que dans les substances diamagnétiques le champ est diminué.
+
+Les plasmas dans des champs magnétiques sont naturellement diamagnétiques, les gyro-orbites des particules chargées étant telles qu'elles réduisent le champ.
+On le voit facilement en considérant les orbites de particules avec une vitesse donnée perpendiculaire au champ magnétique avec les centres de leur orbite de Larmor sur une ligne de champ particulière comme illustrée dans la \autoref{fig:diamagnetisme_schema}.
+La figure montre le comportement des ions.
+Les électrons orbitent dans la direction opposée mais portent une charge négative.
+
+Les particules se situent sur un cylindre et chacune contribue un courant \( e_j \omega_c / 2 \pi \).
+Si il y a \( \delta n \) particules par unité de distance, leur orbites produisent un courant cylindrique par unité de distance
+
+\[
+	\delta i = -\frac{e_j \omega_{cj}}{2\pi} \delta_n
+\]
+
+\begin{wrapfigure}{	o}{0.3\textwidth}
+    \centering
+    \includegraphics{figures/chapter2/diamagnetisme}
+    \caption{Les ions avec une vitesse donée ayant des orbites de Larmor sur un cylindre produisent un champ magnétique \( \delta \bm{B} \) à l'intérieur du cylindre, ce champ étant dans la direction opposé au champ magnétique total \( \bm{B} \).}
+    \label{fig:diamagnetisme_schema}
+\end{wrapfigure}
+
+\nit et en utilisant \( \omega_{cj} = e_j B / m_j \)
+
+\[
+	\delta \bm{i} = - \frac{e_j^2}{2\pi m_j} \delta n \bm{B}.
+\]
+
+\nit Le signe moins indique que le courant est dans la direction opposée à la direction du champ principal \( \bm{B} \).
+Par la loi d'Ampère, le champ magnétique résultat de ce courant est \( \delta \bm{B} = \mu_0 \delta \bm{i} \), de sorte que
+
+\[
+	\delta \bm{B} = - \frac{\mu_0 e_j^2}{2 \pi m_j} \delta n \bm{B}
+\]
+
+\nit et \( \delta \bm{B} \) est indépendant du signe de la charge comme attendu.
+
+Considérons maintenant le cas plus général avec une distribution des vitesses des particules, posons le champ magnétique dans la direction \( z \) et considérons ces particules avec une vitesse \( v_\perp \) perpendiculaire au champ magnétique.
+Ces particules contribuent au champ magnétique à un point donnée si le centre de leur orbite  se situe à moins d'un rayon de Larmor, \( v_\perp / \omega_{cj} \), de ce point.
+La somme des courants de ces particules dans un élément de l'espace des vitesse \( \dd^3 v \) donne le courant par unité de volume
+
+\begin{align*}
+	\dd i &= - \pi \left( \frac{v_\perp}{\omega_{cj}} \right)^2 e_j \frac{\omega_{cj}}{2 \pi} f_j \dd^3 v\\
+	&= - \frac{e_j}{2 \omega_{cj}} v_\perp^2 f_j \dd^3 v
+\end{align*}
+
+\nit où \( f_j \) est la fonction de distribution.
+Le champ magnétique résultant est
+
+\begin{equation}
+	\dd B_{sj} = - \frac{\mu_0 m_j}{2 B} v_\perp^2 f_j \dd^3 v
+	\label{eq:champ_magnetique_resultant}
+\end{equation}
+
+\nit et en intégrant sur la distribution de vitesse
+
+\begin{align}
+	B_{sj} &= - \frac{\mu_0}{B} \int \frac{1}{3} m_j v_\perp^2 f_j \dd^3 v\\
+	& = - \frac{\mu_0 p_j}{B}
+	\label{eq:champ_resultant_integre}
+\end{align}
+
+\nit où \( p_j \) est la pression de la particule.
+
+On voit que les orbites circulaires des partocimes des espèces \( j \) produisent un champ \( B_sj \) dans la direction opposée au champ appliqué, et le champ entier \( B_s \) est obtenu en sommant sur les espèces \( j \) pour obtenir le champ diamagnetique
+
+\begin{equation}
+	B_s = - \frac{\mu_0 p}{B}
+	\label{eq:champ_somme}
+\end{equation}
+
+\nit où \( p \) est la pression du plasma.
+Ce résultat est une approximation avec \( \beta \) faible.
+Si le champ magnétique appliqué est \( \bm{B}_0 \) est le champ diamagnetique exact est \( \bm{B}_d \), l'équation d'équilibre de la pression est
+
+\[
+	\frac{\left( B_0 +  B_d\right)^2}{2 \mu_0} + p = \frac{B_0^2}{2 \mu_0}
+\]
+
+\nit donne l'équation complète pour \( B_d \)
+
+\begin{equation}
+	B_d \left( 1 - \frac{1}{2} \frac{B_d}{B_0} \right) = - \frac{\mu_0 p}{B_0}
+	\label{eq:Bd_complet}
+\end{equation}
+
+\nit Dans l'approximation avec \( \beta \) faible, \( p \ll B_0^2 / 2 \mu_0 \), le terme impliquant \( B_d^2 \) est petit et \( B_d \simeq B_s \).
+
+L'équilibre total de la pression est obtenu en reconnaissant que le gradient dans le champ magnétique mène à une dérive des orbites des particules et le courant résultant produit encore un autre champ magnétique.
+Le courant associé avec le champ magnétique \( B_s \) venant des orbites stationnaires est obtenu en appliquant la loi d'Ampère avec la géométrie présente à l'\autoref{eq:champ_somme}
+
+\[
+	\bm{j}_s = \bm{b} \times\nabla \left( \frac{p}{B} \right).
+\]
+
+\nit où \( \bm{b} \) est le vecteur unitaire selon \( \bm{B} \).
+D'après l'équation de l'équilibre des forces \( \bm{j} \times \bm{B} = \nabla p \) et le courant total est
+
+\[
+	\bm{j} = \bm{b} \times \frac{\nabla p}{B},
+\]
+
+\nit et donc le courant résiduel est
+
+\begin{equation}
+	\bm{j} - \bm{j}_s = \bm{b} \times \frac{p}{B^2} \nabla \bm{B}.
+	\label{eq:courant_residuel}
+\end{equation}
+
+\nit on voit que c'est égal au courant \( \bm{j}_d \) causé par la dérive du  gradient du champ magnétique en écrivant
+
+\begin{equation}
+	\bm{j}_d = \sum_j n_j e_j \left\langle \bm{v}_{dj} \right\rangle
+	\label{eq:courant_egal}
+\end{equation}
+
+\nit où \( \bm{v}_{dj} \) est la vitesse de dérive donnée par l'\autoref{eq:vd_direction_x} avec \( \rho_k = m_j v_{\perp j} / e_j B \) et \( \left\langle v_{\perp j}^2 \right\rangle = 2 v_{T j}^2 \), de sorte que
+
+\[
+	\left\langle \bm{v}_{dj} \right\rangle = \frac{m_j v_{Tj}^2}{e_j B^2} \bm{b} \times \nabla \bm{B}
+\]
+
+\nit et, puisque \( n_j m_j v_{Tj}^2 = p_j \), le courant de dérive donné par l'\autoref{eq:courant_egal} est
+
+\begin{equation}
+	\bm{j}_d = \bm{b} \times \frac{p}{B^2} \nabla \bm{B}
+	\label{eq:courant_egal_2}
+\end{equation}
+
+\nit Donc les équations \ref{eq:courant_residuel} et \ref{eq:courant_egal_2} donnent le résultat attendu
+
+\[
+	\bm{j} = \bm{j}_s + \bm{j}_d
+\]
+
+\begin{figure}[ t ]
+\centering
+    % Minipage pour la légende (à gauche)
+    \begin{minipage}[c]{0.35\textwidth}
+        \caption{Graphique montrant comment une densité de gradient d'orbites stationnaires fait apparaître un courant. Le courant venant d'un inéquilibre local entre les particules se dirigeant vers le haut et vers le bas comme montré dans la section agrandie.}
+        \label{fig:diamagnetisme2}
+    \end{minipage}\hfill
+    % Minipage pour l'image (à droite)
+    \begin{minipage}[c]{0.55\textwidth}
+        \flushright
+        \includegraphics{figures/chapter2/diamagnetisme_2.pdf}
+    \end{minipage}
+\end{figure}
+
+\nit montrant que le courant diamagnétique total est la somme du courant venant des orbites circulaires et de leur dérive.
+Le premier effet diamagnetique venant du champ magnétique des orbites circulaires est à première vue surprenant puisque l'orbite est stationnaire et son courant moyenné est nul.
+Pour un plasma uniforme le champ magnétique induit diamagnétiquement donné par l'\autoref{eq:champ_magnetique_resultant} est constant et le courant diamagnétique à l'intérieur du plasma est bien nul.
+Cependant, il doit y avoir un gradient dans la pression du plasma entre cette région et le champ magnétique du vide l'entourant, et c'est ce gradient qui donne le courant nécessaire pour les orbites stationnaires.
+Cela est montré dans la \autoref{fig:diamagnetisme2}, pour le cas avec une densité de gradient uniquement.
+Avec un gradient de température, l'inéquilibre des orbites voisines  vient des différentes vitesses d'orbites.
+
+La discussion dans cette section est limité au cas des lignes de champ magnétique rectilignes mais illustre le cas requis pour garder une distinction claire entre le mouvement du centre guide des particules individuelles et le courant auquel elles contribuent à un point donné de l'espace.
+Les deux descriptions du plasma doivent évidemment toujours être cohérentes mais dans des géométries plus compliquées la relation est plutôt complexe.
+
+\section{Équations de Braginskii}
 
 \end{document}
