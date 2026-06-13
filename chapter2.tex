@@ -469,7 +469,7 @@ Cependant, si la particule a aussi une vitesse perpendiculaire au champ magnéti
 \centering
     % Minipage pour la légende (à gauche)
     \begin{minipage}[c]{0.35\textwidth}
-        \caption{Le gradient de \( \bm{B} \) parallèle ) \( \bm{B} \) fait apparaitre une composante de la force \( e_j \left( \bm{v} \times \bm{B} \right) \) selon la direction du déplacement du centre guide.}
+        \caption{Le gradient de \( \bm{B} \) parallèle ) \( \bm{B} \) fait apparaître une composante de la force \( e_j \left( \bm{v} \times \bm{B} \right) \) selon la direction du déplacement du centre guide.}
         \label{fig:gradB}
     \end{minipage}\hfill
     % Minipage pour l'image (à droite)
@@ -595,7 +595,7 @@ Les solutions à ces équations peuvent s'écrire
 \end{equation}
 
 \noindent La dérive est indépendante de la charge, de la masse et de l'énergie de la particule.
-L'entiéreté du plasma est donc sujet à cette dérive.
+L'entiéreté du plasma est donc soumise à cette dérive.
 Le trajectoires d'un ion et d'un électron sont montrées dans la \autoref{fig:ExB}.
 
 La dérive \( \bm{E} \times \bm{B} \) peut être mieux comprise en reconnaissant que le champ électrique perpendiculaire est dépendant du référentiel.
@@ -916,7 +916,7 @@ et, en utilisant la définition pour \( \mu \) donnée par l'\autoref{eq:def_mu_
 	v_\parallel = \left( \frac{2}{m_j} \left( W - \mu B \right) \right)^{1/2}.
 \]
 
-Le mouvement périodique impliqué dans l'invariant \( J \) peut être sujet à une dérive et cette dérive peut induire un mouvement périodique sur une plus grande échelle.
+Le mouvement périodique impliqué dans l'invariant \( J \) peut être soumis à une dérive et cette dérive peut induire un mouvement périodique sur une plus grande échelle.
 Le troisième invariant adiabatique est associé à ce mouvement.
 Si la vitesse de dérive est \( v_d \), l'invariant est défini par l'intégrale sur le mouvement périodique suivante
 
@@ -937,7 +937,7 @@ Deuxièmement, les collisions entre les particules dépendent de leur vitesse re
 Finallement, la fréquence de collision effective dépend de processus étudié.
 
 Le champ électrique à un point donné dans le plasma inclus la somme des contributions de toutes les particules chargées.
-Donc, chaque particule est sujette à la force du champ électrique de toutes les autres particules.
+Donc, chaque particule est soumise à la force du champ électrique de toutes les autres particules.
 Cependant, il se trouve que le champ électrique peut être séparée en deux partie.
 La première est le champ macroscopique lisse, celui-ci est le champ \( E \) qui détermine la dérive d'une particule et apparait dans les équations gouvernant le comportement macroscopique du plasma. La seconde parti est un champ électrique microscopique fluctuant rapidement.
 Pour une particule donnée, ces fluctuations sont la somme des champs électriques des autres particules avec lesquelles elle ``collisionne''.
@@ -2253,7 +2253,7 @@ Donc l'\autoref{eq:momentum_fluide} devient
 	\label{eq:mouvement_fluide_2}
 \end{equation}
 
-On voit dans la procédure ci-dessus que l'équatoin pour la dépendance en temps du 0-ième moment, \( n \), fait apparaitre le premier moment \( \bm{v} \), et que l'équation pour la dépendance en temps de \( \bm{v} \) fait apparaitre le deuxième moment \( \bm{P} \).
+On voit dans la procédure ci-dessus que l'équatoin pour la dépendance en temps du 0-ième moment, \( n \), fait apparaître le premier moment \( \bm{v} \), et que l'équation pour la dépendance en temps de \( \bm{v} \) fait apparaître le deuxième moment \( \bm{P} \).
 Lors du calcul de l'équation pour \( P \) le troisième moment apparait et ainsi de suite.
 Cette procédure ne mène pas à un ensemble d'équations fini.
 On ferme généralement cet ensemble d'équations en supposant des simplifications dans l'équation pour \( \bm{P} \).
@@ -2730,5 +2730,308 @@ La discussion dans cette section est limité au cas des lignes de champ magnéti
 Les deux descriptions du plasma doivent évidemment toujours être cohérentes mais dans des géométries plus compliquées la relation est plutôt complexe.
 
 \section{Équations de Braginskii}
+
+Les équations fluides pour un plasma sont obtenues en prenant les moments de l'équation cinétique comme décris dans la \autoref{sec:equations_fluides}.
+Cependant, ces équations contiennent des quantités qui sont indéterminées.
+Les quantités demandées sont le taux de changement de la quantité de mouvement par les collisions, le tenseur de pression, le flux de chaleur et la chaleur générée par les collisions.
+Pour déterminer ces quantités il est nécessaire de résoudre l'équation cinétique \ref{eq:rappel_cinetique} avec le terme de collision donné par l'équation de Fokker-Planck comme donné dans l'\autoref{eq:fokker_planck_collision} ou dans l'\autoref{eq:forme_symmetrique_Landau}.
+Une solution complète de ces équations n'est pas possible.
+Cependant, si les variables microscopiques sont prises comme variant lentement dans l'espace et le temps, une procédure d'expansion permet aux quantités requises d'être calculées.
+Ces calculs ont été fait par de nombreux travaux, mais Braginskii a donné une présentation claire et compréhensive et les équations en résultant sont souvent associées à son nom.
+
+L'idée sous-jacente est que les fonctions de distributions peuvent être développées autour d'une distribution Maxwellienne.
+Autrement dit
+
+\[
+	f = f_0 + \delta f
+\]
+
+\nit avec
+
+\[
+	f_0 = \frac{n_i}{\left( 2 \pi T_j / m_j \right)^{3/2}} \exp - \left( \frac{m_j}{2 T_j} \left( v' - v\right)^2 \right)
+\]
+
+\nit où \( v' \) est la coordonnée de vitesse et \( v \) est la vitesse moyenne des particules.
+Dans un plasma uniforme, dans lequel les espèces sont stationnaires et ont la même température, la fonction de distribution est Maxwellienne et le terme de collision dans l'équation cinétique est nul.
+Si de petits gradients et vitesses de dérive sont introduites, le changement, \( \delta f \), dans la fonction de distribution rend le terme de collision dans l'équation cinétique non-nul.
+La procédure est de résoudre l'équation cinétique résultante et déterminer la réponse collisionnelle aux gradients et dérives.
+Cela donne des formules pour le frottement collisionnel et la conduction thermique et ferme l'ensemble des équations fluides.
+Les variables fluides inconnues, incluant le tenseur de pression et le flux de chaleur, peuvent être déterminés en résolvant ces équations.
+
+La forme des coefficients de transport est partiellement anticipée.
+Par exemple, la conductivité thermique parallèle au champ magnétique est lié au parcours libre moyen, \( \lambda \), et le temps de collision, \( \tau \), par la relation usuelle de la marche aléatoire, donnant le résultat familier
+
+\[
+	K_\parallel \sim n \frac{\lambda^2}{\tau} \sim n v_T^2 \tau \sim \frac{n T \tau}{m}.
+\]
+
+\nit Pour la conduction perpendiculaire au champ magnétique,  la longueur de pas devient le rayon de Larmor, et
+
+\[
+	K_\perp \sim n \frac{\rho^2}{\tau} \sim \frac{1}{\omega_c^2 \tau^2} \frac{n T \tau}{m},
+\]
+
+\nit la conductivité thermique étant réduite par le facteur généralement très grand \( \omega_c^2 \tau^2 \).
+
+Les calculs formels déterminent les coefficients numériques précis et introduisent aussi un certain nombre de processus de transport physique moins familier.
+Ces calculs sont plutôt complexes et ne seront pas décris ici.
+Les équations de continuité, équilibre de la quantité de mouement et équilibre de l'énergie seront introduites séparément avec des discussions sur la physique sous-jacente.
+
+Les équations données sont obtenues de l'hypothèse que le plasma est suffisamment collisionel pour que le libre parcours moyen soit court comparé aux longueurs macroscopique.
+Les coefficients de transport donnés sont pour des espèces chargées une fois \( \left( n_i = n_e = n\right) \) et pour \( \omega_{ce}\tau_e \) et \( \omega_{ci} \tau_i \) beaucoup plus grand que un.
+Les temps de collision basique de l'électron et de l'ion qui apparaissent dans les coefficients de transports sont définis dans la \autoref{sec:temps_collision}.
+
+\subsubsection*{Équation de continuité}
+
+L'équation de continuité pour les espèces \( j \), électrons ou ions, est
+
+\begin{equation}
+	\frac{\dd n_j}{\dd t} = - n_j \nabla \cdot \bm{v}_j
+	\label{eq:brag_continuité}
+\end{equation}
+
+\nit où la dérivée totale
+
+\[
+	\frac{\dd}{\dd t} = \frac{\partial}{\partial t} + \bm{v_j} \cdot \nabla.
+\]
+
+\nit donc, en se déplaçant avec le fluide, le changement de densité vient de la compréssibilité.
+Pour un mouvement incompressible \( \nabla \cdot \bm{v}_j \) et \( \dd n_j / \dd t = 0 \). L'\autoref{eq:brag_continuité} peut, alternativement, être écrite
+
+\[
+	\frac{\partial n_j}{\partial t} = - \nabla \cdot \left( n \bm{v}_j \right)
+ \]
+ 
+ \nit exprimant le changement de densité à un point stationnaire comme la divergence du flux de particules \( \bm{\Gamma}_j = n \bm{v}_j \).
+ 
+ Il n'y a pas de terme de collision dans l'\autoref{eq:brag_continuité} parce que, à l'inverse des collisions d'ionisation, les collisions de Coulomb ne changent pas le nombre de particules.
+ 
+\subsubsection*{Équation de la quantité de mouvement}
+ 
+L'équation de l'équilibre de la quantité de mouvement est
+
+\begin{equation}
+	n_j m_j \frac{\dd v_j}{\dd t} = - \nabla p_j - \frac{\partial}{\partial x_\beta} \Pi_{j\alpha\beta} + n_j e_j \left( \bm{E} + \bm{v}_j \times \bm{B}\right) + \bm{R}_j
+	\label{eq:brag_qdm}
+\end{equation}
+
+\nit où la pression \( p_j = n_j T_j \) et les indices grecs répétés indiquent une somme sur les indices répétés.
+Le tenseur de contraintes \( \Pi_{j\alpha \beta} \) est compliqué et sera donné plus bas. \( \bm{R}_j \) est le taux de transfert de la quantité de mouvement par les collisions.
+Le changement de quantité de mouvement total dans les collisions est nul, et donc \( \sum_i \bm{R}_i = - \bm{R}_e \).
+Le taux de transfert de la quantité de mouvement des ions aux électrons est donné par
+
+\[
+	\bm{R}_e = \bm{R}_u + \bm{R}_T.
+\]
+
+\( \bm{R}_u \) étant la force de friction et \( \bm{R}_T \) la force dite thermique.
+
+La \textit{force de friction} est
+
+\[
+	\bm{R}_u = - \frac{m_e n}{\tau_c} \left( 0.51 u_\parallel + u_\perp \right) = ne \left( \eta_\parallel j_\parallel + \eta_\perp j_\perp \right)
+\]
+
+\nit où
+
+\[
+	\bm{u} = v_e - v_i
+\]
+
+\nit \( \eta \) est la résistivité électrique, et les indices \( \parallel \) et \( \perp \) se réfèrent aux directions parallèle ou perpendiculaire au champ magnétique.
+Cette force constitue la résistivité qui a été discutée dans la \autoref{sec:resistance}.
+
+La \textit{force thermique} est
+
+\begin{equation}
+	\bm{R}_T = -0.71n \nabla_\parallel T_e - \frac{3}{2} \frac{n}{\left\vert \omega_{ce}\right\vert \tau_e} \bm{b} \times \nabla T_e,
+	\label{eq:brag_force_thermique}
+\end{equation}
+
+\nit \( \bm{b} \) étant le vecteur unitaire parallèle au champ magnétique.
+Même si le premier terme n'implique pas le temps de collision il est néanmoins le résultat des collisions.
+Il faut considérer les ions étant dans une feuille perpendiculaire au champ magnétique.
+Les électrons passant à travers cette feuille dans la direction du gradient de température des électrons perdent leur quantité de mouvement à un taux de, \( \nu_e n_e m_e \overline{v_e} \), où \( v_e \) est la fréquence de collision. Les électrons allant dans la direction opposée perdent leur quantité de mouvement à un signe près.
+Cependant, même si les flux \( n \overline{v_e} \), seront égaux, les valeurs de \( \nu_e \) sera différent.
+Les électrons venant de chaque coté auront une fréquence de collision caractéristique de la température à leur point d'origine,  c'est à dire la position de leur dernière collision à une parcours libre moyen de là.
+Le taux de perte de quantité de mouvement est alors
+
+\begin{equation}
+	R_{T\parallel} \sim \Delta \nu_e n_e m_e \overline{v_e}
+	\label{eq:brag_perte_qdm}
+\end{equation}
+
+\nit où \( \Delta \nu_e \) est la différence de \( \nu_e \) des deux côtés, est donné par
+
+\begin{equation}
+	\Delta \nu_e \sim \lambda \left\vert \nabla_\parallel \nu_e \right\vert
+	\label{eq:brag_diff_frequence}
+\end{equation}
+
+\nit où \( \lambda \) est le libre parcours moyen. Maintenant \( \nu_e = \tau_e^{-1} \approx T_e^{-3/2} \) et donc
+
+\begin{equation}
+	\nabla_\parallel \nu_e \sim \frac{\dd \nu_e}{\dd T_e} \nabla_\parallel T_e \sim - \frac{v_e}{T_e} \nabla_\parallel T_e
+	\label{eq:brag_diff_frequence_2}
+\end{equation}
+
+\nit En utilisant \( \lambda = v_{Te} / v_e \) les équations \ref{eq:brag_diff_frequence} et \ref{eq:brag_diff_frequence_2} donnent
+
+\begin{equation}
+	\Delta \nu_e \sim \frac{v_{Te}}{T_e} \left\vert \nabla_\parallel T_e \right\vert.
+	\label{eq:brag_diff_frequence_3}
+\end{equation}
+
+\nit Puisque la vitesse \( \overline{v_e} \sim v_{Te} \) et \( v_{Te}^2 = T_e / m_e \), la forme de la force thermique donnée par les relations \ref{eq:brag_perte_qdm} et \ref{eq:brag_diff_frequence_3} est
+
+\[
+	R_{T\parallel} \sim - n_e \nabla_\parallel T_e.
+\]
+
+\nit Le signe de la force sur les électrons est clairement dans la direction de \( -\nabla_\parallel T_e \) parce que les électrons des côtés les plus froids sont plus collisionnels et sont donc plus soumis à la plus grande force.
+
+\begin{wrapfigure}{o}{0.4\textwidth}
+    \includegraphics{figures/chapter2/brag}
+    \caption{Les électrons collisionnant avec un ion ont une vitesse caractérisée par la température un rayon de Larmor de là. en la présence d'un gradient de température, il y a une différence de collisionnalité entre les deux côtés, les électrons plus chauds ayant une collisionnalité plus faible. L'inéquilibre collisionnel résultante mène à une force sur l'ion et une force égale et opposée sur l'électron, la force étant perpendiculaire au gradient de température.}
+    \label{fig:brag}
+\end{wrapfigure}
+
+L'absence du temps de collision dans l'expression de \( \bm{R}_{T\parallel }\) vient du fait que, même si moins de quantité de mouvement est transféré par les électrons, si ils ont un temps de collision plus grand, la \textit{différence} en temps de collision entre les deux côtés est proportionnel au libre parcours moyen ce qui est lui même proportionnel au temps de collision. Donc les deux effets s'annulent.
+
+La force thermique sur les ions est égales et opposée à celle sur les électrons, les électrons plus froids transférant plus de quantité de mouvement que les chauds, et donc produisent une force dans la direction de \( \nabla T_e \). Dans un état stationnaire, la force thermique sur les électrons fait apparaître un champ électrique qui donne une force équilibrante.
+La force thermique égale et opposé sur les ions est de la manière similaire équilibrée par cette force électrique.
+
+Le terme \( \bm{b} \times \nabla T_e \) dans l'\autoref{eq:brag_force_thermique} a une origine similaire.
+Les électrons en collision avec les ions autour d'un point donné ont des directions différentes selon la position de leur centre guide comme illustré par l'\autoref{fig:brag}.
+
+Comme précédemment, le taux de perte de la quantité de mouvement est \( \sim \Delta \nu_e n_e m_e \overline{v_e} \) mais la longueur qui caractérise \( \Delta \nu_e \) est maintenant le rayon de Larmor \( \rho_e \) et non le libre parcours moyen. Donc
+
+\begin{equation}
+	\delta \nu_e \sim \rho_e \left\vert \nabla_\perp \nu_e\right\vert \sim \frac{v_{Te}}{\omega_{ce}} \frac{\nu_e}{T_e} \left\vert \nabla_\perp T_e \right\vert.
+	\label{eq:brag_diff_frequence_lpm}
+\end{equation}
+
+\nit le taux de perte de la quantité de mouvement est
+
+\[
+	R_{T\perp} \sim \Delta \nu_e n_e m_e v_{Te}
+\]
+
+\nit et substituant dans la relation \ref{eq:brag_diff_frequence_lpm} avec \( \nu_e = \tau_e^{-1} \) elle devient
+
+\[
+	R_{T_\perp} \sim \frac{1}{\omega_{ce}\tau_e} n_e \left\vert \nabla_\perp T_e \right\vert.
+\]
+
+\nit Par la \autoref{fig:brag} on voit que, puisque les électrons plus froids sont soumis à une force plus grande, la force thermique sur les électrons est dans la direction \( - \bm{b} \times \nabla T_e \), et conséquemment
+
+\[
+	\bm{R}_{T_\perp} \sim - \frac{1}{\left\vert \omega_{ce}\right\vert \tau_e} n_e \bm{b} \times \nabla T_e.
+\]
+
+\nit Les tenseurs de contraintes \( \Pi_{i\alpha\beta} \) et \( \Pi_{e\alpha\beta} \) pour les ions et les électrons apparaissant dans l'\autoref{eq:brag_qdm} prennent tous deux la même forme, dans un champ magnétique fort \( \left( \omega_{cj} \tau_j \gg 1\right) \)
+
+\begin{align*}
+	\Pi_{zz} &= - \eta_0 W_{zz}\\
+	\Pi_{xx} &= - \frac{1}{2} \eta_0 \left( W_{xx} + W_{yy}\right) - \frac{1}{2} \eta_1 \left( W_{xx} - W_{yy}\right) - \eta_3 W_{xy}\\
+	\Pi_{yy} &=- \frac{1}{2} \eta_0 \left( W_{xx} + W_{yy}\right) - \frac{1}{2} \eta_1 \left( W_{yy} - W_{xx}\right) + \eta_3 W_{xy}\\
+	\Pi_{xy} &= \Pi_{yx} = - \eta_1W_{xy} + \frac{1}{2} \eta_3 \left( W_{xx} - W_{yy} \right)\\
+	\Pi_{xz} &= \Pi_{zx} = -\eta_2 W_{xz} - \eta_4 W_{yz}\\
+	\Pi_{yz} &= \Pi_{zy} = -\eta_2 W_{yz} - \eta_4 W_{xz}\\
+\end{align*}
+
+\nit où l'axe \( z \) est parallèle au champ magnétique et au tenseur des vitesses de déformation
+
+\[
+	W_{\alpha \beta} = \frac{\partial v_\alpha}{\partial x_\beta} + \frac{\partial v_\beta}{\partial x_\alpha} - \frac{2}{3} \delta_{\alpha \beta} \nabla \cdot \bm{v}.
+\]
+
+\nit Les coefficients de viscosité des ions sont
+
+\begin{tabular}{l l}
+	\( \eta_0^i = 0.96 n_i T_i \tau_i \) & \\
+	\rule[-1.5ex]{0pt}{4ex}
+	\( \eta_1^i = \frac{3}{10} \frac{n_i T_i}{\omega_{ci}^2 \tau_i} \) & \( \eta_2^i = 4\eta_1^i \)\\
+	\rule[-1.5ex]{0pt}{4ex}
+	\( \eta_3^i = \frac{1}{2} \frac{n_i T_i}{\omega_{ci}} \) & \( \eta_4^i = 2 \eta_3^i \)
+\end{tabular}
+
+\nit et les coefficients de viscosité des électrons pour \( Z=1 \) sont
+
+\begin{tabular}{l l}
+	\( \eta_0^e = 0.73 n_e T_e \tau_e \) & \\
+	\rule[-1.5ex]{0pt}{4ex}
+	\( \eta_1^e = \frac{3}{10} \frac{n_e T_e}{\omega_{ce}^2 \tau_e} \) & \( \eta_2^e = 4\eta_1^e \)\\
+	\rule[-1.5ex]{0pt}{4ex}
+	\( \eta_3^e = -\frac{1}{2} \frac{n_e T_e}{\left\vert\omega_{ce}\right\vert} \) & \( \eta_4^e = 2 \eta_3^e \).
+\end{tabular}
+
+\subsubsection*{Équation de l'énergie}
+
+L'équation de l'équilibre de l'énergie est
+
+\[
+	\frac{3}{2} n \frac{\dd T_j}{\dd t} = - p_j \nabla \cdot \bm{v}_j - \nabla \cdot q_j - \Pi_{j\alpha \beta} \frac{\partial \bm{v}_{j\alpha}}{\partial x_\beta} + \bm{\mathcal{Q}}_j.
+\]
+
+\nit Le flux de chaleur des électrons est
+
+\[
+	\bm{q}^e = \bm{q}_u^e + \bm{q}_T^e
+\]
+
+\nit où
+
+\[
+	\bm{q}_u^e = n T_e \left( 0.71 \bm{u}_\parallel + \frac{3/2}{\left\vert \omega_{ce}\right\vert \tau_e} \bm{b} \times \nabla T_e \right)
+\]
+
+\nit et
+
+\begin{equation}
+	\bm{q}_T^e = \frac{nT_e \tau_e}{m_e} \left( - 3.16\nabla_\parallel T_e - \frac{4.66}{\omega_{ce}^2 \tau_e^2} \nabla_\perp T_e - \frac{5/2}{\left\vert \omega_{ce}\right\vert \tau_e} \bm{b} \times \nabla T_e \right)
+	\label{eq:brag:brag_flux_tbermique}
+\end{equation}
+
+\nit et le flux de chaleur des électrons est
+
+\[
+	\bm{q}_i = \frac{n T_i \tau_i}{m_i} \left( -3.9 \nabla_\parallel T_i - \frac{2}{\omega_{ci}^2 \tau_i^2} \nabla_\perp T_i + \frac{5/2}{\omega_{ci} \tau_i} \bm{b} \times \nabla T_e \right)
+\]
+
+\nit L'échange de chaleur entre les ions et les électrons par les collisions fait apparaître le chauffage des ions
+
+\[
+	\mathcal{Q}_i = \frac{3 m_e}{m_i} \frac{n}{\tau_e} \left( T_e - T_i \right)
+\]
+
+\nit et le chauffage des électrons par les collisions avec les ions est
+
+\begin{align*}
+	\mathcal{Q}_e &= - \bm{R} \cdot \bm{u} - \mathcal{Q}_i\\
+	&= \eta_\parallel j_\parallel^2 + \eta_\perp j_\perp j^2 + \frac{1}{n_e} \bm{j} \cdot\bm{E}_T + \frac{3 m_e}{m_i} \frac{n}{\tau_e} \left( T_i - T_e\right).
+\end{align*}
+
+\nit Comme expliqué au début de cette section, le rapport de la conductivité thermique parallèle et perpendiculaire est \( \left( \omega_{cj } \tau_j\right)^2 \).
+Ce rapport est grand pour les ions et les électrons, les valeurs typiques étant \( 10^{13} \) et \( 10^{16} \)respectivement.
+Dans la direction parallèle au champ magnétique la conductivité thermique de l'électron est plus grande que celle des ions par un facteur \( \sim \left(m_i/m_e\right)^{1/2} \) à cause de leur temps de collision plus long.
+Perpendiculairement au champ magnétique la relation est inversée à cause du plus grand rayon de Larmor des ions, la conductivité thermique de l'ion étant plus grande de \( \sim \left(m_i/m_e\right)^{1/2} \).
+
+Les flux de chaleur venant de \( \bm{b} \times \nabla T \)  sont analogues au courant diamagnétique, l'inéquilibre entre l'énergie portée par les particules avec leur centre guide dans les régions plus chaudes et plus froides donnant un flux de chaleur.
+Les flux de l'électron et de l'ion sont de signe opposé et s'annulent à des températures égales.
+De plus, comme le flux de chaleur est perpendiculaire à \( \nabla T \) il s'écoule dans les isothermes et ne refroidi pas le plasma.
+
+Le chauffage ohmique, \( \eta j^2 \), apparait dans l'équation de l'électron uniquement.
+C'est parce qu'un électron en collision avec un ion transfère seulement une petite fraction \( \sim m_e/m_i \) de son énergie à l'ion.
+En conséquence, la diffusion du mouvement dirigé relatif mène à un chauffage prédominant des électrons.
+
+La même innefficacité du transfert d'énergie explique l'apparition du facteur \( m_e/m_i \) dans le terme d'échange de chaleur.
+Donc l'échange de chaleur entre les espèces d'ion et d'électron à différentes températures a lieu à un taux plus lent que d'autres processus de relaxation.
+
+Le terme impliquant le tenseur des contraintes et les gradients de vitesse décrit le chauffage visqueux du plasma.
+
+\section{Ondes plasma}
 
 \end{document}
